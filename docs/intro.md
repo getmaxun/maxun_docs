@@ -2,46 +2,50 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# Getting Started
 
-Let's discover **Docusaurus in less than 5 minutes**.
+**Maxun** lets you train a robot in 2 minutes and scrape the web on auto-pilot. Web data extraction doesn't get easier than this!
 
-## Getting Started
+## How Does It Work?
 
-Get started by **creating a new site**.
+Maxun creates custom robots that emulate user actions for automated data extraction. These robots can perform multiple capture actions to collect data without manual intervention.
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+### Robot Actions
 
-### What you'll need
+#### 1. Capture List
+Extract structured bulk data from websites (e.g., Amazon product listings)
 
-- [Node.js](https://nodejs.org/en/download/) version 18.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+#### 2. Capture Text
+Extract specific text content from webpage elements
 
-## Generate a new site
+#### 3. Capture Screenshot
+Capture fullpage or visible section screenshots
 
-Generate a new Docusaurus site using the **classic template**.
+### BYOP (Bring Your Own Proxy)
 
-The classic template will automatically be added to your project after you run the command:
+Connect external proxies to bypass anti-bot protection:
+- Per-user proxy configuration
+- Per-robot configuration (coming soon)
 
-```bash
-npm init docusaurus@latest my-website classic
-```
+### Key Features
 
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
+- No-code data extraction
+- Pagination & scrolling handling
+- Scheduled robot runs
+- Website-to-API conversion
+- Website-to-spreadsheet conversion
+- Layout change adaptation (coming soon)
+- Login & 2FA support (coming soon)
+- Google Sheet integration
+- More features in development
 
-The command also installs all necessary dependencies you need to run Docusaurus.
+### Cloud Version
 
-## Start your site
+Our managed cloud offering provides:
+- Infrastructure management
+- Anti-bot detection handling
+- Proxy network with automatic rotation
+- CAPTCHA solving
+- Scalable data extraction
 
-Run the development server:
-
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+[Join the cloud waitlist](https://getmaxun.com/cloud)
