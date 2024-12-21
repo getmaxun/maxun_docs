@@ -8,56 +8,22 @@ This guide will help you install and run Maxun on your system.
 
 ## Prerequisites
 
-- Node.js (18.0 or above)
-- PostgreSQL (if not using Docker)
-- MinIO (if not using Docker)
-- Redis (if not using Docker)
+| Software    | Download Link                                                                 |
+|-------------|-------------------------------------------------------------------------------|
+| Docker Desktop | [Download Docker Desktop](https://www.docker.com/products/docker-desktop/)                           |
 
-## Environment Setup
 
-1. Create a `.env` file in the project root folder
-2. Copy the content from the example env file to your `.env`
 
-## Installation Options
+## Installation Steps
+1. Create a root folder for your project (e.g. 'maxun')
+2. Create a file named .env in the root folder of the project
+3. Copy all content of <a href="https://github.com/getmaxun/maxun/blob/master/ENVEXAMPLE">example env file</a> to your `.env` file.
 
-### Using Docker Compose
+4. Copy the <a href="https://github.com/getmaxun/maxun/blob/develop/docker-compose.yml">docker-compose.yml</a> file in the root folder of the project
+5. Run:
 
-1. Copy the `docker-compose.yml` file
-2. Ensure `.env` file is configured
-3. Run:
-```bash
+```
 docker-compose up -d
 ```
 
-### Manual Installation
-
-1. Clone the repository:
-```bash
-git clone https://github.com/getmaxun/maxun
-```
-
-2. Install dependencies:
-```bash
-cd maxun
-npm install
-
-cd maxun-core 
-npm install
-cd ..
-```
-
-3. Setup Playwright:
-```bash
-npx playwright install
-npx playwright install-deps
-```
-
-4. Start the application:
-```bash
-npm run start
-```
-
-## Access the Application
-
-- Frontend: [http://localhost:5173/](http://localhost:5173/)
-- Backend: [http://localhost:8080/](http://localhost:8080/)
+You can access the frontend at http://localhost:5173/ and backend at http://localhost:8080/
