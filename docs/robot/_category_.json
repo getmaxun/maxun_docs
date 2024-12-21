@@ -1,0 +1,8 @@
+{
+  "label": "Robots",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "Know everything about a robot in Maxun"
+  }
+}
