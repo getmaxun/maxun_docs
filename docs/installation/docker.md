@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Setting up 
+# Docker
 
 This guide will help you install and run Maxun on your system.
 
