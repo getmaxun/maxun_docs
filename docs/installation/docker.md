@@ -27,6 +27,6 @@ This guide will help you install and run Maxun with Docker Compose. Docker Compo
 docker-compose up -d
 ```
 
-![Docker Compose successful start](image.png)
+![Docker Compose successful start](docker.png)
 
 You can access the frontend at http://localhost:5173/ and backend at http://localhost:8080/
