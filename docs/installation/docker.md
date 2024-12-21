@@ -16,11 +16,12 @@ This guide will help you install and run Maxun on your system.
 
 ## Installation Steps
 1. Create a root folder for your project (e.g. 'maxun')
-2. Create a file named .env in the root folder of the project
+2. Create a file named `.env` in the root folder of the project
 3. Copy all content of <a href="https://github.com/getmaxun/maxun/blob/master/ENVEXAMPLE">example env file</a> to your `.env` file.
 
-4. Copy the <a href="https://github.com/getmaxun/maxun/blob/develop/docker-compose.yml">docker-compose.yml</a> file in the root folder of the project
-5. Run:
+4. Create a file named `docker-compose.yml` in the root folder of the project 
+5. Copy all content from <a href="https://github.com/getmaxun/maxun/blob/develop/docker-compose.yml">project's docker-compose.yml</a> to your `docker-compose.yml` file.
+6. Run
 
 ```
 docker-compose up -d
