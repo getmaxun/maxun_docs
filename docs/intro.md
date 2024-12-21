@@ -2,26 +2,49 @@
 sidebar_position: 1
 ---
 
-# Getting Started
+# What is Maxun?
 
-**Maxun** lets you train a robot in 2 minutes and scrape the web on auto-pilot. Web data extraction doesn't get easier than this!
+Maxun is a no-code platform for web data extraction. It lets users extract data from any website with a simple point-and-click interface. With Maxun, users can create no-code robots in 2 minutes to automate data extraction, turn websites to APIs and a lot more!
+
+Maxun can be self-hosted or be accessed via Maxun Cloud (In Development).
 
 ## How Does It Work?
 
-Maxun creates custom robots that emulate user actions for automated data extraction. These robots can perform multiple capture actions to collect data without manual intervention.
+Maxun lets users creates custom robots that emulate user actions for automated data extraction. These robots can perform multiple capture actions to collect data.
 
-### Robot Actions
+## What Can A Robot Do?
+1. Gather web data without writing a single line of code - just point, click, and collect
+2. Handle infinite scrolling and pagination
+3. Auto-adapt to website layout changes (coming soon)
+4. Run on a specific schedule
+5. Run via APIs for third-party integrations
+6. Extract data behind login. 2FA/MFA support soon!
+7. Integrate with your favorite applications. Google Sheet supported for now - more integrations coming soon!
 
-#### 1. Capture List
-Extract structured bulk data from websites (e.g., Amazon product listings)
+... and much more!
 
-#### 2. Capture Text
-Extract specific text content from webpage elements
 
-#### 3. Capture Screenshot
-Capture fullpage or visible section screenshots
+## Robot Actions
+Depending on the use-case, a robot should be configured to perform any of the following actions.
 
-### BYOP (Bring Your Own Proxy)
+### 1. Capture List
+Capture List should be used to capture bulk data. 
+
+Example: Extract products from <a href="https://producthunt.com">producthunt.com</a> 
+
+Read in detail here.
+
+### 2. Capture Text
+Capture Text should be used to extract specific text content. The text is not in a structured format on the website, and is not repeated.
+
+Read in detail here.
+
+### 3. Capture Screenshot
+Capture Screenshot should be used to extract screenshots of websites. The screenshots can be:
+1. Full page screenshots
+2. Visible Section screenshots
+
+## BYOP (Bring Your Own Proxy)
 
 Connect external proxies to bypass anti-bot protection:
 - Per-user proxy configuration
