@@ -3,6 +3,7 @@ sidebar_position: 3
 ---
 
 # Environment Variables
+It is important to configure all environment variables labeled as "Mandatory" to ensure Maxun operates smoothly.
 
 | Variable              | Mandatory | Description                                                                                  | If Not Set                                                   |
 |-----------------------|-----------|----------------------------------------------------------------------------------------------|--------------------------------------------------------------|
