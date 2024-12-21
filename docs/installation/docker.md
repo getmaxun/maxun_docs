@@ -2,9 +2,9 @@
 sidebar_position: 1
 ---
 
-# Docker
+# Docker Compose
 
-This guide will help you install and run Maxun on your system.
+This guide will help you install and run Maxun with Docker Compose. Docker Compose is a tool that helps you define and share multi-container applications. You don't need to install each dependency used by Maxun separately as Docker Compose will automatically do it for you.
 
 ## Prerequisites
 
@@ -26,5 +26,7 @@ This guide will help you install and run Maxun on your system.
 ```
 docker-compose up -d
 ```
+
+![Docker Compose successful start](image.png)
 
 You can access the frontend at http://localhost:5173/ and backend at http://localhost:8080/
