@@ -29,4 +29,5 @@ Capture Screenshot should be used to extract screenshots of websites. Currently 
 1. Full page screenshots
 2. Visible section screenshots
 
-Check out this video to understand how to create a robot with capture screenshot: https://www.youtube.com/watch?v=ZXGQEwQN7yI
+Check out this video to understand how to create a robot with capture screenshot
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ZXGQEwQN7yI?si=Lqlu94nDl1CWBwPc&amp;start=195" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
