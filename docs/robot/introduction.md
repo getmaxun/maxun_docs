@@ -1,10 +1,8 @@
 ---
 id: robots
-title: What Are Robots?
+title: Robots Overview
 sidebar_position: 1
 ---
-
-# What are Robots?
 
 Maxun robots are automated tools that help you collect data from websites without writing any code. Think of them as your personal web assistants that can navigate websites, extract information, and organize data just like you would manually - but faster and more efficiently.
 
