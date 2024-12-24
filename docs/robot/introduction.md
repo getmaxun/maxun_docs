@@ -1,6 +1,6 @@
 ---
 id: robots
-title: What are robots?
+title: What Are Robots?
 sidebar_position: 1
 ---
 
