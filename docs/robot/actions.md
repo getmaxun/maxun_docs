@@ -13,7 +13,9 @@ Capture List should be used to capture bulk data. Example: Extract products from
 3. Show the robot how to handle pagination.
 4. Set a limit, i.e number of items to capture. 
 
-Check out this video to understand how to create a robot with capture list: https://www.youtube.com/watch?v=ZXGQEwQN7yI
+Check out this video to understand how to create a robot with capture list
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ZXGQEwQN7yI?si=PaNzVTbWn9z4Vh0E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 
 ### 2. Capture Text
