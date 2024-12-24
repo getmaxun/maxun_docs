@@ -6,7 +6,7 @@ sidebar_position: 3
 
 Robot duplication is useful to extract data from pages with the <b>same structure without training a new robot!</b>
 
-### When to duplicate a robot?
+### ✅ When to duplicate a robot?
 1. The new page has the same structure as the existing page.
 2. You want to extract the same data as the existing page.
 
@@ -14,7 +14,7 @@ Example: If you've created a robot for <a href="https://www.producthunt.com/topi
 
 Using robot duplication, you can bulk extract same data from thousands of pages of the same website, without writing code.
 
-### When to not duplicate a robot?
+### ❌ When to not duplicate a robot?
 1. The new page does not have the same structure as the existing page.
 2. You don't want to extract the same data as the existing page even if the pages are structurally same.
 
