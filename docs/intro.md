@@ -43,32 +43,3 @@ Read in detail here.
 Capture Screenshot should be used to extract screenshots of websites. The screenshots can be:
 1. Full page screenshots
 2. Visible Section screenshots
-
-## BYOP (Bring Your Own Proxy)
-
-Connect external proxies to bypass anti-bot protection:
-- Per-user proxy configuration
-- Per-robot configuration (coming soon)
-
-### Key Features
-
-- No-code data extraction
-- Pagination & scrolling handling
-- Scheduled robot runs
-- Website-to-API conversion
-- Website-to-spreadsheet conversion
-- Layout change adaptation (coming soon)
-- Login & 2FA support (coming soon)
-- Google Sheet integration
-- More features in development
-
-### Cloud Version
-
-Our managed cloud offering provides:
-- Infrastructure management
-- Anti-bot detection handling
-- Proxy network with automatic rotation
-- CAPTCHA solving
-- Scalable data extraction
-
-[Join the cloud waitlist](https://getmaxun.com/cloud)
