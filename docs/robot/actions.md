@@ -17,11 +17,13 @@ Check out this video to understand how to create a robot with capture list: http
 
 
 ### 2. Capture Text
-Capture Text should be used to extract specific text content. The text is not in a structured format on the website, and is not repeated.
+Capture Text should be used to extract specific text content. Useful to get individual data and when you do not want to bulk scrape.
 
-Read in detail here.
+Check out this video to understand how to create a robot with capture text: https://www.youtube.com/watch?v=ZXGQEwQN7yI
 
 ### 3. Capture Screenshot
-Capture Screenshot should be used to extract screenshots of websites. The screenshots can be:
+Capture Screenshot should be used to extract screenshots of websites. Currently supported screenshots include:
 1. Full page screenshots
-2. Visible Section screenshots
+2. Visible section screenshots
+
+Check out this video to understand how to create a robot with capture screenshot: https://www.youtube.com/watch?v=ZXGQEwQN7yI
