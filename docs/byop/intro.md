@@ -26,3 +26,5 @@ You can connect with authenticated proxies that require a username and password.
 ### Automatic Proxy Rotation
 Currently, the self-hosted version allows only standard proxy configuration. Automatic rotation is on our roadmap.
 Automatic Proxy Rotation is available only in Maxun Cloud.
+
+![BYOP](byop.png)
