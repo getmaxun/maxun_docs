@@ -1,5 +1,6 @@
 ---
 sidebar_position: 1
+description: Sync the data extracted by your robot directly into a Google Sheet.
 ---
 
 # Google Sheet
