@@ -20,6 +20,6 @@ An existing robot can be deleted only if the robot does not have any associated 
 
 ## 3. Duplicate 
 
-A robot can be duplicated to extract data from pages **having the same structure**. Using duplication, a new robot need not be trained from scratch.
+A robot can be duplicated to extract data from pages **having the same structure**. Read in detail here: <a href="/robot/robot-duplicate">Robot Duplication. </a>
 
 ![Maxun Duplicate Option](duplicate_option.png)
