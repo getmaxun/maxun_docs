@@ -8,7 +8,7 @@ sidebar_position: 5
 
 ## 1. Edit
 
-Using this option, an existing robot's name or limit can be changed. A robot's limit is visible and can only be changed **if the robot performs a capture list action**.
+An existing robot's name or limit can be changed. Limits are available only for robots performing Capture List action.
 
 |![Maxun Edit Option 1](edit_options_norm.png)|![Maxun Edit Option 2](edit_options_list.png)|
 |:---:|:---:|
