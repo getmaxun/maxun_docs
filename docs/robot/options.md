@@ -12,7 +12,7 @@ An existing robot's name or limit can be changed. Limits are available only for 
 
 |![Maxun Edit Option 1](edit_options_norm.png)|![Maxun Edit Option 2](edit_options_list.png)|
 |:---:|:---:|
-|Capture Text Or Capture Screenshot Robot |Robot with capture list|
+|Capture Text Or Capture Screenshot Robot |Capture List Robot|
 
 ## 2. Delete
 
