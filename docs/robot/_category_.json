@@ -1,8 +1,8 @@
 {
   "label": "Robots",
-  "position": 2,
+  "position": 3,
   "link": {
     "type": "generated-index",
-    "description": "Learn about Maxun robots"
+    "description": "Learn everything about robots in Maxun"
   }
 }
