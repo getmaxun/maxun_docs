@@ -21,4 +21,4 @@ This feature is available **exclusively for the self-hosted version of Maxun**. 
 HTTP and SOCKS proxies are supported. Currently, proxies are configured per user rather than per robot. However, support for per robot proxy configuration is coming soon, offering even more granular control over your scraping workflows.
 
 ### Authenticated Proxies
-
+You can connect with authenticated proxies that require a username and password. All details are encrypted and securely stored in the database.
