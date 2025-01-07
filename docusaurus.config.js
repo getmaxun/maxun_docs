@@ -118,15 +118,11 @@ const config = {
             ],
           },
           {
-            title: 'More',
+            title: 'Open Source',
             items: [
               {
-                label: 'Blog',
-                to: '/blog',
-              },
-              {
                 label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                href: 'https://github.com/getmaxun/maxun',
               },
             ],
           },
