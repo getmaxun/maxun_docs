@@ -18,4 +18,7 @@ This feature is available **exclusively for the self-hosted version of Maxun**. 
 
 ### Proxy Configuration
 
-Currently, proxies are configured per user rather than per robot. However, support for per robot proxy configuration is coming soon, offering even more granular control over your scraping workflows.
+HTTP and SOCKS proxies are supported. Currently, proxies are configured per user rather than per robot. However, support for per robot proxy configuration is coming soon, offering even more granular control over your scraping workflows.
+
+### Authenticated Proxies
+
