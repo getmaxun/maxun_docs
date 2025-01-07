@@ -6,6 +6,7 @@ sidebar_position: 1
 
 Robot runs are the core functionality of Maxun robots. Each run represents a complete cycle where the robot performs its tasks based on the configuration and training provided by the user at the time of robot creation. A successful run contains all the extracted data, fulfilling the primary objective of the robot.
 
+![Sample Robot Run](sample_run.png)
 
 ## Key Features
 
