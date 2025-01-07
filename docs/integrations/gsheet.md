@@ -26,5 +26,20 @@ Coming soon...
 ### Maxun Open Source
 
 #### 1. Bring Your Own Google OAuth Keys
-Obtain Google OAuth keys by setting up a project in the Google Cloud Console.
+Obtain Google OAuth keys by setting up a project in the [Google Cloud Console](https://console.cloud.google.com/).
 Ensure the necessary API permissions (Google Sheets and Google Drive APIs) are enabled for the project.
+
+#### 2. Authenticate With Google
+Set up the OAuth Keys in the `.env` file and authenticate the robot with google **using the same account that was used to create the Client ID and Client Secret**.
+
+![Maxun GSheet Integration](gsheet_integration.png)
+
+#### 3. Select Spread Sheet From Google Drive
+On successful authentication with google, the robot will be granted access to Google Drive. A spreadsheet can be selected from the Drive to store data from the run.
+
+![Maxun GSheet Sheets](gsheet_sheets.png)
+
+After selecting the Google Sheet, the robot will automatically append data to it after each successful run. If needed, the user can remove the integration at any time.
+
+![Maxun GSheet Integrated](gsheet_integrated.png)
+
