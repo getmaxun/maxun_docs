@@ -4,8 +4,6 @@ title: Robot Options
 sidebar_position: 5
 ---
 
-A robot has the options to be edited, deleted or duplicated. 
-
 ![Maxun Robot Options](robot_options.png)
 
 ### 1. Edit
