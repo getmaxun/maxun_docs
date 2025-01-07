@@ -22,3 +22,7 @@ HTTP and SOCKS proxies are supported. Currently, proxies are configured per user
 
 ### Authenticated Proxies
 You can connect with authenticated proxies that require a username and password. All details are encrypted and securely stored in the database.
+
+### Automatic Proxy Rotation
+Currently, the self-hosted version allows only standard proxy configuration. Automatic rotation is on our roadmap.
+Automatic Proxy Rotation is available only in Maxun Cloud.
