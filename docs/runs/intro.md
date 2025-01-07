@@ -9,12 +9,14 @@ Robot runs are the core functionality of Maxun robots. Each run represents a com
 
 ## Key Features
 
-## 1. Flexible Execution Options
+## 1. Execution Options
 
 Robot runs can be initiated in three different ways:
 
 **1. Manual Runs**: Users can run a robot directly from Maxun dashboard.
+
 **2. Scheduled Runs**: Automate runs by scheduling them to execute at specific times or intervals. 
+
 **3. API Runs**: Trigger runs programmatically via API calls, enabling integration with external systems.
 
 ## 2. Exporting Results
