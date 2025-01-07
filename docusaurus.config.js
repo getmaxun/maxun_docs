@@ -144,7 +144,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Maxun, Inc.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Maxun`,
       },
       prism: {
         theme: prismThemes.github,
