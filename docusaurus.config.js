@@ -120,6 +120,10 @@ const config = {
                 label: 'X (Twitter)',
                 href: 'https://x.com/maxun_io',
               },
+              {
+                href: 'https://www.youtube.com/@MaxunOSS',
+                label: 'YouTube',
+              },
             ],
           },
           {
