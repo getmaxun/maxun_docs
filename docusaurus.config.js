@@ -99,6 +99,11 @@ const config = {
             label: 'Join Discord',
             position: 'right',
           },
+          {
+            href: 'https://www.youtube.com/@MaxunOSS',
+            label: 'Tutorials',
+            position: 'right',
+          },
         ],
       },
       footer: {
