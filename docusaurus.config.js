@@ -124,6 +124,23 @@ const config = {
                 label: 'GitHub',
                 href: 'https://github.com/getmaxun/maxun',
               },
+              {
+                label: 'Edit This Site',
+                href: 'https://github.com/getmaxun/maxun_docs',
+              },
+            ],
+          },
+          {
+            title: 'More',
+            items: [
+              {
+                label: 'Join Maxun Cloud',
+                href: 'https://docs.google.com/forms/d/e/1FAIpQLSdbD2uhqC4sbg4eLZ9qrFbyrfkXZ2XsI6dQ0USRCQNZNn5pzg/viewform',
+              },
+              {
+                label: 'Website',
+                href: 'https://maxun.dev/',
+              },
             ],
           },
         ],
