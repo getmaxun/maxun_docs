@@ -17,3 +17,14 @@ Google Sheets integration allows you to automatically sync the data extracted by
 ## Important Note
 
 The data extracted before integrating with Google Sheets will not be synced in the Google Sheet. Only the data extracted after the integration will be synced.
+
+## Setting Up Google Sheets Integration
+
+### Maxun Cloud
+Coming soon...
+
+### Maxun Open Source
+
+#### 1. Bring Your Own Google OAuth Keys
+Obtain Google OAuth keys by setting up a project in the Google Cloud Console.
+Ensure the necessary API permissions (Google Sheets and Google Drive APIs) are enabled for the project.
