@@ -2,8 +2,7 @@
     "label": "Installation",
     "position": 2,
     "link": {
-      "type": "generated-index",
-      "description": "Choose your installation method for Maxun."
+      "type": "generated-index"
     }
 }
   
