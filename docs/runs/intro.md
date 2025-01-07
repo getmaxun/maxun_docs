@@ -23,5 +23,7 @@ Robot runs can be initiated in three different ways:
 
 Once a run is complete, the extracted data can be exported in the following formats:
 **1. CSV**: For easy viewing and compatibility with spreadsheet software.
+
 **2. JSON**: For seamless integration with other applications and systems that utilize structured data.
+
 **3. Markdown**: (Coming Soon)
