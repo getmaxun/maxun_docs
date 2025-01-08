@@ -1,47 +1,27 @@
 ---
 sidebar_position: 1
+slug: /
 ---
 
-# Tutorial Intro
+# Introduction
 
-Let's discover **Docusaurus in less than 5 minutes**.
+Maxun is a no-code platform for web data extraction. It lets users extract data from any website with a simple point-and-click interface. With Maxun, users can create no-code robots in 2 minutes to automate data extraction, turn websites to APIs and a lot more!
 
-## Getting Started
+Maxun can be self-hosted or be accessed via Maxun Cloud (Coming soon).
 
-Get started by **creating a new site**.
+## How Does It Work?
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+Maxun lets users creates custom robots that emulate user actions for automated data extraction. These robots can perform multiple capture actions to collect data.
 
-### What you'll need
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ZXGQEwQN7yI?si=uhw4zP3Wx9bGBn49" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-- [Node.js](https://nodejs.org/en/download/) version 18.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+## What Can A Robot Do?
+1. Gather web data without writing a single line of code - just point, click, and collect
+2. Handle infinite scrolling and pagination
+3. Auto-adapt to website layout changes (coming soon)
+4. Run on a specific schedule
+5. Run via APIs for third-party integrations
+6. Extract data behind login. 2FA/MFA support soon!
+7. Integrate with your favorite applications. Google Sheet supported for now - more integrations coming soon!
 
-## Generate a new site
-
-Generate a new Docusaurus site using the **classic template**.
-
-The classic template will automatically be added to your project after you run the command:
-
-```bash
-npm init docusaurus@latest my-website classic
-```
-
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
-
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
-
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+... and much more!
