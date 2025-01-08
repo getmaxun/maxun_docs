@@ -199,11 +199,22 @@ Example Value Schema
 }
 ```
 
-### 3. Get A Specific Run By ID For A Robot
-- Route: `GET /api/robots/{id}/runs/{runId}`
-- This route can be used to get a single run of a robot by specifying the Robot Id and Run Id.
-- For example, if a robot has multiple runs but the user wants to get a specific run that they executed recently. They can obtain the Robot Id from the Robot Settings and the Run Id from the Run Settings. On entering the parameters they will get the json data as shown below.
+### 3. Request: Get A Specific Run By ID For A Robot
+- Request type: GET
+- Route: `/api/robots/{id}/runs/{runId}`
 
+#### Parameters
+
+| Name | Description |
+|---|---|
+| id (required) string | The ID of the robot.
+| runId (required) string | The ID of the run.
+
+| Code | Description | Media Type 
+|---|---|---|
+| 200 | Run details.| application/json |
+
+Example Value Schema
 ```
 {
   "statusCode": 200,
@@ -263,5 +274,17 @@ Example Value Schema
     ],
     "screenshot": null
   }
+}
+```
+| Code | Description | Media Type 
+|---|---|---|
+| 404 | Run not found. | application/json |
+
+Example Value Schema
+```
+{
+  "statusCode": 404,
+  "messageCode": "not_found",
+  "message": "Run with id not found."
 }
 ```
