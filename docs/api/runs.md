@@ -4,10 +4,21 @@ title: Run API
 sidebar_position: 3
 ---
 
-### 1. Get All Runs For A Robot
-- Route: `GET /api/robots/{id}/runs`
-- This route can be used to get data of a robot run. This includes the extracted data as well as the information about the run itself.
-- For example, if the user wants to get information about the run created then they can use this route to get data as shown below:
+### 1. Request: Get All Runs For A Robot
+- Request type: GET
+- Route: `/api/robots/{id}/runs`
+
+#### Parameters
+
+| Name | Description |
+|---|---|
+| id (required) string | The ID of the robot.
+
+#### Responses
+
+| Code | Description | Media Type 
+|---|---|---|
+| 200 | A list of runs for the robot.| application/json |
 
 ```
 {
@@ -73,6 +84,18 @@ sidebar_position: 3
       }
     ]
   }
+}
+```
+| Code | Description | Media Type 
+|---|---|---|
+| 500 | Error retrieving robots. | application/json |
+
+Example Value Schema
+```
+{
+  "statusCode": 500,
+  "messageCode": "error",
+  "message": "Failed to retrieve runs"
 }
 ```
 
