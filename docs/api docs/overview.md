@@ -1,21 +1,21 @@
 ---
 id: api-docs
-title: Website to API
+title: API Key
 sidebar_position: 1
 ---
 
-Maxun provides the feature to convert Website to API by allowing the user to get data extracted by the robot or to run a robot via an API call. The Website to API feature can be used as follows:
+Maxun lets you get the data your robot extracted and run robots via API. 
 
 ### 1. Generate API Key
-In order to run the API routes the user needs to first generate an API key. This can be done by clicking the **Generate API Key** button present on the **API Key** section of the sidebar. The generated key can be copied, viewed or deleted.
+You can find your API key in the "API Key" section on Maxun Dashboard.
 
 |![Generate API Key](gen_api_key.png)|![API Key Generated](api_key_success.png)|
 |:---:|:---:|
 |Generate API Key|API Key Generated|
 
 ### 2. Authorize 
-The user can navigate to the API Docs page by clicking on the Website to API section of the sidebar. In order to run the API, the user must first enter the API key by clicking on Authorize. This will authorize the user to run the API endpoints.
-
+1. Go to "Website To API" tab on the dashboard's sidebar.
+2. Copy the Maxun API Key generated from step 1 and input it by clicking Authorize.
 ![Authorize](api_auth.png)
 
 ### 3. Try Out 
