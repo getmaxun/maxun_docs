@@ -10,7 +10,7 @@ Maxun is designed to work on any website. There are billions of websites out the
 Yes. Refer the section: <a href="">Pagination and Scrolling.</a>
 
 ### Can my robot login to websites?
-Yes. Refer this section: <a href="">Extract behind login.</a>
+Yes. Refer this section: <a href="/extract-login">Extract behind login.</a>
 
 ### Can I extract data from an iFrame?
 Yes. Maxun 0.0.6 onwards data inside iFrame can be extracted.
