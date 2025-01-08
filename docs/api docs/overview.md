@@ -9,9 +9,9 @@ Maxun lets you get the data your robot extracted and run robots via API.
 ### 1. Generate API Key
 You can find your API key in the "API Key" section on Maxun Dashboard.
 
-|![Generate API Key](gen_api_key.png)|![API Key Generated](api_key_success.png)|
-|:---:|:---:|
-|Generate API Key|API Key Generated|
+![API Key Generated](api_key_success.png)|
+:---:|
+|API Key Generated|
 
 ### 2. Authorize 
 1. Go to "Website To API" tab on the dashboard's sidebar.
