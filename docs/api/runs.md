@@ -99,11 +99,21 @@ Example Value Schema
 }
 ```
 
-### 2. Run A Robot By ID
-- Route: `GET /api/robots/{id}/runs`
-- Provided the Robot ID, this route allows the user to run a robot via an API call
-- For example, if a user wants to run a robot to extract data via an api call, they can use this route to get the data in json format as shown below:
+### 2. Request: Run A Robot By ID
+- Request type: POST
+- Route: `/api/robots/{id}/runs`
 
+#### Parameters
+
+| Name | Description |
+|---|---|
+| id (required) string | The ID of the robot to run.
+
+| Code | Description | Media Type 
+|---|---|---|
+| 200 | Robot run started successfully. | application/json |
+
+Example Value Schema
 ```
 {
   "statusCode": 200,
@@ -163,6 +173,29 @@ Example Value Schema
     ],
     "screenshot": null
   }
+}
+```
+| Code | Description | Media Type 
+|---|---|---|
+| 401 | Unauthorized access. | application/json |
+
+Example Value Schema
+```
+{
+  "ok": false,
+  "error": "Unauthorized"
+}
+```
+| Code | Description | Media Type 
+|---|---|---|
+| 500 | Error running robot.| application/json |
+
+Example Value Schema
+```
+{
+  "statusCode": 500,
+  "messageCode": "error",
+  "message": "Failed to run robot"
 }
 ```
 
