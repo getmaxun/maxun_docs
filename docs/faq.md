@@ -22,9 +22,11 @@ Yes. Maxun 0.0.6 onwards data inside Shadow DOM can be extracted.
 Maxun is primarily designed to extract text data, but this is a part of our roadmap.
 Currently, you can extract `URLs` of files, such as:
 1. Image URLs
+
 When training a robot, you can easily capture image URLs by clicking on the image and selecting "URL." This allows you to collect a list of image URLs that you can then use to download the images manually or with other tools.
 
 2. File Links
+
 Similarly, you can capture the URLs of other types of files, such as PDFs or documents, by selecting the link or element that points to the direct file and using the appropriate capture action.
 
 ### Can my robot fill out a form or perform an action before extracting data?
