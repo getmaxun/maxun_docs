@@ -9,11 +9,13 @@ Our main app and documentation are separate repositores, under the <a href="http
 ### Maxun 
 Maxun repository: <a href="https://github.com/getmaxun/maxun_docs">https://github.com/getmaxun/maxun_docs</a>
 
-`/src`: Maxun frontend. We use React, Typescript and Styled Components.
+`src`: Maxun frontend. We use React, Typescript and Styled Components.
 
-`/server`: Maxun backend. We use Node.js, Typescript, Playwright.
+`server`: Maxun backend. We use Node.js, Typescript, Playwright.
 
-`/maxun-core`: Maxun core. Available on <a href="https://www.npmjs.com/package/maxun-core">NPM</a>.
+`maxun-core`: Maxun core. Available on <a href="https://www.npmjs.com/package/maxun-core">NPM</a>.
+
+`public/locales`: All i18n language files.
 
 ### Maxun Docs
 Maxun Docs Repository: <a href="https://github.com/getmaxun/maxun_docs">https://github.com/getmaxun/maxun_docs</a>
