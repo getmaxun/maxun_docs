@@ -88,7 +88,7 @@ const config = {
           //   position: 'left',
           //   label: 'Docs',
           // },
-          // {to: '/blog', label: 'Blog', position: 'left'},
+          {to: 'https://docs.google.com/forms/d/e/1FAIpQLSdbD2uhqC4sbg4eLZ9qrFbyrfkXZ2XsI6dQ0USRCQNZNn5pzg/viewform', label: 'Join Maxun Cloud!', position: 'right'},
           {
             href: 'https://github.com/getmaxun/maxun',
             label: 'GitHub',
