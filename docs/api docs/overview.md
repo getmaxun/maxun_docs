@@ -27,7 +27,7 @@ You can find your API key in the "API Key" section on Maxun Dashboard.
 ![Authorize](api_auth.png)
 
 ### 3. Try Out 
-By clicking on the **Try it out** button present within each route. Depending on the route, it might require paramters for execution.
+Click on the **Try it out** button present within each route to get the output. To execute certain routes, you may need to provide specific parameters.
 
 ![Try it out](try-it-out.png)
 
