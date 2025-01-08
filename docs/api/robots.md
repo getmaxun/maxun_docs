@@ -70,11 +70,24 @@ Example Value Schema
 }
 ```
 
-### 2. Get Robot By ID
+### 2. Request: Get Robot By ID
+- Request type: GET
 - Route: `GET /api/robots/{id}`
-- This route can be used to fetch information about a particular robot based on the unique id provided as a parameter.
-- For example, if the user wants to fetch data about a particular robot, they can get the robot's id from the **Robot Settings** option in the robots page. The output data on running would be as follows.
 
+#### Parameters
+
+| Name | Description |
+|---|---|
+| id (required) string | The ID of the robot to retrieve.
+
+
+#### Responses
+
+| Code | Description | Media Type 
+|---|---|---|
+| 200 | Robot details.| application/json |
+
+Example Value Schema
 ```
 {
   "statusCode": 200,
@@ -93,5 +106,17 @@ Example Value Schema
       }
     ]
   }
+}
+```
+| Code | Description | Media Type 
+|---|---|---|
+| 404 | Robot not found. | application/json |
+
+Example Value Schema
+```
+{
+  "statusCode": 404,
+  "messageCode": "not_found",
+  "message": "Recording with ID not found."
 }
 ```
