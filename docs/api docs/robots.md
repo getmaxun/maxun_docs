@@ -4,8 +4,6 @@ title: Robot API
 sidebar_position: 2
 ---
 
-Robot routes let users fetch data for all robots or a specific robot by ID, depending on the need. The tasks these routes handle are outlined below:
-
 ### 1. Get All Robots
 - Route: `GET /api/robots`
 - This route enables the user to get information of all the existing robots in the database.

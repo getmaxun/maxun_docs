@@ -4,8 +4,6 @@ title: Run API
 sidebar_position: 3
 ---
 
-Run routes allows the user to get all runs for a robot, run a robot by id or get a specific run by id for a robot depending on the specification. These routes are described in detail below:
-
 ### 1. Get All Runs For A Robot
 - Route: `GET /api/robots/{id}/runs`
 - This route can be used to get data of a robot run. This includes the extracted data as well as the information about the run itself.
