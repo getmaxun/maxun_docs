@@ -1,7 +1,7 @@
 ---
 id: extract-login
 title: Extract Behind Login
-sidebar_position: 8
+sidebar_position: 7
 ---
 
 Maxun robots let you extract data behind login with username and password. This can be useful to extract data that requires login authentication.
