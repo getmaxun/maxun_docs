@@ -6,9 +6,9 @@ sidebar_position: 1
 
 Maxun lets you get the data your robot extracted and run robots via API. 
 
-1. [Robot Routes](./robots.md)
+1. [Robot API](./robots.md)
 
-2. [Run Routes](./runs.md)
+2. [Run API](./runs.md)
 
 ### 1. Generate API Key
 You can find your API key in the "API Key" section on Maxun Dashboard.
