@@ -212,6 +212,8 @@ Example Value Schema
 | id (required) string | The ID of the robot.
 | runId (required) string | The ID of the run.
 
+#### Responses
+
 | Code | Description | Media Type 
 |---|---|---|
 | 200 | Run details.| application/json |
