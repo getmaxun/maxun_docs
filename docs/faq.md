@@ -6,6 +6,9 @@ sidebar_position: 10
 ### What sites does Maxun work on?
 Maxun is designed to work on any website. There are billions of websites out there (and hundreds are created everyday). We do our best to adapt to almost every possible website - that being said there are always unique scenarios that arise, often due to inaccessible code or non-standard practices on certain sites.
 
+### Is Maxun available on the cloud?
+Maxun cloud has been highly requested by our users, and we are actively working to bring this to you! <a href="https://docs.google.com/forms/d/e/1FAIpQLSdbD2uhqC4sbg4eLZ9qrFbyrfkXZ2XsI6dQ0USRCQNZNn5pzg/viewform">Join Maxun Cloud Waitlist.</a>
+
 ### My Robot Needs Pagination and Scrolling. Can Maxun handle this?
 Yes. Maxun supports several pagination methods to accommodate different website designs:
 1. **Click on "next" to navigate to the next page**: This method involves clicking a button or link that clearly indicates the next page, such as a "Next" button or an arrow pointing to the right.
