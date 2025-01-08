@@ -7,6 +7,7 @@ sidebar_position: 3
 ### 1. Request: Get All Runs For A Robot
 - Request type: GET
 - Route: `/api/robots/{id}/runs`
+- Description: Retrieve all runs associated with a specific robot.
 
 #### Parameters
 
@@ -102,6 +103,10 @@ Example Value Schema
 ### 2. Request: Run A Robot By ID
 - Request type: POST
 - Route: `/api/robots/{id}/runs`
+- Description: When you need to run a robot and get its captured data, you can use this endpoint to create a run for the robot. For now, you can poll the GET endpoint to retrieve a run's details as soon as it is finished. 
+
+We are working on webhook support to notify you when a run is finished.
+
 
 #### Parameters
 
@@ -204,6 +209,7 @@ Example Value Schema
 ### 3. Request: Get A Specific Run By ID For A Robot
 - Request type: GET
 - Route: `/api/robots/{id}/runs/{runId}`
+- Description: Retrieve details of a specific run by its ID.
 
 #### Parameters
 
