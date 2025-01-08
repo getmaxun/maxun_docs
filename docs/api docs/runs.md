@@ -1,5 +1,5 @@
 ---
-id: run-routes
+id: run-api
 title: Run Routes
 sidebar_position: 3
 ---

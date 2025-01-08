@@ -1,5 +1,5 @@
 ---
-id: robot-routes
+id: robot-api
 title: Robot Routes
 sidebar_position: 2
 ---
