@@ -7,6 +7,7 @@ sidebar_position: 2
 ### 1. Request: Get All Robots
 - Request type: GET
 - Route: `/api/robots`
+- Description: Retrieve a list of all robots.
 
 #### Parameters
 No parameters
@@ -73,6 +74,7 @@ Example Value Schema
 ### 2. Request: Get Robot By ID
 - Request type: GET
 - Route: `GET /api/robots/{id}`
+- Description: Retrieve a robot by its ID.
 
 #### Parameters
 
