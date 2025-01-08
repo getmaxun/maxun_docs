@@ -7,7 +7,13 @@ sidebar_position: 10
 Maxun is designed to work on any website. There are billions of websites out there (and hundreds are created everyday). We do our best to adapt to almost every possible website - that being said there are always unique scenarios that arise, often due to inaccessible code or non-standard practices on certain sites.
 
 ### My Robot Needs Pagination and Scrolling. Can Maxun handle this?
-Yes. Refer the section: <a href="">Pagination and Scrolling.</a>
+Yes. Maxun supports several pagination methods to accommodate different website designs:
+1. **Click on "next" to navigate to the next page**: This method involves clicking a button or link that clearly indicates the next page, such as a "Next" button or an arrow pointing to the right.
+2. **Click on "load more" to load more items**: This method involves clicking a button that loads more items onto the current page without navigating to a separate page.
+3. **Scroll down to load more items**: This method involves scrolling down the page to trigger the loading of more items. This is common on websites with infinite scrolling.
+4. **Scroll up to load more items**: Similar to scrolling down, this method involves scrolling up to load more items. This is less common but can be found on some websites.
+5. **No more items to load**: This option indicates that there are no more items to load on the current page or in the entire list.
+
 
 ### Can my robot login to websites?
 Yes. Refer this section: <a href="/extract-login">Extract behind login.</a>
