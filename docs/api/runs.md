@@ -109,6 +109,8 @@ Example Value Schema
 |---|---|
 | id (required) string | The ID of the robot to run.
 
+#### Responses
+
 | Code | Description | Media Type 
 |---|---|---|
 | 200 | Robot run started successfully. | application/json |
