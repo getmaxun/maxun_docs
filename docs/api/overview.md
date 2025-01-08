@@ -1,5 +1,5 @@
 ---
-id: api-docs
+id: api
 title: API Key
 sidebar_position: 1
 ---
