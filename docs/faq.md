@@ -27,7 +27,7 @@ Yes. Maxun 0.0.6 onwards data inside iFrame can be extracted.
 ### Can I extract data from Shadow DOM?
 Yes. Maxun 0.0.6 onwards data inside Shadow DOM can be extracted.
 
-### Can I download files using Browse AI?
+### Can I download files using Maxun?
 Maxun is primarily designed to extract text data, but this is a part of our roadmap.
 Currently, you can extract `URLs` of files, such as:
 1. Image URLs
