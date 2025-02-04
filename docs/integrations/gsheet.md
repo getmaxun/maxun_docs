@@ -44,3 +44,5 @@ After selecting the Google Sheet, the robot will automatically append data to it
 
 ![Maxun GSheet Integrated](gsheet_integrated.png)
 
+## Demo Tutorial
+<iframe width="560" height="315" src="https://www.youtube.com/embed/3EF66DsIze8?si=wuYdtpAhypDLELXU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
