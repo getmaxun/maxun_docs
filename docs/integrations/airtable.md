@@ -1,6 +1,6 @@
 ---
 sidebar_position: 4
-description: Coming soon...
+description: Sync the data extracted by your robot directly into an Airtable Base.
 ---
 
 # Airtable
