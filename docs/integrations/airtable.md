@@ -33,12 +33,15 @@ Obtain Airtable Client Id by setting up a project in the [Airtable OAuth Integra
 #### 2. Authenticate With Airtable
 Set up the OAuth Keys in the `.env` file and authenticate the robot with airtable **using the same account that was used to create the Client ID**.
 
-#### 3. Select Airtable Base
-On successful authentication with airtable, the robot will be granted access to . A spreadsheet can be selected from the Drive to store data from the run.
+![Maxun Airtable Integration](airtable_integrate.png)
 
+#### 3. Select Airtable Base & Table
+1. On successful Airtable authentication, you can grant access to the Airtable Base the robot should append data to.
+![Maxun Airtable Base Access Grant](airtable_access.png)
 
+![Maxun Airtable Fetch Base and Table](airtable_fetch_base.png)
 
-After selecting the Airtable base, the robot will automatically append data to it after each successful run. If needed, the user can remove the integration at any time.
+2. After selecting the Airtable base, the robot will automatically append data to it after each successful run. If needed, the user can remove the integration at any time.
 
 
 ## Demo Tutorial
