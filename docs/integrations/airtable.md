@@ -19,3 +19,6 @@ Airtable integration allows you to automatically sync the data extracted by your
 ## Important Note
 
 The data extracted before integrating with Airtable will not be synced in the Airtable Base. Only the data extracted after the integration will be synced.
+
+## Demo Tutorial
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Yf4Ifi2WuJk?si=9ITe3V3zQePoQDT7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
