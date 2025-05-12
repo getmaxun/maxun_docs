@@ -15,7 +15,7 @@ sidebar_position: 10
 | Managed Anti-Bot Infrastructure to prevent being blocked       | ✅                                        | BYOP                                       |
 | Extract Behind Login         | ✅                                        | ✅                                         |
 | API Access                   | ✅                                        | ✅                                         |
-| 100+ Prebuilt Robots         | ✅                                        | ❌                                         |
+| 100+ Auto Robots         | ✅                                        | ❌                                         |
 | Data Retention               | ✅                          | You can store all scraped data in your DB |
 | SAML Single Sign-On (SSO)    | ✅                                        | ❌                                         |
 | Monitoring                   | ✅                                        | ✅                                         |
