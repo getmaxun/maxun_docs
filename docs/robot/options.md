@@ -6,6 +6,9 @@ sidebar_position: 5
 
 ![Maxun Robot Options](robot_options.png)
 
+## 1. Retrain
+An existing robot can be retrained. Read in detail here: <a href="/robot/robot-retrain">Retrain Robot. </a>
+
 ## 2. Edit
 
 An existing robot's name or limit can be changed. Limits are available only for robots performing Capture List action.
