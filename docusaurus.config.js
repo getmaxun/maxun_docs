@@ -144,7 +144,7 @@ const config = {
             items: [
               {
                 label: 'Join Maxun Cloud',
-                href: 'https://docs.google.com/forms/d/e/1FAIpQLSdbD2uhqC4sbg4eLZ9qrFbyrfkXZ2XsI6dQ0USRCQNZNn5pzg/viewform',
+                href: 'https://app.maxun.dev',
               },
               {
                 label: 'Website',
