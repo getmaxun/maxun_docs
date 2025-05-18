@@ -88,7 +88,7 @@ const config = {
           //   position: 'left',
           //   label: 'Docs',
           // },
-          {to: 'https://docs.google.com/forms/d/e/1FAIpQLSdbD2uhqC4sbg4eLZ9qrFbyrfkXZ2XsI6dQ0USRCQNZNn5pzg/viewform', label: 'Join Maxun Cloud', position: 'right'},
+          {to: 'https://app.maxun.dev', label: 'Join Maxun Cloud', position: 'right'},
           {
             to: 'https://github.com/getmaxun/maxun',
             label: 'GitHub',
