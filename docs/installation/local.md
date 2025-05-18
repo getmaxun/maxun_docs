@@ -56,4 +56,4 @@ cd ..
 npm run start
 ```
 
-You can access the frontend at http://localhost:5173/ and backend at http://localhost:8080/
+You can access the frontend at `PUBLIC_URL` (eg: http://localhost:5173/) and backend at `BACKEND_URL` (eg: http://localhost:8080/)
