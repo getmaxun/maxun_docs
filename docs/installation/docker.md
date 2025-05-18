@@ -29,4 +29,4 @@ docker-compose up -d
 
 ![Docker Compose successful start](docker.png)
 
-You can access the frontend at `PUBLIC_URL` (eg: http://localhost:5173/) and backend at `BACKEND_URL`
+You can access the frontend at `PUBLIC_URL` (eg: http://localhost:5173/) and backend at `BACKEND_URL` (eg: http://localhost:8080/)
