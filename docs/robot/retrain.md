@@ -9,4 +9,4 @@ An existing robot can be retrained. This feature allows you to:
 2. Seamlessly adapt to website changes in minutes
 
 
-To retrain a robot, simply open the options dropdown on any robot and select “Retrain”. Read more in the <a href="/robot/robot-options">Robot Options</a> section.
+To retrain a robot, simply open the options dropdown on any robot and select `Retrain`. 
