@@ -6,7 +6,7 @@ sidebar_position: 5
 
 ![Maxun Robot Options](robot_options.png)
 
-## 1. Edit
+## 2. Edit
 
 An existing robot's name or limit can be changed. Limits are available only for robots performing Capture List action.
 
@@ -14,11 +14,11 @@ An existing robot's name or limit can be changed. Limits are available only for 
 |:---:|:---:|
 |Capture Text Or Capture Screenshot Robot |Capture List Robot|
 
-## 2. Delete
+## 3. Delete
 
 An existing robot can be deleted only if the robot does not have any associated runs. For example, if a robot has 3 runs, all 3 runs must be deleted before the robot is deleted.
 
-## 3. Duplicate 
+## 4. Duplicate 
 
 A robot can be duplicated to extract data from pages **having the same structure**. Read in detail here: <a href="/robot/robot-duplicate">Robot Duplication. </a>
 
