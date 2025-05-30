@@ -4,6 +4,12 @@ title: Webhooks
 sidebar_position: 4
 ---
 
+You can find the webhook integration option in the integration settings for each robot.
+
+![Maxun Webhook Integration](webhook_integrate.png)
+
+![Maxun Webhook Configuration](webhook_config.png)
+
 ### 1. Event: Run finished
 - Trigger: When a robot run finishes successfully. 
 
