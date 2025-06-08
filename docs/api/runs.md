@@ -106,7 +106,7 @@ Example Value Schema
 - Description: When you need to execute a robot and retrieve the data it captures, you can use this endpoint to initiate a new run. 
 
 We now offer two methods for retrieving a run's details once it is finished:
-1. **Webhooks (Recommended)**: For real-time notifications, we strongly recommend using webhooks. You can configure a webhook to receive an immediate notification as soon as your robot run is complete, along with its details. Learn more about setting up and using webhooks here.
+1. **Webhooks (Recommended)**: For real-time notifications, we strongly recommend using webhooks. You can configure a webhook to receive an immediate notification as soon as your robot run is complete, along with its details. Learn more about setting up and using webhooks <a href="/api/webhooks">here</a>
 2. **Long Polling**: Alternatively, you can continue to poll the GET endpoint to retrieve a run's details. While functional, this method requires you to periodically check the endpoint until the run is marked as finished.
 
 We encourage you to leverage our webhook support for a more efficient and responsive integration.
