@@ -103,7 +103,7 @@ Example Value Schema
 ### 2. Request: Run A Robot By ID
 - Request type: POST
 - Route: `/api/robots/{id}/runs`
-- Description: When you need to run a robot and get its captured data, you can use this endpoint to create a run for the robot. For now, you can poll the GET endpoint to retrieve a run's details as soon as it is finished. 
+- Description: When you need to execute a robot and retrieve the data it captures, you can use this endpoint to initiate a new run.
 
 We are working on webhook support to notify you when a run is finished.
 
