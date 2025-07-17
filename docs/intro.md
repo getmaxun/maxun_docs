@@ -18,10 +18,14 @@ Maxun lets users creates custom robots that emulate user actions for automated d
 ## What Can A Robot Do?
 1. Gather web data without writing a single line of code - just point, click, and collect
 2. Handle infinite scrolling and pagination
-3. Auto-adapt to website layout changes (coming soon)
+3. Auto-adapt to website layout & structural changes [Cloud Only]
 4. Run on a specific schedule
 5. Run via APIs for third-party integrations
-6. Extract data behind login. 2FA/MFA support soon!
-7. Integrate with your favorite applications. Google Sheet supported for now - more integrations coming soon!
+6. Extract data behind login
+7. Extract data behind login with 2FA/MFA support [Coming Soon]
+8. Integrate with your favorite applications. Google Sheet, Airtable and more
+9. Send data to webhooks
+10. Talk to your LLM with MCP (Model Context Protocol)
+
 
 ... and much more!
