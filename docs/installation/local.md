@@ -13,7 +13,6 @@ This guide will help you install and run Maxun on your local system.
 | Node.js (18 or above)     | [Download Node.js](https://nodejs.org/en/download/)                           |
 | PostgreSQL  | [Download PostgreSQL](https://www.postgresql.org/download/)                   |
 | MinIO       | [Download MinIO](https://min.io/download)                                     |
-| Redis       | [Download Redis](https://redis.io/download)                                   |
 
 ## Installation Steps
 
