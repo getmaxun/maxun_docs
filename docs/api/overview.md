@@ -22,7 +22,7 @@ You can find your API key in the "API Key" section on Maxun Dashboard.
 |API Key Generated|
 
 ### 2. Authorize 
-1. Go to "Website To API" tab on the dashboard's sidebar.
+1. Go to "API Key" tab on the dashboard's sidebar and select the option to test the API.
 2. Click `Authorize`, paste the API Key you copied in step 1 and click `Authorize` to save.
 ![Authorize](api_auth.png)
 
