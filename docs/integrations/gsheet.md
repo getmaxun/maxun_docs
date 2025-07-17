@@ -28,11 +28,17 @@ Skip the hassle of creating API keys or Google Cloud projects. Everything is pre
 #### 2. One-Click Google Authentication
 Simply sign in with your Google account. Maxun Cloud handles the OAuth flow securely in the background.
 
+![Maxun GSheet Integration](gsheet_integration.png)
+
 #### 3. Select a Spreadsheet from Google Drive
 Once authenticated, choose any spreadsheet from your Google Drive where you want to store your data.
 
+![Maxun GSheet Sheets](gsheet_sheets.png)
+
 #### 4. Automatic Data Sync
 After each successful robot run, your data is automatically appended to the selected sheet. You can disconnect or change the integration at any time.
+
+![Maxun GSheet Integrated](gsheet_integrated.png)
 
 ### Maxun Open Source
 
