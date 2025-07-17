@@ -23,7 +23,19 @@ The data extracted before integrating with Airtable will not be synced in the Ai
 ## Setting Up Airtable Integration
 
 ### Maxun Cloud
-Coming soon...
+#### 1. Authenticate with Airtable
+Simply authenticate using your Airtable account. Maxun Cloud handles the secure OAuth flow automatically.
+
+![Maxun Airtable Integration](airtable_integrate.png)
+
+#### 2. Select Airtable Base & Table
+1. On successful Airtable authentication, you can grant access to the Airtable Base the robot should append data to.
+
+![Maxun Airtable Base Access Grant](airtable_access.png)
+
+![Maxun Airtable Fetch Base and Table](airtable_fetch_base.png)
+
+2. After selecting the Airtable base, the robot will automatically append data to it after each successful run. If needed, the user can remove the integration at any time.
 
 ### Maxun Open Source
 
