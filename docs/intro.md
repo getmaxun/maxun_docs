@@ -5,9 +5,9 @@ slug: /
 
 # Introduction
 
-Maxun is a no-code platform for web data extraction. It lets users extract data from any website with a simple point-and-click interface. With Maxun, users can create no-code robots in 2 minutes to automate data extraction, turn websites to APIs and a lot more!
+Maxun is a powerful no-code platform for web data extraction. With its intuitive point-and-click interface, anyone can extract data from **any** website — no coding required. In just minutes, users can build automation robots to turn websites into structured APIs, scrape data at scale, and much more.
 
-Maxun can be self-hosted or be accessed via Maxun Cloud - https://app.maxun.dev/
+Use Maxun on the cloud at <a href="https://app.maxun.dev">app.maxun.dev</a> or self-host it on your own infrastructure.
 
 ## How Does It Work?
 
