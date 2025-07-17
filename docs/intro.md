@@ -9,9 +9,12 @@ Maxun is a powerful no-code platform for web data extraction. With its intuitive
 
 Use Maxun on the cloud at <a href="https://app.maxun.dev">app.maxun.dev</a> or self-host it on your own infrastructure.
 
+![Maxun Nike Example](maxun_nike.gif)
+
 ## How Does It Work?
 
 Maxun lets users creates custom robots that emulate user actions for automated data extraction. These robots can perform multiple capture actions to collect data.
+
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ZXGQEwQN7yI?si=uhw4zP3Wx9bGBn49" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
