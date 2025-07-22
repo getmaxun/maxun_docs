@@ -9,7 +9,7 @@ Maxun is a powerful no-code platform for web data extraction. With its intuitive
 
 Use Maxun on the cloud at <a href="https://app.maxun.dev">app.maxun.dev</a> or self-host it on your own infrastructure.
 
-![Maxun Nike Example](maxun_nike.gif)
+![Maxun Airbnb Example](maxun_gif.gif)
 
 ## How Does It Work?
 
