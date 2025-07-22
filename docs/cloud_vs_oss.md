@@ -20,3 +20,4 @@ sidebar_position: 10
 | SAML Single Sign-On (SSO)    | ✅                                        | ❌                                         |
 | Monitoring                   | ✅                                        | ✅                                         |
 | Long Task Executions         | ✅                                        | Depends on your infrastructure and system |
+| AI Features         | ✅ | ❌ |
