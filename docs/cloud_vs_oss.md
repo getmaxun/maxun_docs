@@ -16,7 +16,6 @@ sidebar_position: 10
 | Extract Behind Login         | ✅                                        | ✅                                         |
 | API Access                   | ✅                                        | ✅                                         |
 | 100+ Auto Robots             | ✅                                        | ❌                                         |
-| Data Retention               | ✅                                        | You can store all scraped data in your database  |
 | SAML Single Sign-On (SSO)    | ✅                                        | ❌                                         |
 | Monitoring                   | ✅                                        | ✅                                         |
 | Long Task Executions         | ✅                                        | Depends on your infrastructure and system |
