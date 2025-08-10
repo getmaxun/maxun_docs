@@ -36,9 +36,9 @@ Features designed to handle complex extraction scenarios at scale.
 | Extract Behind Login (2FA/MFA Support)                     | ✅        | ❌                                          |
 | Long Task Executions                                       | ✅        | Depends on your infrastructure and system   |
 
-## Content & AI Features
+## Pre-trained Robots & AI Features
 
-Access to pre-built content and intelligent capabilities.
+Access to pre-built robots and intelligent capabilities.
 
 | Feature        | Cloud | Self-Hosted |
 | :------------- | :---- | :---------- |
@@ -56,7 +56,7 @@ How you receive real-time updates and connect with other services.
 
 ## Security & Management
 
-Features related to authentication, and overall system administration.
+Features related to authentication and system administration.
 
 | Feature                      | Cloud | Self-Hosted |
 | :--------------------------- | :---- | :---------- |
