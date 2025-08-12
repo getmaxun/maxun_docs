@@ -27,9 +27,9 @@ Create a webhook trigger node in your n8n workflow and copy the webhook URL.
 ![n8n Webhook Configuration](n8n_webhook_config.png)
 
 ### Step 2: Set Up Integration in Maxun
-Configure the webhook endpoint in your robot integration settings with the following fields:
-
 ![n8n Integration Setup](n8n_integration_setup.png)
+
+Configure the webhook endpoint in your robot integration settings with the following fields:
 
 #### Required Fields:
 - **Webhook URL**: The n8n webhook endpoint URL (obtained from Step 1)
