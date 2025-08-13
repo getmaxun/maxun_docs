@@ -99,4 +99,7 @@ When your robot sends data to n8n, it will be structured as follows:
 - **metadata**: Information about the extraction results
 
 ## Demo Tutorial
+
+In this tutorial, learn how to use Maxun with N8N and GPT to generate responses for Chrome extension reviews automatically!
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/0o2xMOa8Ee8?si=lnZE-Idky-X46hd-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
