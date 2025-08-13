@@ -5,6 +5,10 @@ description: Send the data extracted by your robot directly to your n8n workflow
 
 # n8n
 
+:::tip Cloud Only Feature
+n8n integration is available exclusively in **Maxun Cloud**. This feature is not available in self-hosted installations.
+:::
+
 ## Overview
 
 n8n integration allows you to automatically send the data extracted by your robot directly to your n8n workflow via webhook. Whenever the robot completes a successful run, the captured data is sent as a POST request to your configured n8n webhook endpoint, enabling seamless automation and data processing within your n8n workflows.
