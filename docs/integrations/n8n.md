@@ -5,7 +5,7 @@ description: Send data extracted by your robot directly to N8N workflows via web
 
 # N8N
 
-:::tip N8N integration is available exclusively in **Maxun Cloud**. This feature is not available in self-hosted installations.:::
+> **Note:** N8N integration is available exclusively in **Maxun Cloud**. This feature is not available in self-hosted installations.
 
 ## Overview
 
