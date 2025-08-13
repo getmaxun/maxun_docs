@@ -1,15 +1,15 @@
 ---
 sidebar_position: 2
-description: Send the data extracted by your robot directly to your n8n workflow via webhook.
+description: Send data extracted by your robot directly to N8N workflows via webhook.
 ---
 
-# n8n
+# N8N
 
-:::tip n8n integration is available exclusively in **Maxun Cloud**. This feature is not available in self-hosted installations.:::
+:::tip N8N integration is available exclusively in **Maxun Cloud**. This feature is not available in self-hosted installations.:::
 
 ## Overview
 
-n8n integration allows you to automatically send the data extracted by your robot directly to your n8n workflow via webhook. Whenever the robot completes a successful run, the captured data is sent as a POST request to your configured n8n webhook endpoint, enabling seamless automation and data processing within your n8n workflows.
+N8N integration allows you to automatically send the data extracted by your robot directly to your N8N workflow via webhook. Whenever the robot completes a successful run, the captured data is sent as a POST request to your configured n8n webhook endpoint, enabling seamless automation and data processing within your n8n workflows.
 
 ## Key Features
 
@@ -23,8 +23,8 @@ The data extracted before integrating with n8n will not be sent to your workflow
 
 ## Setting Up n8n Integration
 
-### Step 1: Configure Webhook in n8n
-Create a webhook trigger node in your n8n workflow and copy the webhook URL.
+### Step 1: Configure Webhook in N8N
+Create a webhook trigger node in your N8N workflow and copy the webhook URL.
 
 ![n8n Webhook Configuration](n8n_webhook_config.png)
 
@@ -44,7 +44,7 @@ Configure the webhook endpoint in your robot integration settings with the follo
 ![n8n Integration Form](n8n_integration_form_configured.png)
 
 ### Step 3: Test the Integration
-Run your robot to test the webhook integration or use the Test Webhook button. The extracted data will be sent to your n8n workflow.
+Run your robot to test the webhook integration or use the Test Webhook button. The extracted data will be sent to your N8N workflow.
 
 <!-- ![n8n Integration Success](n8n_integration_success.png) -->
 
