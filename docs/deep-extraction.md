@@ -10,49 +10,43 @@ sidebar_position: 5
 Deep Extraction is available exclusively in **Maxun Cloud**. This feature is not available in self-hosted installations.
 :::
 
-Deep Extraction allows your robot to run the same workflow across multiple URLs instead of just one page. Your robot will perform the exact same extraction actions and take screenshots on each URL automatically.
+Deep Extraction allows your robot to process multiple URLs using the same workflow, extracting data from many pages automatically. Instead of running on just one page, your robot can now handle hundreds or thousands of URLs with identical page structures.
 
-![Deep Extraction Overview](deep_extraction_overview.png)
+<!-- ![Deep Extraction Overview](deep_extraction_overview.png) -->
 
-## Important Requirements
+## Requirements
 
 **Same Domain Only**: All URLs must be from the same domain as your original robot. For example, if your robot is trained on `https://example.com/product/1`, all Deep Extraction URLs must also be from `example.com`.
 
-**Identical Page Structure**: All URLs must have the same page layout and structure. If your robot extracts product titles, prices, and descriptions, every URL in your list must have these same elements in the same locations on the page.
+**Identical Page Structure**: All URLs must have the same page layout and structure. If your robot extracts product titles and prices, every URL in your list must have these same elements in the same locations.
 
-![Page Structure Requirements](page_structure_requirements.png)
+## How It Works
 
-## Key Features
+### Robot Modes
 
-### 1. Multiple URL Processing
+**Normal Mode**: Processes one URL at a time (default behavior)
 
-You can provide URLs to your robot in two ways:
+**Bulk Mode**: Processes multiple URLs automatically using your configured URL list
 
-**Manual Upload**: Upload a CSV or JSON file with all the URLs you want to extract data from.
+You can switch between modes anytime. Switching to Bulk Mode enables Deep Extraction, while Normal Mode returns to standard single-URL operation.
 
-![Manual URL Upload](manual_url_upload.png)
+### URL Sources
 
-**Automatic URL Discovery**: Your robot will find URLs on the page while it runs, then automatically extract data from those URLs too.
+You can provide URLs in two ways:
 
-![Automatic URL Discovery](automatic_url_discovery.png)
+**1. File Upload**: Upload a CSV or JSON file containing all the URLs you want to process.
 
-### 2. What Your Robot Will Do
+**2. Extract from Run Data**: Your robot automatically discovers and processes URLs found during regular runs.
 
-When Deep Extraction is turned on:
-- Run the exact same steps on every URL
-- Extract the same data from each page  
-- Take screenshots of every page
-- Combine all the data into one complete result
+<!-- ![URL Source Options](url_source_options.png) -->
 
-![Deep Extraction Process](deep_extraction_process.png)
+## Setup
 
-## Configuration
+### File Upload Method
 
-### Enabling Deep Extraction
-
-![Enable Deep Extraction](enable_deep_extraction.png)
-
-### URL File Formats
+**Supported Formats:**
+- CSV files (.csv)
+- JSON files (.json)
 
 **CSV Example:**
 ```csv
@@ -73,22 +67,37 @@ https://example.com/product/3
 }
 ```
 
-![URL File Upload](url_file_upload.png)
+The upload interface supports drag and drop, validates URLs in real-time, and provides sample file templates for download.
 
-### Settings
+<!-- ![File Upload Interface](file_upload_interface.png) -->
 
-- **Batch Size**: Number of URLs to process simultaneously
-- **Delay Between Requests**: Time interval between processing each URL
-- **Automatic URL Discovery**: Enable robots to discover and queue URLs automatically
-- **Screenshot Capture**: Capture screenshots from all processed pages
+### Run Data Extraction Method
 
-![Deep Extraction Settings](deep_extraction_settings.png)
+With this method, your robot runs normally and automatically captures URLs encountered during execution. These discovered URLs are then queued for bulk processing in future runs.
 
-## Results
+This is useful for:
+- Processing product catalogs
+- Following pagination links
+- Extracting data from search results
+- Handling dynamic URL discovery
 
-Once your robot finishes running Deep Extraction, you'll see:
-- Combined data from all URLs in one place
-- Screenshots from every page that was processed
-- A report showing which URLs worked and which had problems
+<!-- ![Run Data Extraction](run_data_extraction.png) -->
 
-![Deep Extraction Results](deep_extraction_results.png)
+## Configuration
+
+### Enabling Deep Extraction
+
+1. Go to your robot's configuration page
+2. Select "Deep Extraction" 
+3. Choose your URL source method (File Upload or Run Data)
+4. Upload your URL file or set up run data extraction
+5. Click "Start Extraction" or "Setup Extraction"
+
+### Mode Management
+
+Once configured, you can:
+- **Switch to Bulk Mode**: Enables processing of multiple URLs
+- **Switch to Normal Mode**: Returns to single URL processing  
+- **Remove Deep Extraction**: Permanently removes all settings and returns robot to standard operation
+
+<!-- ![Mode Management](mode_management.png) -->
