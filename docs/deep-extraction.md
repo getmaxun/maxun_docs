@@ -71,6 +71,8 @@ The upload interface supports drag and drop, validates URLs in real-time, and pr
 
 With this method, your robot runs normally and automatically captures URLs encountered during execution. These discovered URLs are then queued for bulk processing in future runs.
 
+> **Note:** In this mode, the robot needs to be executed at least once in order to collect and store the URLs required for deep extraction.
+
 ![Automated Collection](deep_extract_run_data_extraction.png)
 
 ## Configuration
