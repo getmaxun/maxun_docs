@@ -6,13 +6,11 @@ sidebar_position: 5
 
 # Deep Extraction
 
-:::tip Cloud Only Feature
-Deep Extraction is available exclusively in **Maxun Cloud**. This feature is not available in self-hosted installations.
-:::
+> **Note:** Deep Extraction is available exclusively in **Maxun Cloud**. This feature is not available in self-hosted installations.
+
+## Overview
 
 Deep Extraction allows your robot to process multiple URLs using the same workflow, extracting data from many pages automatically. Instead of running on just one page, your robot can now handle hundreds or thousands of URLs with identical page structures.
-
-<!-- ![Deep Extraction Overview](deep_extraction_overview.png) -->
 
 ## Requirements
 
@@ -34,15 +32,13 @@ You can switch between modes anytime. Switching to Bulk Mode enables Deep Extrac
 
 You can provide URLs in two ways:
 
-**1. File Upload**: Upload a CSV or JSON file containing all the URLs you want to process.
+**1. Manual Upload**: Upload a CSV or JSON file containing all the URLs you want to process.
 
 **2. Extract from Run Data**: Your robot automatically discovers and processes URLs found during regular runs.
 
-<!-- ![URL Source Options](url_source_options.png) -->
-
 ## Setup
 
-### File Upload Method
+### Manual Upload Method
 
 **Supported Formats:**
 - CSV files (.csv)
@@ -69,29 +65,22 @@ https://example.com/product/3
 
 The upload interface supports drag and drop, validates URLs in real-time, and provides sample file templates for download.
 
-<!-- ![File Upload Interface](file_upload_interface.png) -->
+![Manual Upload](deep_extract_file_upload_interface.png)
 
-### Run Data Extraction Method
+### Automated Collection Method
 
 With this method, your robot runs normally and automatically captures URLs encountered during execution. These discovered URLs are then queued for bulk processing in future runs.
 
-This is useful for:
-- Processing product catalogs
-- Following pagination links
-- Extracting data from search results
-- Handling dynamic URL discovery
-
-<!-- ![Run Data Extraction](run_data_extraction.png) -->
+![Automated Collection](deep_extract_run_data_extraction.png)
 
 ## Configuration
 
 ### Enabling Deep Extraction
 
-1. Go to your robot's configuration page
-2. Select "Deep Extraction" 
-3. Choose your URL source method (File Upload or Run Data)
-4. Upload your URL file or set up run data extraction
-5. Click "Start Extraction" or "Setup Extraction"
+1. Select "Deep Extract" icon for the preferred robot
+2. Choose your URL source method (Manual Upload or Automated Collection)
+3. Upload your URL file or set up automated collection
+4. Click "Start Deep Extraction" or "Setup URL Extraction"
 
 ### Mode Management
 
@@ -100,4 +89,5 @@ Once configured, you can:
 - **Switch to Normal Mode**: Returns to single URL processing  
 - **Remove Deep Extraction**: Permanently removes all settings and returns robot to standard operation
 
-<!-- ![Mode Management](mode_management.png) -->
+## Demo Tutorial
+<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/_-n6OFQI_x4?si=zpnJJQnXQEUM9VwH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
