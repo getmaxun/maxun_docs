@@ -118,6 +118,20 @@ We encourage you to leverage our webhook support for a more efficient and respon
 |---|---|
 | id (required) string | The ID of the robot to run.
 
+#### Request Body (Optional)
+
+The request body is optional and allows you to specify additional parameters for the robot run:
+
+```json
+{
+  "mode": "normal" | "bulk"
+}
+```
+
+| Property | Type | Required | Description |
+|---|---|---|---|
+| mode | string | No | Extraction mode to use for robots with deep extraction configured. Only applicable when the robot has deep extraction enabled. Choose `bulk` to process all configured deep extraction URLs, or `normal` to run the original robot only. Defaults to the robot's configured mode if not specified.
+
 #### Responses
 
 | Code | Description | Media Type 
