@@ -9,7 +9,10 @@ Maxun is a powerful no-code platform for web data extraction. With its intuitive
 
 Use Maxun on the cloud at <a href="https://app.maxun.dev">app.maxun.dev</a> or self-host it on your own infrastructure.
 
-![Maxun Airbnb Example](maxun_gif.gif)
+<video controls width="100%">
+  <source src="https://github.com/user-attachments/assets/c6baa75f-b950-482c-8d26-8a8b6c5382c3" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
 
 ## How Does It Work?
 
