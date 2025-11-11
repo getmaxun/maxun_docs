@@ -14,6 +14,7 @@ import { FiSettings } from "react-icons/fi";
 import { GrUpgrade } from "react-icons/gr";
 import { MdOutlineInfo } from "react-icons/md";
 import { TbHandClick } from "react-icons/tb";
+import { HiOutlineDuplicate } from "react-icons/hi";
 
 
 const IconMap = {
@@ -24,6 +25,7 @@ const IconMap = {
   upgrade: GrUpgrade,
   robots_overview: MdOutlineInfo,
   robots_actions: TbHandClick,
+  robots_duplicate: HiOutlineDuplicate,
 };
 
 // manual icon mapping (use docId OR href)
@@ -44,9 +46,8 @@ const SidebarIconMap = {
   "robot/robots": "robots_overview",
   robots_actions: "robots_actions",
   "robot/robot-actions": "robots_actions",
-
-  runs: "chip",
-  "/docs/runs": "chip",
+  robots_duplicate: "robots_duplicate",
+  "robot/robot-duplicate": "robots_duplicate",
 };
 
 export default function DocSidebarItemLink({
