@@ -32,7 +32,7 @@ import { GoRepoForked } from "react-icons/go";
 import { FiGithub } from "react-icons/fi";
 import { CiCloudOn } from "react-icons/ci";
 import { FaQuestion } from "react-icons/fa";
-
+import { IoKeyOutline } from "react-icons/io5";
 
 const IconMap = {
   introBook: HiOutlineBookOpen,
@@ -61,6 +61,7 @@ const IconMap = {
   contribute: FiGithub,
   cloud_vs_oss: CiCloudOn,
   faq: FaQuestion,
+  api_key: IoKeyOutline,
 };
 
 // manual icon mapping (use docId OR href)
@@ -126,6 +127,9 @@ const SidebarIconMap = {
   "/cloud-vs-oss": "cloud_vs_oss",
   faq: "faq",
   "/faq-robot": "faq",
+  // API
+  api_key: "api_key",
+  "/api/api": "api_key",
 };
 
 export default function DocSidebarItemLink({
