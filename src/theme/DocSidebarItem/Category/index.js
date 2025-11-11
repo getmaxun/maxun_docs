@@ -63,8 +63,6 @@ function resolveIconForItem(item) {
 
   return null;
 }
-// -----------------------------
-
 
 function useAutoExpandActiveCategory({isActive, collapsed, updateCollapsed}) {
   const wasActive = usePrevious(isActive);
@@ -159,13 +157,7 @@ export default function DocSidebarItemCategory({
     }
   }, [collapsible, expandedItem, index, setCollapsed, autoCollapseCategories]);
 
-
-  // -----------------------------
-  // RESOLVE ICON (BY LABEL)
-  // -----------------------------
   const IconComponent = resolveIconForItem(item);
-  // -----------------------------
-
 
   return (
     <li
@@ -244,5 +236,3 @@ export default function DocSidebarItemCategory({
     </li>
   );
 }
-
-
