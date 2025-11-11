@@ -39,6 +39,7 @@ const IconMap = {
   runs: VscRunAll,
   deep_extraction: FiDatabase,
   byop: LuCable,
+  mcpSetup: FiSettings,
 };
 
 // manual icon mapping (use docId OR href)
@@ -79,6 +80,9 @@ const SidebarIconMap = {
   // BYOP
   byop: "byop",
   "/docs/byop": "byop",
+  // MCP 
+  mcpSetup: "mcpSetup",
+  "/mcp/setup": "mcpSetup",
 };
 
 export default function DocSidebarItemLink({
