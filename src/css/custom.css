@@ -83,5 +83,10 @@
 
 .navbar__logo img {
   border-radius: 5px; 
+  height: 35px;
+  width: 42px;
+}
+.navbar__title {
+  font-size: 1.2rem;
 }
 }
