@@ -9,11 +9,14 @@ import styles from "./styles.module.css";
 import { FaRocket, FaBrain, FaRegGem, FaMicrochip } from "react-icons/fa";
 import { HiOutlineBookOpen } from "react-icons/hi2";
 import { TbBrandDocker } from "react-icons/tb";
+import { RiComputerLine } from "react-icons/ri";
+
 
 
 const IconMap = {
   introBook: HiOutlineBookOpen,
   docker: TbBrandDocker,
+  local: RiComputerLine,
   brain: FaBrain,
   gem: FaRegGem,
   chip: FaMicrochip,
@@ -24,8 +27,12 @@ const IconMap = {
 const SidebarIconMap = {
   intro: "introBook",
   "/docs/intro": "introBook",
+  // INSTALLATION OSS
   docker: "docker",
   "/installation/docker": "docker",
+  local: "local",
+  "/installation/local": "local",
+
   runs: "chip",
   "/docs/runs": "chip",
 };
