@@ -19,6 +19,8 @@ import { MdOutlineSchedule } from "react-icons/md";
 import { SlOptions } from "react-icons/sl";
 import { LiaRedoAltSolid } from "react-icons/lia";
 import { AiOutlineDeploymentUnit } from "react-icons/ai";
+import { VscRunAll } from "react-icons/vsc";
+
 
 const IconMap = {
   introBook: HiOutlineBookOpen,
@@ -33,6 +35,7 @@ const IconMap = {
   robots_options: SlOptions,
   robots_retrain: LiaRedoAltSolid,
   self_host: AiOutlineDeploymentUnit,
+  runs: VscRunAll,
 };
 
 // manual icon mapping (use docId OR href)
@@ -63,7 +66,10 @@ const SidebarIconMap = {
   "robot/robot-retrain": "robots_retrain",
   // SELF-HOST
   self_host: "self_host",
-  "/self-host": "self_host",
+  "/docs/self-host": "self_host",
+  // RUNS
+  runs: "runs",
+  "/docs/runs": "runs",
 };
 
 export default function DocSidebarItemLink({
