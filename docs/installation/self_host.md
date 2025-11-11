@@ -3,7 +3,7 @@ sidebar_position: 3
 slug: /self-host
 ---
 
-# Self-Hosting Maxun
+# Self Host With Portrainer
 
 Maxun can be fully self-hosted using a **Docker** setup, with a **reverse proxy** configuration managed via [Portainer](https://www.portainer.io/).
 
