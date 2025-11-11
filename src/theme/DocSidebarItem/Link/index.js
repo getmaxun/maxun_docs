@@ -24,6 +24,7 @@ import { FiDatabase } from "react-icons/fi";
 import { LuCable } from "react-icons/lu";
 import { VscTools } from "react-icons/vsc";
 import { FiUnlock } from "react-icons/fi";
+import { SiGooglesheets } from "react-icons/si";
 
 
 const IconMap = {
@@ -45,6 +46,7 @@ const IconMap = {
   mcpSetup: FiSettings,
   mcpTools: VscTools,
   extract_login: FiUnlock,
+  gsheet: SiGooglesheets,
 };
 
 // manual icon mapping (use docId OR href)
@@ -92,6 +94,9 @@ const SidebarIconMap = {
   "/mcp/tools": "mcpTools",
   "extract-login": "extract_login",
   "/docs/extract-login": "extract_login",
+  // INTEGRATIONS
+  gsheet: "gsheet",
+  "integrations/gsheet": "gsheet",
 };
 
 export default function DocSidebarItemLink({
