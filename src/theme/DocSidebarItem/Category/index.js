@@ -33,7 +33,7 @@ const IconMap = {
   "api-reference": TbApi,
   mcp: LuBrainCircuit,
   integrations: AiOutlineApi,
-  development: BsCodeSlash,
+  engineering: BsCodeSlash,
 };
 
 // Helper: normalize label (lowercase, remove spaces)
