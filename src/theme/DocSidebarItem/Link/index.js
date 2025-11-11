@@ -63,6 +63,7 @@ const IconMap = {
   faq: FaQuestion,
   api_key: IoKeyOutline,
   robot_api: FiSettings,
+  runs_api: VscRunAll,
 };
 
 // manual icon mapping (use docId OR href)
@@ -133,6 +134,8 @@ const SidebarIconMap = {
   "/api/api": "api_key",
   robot_api: "robot_api",
   "/api/robot-api": "robot_api",
+  runs_api: "runs_api",
+  "/api/runs-api": "runs_api",
 };
 
 export default function DocSidebarItemLink({
