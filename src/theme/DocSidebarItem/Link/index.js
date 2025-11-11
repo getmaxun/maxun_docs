@@ -22,6 +22,7 @@ import { AiOutlineDeploymentUnit } from "react-icons/ai";
 import { VscRunAll } from "react-icons/vsc";
 import { FiDatabase } from "react-icons/fi";
 import { LuCable } from "react-icons/lu";
+import { VscTools } from "react-icons/vsc";
 
 const IconMap = {
   introBook: HiOutlineBookOpen,
@@ -40,6 +41,7 @@ const IconMap = {
   deep_extraction: FiDatabase,
   byop: LuCable,
   mcpSetup: FiSettings,
+  mcpTools: VscTools,
 };
 
 // manual icon mapping (use docId OR href)
@@ -83,6 +85,8 @@ const SidebarIconMap = {
   // MCP 
   mcpSetup: "mcpSetup",
   "/mcp/setup": "mcpSetup",
+  mcpTools: "mcpTools",
+  "/mcp/tools": "mcpTools",
 };
 
 export default function DocSidebarItemLink({
