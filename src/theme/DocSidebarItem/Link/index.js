@@ -123,9 +123,9 @@ const SidebarIconMap = {
   contribute: "contribute",
   "/development/contributing": "contribute",
   cloud_vs_oss: "cloud_vs_oss",
-  "/docs/cloud-vs-oss": "cloud_vs_oss",
+  "/cloud-vs-oss": "cloud_vs_oss",
   faq: "faq",
-  "/docs/faq-robot": "faq",
+  "/faq-robot": "faq",
 };
 
 export default function DocSidebarItemLink({
