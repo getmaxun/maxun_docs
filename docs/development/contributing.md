@@ -6,7 +6,7 @@ description: Contribution Guidelines
 # Contributing
 
 ## Local Setup
-Read local installation instructions here: <a href="/http://localhost:3000/installation/local">Local Installation</a>
+Read local installation instructions here: <a href="/installation/local">Local Installation</a>
 
 ## Open Your First Pull Request
 
