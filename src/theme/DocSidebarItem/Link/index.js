@@ -34,6 +34,7 @@ import { CiCloudOn } from "react-icons/ci";
 import { FaQuestion } from "react-icons/fa";
 import { IoKeyOutline } from "react-icons/io5";
 import { MdOutlineWebhook } from "react-icons/md";
+import { PiStarFourLight } from "react-icons/pi";
 
 const IconMap = {
   introBook: HiOutlineBookOpen,
@@ -67,6 +68,7 @@ const IconMap = {
   runs_api: VscRunAll,
   webhooks: MdOutlineWebhook,
   quickstart: FaRocket,
+  usecases: PiStarFourLight,
 };
 
 // manual icon mapping (use docId OR href)
@@ -143,6 +145,9 @@ const SidebarIconMap = {
   "/api/webhooks": "webhooks",
   quickstart: "quickstart",
   "/quickstart": "quickstart",
+  // USE CASES
+  content_aggregation: "usecases",
+  "/usecases/content_aggregation": "usecases",
 };
 
 export default function DocSidebarItemLink({
