@@ -1,7 +1,7 @@
 ---
 id: deep-extraction
 title: Deep Extraction (Beta)
-sidebar_position: 9
+sidebar_position: 11
 ---
 
 # Deep Extraction

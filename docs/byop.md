@@ -1,7 +1,7 @@
 ---
 id: byop
 title: BYOP 
-sidebar_position: 8
+sidebar_position: 9
 ---
 
 # BYOP (Bring Your Own Proxy)
