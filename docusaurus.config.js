@@ -88,7 +88,6 @@ const config = {
           //   position: 'left',
           //   label: 'Docs',
           // },
-          {to: 'https://app.maxun.dev', label: 'Maxun Cloud', position: 'right'},
           {
             to: 'https://github.com/getmaxun/maxun',
             label: 'GitHub',
@@ -99,6 +98,7 @@ const config = {
             label: 'Discord',
             position: 'right',
           },
+          {to: 'https://app.maxun.dev', label: 'Maxun Cloud', position: 'right'},
           // {
           //   to: 'https://www.youtube.com/@MaxunOSS',
           //   label: 'Tutorials',
