@@ -22,7 +22,7 @@ import { GrInstallOption } from "react-icons/gr";
 import { BsRobot } from "react-icons/bs";
 import { TbApi } from "react-icons/tb";
 import { LuBrainCircuit } from "react-icons/lu";
-
+import { AiOutlineApi } from "react-icons/ai";
 
 // Map keys are lowercase category labels (exact-match on label)
 // Add entries here for every category label you want icons for.
@@ -31,7 +31,7 @@ const IconMap = {
   robots: BsRobot,
   "api-reference": TbApi,
   mcp: LuBrainCircuit,
-  architecture: FaMicrochip,
+  integrations: AiOutlineApi,
   developers: FaMicrochip,
 };
 
