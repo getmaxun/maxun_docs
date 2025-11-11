@@ -1,6 +1,6 @@
 ---
 id: robot-options
-title: Robot Options
+title: Options
 sidebar_position: 5
 ---
 
