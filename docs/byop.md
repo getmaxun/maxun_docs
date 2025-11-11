@@ -4,7 +4,7 @@ title: BYOP (Bring Your Own Proxy)
 sidebar_position: 6
 ---
 
-# BYOP (Bring Your Own Proxy)
+# BYOP
 
 Maxun provides a feature called BYOP (Bring Your Own Proxy), designed to give users greater control over their data extraction activities. With BYOP, you can connect your own proxies to Maxun, enabling:
 
