@@ -28,7 +28,7 @@ import { BsCodeSlash } from "react-icons/bs";
 // Map keys are lowercase category labels (exact-match on label)
 // Add entries here for every category label you want icons for.
 const IconMap = {
-  installation: GrInstallOption,
+  "self-host": GrInstallOption,
   robots: BsRobot,
   "api-reference": TbApi,
   mcp: LuBrainCircuit,
