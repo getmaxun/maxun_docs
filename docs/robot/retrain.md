@@ -1,6 +1,6 @@
 ---
 id: robot-retrain
-title: Retrain Robot
+title: Retrain 
 sidebar_position: 6
 ---
 
