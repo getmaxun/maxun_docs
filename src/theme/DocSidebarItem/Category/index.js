@@ -24,6 +24,8 @@ import { TbApi } from "react-icons/tb";
 import { LuBrainCircuit } from "react-icons/lu";
 import { AiOutlineApi } from "react-icons/ai";
 import { BsCodeSlash } from "react-icons/bs";
+import { IoFlashOutline } from "react-icons/io5";
+
 
 // Map keys are lowercase category labels (exact-match on label)
 // Add entries here for every category label you want icons for.
@@ -34,6 +36,7 @@ const IconMap = {
   mcp: LuBrainCircuit,
   integrations: AiOutlineApi,
   engineering: BsCodeSlash,
+  usecases: IoFlashOutline,
 };
 
 // Helper: normalize label (lowercase, remove spaces)
