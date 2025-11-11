@@ -47,6 +47,7 @@ const IconMap = {
   mcpTools: VscTools,
   extract_login: FiUnlock,
   gsheet: SiGooglesheets,
+  n8n: LuCable,
 };
 
 // manual icon mapping (use docId OR href)
@@ -97,6 +98,8 @@ const SidebarIconMap = {
   // INTEGRATIONS
   gsheet: "gsheet",
   "integrations/gsheet": "gsheet",
+  n8n: "n8n",
+  "integrations/n8n": "n8n",
 };
 
 export default function DocSidebarItemLink({
