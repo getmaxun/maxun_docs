@@ -38,4 +38,10 @@
   pre code {
     background-color: #0b0b0b !important;
   }
+
+  table {
+    th, td, tr {
+      border-color: #1e1e1e;
+    }
+  }
 }
