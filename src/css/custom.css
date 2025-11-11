@@ -34,4 +34,8 @@
   .cardContainer_fWXF, .pagination-nav__link {
     border: 1px solid #1e1e1e;
   }
+
+  pre code {
+    background-color: #0b0b0b !important;
+  }
 }
