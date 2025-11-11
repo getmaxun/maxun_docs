@@ -1,6 +1,6 @@
 ---
 id: robots
-title: Robots Overview
+title: Overview
 sidebar_position: 1
 ---
 
