@@ -13,17 +13,17 @@ import { RiComputerLine } from "react-icons/ri";
 import { FiSettings } from "react-icons/fi";
 import { GrUpgrade } from "react-icons/gr";
 import { MdOutlineInfo } from "react-icons/md";
+import { TbHandClick } from "react-icons/tb";
+
 
 const IconMap = {
   introBook: HiOutlineBookOpen,
   docker: TbBrandDocker,
   local: RiComputerLine,
   environment_variables: FiSettings,
-  robots_overview: MdOutlineInfo,
   upgrade: GrUpgrade,
-  gem: FaRegGem,
-  chip: FaMicrochip,
-  rocket: FaRocket,
+  robots_overview: MdOutlineInfo,
+  robots_actions: TbHandClick,
 };
 
 // manual icon mapping (use docId OR href)
@@ -42,6 +42,8 @@ const SidebarIconMap = {
   // ROBOTS
   robots_overview: "robots_overview",
   "robot/robots": "robots_overview",
+  robots_actions: "robots_actions",
+  "robot/robot-actions": "robots_actions",
 
   runs: "chip",
   "/docs/runs": "chip",
