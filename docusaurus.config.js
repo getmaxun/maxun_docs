@@ -93,7 +93,10 @@ const config = {
             label: 'GitHub',
             position: 'right',
           },
-          {to: 'https://app.maxun.dev', label: 'Maxun Cloud', position: 'right'},
+          {to: 'https://app.maxun.dev', 
+            html: '<span>Maxun Cloud ⮞</span>',
+            position: 'right',
+          },
           // {
           //   to: 'https://www.youtube.com/@MaxunOSS',
           //   label: 'Tutorials',
