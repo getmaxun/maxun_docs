@@ -27,6 +27,7 @@ import { FiUnlock } from "react-icons/fi";
 import { SiGooglesheets } from "react-icons/si";
 import { TbBrandAirtable } from "react-icons/tb";
 import { SiN8N } from "react-icons/si";
+import { HiLanguage } from "react-icons/hi2";
 
 
 const IconMap = {
@@ -51,6 +52,7 @@ const IconMap = {
   gsheet: SiGooglesheets,
   n8n: SiN8N,
   airtable: TbBrandAirtable,
+  i18n: HiLanguage,
 };
 
 // manual icon mapping (use docId OR href)
@@ -105,6 +107,9 @@ const SidebarIconMap = {
   "integrations/n8n": "n8n",
   airtable: "airtable",
   "integrations/airtable": "airtable",
+  // DEVELOPMENT
+  i18n: "i18n",
+  "/development/i18n": "i18n",
 };
 
 export default function DocSidebarItemLink({
