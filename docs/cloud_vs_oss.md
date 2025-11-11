@@ -1,6 +1,6 @@
 ---
 id: cloud-vs-oss
-title: Maxun Cloud vs. Self-Hosted
+title: Cloud vs. Self-Host
 sidebar_position: 10
 ---
 
