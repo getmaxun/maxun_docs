@@ -10,14 +10,14 @@ import { FaRocket, FaBrain, FaRegGem, FaMicrochip } from "react-icons/fa";
 import { HiOutlineBookOpen } from "react-icons/hi2";
 import { TbBrandDocker } from "react-icons/tb";
 import { RiComputerLine } from "react-icons/ri";
-
+import { FiSettings } from "react-icons/fi";
 
 
 const IconMap = {
   introBook: HiOutlineBookOpen,
   docker: TbBrandDocker,
   local: RiComputerLine,
-  brain: FaBrain,
+  environment_variables: FiSettings,
   gem: FaRegGem,
   chip: FaMicrochip,
   rocket: FaRocket,
@@ -32,6 +32,8 @@ const SidebarIconMap = {
   "/installation/docker": "docker",
   local: "local",
   "/installation/local": "local",
+  environment_variables: "environment_variables",
+  "/installation/environment_variables": "environment_variables",
 
   runs: "chip",
   "/docs/runs": "chip",
