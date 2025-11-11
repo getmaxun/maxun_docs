@@ -20,7 +20,7 @@ import { SlOptions } from "react-icons/sl";
 import { LiaRedoAltSolid } from "react-icons/lia";
 import { AiOutlineDeploymentUnit } from "react-icons/ai";
 import { VscRunAll } from "react-icons/vsc";
-
+import { FiDatabase } from "react-icons/fi";
 
 const IconMap = {
   introBook: HiOutlineBookOpen,
@@ -36,6 +36,7 @@ const IconMap = {
   robots_retrain: LiaRedoAltSolid,
   self_host: AiOutlineDeploymentUnit,
   runs: VscRunAll,
+  deep_extraction: FiDatabase,
 };
 
 // manual icon mapping (use docId OR href)
@@ -70,6 +71,9 @@ const SidebarIconMap = {
   // RUNS
   runs: "runs",
   "/docs/runs": "runs",
+  // DEEP EXTRACT
+  "deep-extraction": "deep_extraction",
+  "/docs/deep-extraction": "deep_extraction",
 };
 
 export default function DocSidebarItemLink({
