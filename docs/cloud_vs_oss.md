@@ -1,7 +1,7 @@
 ---
 id: cloud-vs-oss
 title: Cloud vs. Self-Host
-sidebar_position: 10
+sidebar_position: 12
 ---
 
 This document outlines the key differences between Maxun Cloud and the Self-Hosted (Open-Source Software) version, helping you choose the best solution for your needs.
