@@ -25,6 +25,7 @@ import { LuCable } from "react-icons/lu";
 import { VscTools } from "react-icons/vsc";
 import { FiUnlock } from "react-icons/fi";
 import { SiGooglesheets } from "react-icons/si";
+import { TbBrandAirtable } from "react-icons/tb";
 
 
 const IconMap = {
@@ -48,6 +49,7 @@ const IconMap = {
   extract_login: FiUnlock,
   gsheet: SiGooglesheets,
   n8n: LuCable,
+  airtable: TbBrandAirtable,
 };
 
 // manual icon mapping (use docId OR href)
@@ -100,6 +102,8 @@ const SidebarIconMap = {
   "integrations/gsheet": "gsheet",
   n8n: "n8n",
   "integrations/n8n": "n8n",
+  airtable: "airtable",
+  "integrations/airtable": "airtable",
 };
 
 export default function DocSidebarItemLink({
