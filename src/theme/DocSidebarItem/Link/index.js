@@ -17,7 +17,7 @@ import { TbHandClick } from "react-icons/tb";
 import { HiOutlineDuplicate } from "react-icons/hi";
 import { MdOutlineSchedule } from "react-icons/md";
 import { SlOptions } from "react-icons/sl";
-
+import { LiaRedoAltSolid } from "react-icons/lia";
 
 const IconMap = {
   introBook: HiOutlineBookOpen,
@@ -30,6 +30,7 @@ const IconMap = {
   robots_duplicate: HiOutlineDuplicate,
   robots_schedule: MdOutlineSchedule,
   robots_options: SlOptions,
+  robots_retrain: LiaRedoAltSolid,
 };
 
 // manual icon mapping (use docId OR href)
@@ -56,6 +57,8 @@ const SidebarIconMap = {
   "robot/robot-schedule": "robots_schedule",
   robots_options: "robots_options",
   "robot/robot-options": "robots_options",
+  robots_retrain: "robots_retrain",
+  "robot/robot-retrain": "robots_retrain",
 };
 
 export default function DocSidebarItemLink({
