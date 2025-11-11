@@ -1,6 +1,6 @@
 ---
 id: robot-schedule
-title: Schedule Robots
+title: Schedule 
 sidebar_position: 4
 ---
 

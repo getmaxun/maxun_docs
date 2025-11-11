@@ -15,10 +15,37 @@
   --ifm-color-primary-lightest: #ff38d1;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+
+  blockquote {
+    border-left-color: #ff00c3;
+  }
+
+  /* Selects the second child element that has the class .navbar__item */
+  .navbar__item:nth-child(2) {
+    background-color: #ff00c3;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    color: #ffffff !important;
+    margin-left: 5px;
+    margin-right: 15px;
+  }
+
+  .navbar__logo img {
+    border-radius: 5px;
+    height: 35px;
+    width: 42px;
+  }
+
+  .navbar__title {
+    font-size: 1.2rem;
+  }
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
+  --ifm-background-color: #000000 !important;
+  --ifm-background-surface-color: #000000 !important;
+  --ifm-hover-overlay: inherit !important;
   --ifm-color-primary: #ff00c3;
   --ifm-color-primary-dark: #e801b2;
   --ifm-color-primary-darker: #bc0090;
@@ -27,4 +54,46 @@
   --ifm-color-primary-lighter: #ff38d1;
   --ifm-color-primary-lightest: #ff38d1;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+
+  .cardContainer_fWXF,
+  .pagination-nav__link {
+    border: 1px solid #1e1e1e;
+  }
+
+  pre code {
+    background-color: #0b0b0b !important;
+  }
+
+  table {
+
+    th,
+    td,
+    tr {
+      border-color: #1e1e1e;
+    }
+  }
+
+  blockquote {
+    border-left-color: #ff00c3;
+  }
+
+  /* Selects the second child element that has the class .navbar__item */
+  .navbar__item:nth-child(2) {
+    background-color: #ff00c3;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    color: #ffffff !important;
+    margin-left: 5px;
+    margin-right: 15px;
+  }
+
+  .navbar__logo img {
+    border-radius: 5px;
+    height: 35px;
+    width: 42px;
+  }
+
+  .navbar__title {
+    font-size: 1.2rem;
+  }
 }

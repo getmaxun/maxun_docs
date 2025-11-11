@@ -1,10 +1,10 @@
 ---
 id: extract-login
 title: Extract Behind Login
-sidebar_position: 7
+sidebar_position: 12
 ---
 
-With Maxun, it is possible to extract data behind logins. All you need to do is enter your username/email and password. We strongly recommend extracting public data with your Maxun robots.
+With Maxun, it is possible to extract data behind logins. All you need to do is enter your username/email and password. We strongly recommend extracting public data with your Maxun robots - not data requiring login.
 
 ## How to extract behind login?
 1. Enter credentials while training the robot.
@@ -13,12 +13,12 @@ With Maxun, it is possible to extract data behind logins. All you need to do is 
 4. For each run, the robot will enter the stored credentials and login to perform the action specified.
 
 ## Can my account be flagged/deleted?
-Yes. We do not recommend scraping data that requires logging in on websites that have strong bot detection and can block your accounts.
+Maybe. We do not recommend scraping data that requires logging in on websites that have strong bot detection and can block your accounts.
 Using your personal account for data extraction can result in it being flagged, due to IP address changes.
 
 > Despite this, if you want to extract data behind login, we recommend using Maxun locally, rather than the cloud version. 
 
-## Coming Soon...
+## Coming Soon
 1. Cookie support for supported websites.
 2. 2FA and MFA support for better automation.
 

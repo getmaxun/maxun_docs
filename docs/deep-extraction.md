@@ -1,12 +1,12 @@
 ---
 id: deep-extraction
-title: Deep Extraction
-sidebar_position: 5
+title: Deep Extraction (Beta)
+sidebar_position: 11
 ---
 
 # Deep Extraction
 
-> **Note:** Deep Extraction is available exclusively in **Maxun Cloud**. This feature is not available in self-hosted installations.
+> **Note:** Deep Extraction is available exclusively in **Maxun Cloud** and is currently in Beta. This feature is not available in self-hosted installations.
 
 ## Overview
 
