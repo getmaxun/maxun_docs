@@ -13,8 +13,6 @@ import { RiComputerLine } from "react-icons/ri";
 import { FiSettings } from "react-icons/fi";
 import { GrUpgrade } from "react-icons/gr";
 
-
-
 const IconMap = {
   introBook: HiOutlineBookOpen,
   docker: TbBrandDocker,
