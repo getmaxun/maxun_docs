@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-description: Sync the data extracted by your robot directly into a Google Sheet.
+description: Maxun can be used to automate the aggregation of content from various websites.
 ---
 
 # Maxun Use Cases
