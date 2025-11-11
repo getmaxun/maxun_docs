@@ -66,7 +66,7 @@ const IconMap = {
 // manual icon mapping (use docId OR href)
 const SidebarIconMap = {
   intro: "introBook",
-  "/docs/intro": "introBook",
+  "/intro": "introBook",
   // INSTALLATION OSS
   docker: "docker",
   "/installation/docker": "docker",
@@ -91,16 +91,16 @@ const SidebarIconMap = {
   "robot/robot-retrain": "robots_retrain",
   // SELF-HOST
   self_host: "self_host",
-  "/docs/self-host": "self_host",
+  "/self-host": "self_host",
   // RUNS
   runs: "runs",
-  "/docs/runs": "runs",
+  "/runs": "runs",
   // DEEP EXTRACT
   "deep-extraction": "deep_extraction",
-  "/docs/deep-extraction": "deep_extraction",
+  "/deep-extraction": "deep_extraction",
   // BYOP
   byop: "byop",
-  "/docs/byop": "byop",
+  "/byop": "byop",
   // MCP 
   mcpSetup: "mcpSetup",
   "/mcp/setup": "mcpSetup",
