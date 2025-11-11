@@ -8,20 +8,24 @@ import IconExternalLink from "@theme/Icon/ExternalLink";
 import styles from "./styles.module.css";
 import { FaRocket, FaBrain, FaRegGem, FaMicrochip } from "react-icons/fa";
 import { HiOutlineBookOpen } from "react-icons/hi2";
+import { TbBrandDocker } from "react-icons/tb";
 
 
 const IconMap = {
   introBook: HiOutlineBookOpen,
+  docker: TbBrandDocker,
   brain: FaBrain,
   gem: FaRegGem,
   chip: FaMicrochip,
+  rocket: FaRocket,
 };
 
 // manual icon mapping (use docId OR href)
 const SidebarIconMap = {
   intro: "introBook",
   "/docs/intro": "introBook",
-
+  docker: "docker",
+  "/installation/docker": "docker",
   runs: "chip",
   "/docs/runs": "chip",
 };
@@ -40,6 +44,7 @@ export default function DocSidebarItemLink({
 
   //  Pick icon based on docId or href
   const iconKey = SidebarIconMap[item.docId] ?? SidebarIconMap[href] ?? null;
+  console.log("item", item);
   const IconComponent = iconKey ? IconMap[iconKey] : null;
 
   return (
