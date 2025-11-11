@@ -93,11 +93,6 @@ const config = {
             label: 'GitHub',
             position: 'right',
           },
-          {
-            to: 'https://discord.com/invite/5GbPjBUkws',
-            label: 'Discord',
-            position: 'right',
-          },
           {to: 'https://app.maxun.dev', label: 'Maxun Cloud', position: 'right'},
           // {
           //   to: 'https://www.youtube.com/@MaxunOSS',
