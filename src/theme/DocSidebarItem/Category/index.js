@@ -17,7 +17,6 @@ import Link from '@docusaurus/Link';
 import {translate} from '@docusaurus/Translate';
 import useIsBrowser from '@docusaurus/useIsBrowser';
 import DocSidebarItems from '@theme/DocSidebarItems';
-import { FaRocket, FaBrain, FaRegGem, FaMicrochip } from 'react-icons/fa';
 import { GrInstallOption } from "react-icons/gr";
 import { BsRobot } from "react-icons/bs";
 import { TbApi } from "react-icons/tb";
@@ -25,7 +24,6 @@ import { LuBrainCircuit } from "react-icons/lu";
 import { AiOutlineApi } from "react-icons/ai";
 import { BsCodeSlash } from "react-icons/bs";
 import { IoFlashOutline } from "react-icons/io5";
-
 
 // Map keys are lowercase category labels (exact-match on label)
 // Add entries here for every category label you want icons for.
