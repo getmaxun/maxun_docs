@@ -21,6 +21,7 @@ import { LiaRedoAltSolid } from "react-icons/lia";
 import { AiOutlineDeploymentUnit } from "react-icons/ai";
 import { VscRunAll } from "react-icons/vsc";
 import { FiDatabase } from "react-icons/fi";
+import { LuCable } from "react-icons/lu";
 
 const IconMap = {
   introBook: HiOutlineBookOpen,
@@ -37,6 +38,7 @@ const IconMap = {
   self_host: AiOutlineDeploymentUnit,
   runs: VscRunAll,
   deep_extraction: FiDatabase,
+  byop: LuCable,
 };
 
 // manual icon mapping (use docId OR href)
@@ -74,6 +76,9 @@ const SidebarIconMap = {
   // DEEP EXTRACT
   "deep-extraction": "deep_extraction",
   "/docs/deep-extraction": "deep_extraction",
+  // BYOP
+  byop: "byop",
+  "/docs/byop": "byop",
 };
 
 export default function DocSidebarItemLink({
