@@ -17,22 +17,19 @@ import Link from '@docusaurus/Link';
 import {translate} from '@docusaurus/Translate';
 import useIsBrowser from '@docusaurus/useIsBrowser';
 import DocSidebarItems from '@theme/DocSidebarItems';
-
-// -----------------------------
-// ICONS: import and hardcoded map
-// -----------------------------
 import { FaRocket, FaBrain, FaRegGem, FaMicrochip } from 'react-icons/fa';
+import { GrInstallOption } from "react-icons/gr";
+
 
 // Map keys are lowercase category labels (exact-match on label)
 // Add entries here for every category label you want icons for.
 const IconMap = {
-  installation: FaRocket,
+  installation: GrInstallOption,
   gettingstarted: FaBrain,
   guides: FaBrain,
   pricing: FaRegGem,
   architecture: FaMicrochip,
   developers: FaMicrochip,
-  // add more: 'my category label in lowercase (no spaces)': IconComponent
 };
 
 // Helper: normalize label (lowercase, remove spaces)
