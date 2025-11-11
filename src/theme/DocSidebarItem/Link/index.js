@@ -23,6 +23,8 @@ import { VscRunAll } from "react-icons/vsc";
 import { FiDatabase } from "react-icons/fi";
 import { LuCable } from "react-icons/lu";
 import { VscTools } from "react-icons/vsc";
+import { FiUnlock } from "react-icons/fi";
+
 
 const IconMap = {
   introBook: HiOutlineBookOpen,
@@ -42,6 +44,7 @@ const IconMap = {
   byop: LuCable,
   mcpSetup: FiSettings,
   mcpTools: VscTools,
+  extract_login: FiUnlock,
 };
 
 // manual icon mapping (use docId OR href)
@@ -87,6 +90,8 @@ const SidebarIconMap = {
   "/mcp/setup": "mcpSetup",
   mcpTools: "mcpTools",
   "/mcp/tools": "mcpTools",
+  "extract-login": "extract_login",
+  "/docs/extract-login": "extract_login",
 };
 
 export default function DocSidebarItemLink({
