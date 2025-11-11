@@ -13,7 +13,7 @@ With Maxun, it is possible to extract data behind logins. All you need to do is 
 4. For each run, the robot will enter the stored credentials and login to perform the action specified.
 
 ## Can my account be flagged/deleted?
-Yes. We do not recommend scraping data that requires logging in on websites that have strong bot detection and can block your accounts.
+Maybe. We do not recommend scraping data that requires logging in on websites that have strong bot detection and can block your accounts.
 Using your personal account for data extraction can result in it being flagged, due to IP address changes.
 
 > Despite this, if you want to extract data behind login, we recommend using Maxun locally, rather than the cloud version. 
