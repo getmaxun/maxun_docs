@@ -21,6 +21,8 @@ import { FaRocket, FaBrain, FaRegGem, FaMicrochip } from 'react-icons/fa';
 import { GrInstallOption } from "react-icons/gr";
 import { BsRobot } from "react-icons/bs";
 import { TbApi } from "react-icons/tb";
+import { LuBrainCircuit } from "react-icons/lu";
+
 
 // Map keys are lowercase category labels (exact-match on label)
 // Add entries here for every category label you want icons for.
@@ -28,7 +30,7 @@ const IconMap = {
   installation: GrInstallOption,
   robots: BsRobot,
   "api-reference": TbApi,
-  pricing: FaRegGem,
+  mcp: LuBrainCircuit,
   architecture: FaMicrochip,
   developers: FaMicrochip,
 };
