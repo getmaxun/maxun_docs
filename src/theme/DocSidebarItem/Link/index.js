@@ -30,6 +30,7 @@ import { SiN8N } from "react-icons/si";
 import { HiLanguage } from "react-icons/hi2";
 import { GoRepoForked } from "react-icons/go";
 import { FiGithub } from "react-icons/fi";
+import { CiCloudOn } from "react-icons/ci";
 
 
 const IconMap = {
@@ -57,6 +58,7 @@ const IconMap = {
   i18n: HiLanguage,
   repo: GoRepoForked,
   contribute: FiGithub,
+  cloud_vs_oss: CiCloudOn,
 };
 
 // manual icon mapping (use docId OR href)
@@ -118,6 +120,8 @@ const SidebarIconMap = {
   "/development/repo": "repo",
   contribute: "contribute",
   "/development/contributing": "contribute",
+  cloud_vs_oss: "cloud_vs_oss",
+  "/docs/cloud-vs-oss": "cloud_vs_oss",
 };
 
 export default function DocSidebarItemLink({
