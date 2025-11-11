@@ -11,6 +11,8 @@ import { HiOutlineBookOpen } from "react-icons/hi2";
 import { TbBrandDocker } from "react-icons/tb";
 import { RiComputerLine } from "react-icons/ri";
 import { FiSettings } from "react-icons/fi";
+import { GrUpgrade } from "react-icons/gr";
+
 
 
 const IconMap = {
@@ -18,6 +20,7 @@ const IconMap = {
   docker: TbBrandDocker,
   local: RiComputerLine,
   environment_variables: FiSettings,
+  upgrade: GrUpgrade,
   gem: FaRegGem,
   chip: FaMicrochip,
   rocket: FaRocket,
@@ -34,6 +37,8 @@ const SidebarIconMap = {
   "/installation/local": "local",
   environment_variables: "environment_variables",
   "/installation/environment_variables": "environment_variables",
+  upgrade: "upgrade",
+  "/installation/upgrade": "upgrade",
 
   runs: "chip",
   "/docs/runs": "chip",
