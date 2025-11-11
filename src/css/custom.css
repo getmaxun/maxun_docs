@@ -30,14 +30,15 @@
     margin-right: 15px;
   }
 
-.navbar__logo img {
-  border-radius: 5px; 
-  height: 35px;
-  width: 42px;
-}
-.navbar__title {
-  font-size: 1.2rem;
-}
+  .navbar__logo img {
+    border-radius: 5px;
+    height: 35px;
+    width: 42px;
+  }
+
+  .navbar__title {
+    font-size: 1.2rem;
+  }
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -86,12 +87,13 @@
     margin-right: 15px;
   }
 
-.navbar__logo img {
-  border-radius: 5px; 
-  height: 35px;
-  width: 42px;
-}
-.navbar__title {
-  font-size: 1.2rem;
-}
+  .navbar__logo img {
+    border-radius: 5px;
+    height: 35px;
+    width: 42px;
+  }
+
+  .navbar__title {
+    font-size: 1.2rem;
+  }
 }
