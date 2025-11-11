@@ -150,6 +150,8 @@ const SidebarIconMap = {
   "/usecases/content_aggregation": "usecases",
   market_research: "usecases",
   "/usecases/market_research": "usecases",
+  lead_generation: "usecases",
+  "/usecases/lead_generation": "usecases",
 };
 
 export default function DocSidebarItemLink({
