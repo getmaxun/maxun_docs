@@ -56,7 +56,7 @@
   /* Selects the second child element that has the class .navbar__item */
  .navbar__item:nth-child(2) {
   background-color: #ff00c3;
-  border-radius: 5px;
+  border-radius: 8px;
   padding: 0.5rem 1rem;
   color: #ffffff !important;
   margin-left: 5px;
