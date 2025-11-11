@@ -4,7 +4,10 @@ slug: /
 ---
 
 # Introduction
+<span>✨ Turn any website into a live data feed with Maxun’s no-code web scraping and monitoring platform ✨</span>
 
+<br />
+<br />
 Maxun is a powerful no-code platform for web data extraction. With its intuitive point-and-click interface, anyone can extract data from **any** website — no coding required. In just minutes, users can build automation robots to turn websites into structured APIs, scrape data at scale, and much more.
 
 <video controls width="100%">
