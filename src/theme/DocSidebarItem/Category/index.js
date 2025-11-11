@@ -19,13 +19,13 @@ import useIsBrowser from '@docusaurus/useIsBrowser';
 import DocSidebarItems from '@theme/DocSidebarItems';
 import { FaRocket, FaBrain, FaRegGem, FaMicrochip } from 'react-icons/fa';
 import { GrInstallOption } from "react-icons/gr";
-
+import { BsRobot } from "react-icons/bs";
 
 // Map keys are lowercase category labels (exact-match on label)
 // Add entries here for every category label you want icons for.
 const IconMap = {
   installation: GrInstallOption,
-  gettingstarted: FaBrain,
+  robots: BsRobot,
   guides: FaBrain,
   pricing: FaRegGem,
   architecture: FaMicrochip,
