@@ -33,6 +33,7 @@ import { FiGithub } from "react-icons/fi";
 import { CiCloudOn } from "react-icons/ci";
 import { FaQuestion } from "react-icons/fa";
 import { IoKeyOutline } from "react-icons/io5";
+import { MdOutlineWebhook } from "react-icons/md";
 
 const IconMap = {
   introBook: HiOutlineBookOpen,
@@ -64,6 +65,7 @@ const IconMap = {
   api_key: IoKeyOutline,
   robot_api: FiSettings,
   runs_api: VscRunAll,
+  webhooks: MdOutlineWebhook,
 };
 
 // manual icon mapping (use docId OR href)
@@ -135,7 +137,9 @@ const SidebarIconMap = {
   robot_api: "robot_api",
   "/api/robot-api": "robot_api",
   runs_api: "runs_api",
-  "/api/runs-api": "runs_api",
+  "/api/run-api": "runs_api",
+  webhooks: "webhooks",
+  "/api/webhooks": "webhooks",
 };
 
 export default function DocSidebarItemLink({
