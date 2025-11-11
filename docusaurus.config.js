@@ -106,55 +106,55 @@ const config = {
           },
         ],
       },
-      footer: {
-        style: 'dark',
-        links: [
-          {
-            title: 'Community',
-            items: [
-              {
-                label: 'Discord',
-                href: 'https://discord.com/invite/5GbPjBUkws',
-              },
-              {
-                label: 'X (Twitter)',
-                href: 'https://x.com/maxun_io',
-              },
-              {
-                href: 'https://www.youtube.com/@MaxunOSS',
-                label: 'YouTube',
-              },
-            ],
-          },
-          {
-            title: 'Open Source',
-            items: [
-              {
-                label: 'GitHub',
-                href: 'https://github.com/getmaxun/maxun',
-              },
-              {
-                label: 'Edit This Site',
-                href: 'https://github.com/getmaxun/maxun_docs',
-              },
-            ],
-          },
-          {
-            title: 'More',
-            items: [
-              {
-                label: 'Join Maxun Cloud',
-                href: 'https://app.maxun.dev',
-              },
-              {
-                label: 'Website',
-                href: 'https://maxun.dev/',
-              },
-            ],
-          },
-        ],
-        copyright: `Copyright © ${new Date().getFullYear()} Maxun`,
-      },
+      // footer: {
+      //   style: 'dark',
+      //   links: [
+      //     {
+      //       title: 'Community',
+      //       items: [
+      //         {
+      //           label: 'Discord',
+      //           href: 'https://discord.com/invite/5GbPjBUkws',
+      //         },
+      //         {
+      //           label: 'X (Twitter)',
+      //           href: 'https://x.com/maxun_io',
+      //         },
+      //         {
+      //           href: 'https://www.youtube.com/@MaxunOSS',
+      //           label: 'YouTube',
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       title: 'Open Source',
+      //       items: [
+      //         {
+      //           label: 'GitHub',
+      //           href: 'https://github.com/getmaxun/maxun',
+      //         },
+      //         {
+      //           label: 'Edit This Site',
+      //           href: 'https://github.com/getmaxun/maxun_docs',
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       title: 'More',
+      //       items: [
+      //         {
+      //           label: 'Join Maxun Cloud',
+      //           href: 'https://app.maxun.dev',
+      //         },
+      //         {
+      //           label: 'Website',
+      //           href: 'https://maxun.dev/',
+      //         },
+      //       ],
+      //     },
+      //   ],
+      //   copyright: `Copyright © ${new Date().getFullYear()} Maxun`,
+      // },
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
