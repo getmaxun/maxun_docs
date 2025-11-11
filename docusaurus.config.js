@@ -99,11 +99,11 @@ const config = {
             label: 'Discord',
             position: 'right',
           },
-          {
-            to: 'https://www.youtube.com/@MaxunOSS',
-            label: 'Tutorials',
-            position: 'right',
-          },
+          // {
+          //   to: 'https://www.youtube.com/@MaxunOSS',
+          //   label: 'Tutorials',
+          //   position: 'right',
+          // },
         ],
       },
       // footer: {
