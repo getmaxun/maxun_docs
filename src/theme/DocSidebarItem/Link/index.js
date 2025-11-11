@@ -28,6 +28,7 @@ import { SiGooglesheets } from "react-icons/si";
 import { TbBrandAirtable } from "react-icons/tb";
 import { SiN8N } from "react-icons/si";
 import { HiLanguage } from "react-icons/hi2";
+import { GoRepoForked } from "react-icons/go";
 
 
 const IconMap = {
@@ -53,6 +54,7 @@ const IconMap = {
   n8n: SiN8N,
   airtable: TbBrandAirtable,
   i18n: HiLanguage,
+  repo: GoRepoForked,
 };
 
 // manual icon mapping (use docId OR href)
@@ -110,6 +112,8 @@ const SidebarIconMap = {
   // DEVELOPMENT
   i18n: "i18n",
   "/development/i18n": "i18n",
+  repo: "repo",
+  "/development/repo": "repo",
 };
 
 export default function DocSidebarItemLink({
