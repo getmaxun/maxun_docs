@@ -21,6 +21,7 @@
 [data-theme='dark'] {
   --ifm-background-color: #000000 !important;
   --ifm-background-surface-color: #000000 !important;
+  --ifm-hover-overlay: inherit !important;
   --ifm-color-primary: #ff00c3;
   --ifm-color-primary-dark: #e801b2;
   --ifm-color-primary-darker: #bc0090;
