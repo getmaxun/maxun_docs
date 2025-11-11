@@ -31,7 +31,7 @@
   --ifm-color-primary-lightest: #ff38d1;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 
-  .cardContainer_fWXF {
-    box-shadow: 1px solid #b0b0b0;
+  .cardContainer_fWXF, .pagination-nav__link {
+    border: 1px solid #1e1e1e;
   }
 }
