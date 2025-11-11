@@ -29,6 +29,10 @@
     margin-left: 5px;
     margin-right: 15px;
   }
+
+  .navbar__logo img {
+  border-radius: 5px; 
+}
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
