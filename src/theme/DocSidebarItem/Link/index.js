@@ -6,10 +6,8 @@ import Link from "@docusaurus/Link";
 import isInternalUrl from "@docusaurus/isInternalUrl";
 import IconExternalLink from "@theme/Icon/ExternalLink";
 import styles from "./styles.module.css";
-
 import { FaRocket, FaBrain, FaRegGem, FaMicrochip } from "react-icons/fa";
 
-// Icons available
 const IconMap = {
   rocket: FaRocket,
   brain: FaBrain,
@@ -18,7 +16,6 @@ const IconMap = {
 };
 
 // ✅ Manual icon mapping (use docId OR href)
-// Add items as needed
 const SidebarIconMap = {
   intro: "rocket",
   "/docs/intro": "rocket",
@@ -39,7 +36,7 @@ export default function DocSidebarItemLink({
   const isActive = isActiveSidebarItem(item, activePath);
   const isInternalLink = isInternalUrl(href);
 
-  // ✅ Pick icon based on docId or href
+  //  Pick icon based on docId or href
   const iconKey = SidebarIconMap[item.docId] ?? SidebarIconMap[href] ?? null;
   const IconComponent = iconKey ? IconMap[iconKey] : null;
 
