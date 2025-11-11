@@ -1,6 +1,6 @@
 ---
 id: robot-actions
-title: Robot Actions
+title: Actions
 sidebar_position: 2
 ---
 
