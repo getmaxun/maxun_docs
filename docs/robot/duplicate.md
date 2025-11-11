@@ -1,6 +1,6 @@
 ---
 id: robot-duplicate
-title: Robot Duplication
+title: Duplication
 sidebar_position: 3
 ---
 
