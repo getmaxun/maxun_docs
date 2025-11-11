@@ -26,6 +26,7 @@ import { VscTools } from "react-icons/vsc";
 import { FiUnlock } from "react-icons/fi";
 import { SiGooglesheets } from "react-icons/si";
 import { TbBrandAirtable } from "react-icons/tb";
+import { SiN8N } from "react-icons/si";
 
 
 const IconMap = {
@@ -48,7 +49,7 @@ const IconMap = {
   mcpTools: VscTools,
   extract_login: FiUnlock,
   gsheet: SiGooglesheets,
-  n8n: LuCable,
+  n8n: SiN8N,
   airtable: TbBrandAirtable,
 };
 
