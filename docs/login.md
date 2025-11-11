@@ -18,7 +18,7 @@ Using your personal account for data extraction can result in it being flagged, 
 
 > Despite this, if you want to extract data behind login, we recommend using Maxun locally, rather than the cloud version. 
 
-## Coming Soon...
+## Coming Soon
 1. Cookie support for supported websites.
 2. 2FA and MFA support for better automation.
 
