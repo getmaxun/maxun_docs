@@ -66,6 +66,7 @@ const IconMap = {
   robot_api: FiSettings,
   runs_api: VscRunAll,
   webhooks: MdOutlineWebhook,
+  quickstart: FaRocket,
 };
 
 // manual icon mapping (use docId OR href)
@@ -140,6 +141,8 @@ const SidebarIconMap = {
   "/api/run-api": "runs_api",
   webhooks: "webhooks",
   "/api/webhooks": "webhooks",
+  quickstart: "quickstart",
+  "/quickstart": "quickstart",
 };
 
 export default function DocSidebarItemLink({
