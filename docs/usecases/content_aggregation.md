@@ -1,5 +1,6 @@
 ---
 sidebar_position: 1
+title: Content Aggregation
 description: Maxun can be used to automate the aggregation of content from various websites.
 ---
 
