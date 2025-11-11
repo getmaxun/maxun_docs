@@ -62,6 +62,7 @@ const IconMap = {
   cloud_vs_oss: CiCloudOn,
   faq: FaQuestion,
   api_key: IoKeyOutline,
+  robot_api: FiSettings,
 };
 
 // manual icon mapping (use docId OR href)
@@ -130,6 +131,8 @@ const SidebarIconMap = {
   // API
   api_key: "api_key",
   "/api/api": "api_key",
+  robot_api: "robot_api",
+  "/api/robot-api": "robot_api",
 };
 
 export default function DocSidebarItemLink({
