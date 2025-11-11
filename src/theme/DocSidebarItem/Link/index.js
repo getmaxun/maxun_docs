@@ -7,18 +7,20 @@ import isInternalUrl from "@docusaurus/isInternalUrl";
 import IconExternalLink from "@theme/Icon/ExternalLink";
 import styles from "./styles.module.css";
 import { FaRocket, FaBrain, FaRegGem, FaMicrochip } from "react-icons/fa";
+import { HiOutlineBookOpen } from "react-icons/hi2";
+
 
 const IconMap = {
-  rocket: FaRocket,
+  introBook: HiOutlineBookOpen,
   brain: FaBrain,
   gem: FaRegGem,
   chip: FaMicrochip,
 };
 
-// ✅ Manual icon mapping (use docId OR href)
+// manual icon mapping (use docId OR href)
 const SidebarIconMap = {
-  intro: "rocket",
-  "/docs/intro": "rocket",
+  intro: "introBook",
+  "/docs/intro": "introBook",
 
   runs: "chip",
   "/docs/runs": "chip",
