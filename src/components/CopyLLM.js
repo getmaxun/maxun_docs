@@ -37,10 +37,9 @@ export default function CopyPageDropdown() {
     };
   }, []);
 
-  function showToast(type, text, ms = 2400) {
-    if (toastTimer.current) clearTimeout(toastTimer.current);
-    setToast({ type, text });
-    toastTimer.current = setTimeout(() => setToast(null), ms);
+  function showToast(msg) {
+    setToast(msg);
+    setTimeout(() => setToast(null), 2000);
   }
 
   async function handleCopyMarkdown() {
@@ -51,12 +50,12 @@ export default function CopyPageDropdown() {
       }
       const text = await res.text();
       await navigator.clipboard.writeText(text);
-      showToast("success", "Markdown copied to clipboard");
+      showToast("Markdown copied!");
     } catch (err) {
       // Helpful debug in console
       // eslint-disable-next-line no-console
       console.error("Copy markdown failed:", err, rawUrl);
-      showToast("error", "Failed to copy markdown");
+      showToast("Failed to copy markdown");
     } finally {
       setOpen(false);
     }
@@ -117,17 +116,8 @@ export default function CopyPageDropdown() {
       )}
 
       {toast && (
-        <div
-          className={styles.toast}
-          role="status"
-          aria-live="polite"
-          style={{
-            background: toast.type === "success" ? "rgba(16,185,129,0.12)" : "rgba(239,68,68,0.08)",
-            color: toast.type === "success" ? "#10B981" : "#EF4444",
-            border: `1px solid ${toast.type === "success" ? "rgba(16,185,129,0.28)" : "rgba(239,68,68,0.18)"}`,
-          }}
-        >
-          {toast.text}
+        <div className={styles.toast}>
+          {toast}
         </div>
       )}
     </div>

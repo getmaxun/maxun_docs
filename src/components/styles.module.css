@@ -49,11 +49,15 @@
 }
 
 .toast {
-  position: absolute;
-  top: -42px;
-  right: 0;
-  padding: 8px 12px;
-  border-radius: 8px;
-  font-size: 0.9rem;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 8px 14px;
+  background: #1f1f1f;
+  color: white;
+  border-radius: 6px;
+  font-size: 14px;
+  z-index: 9999;
 }
+
