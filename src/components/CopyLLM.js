@@ -92,7 +92,7 @@ export default function CopyPageDropdown() {
               <FiCopy size={15} />
               <div>
                 <div>Copy page</div>
-                <small>Copy this page as Markdown for LLMs</small>
+                <small style={{ fontSize: "11px"}}>Copy this page as Markdown for LLMs</small>
               </div>
             </div>
           </div>
@@ -108,7 +108,7 @@ export default function CopyPageDropdown() {
               <LuFileCode2 size={15} />
               <div>
                 <div>View as Markdown</div>
-                <small>Open raw markdown in a new tab</small>
+                <small style={{ fontSize: "11px"}}>View page in plain text</small>
               </div>
             </div>
           </div>
