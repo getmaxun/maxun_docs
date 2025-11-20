@@ -8,6 +8,9 @@ slug: /quickstart
 ### Maxun Cloud
 
 - Sign up at https://app.maxun.dev/register
-- Show the Maxun Recorder what you want to extract. A "robot" will watch and learn your actions.
+- Choose your robot type:
+   - Extract – show the Recorder what you want to capture. A robot will watch and learn your actions.
+   - Scrape – provide the URL and let Maxun generate clean HTML and LLM-ready Markdown
 - Name your robot and set it to run regularly, like daily.
-- That's it! New users typically set up their first robot in about 2 minutes.
+
+That’s it! Most users create their first robot in about two minutes.
