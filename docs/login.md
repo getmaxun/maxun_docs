@@ -4,6 +4,8 @@ title: Extract Behind Login
 sidebar_position: 12
 ---
 
+> Extract Behind Login is available only for extract robots.
+
 With Maxun, it is possible to extract data behind logins. All you need to do is enter your username/email and password. We strongly recommend extracting public data with your Maxun robots - not data requiring login.
 
 ## How to extract behind login?
