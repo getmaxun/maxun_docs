@@ -4,6 +4,7 @@ description: Sync the data extracted by your robot directly into an Airtable Bas
 ---
 
 # Airtable
+> Airtable integration is available only for extract robots.
 
 ## Overview
 
