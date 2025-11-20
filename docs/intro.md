@@ -4,7 +4,7 @@ slug: /
 ---
 
 # Introduction
-<span>✨ Turn any website into a live data feed with Maxun’s no-code web scraping and monitoring platform ✨</span>
+<span>✨ Turn any website into live, structured, LLM-ready data with Maxun ✨</span>
 
 <br />
 <br />
