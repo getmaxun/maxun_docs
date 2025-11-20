@@ -6,8 +6,6 @@ sidebar_position: 4
 
 Runs are the core functionality of Maxun robots. Each run represents a complete cycle where the robot performs its tasks based on the configuration and training provided by the user at the time of robot creation. A successful run contains all the extracted data, fulfilling the primary objective of the robot.
 
-![Sample Robot Run](sample_run.png)
-
 ## Key Features
 
 ### 1. Execution Options
@@ -24,7 +22,7 @@ Robot runs can be initiated in three different ways:
 
 Once a run is complete, the extracted data can be exported in the following formats:
 
-**1. CSV**: For easy viewing and compatibility with spreadsheet software.
+**1. CSV**: For easy viewing and compatibility with spreadsheet software. 
 
 **2. JSON**: For seamless integration with other applications and systems that utilize structured data.
 
