@@ -158,8 +158,7 @@ const config = {
       content:
       '✨ Introducing Scrape Robots: Turn websites into LLM-ready Markdown & clean HTML for AI apps.',
       backgroundColor: '#ff00c3',
-      textColor: '#091E42',
-      isCloseable: true,
+      textColor: '#ffffffff',
     },
       prism: {
         theme: prismThemes.github,
