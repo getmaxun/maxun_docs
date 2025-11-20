@@ -6,7 +6,7 @@ import Link from "@docusaurus/Link";
 import isInternalUrl from "@docusaurus/isInternalUrl";
 import IconExternalLink from "@theme/Icon/ExternalLink";
 import styles from "./styles.module.css";
-import { FaRocket, FaBrain, FaRegGem, FaMicrochip } from "react-icons/fa";
+import { FaRocket } from "react-icons/fa";
 import { HiOutlineBookOpen } from "react-icons/hi2";
 import { TbBrandDocker } from "react-icons/tb";
 import { RiComputerLine } from "react-icons/ri";
@@ -69,6 +69,7 @@ const IconMap = {
   webhooks: MdOutlineWebhook,
   quickstart: FaRocket,
   usecases: PiStarFourLight,
+  scrape_robots: MdOutlineInfo,
 };
 
 // manual icon mapping (use docId OR href)
@@ -85,18 +86,20 @@ const SidebarIconMap = {
   upgrade: "upgrade",
   "/installation/upgrade": "upgrade",
   // ROBOTS
+  scrape_robots: "scrape_robots",
+  "robot/scrape/scrape-robots": "scrape_robots",
   robots_overview: "robots_overview",
   "robot/robots": "robots_overview",
   robots_actions: "robots_actions",
-  "robot/robot-actions": "robots_actions",
+  "robot/extract/robot-actions": "robots_actions",
   robots_duplicate: "robots_duplicate",
-  "robot/robot-duplicate": "robots_duplicate",
+  "robot/extract/robot-duplicate": "robots_duplicate",
   robots_schedule: "robots_schedule",
-  "robot/robot-schedule": "robots_schedule",
+  "robot/extract/robot-schedule": "robots_schedule",
   robots_options: "robots_options",
-  "robot/robot-options": "robots_options",
+  "robot/extract/robot-options": "robots_options",
   robots_retrain: "robots_retrain",
-  "robot/robot-retrain": "robots_retrain",
+  "robot/extract/robot-retrain": "robots_retrain",
   // SELF-HOST
   self_host: "self_host",
   "/self-host": "self_host",

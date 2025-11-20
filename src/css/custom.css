@@ -41,6 +41,16 @@
   }
 }
 
+/* Increase announcement bar text size */
+:root {
+  --ifm-announcement-bar-height: auto; /* ensures proper spacing */
+}
+
+div[class*="announcementBarContent"] {
+  font-size: 1rem;   /* increase size (default ~0.875rem) */
+  line-height: 1.4;
+}
+
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
   --ifm-background-color: #000000 !important;

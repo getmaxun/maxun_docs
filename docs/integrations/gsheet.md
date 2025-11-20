@@ -4,6 +4,7 @@ description: Sync the data extracted by your robot directly into a Google Sheet.
 ---
 
 # Google Sheet
+> Google Sheet integration is available only for extract robots.
 
 ## Overview
 
