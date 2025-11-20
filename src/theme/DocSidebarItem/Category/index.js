@@ -35,6 +35,7 @@ const IconMap = {
   integrations: AiOutlineApi,
   engineering: BsCodeSlash,
   usecases: IoFlashOutline,
+  extract: IoFlashOutline,
 };
 
 // Helper: normalize label (lowercase, remove spaces)
