@@ -6,7 +6,7 @@ import Link from "@docusaurus/Link";
 import isInternalUrl from "@docusaurus/isInternalUrl";
 import IconExternalLink from "@theme/Icon/ExternalLink";
 import styles from "./styles.module.css";
-import { FaRocket, FaBrain, FaRegGem, FaMicrochip } from "react-icons/fa";
+import { FaRocket } from "react-icons/fa";
 import { HiOutlineBookOpen } from "react-icons/hi2";
 import { TbBrandDocker } from "react-icons/tb";
 import { RiComputerLine } from "react-icons/ri";
