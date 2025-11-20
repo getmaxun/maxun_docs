@@ -153,6 +153,14 @@ const config = {
       //   ],
       //   copyright: `Copyright © ${new Date().getFullYear()} Maxun`,
       // },
+      announcementBar: {
+      id: 'scrape_robots_release',
+      content:
+      '✨ Introducing Scrape Robots: Turn websites into LLM-ready Markdown & clean HTML for AI apps.',
+      backgroundColor: '#fafbfc',
+      textColor: '#091E42',
+      isCloseable: true,
+    },
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
