@@ -28,7 +28,7 @@ Maxun uses web robots to power everything you can do on the platform. There are 
   Your browser does not support the video tag.
 </video>
 
-### 1. Scrape Robots
+### 2. Scrape Robots
 **Built for clean content.**
 - Get clean HTML and LLM-ready Markdown
 - No scripts, styling, ads, or clutter
