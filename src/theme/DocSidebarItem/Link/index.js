@@ -69,6 +69,7 @@ const IconMap = {
   webhooks: MdOutlineWebhook,
   quickstart: FaRocket,
   usecases: PiStarFourLight,
+  scrape_robots: MdOutlineInfo,
 };
 
 // manual icon mapping (use docId OR href)
@@ -85,6 +86,8 @@ const SidebarIconMap = {
   upgrade: "upgrade",
   "/installation/upgrade": "upgrade",
   // ROBOTS
+  scrape_robots: "scrape_robots",
+  "robot/scrape/scrape-robots": "scrape_robots",
   robots_overview: "robots_overview",
   "robot/robots": "robots_overview",
   robots_actions: "robots_actions",
