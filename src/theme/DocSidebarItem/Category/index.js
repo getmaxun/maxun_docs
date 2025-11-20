@@ -36,6 +36,7 @@ const IconMap = {
   engineering: BsCodeSlash,
   usecases: IoFlashOutline,
   extract: IoFlashOutline,
+  scrape: IoFlashOutline,
 };
 
 // Helper: normalize label (lowercase, remove spaces)
