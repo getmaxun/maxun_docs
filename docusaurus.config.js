@@ -157,7 +157,7 @@ const config = {
       id: 'scrape_robots_release',
       content:
       '✨ Introducing Scrape Robots: Turn websites into LLM-ready Markdown & clean HTML for AI apps.',
-      backgroundColor: '#fafbfc',
+      backgroundColor: '#ff00c3',
       textColor: '#091E42',
       isCloseable: true,
     },
