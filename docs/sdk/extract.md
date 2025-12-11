@@ -45,50 +45,47 @@ const robot = await extractor
   });
 ```
 
-#### Key Features
+### Key Features
 
-**1. Auto List Capture**
+### 1. Auto List Capture
 
 When using `captureList`, you only need to provide the list item selector. Maxun automatically:
 - Detects all meaningful fields within each list item
 - Extracts clean, structured data from those fields
 
 ```javascript
-// You provide: list selector
-// Maxun extracts: all fields automatically
 .captureList({ 
   selector: '.product-card'  // That's it! Maxun finds all fields inside
 })
 ```
 
-**2. Auto Pagination (Optional)**
+###  2. Auto Pagination (Optional)
 
 Pagination is completely optional. When you **don't specify** the `pagination` field, Maxun automatically detects and handles pagination for you.
 
 ```javascript
-// Auto pagination - Maxun detects pagination automatically
 .captureList({ 
   selector: '.product-card',
   maxItems: 100
 })
 ```
 
-**3. Pagination with Selectors**
+### 3. Pagination with Selectors
 
-For precise control, specify the pagination type and selector:
+For precise control, specify the pagination type and selector
 
 ```javascript
 .captureList({ 
   selector: '.product-card',
   pagination: {
     type: 'clickNext',
-    selector: 'button.next-page'  // Required for clickNext
+    selector: 'button.next-page'
   },
   maxItems: 100
 })
 ```
 
-**Pagination Types:**
+**Pagination Types**
 
 | Type | Description | Selector Required? | Example |
 |------|-------------|-------------------|---------|
