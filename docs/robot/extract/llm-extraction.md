@@ -36,6 +36,7 @@ AI Mode uses LLMs to automatically create Extract robots from natural language p
 - No API key required
 - Model: `llama3.2-vision`
 - Optional: Specify custom Ollama base URL
+- Note: If running via Docker, set `OLLAMA_BASE_URL=http://host.docker.internal:11434` to access your host's Ollama instance.
 
 **Anthropic Claude**
 - Cloud-based (requires API key)
