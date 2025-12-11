@@ -1,6 +1,6 @@
 ---
 id: llm-prompts
-title: LLM Extraction Prompts
+title: LLM Extraction Prompt Engineering
 sidebar_position: 13
 ---
 
