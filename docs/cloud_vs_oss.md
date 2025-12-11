@@ -43,7 +43,7 @@ Access to pre-built robots and intelligent capabilities.
 | Feature        | Cloud | Self-Hosted |
 | :------------- | :---- | :---------- |
 | 100+ Auto Robots | ✅    | ❌          |
-| AI Features    | ✅    | ❌          |
+| AI Features    | ✅    | ✅          |
 
 ## Notifications & Integrations
 

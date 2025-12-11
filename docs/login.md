@@ -10,7 +10,7 @@ With Maxun, it is possible to extract data behind logins. All you need to do is 
 
 ## How to extract behind login?
 1. Enter credentials while training the robot.
-2. Perform an action to extract data. See supported robot actions here: <a href="/robot/robot-actions">Robot Actions.</a>
+2. Perform an action to extract data. See supported robot actions here: <a href="/robot/robot-actions">Recorder Mode.</a>
 3. Credentials entered while robot training are securely encrypted and stored for future logins.
 4. For each run, the robot will enter the stored credentials and login to perform the action specified.
 

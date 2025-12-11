@@ -1,8 +1,10 @@
 ---
 id: robot-actions
-title: Actions
+title: Recorder Mode
 sidebar_position: 2
 ---
+
+Recorder Mode lets you record your actions into a workflow. Show the Recorder what you want to capture, and a robot will watch and learn.
 
 Depending on the use-case, a robot should be configured to perform any of the following actions.
 
