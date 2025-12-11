@@ -6,7 +6,7 @@ sidebar_position: 1
 
 # Maxun SDK
 
-The Maxun SDK is a Node.js/TypeScript library for building web automation and data extraction into your applications.
+The Maxun SDK lets you create robots programmatically for scraping websites and extracting structured data.
 
 ## Installation
 
