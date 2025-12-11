@@ -9,6 +9,22 @@ sidebar_position: 2
 Build structured data extraction workflows programmatically using the SDK.
 
 ## Creating Extract Robots
+Extract robots can be created using LLM-based extraction or non-LLM rules.
+
+### LLM Extraction (Beta)
+
+Create robots using natural language.
+
+```javascript
+const robot = await extractor.extract('https://example.com', {
+  prompt: 'Extract first 20 product names and prices',
+  llmProvider: 'anthropic',
+  llmApiKey: process.env.ANTHROPIC_API_KEY
+});
+```
+
+See <a href="/robot/extract/llm-extraction">AI Mode</a> for provider details and <a href="/llm-prompts">LLM Extraction Prompts</a> for writing effective prompts.
+
 
 ```javascript
 import { Extract } from 'maxun-sdk';
@@ -25,20 +41,6 @@ const robot = await extractor
     price: '.price'
   });
 ```
-
-### LLM Extraction
-
-Create robots using natural language:
-
-```javascript
-const robot = await extractor.extract('https://example.com', {
-  prompt: 'Extract first 20 product names and prices',
-  llmProvider: 'anthropic',
-  llmApiKey: process.env.ANTHROPIC_API_KEY
-});
-```
-
-See <a href="/robot/extract/llm-extraction">AI Mode</a> for provider details and <a href="/llm-prompts">LLM Extraction Prompts</a> for writing effective prompts.
 
 ## Methods
 
