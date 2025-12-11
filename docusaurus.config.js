@@ -156,7 +156,7 @@ const config = {
       announcementBar: {
       id: 'scrape_robots_release',
       content:
-      '✨ Introducing Maxun SDK & AI Mode - Use LLMs for prompt-driven extraction for any website.',
+      'Introducing Maxun SDK & AI Mode - Use LLMs for prompt-driven extraction for any website.',
       backgroundColor: '#ff00c3',
       textColor: '#ffffffff',
     },
