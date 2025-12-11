@@ -77,6 +77,10 @@ See <a href="/installation/environment_variables">Environment Variables</a> for 
 
 For these use cases, use Recorder Mode to create Extract robots manually.
 
-## Using AI Mode with SDK
+## Using with SDK
 
 AI Mode is also available through the <a href="/sdk/sdk-extract">Maxun SDK</a> for programmatic robot creation.
+
+## Writing Effective Prompts
+
+For guidance on writing effective LLM extraction prompts, see <a href="/llm-prompts">LLM Extraction Prompts</a>.

@@ -76,6 +76,7 @@ const IconMap = {
   usecases: PiStarFourLight,
   scrape_robots: MdOutlineInfo,
   llm_extraction: HiSparkles,
+  llm_prompts: HiSparkles,
   sdk_overview: MdOutlineViewList,
   sdk_extract: BiExtension,
   sdk_scrape: FiScissors,
@@ -149,6 +150,8 @@ const SidebarIconMap = {
   "/cloud-vs-oss": "cloud_vs_oss",
   faq: "faq",
   "/faq-robot": "faq",
+  "llm-prompts": "llm_prompts",
+  "/llm-prompts": "llm_prompts",
   // API
   api_key: "api_key",
   "/api/api": "api_key",

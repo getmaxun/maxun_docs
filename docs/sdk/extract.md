@@ -38,7 +38,7 @@ const robot = await extractor.extract('https://example.com', {
 });
 ```
 
-See <a href="/robot/llm-extraction">AI Mode</a> for details.
+See <a href="/robot/extract/llm-extraction">AI Mode</a> for provider details and <a href="/llm-prompts">LLM Extraction Prompts</a> for writing effective prompts.
 
 ## Methods
 
@@ -50,7 +50,7 @@ See <a href="/robot/llm-extraction">AI Mode</a> for details.
 .navigate('https://example.com')
 ```
 
-### Data Capture
+### Data Extraction
 
 **captureText(fields, name?)**
 
@@ -65,11 +65,11 @@ Extract specific text fields using CSS selectors:
 
 **captureList(config, name?)**
 
-Extract lists with optional pagination:
+Automatically extracts all data fields found within each list item. Just provide the list selector—Maxun detects and extracts all fields automatically.
 
 ```javascript
 .captureList({
-  selector: '.product-item',
+  selector: '.product-item',  // All fields within each item are auto-extracted
   pagination: {
     type: 'clickNext',
     selector: 'button.next-page'
@@ -78,7 +78,7 @@ Extract lists with optional pagination:
 }, 'Products')
 ```
 
-Pagination types: `scrollDown`, `clickNext`, `clickLoadMore`, `scrollUp`
+**Pagination types:** `scrollDown`, `clickNext`, `clickLoadMore`, `scrollUp`
 
 **captureScreenshot(name?, options?)**
 
@@ -142,7 +142,7 @@ const robot = await extractor
   .create('News Articles')
   .navigate('https://news.example.com')
   .captureList({
-    selector: 'article.news-item',
+    selector: 'article.news-item',  // All data within each article is automatically extracted
     pagination: {
       type: 'clickNext',
       selector: 'a.next-page'
@@ -162,7 +162,7 @@ const robot = await extractor
   .type('input[name="q"]', 'data extraction')
   .click('button[type="submit"]')
   .waitFor('.results')
-  .captureList({ selector: '.result-item' });
+  .captureList({ selector: '.result-item' });  // Automatically extracts all fields from each result
 ```
 
 ### Form Fill
