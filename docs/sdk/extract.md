@@ -25,6 +25,7 @@ const robot = await extractor.extract('https://example.com', {
 
 See <a href="/robot/extract/llm-extraction">AI Mode</a> for provider details and <a href="/llm-prompts">LLM Extraction Prompts</a> for writing effective prompts.
 
+### Non LLM Extraction
 
 ```javascript
 import { Extract } from 'maxun-sdk';
@@ -34,7 +35,7 @@ const extractor = new Extract({
 });
 
 const robot = await extractor
-  .create('Product Scraper')
+  .create('Product Extractor')
   .navigate('https://example.com/products')
   .captureText({
     productName: '.product-title',
