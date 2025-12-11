@@ -27,6 +27,8 @@ See <a href="/robot/extract/llm-extraction">AI Mode</a> for provider details and
 
 ### Non LLM Extraction
 
+For non-LLM extraction, you define exact CSS selectors to capture data from web pages.
+
 ```javascript
 import { Extract } from 'maxun-sdk';
 
@@ -42,6 +44,58 @@ const robot = await extractor
     price: '.price'
   });
 ```
+
+#### Key Features
+
+**1. Auto List Capture**
+
+When using `captureList`, you only need to provide the list item selector. Maxun automatically:
+- Detects all meaningful fields within each list item
+- Extracts clean, structured data from those fields
+
+```javascript
+// You provide: list selector
+// Maxun extracts: all fields automatically
+.captureList({ 
+  selector: '.product-card'  // That's it! Maxun finds all fields inside
+})
+```
+
+**2. Auto Pagination (Optional)**
+
+Pagination is completely optional. When you **don't specify** the `pagination` field, Maxun automatically detects and handles pagination for you.
+
+```javascript
+// Auto pagination - Maxun detects pagination automatically
+.captureList({ 
+  selector: '.product-card',
+  maxItems: 100
+})
+```
+
+**3. Pagination with Selectors**
+
+For precise control, specify the pagination type and selector:
+
+```javascript
+.captureList({ 
+  selector: '.product-card',
+  pagination: {
+    type: 'clickNext',
+    selector: 'button.next-page'  // Required for clickNext
+  },
+  maxItems: 100
+})
+```
+
+**Pagination Types:**
+
+| Type | Description | Selector Required? | Example |
+|------|-------------|-------------------|---------|
+| `scrollDown` | Infinite scroll (downward) | ❌ No | `{ type: 'scrollDown' }` |
+| `scrollUp` | Infinite scroll (upward) | ❌ No | `{ type: 'scrollUp' }` |
+| `clickNext` | Click "Next" button/link | ✅ Yes | `{ type: 'clickNext', selector: 'a.next' }` |
+| `clickLoadMore` | Click "Load More" button | ✅ Yes | `{ type: 'clickLoadMore', selector: 'button.load-more' }` |
 
 ## Methods
 
@@ -68,20 +122,21 @@ Extract specific text fields using CSS selectors:
 
 **captureList(config, name?)**
 
-Automatically extracts all data fields found within each list item. Just provide the list selector—Maxun detects and extracts all fields automatically.
+Extract data from lists with automatic field detection. See [Key Features](#key-features) above for details on auto list capture and pagination.
 
 ```javascript
+// Simple - auto-detects all fields
 .captureList({
-  selector: '.product-item',  // All fields within each item are auto-extracted
-  pagination: {
-    type: 'clickNext',
-    selector: 'button.next-page'
-  },
+  selector: '.product-item'
+}, 'Products')
+
+// With pagination
+.captureList({
+  selector: '.product-item',
+  pagination: { type: 'scrollDown' },
   maxItems: 50
 }, 'Products')
 ```
-
-**Pagination types:** `scrollDown`, `clickNext`, `clickLoadMore`, `scrollUp`
 
 **captureScreenshot(name?, options?)**
 
@@ -145,7 +200,7 @@ const robot = await extractor
   .create('News Articles')
   .navigate('https://news.example.com')
   .captureList({
-    selector: 'article.news-item',  // All data within each article is automatically extracted
+    selector: 'article.news-item',
     pagination: {
       type: 'clickNext',
       selector: 'a.next-page'
@@ -165,7 +220,7 @@ const robot = await extractor
   .type('input[name="q"]', 'data extraction')
   .click('button[type="submit"]')
   .waitFor('.results')
-  .captureList({ selector: '.result-item' });  // Automatically extracts all fields from each result
+  .captureList({ selector: '.result-item' });
 ```
 
 ### Form Fill
