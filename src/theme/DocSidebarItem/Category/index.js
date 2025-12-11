@@ -26,6 +26,7 @@ import { BsCodeSlash } from "react-icons/bs";
 import { IoFlashOutline } from "react-icons/io5";
 import { FaMarkdown } from "react-icons/fa";
 import { LuFocus } from "react-icons/lu";
+import { BiCodeBlock } from "react-icons/bi";
 
 // Map keys are lowercase category labels (exact-match on label)
 // Add entries here for every category label you want icons for.
@@ -33,6 +34,7 @@ const IconMap = {
   "self-host": GrInstallOption,
   robots: BsRobot,
   "api-reference": TbApi,
+  sdk: BiCodeBlock,
   mcp: LuBrainCircuit,
   integrations: AiOutlineApi,
   engineering: BsCodeSlash,

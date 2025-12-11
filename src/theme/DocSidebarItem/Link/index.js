@@ -35,6 +35,11 @@ import { FaQuestion } from "react-icons/fa";
 import { IoKeyOutline } from "react-icons/io5";
 import { MdOutlineWebhook } from "react-icons/md";
 import { PiStarFourLight } from "react-icons/pi";
+import { HiSparkles } from "react-icons/hi2";
+import { MdOutlineViewList } from "react-icons/md";
+import { BiExtension } from "react-icons/bi";
+import { FiScissors } from "react-icons/fi";
+import { MdManageAccounts } from "react-icons/md";
 
 const IconMap = {
   introBook: HiOutlineBookOpen,
@@ -70,6 +75,11 @@ const IconMap = {
   quickstart: FaRocket,
   usecases: PiStarFourLight,
   scrape_robots: MdOutlineInfo,
+  llm_extraction: HiSparkles,
+  sdk_overview: MdOutlineViewList,
+  sdk_extract: BiExtension,
+  sdk_scrape: FiScissors,
+  sdk_robot: MdManageAccounts,
 };
 
 // manual icon mapping (use docId OR href)
@@ -100,6 +110,8 @@ const SidebarIconMap = {
   "robot/extract/robot-options": "robots_options",
   robots_retrain: "robots_retrain",
   "robot/extract/robot-retrain": "robots_retrain",
+  llm_extraction: "llm_extraction",
+  "robot/extract/llm-extraction": "llm_extraction",
   // SELF-HOST
   self_host: "self_host",
   "/self-host": "self_host",
@@ -161,6 +173,15 @@ const SidebarIconMap = {
   "/usecases/real_estate": "usecases",
     academic_research: "usecases",
   "/usecases/academic_research": "usecases",
+  // SDK
+  "sdk-overview": "sdk_overview",
+  "/sdk/sdk-overview": "sdk_overview",
+  "sdk-extract": "sdk_extract",
+  "/sdk/sdk-extract": "sdk_extract",
+  "sdk-scrape": "sdk_scrape",
+  "/sdk/sdk-scrape": "sdk_scrape",
+  "sdk-robot": "sdk_robot",
+  "/sdk/sdk-robot": "sdk_robot",
 };
 
 export default function DocSidebarItemLink({
