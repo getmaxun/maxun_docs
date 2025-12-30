@@ -9,7 +9,7 @@ Maxun robots are automated tools that help you collect data from websites withou
 There are four types of robots, each designed for a different job.
 
 ### 1. Extract
-Extract emulates real user behavior and captures structured data. No code required.
+Extract emulates real user behavior and captures structured data.
 - <a href="/robot/extract/robot-actions">Recorder Mode</a> - Record your actions as you browse; Maxun turns them into a reusable extraction robot.
 - <a href="/robot/extract/llm-extraction">AI Mode</a> - Describe what you want in natural language and let LLM-powered extraction do the rest.
 
@@ -17,7 +17,7 @@ Learn more <a href="/category/extract">here</a>.
 
 
 ### 2. Scrape
-Scrape converts full webpages into clean Markdown, HTML and can capture screenshots. Ideal for AI workflows, agents, and document processing. No code required.
+Scrape converts full webpages into clean Markdown, HTML and can capture screenshots. Ideal for AI workflows, agents, and document processing. 
 
 Learn more <a href="/robot/scrape/scrape-robots">here</a>.
 
