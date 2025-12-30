@@ -8,8 +8,6 @@ sidebar_position: 1
 
 Search performs web searches and scrapes content from search results. Instead of manually searching and visiting each result, search robots automate the entire process - from running queries to scraping content.
 
-![Search Robot Interface](search_interface.png)
-
 ## How It Works
 
 1. **Enter Search Query**: Describe what you're looking for in natural language.
