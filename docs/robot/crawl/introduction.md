@@ -8,8 +8,6 @@ sidebar_position: 1
 
 Crawl automatically discovers and scrapes multiple pages from a website. Instead of manually specifying each URL, crawl intelligently finds pages and extracts content from each page.
 
-![Crawl Robot Interface](crawl_interface.png)
-
 ## How It Works
 
 1. **Enter Starting URL**: Provide the webpage where the crawl should begin.
