@@ -48,12 +48,8 @@ AI Mode uses LLMs to automatically create Extract robots from natural language p
 - Get your API key from: <a href="https://platform.openai.com/api-keys">OpenAI Platform</a>
 
 ### Setting API Keys
-
-**For Maxun Cloud**
-When you select Anthropic Claude or OpenAI GPT as your provider, an API key field will appear. Enter your API key in this field before creating the robot.
-
 **For Self-Hosted**
-Set the API keys as environment variables before starting Maxun:
+Set the API keys as environment variables before starting Maxun
 ```bash
 ANTHROPIC_API_KEY=your-anthropic-key
 OPENAI_API_KEY=your-openai-key
