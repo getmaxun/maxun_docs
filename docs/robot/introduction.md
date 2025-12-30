@@ -15,10 +15,7 @@ Extract emulates real user behavior and captures structured data. No code requir
 
 
 ### 2. Scrape
-**Built for clean content.**
-- Get clean HTML and LLM-ready Markdown
-- No scripts, styling, ads, or clutter
-- Ideal for AI workflows, RAG, summarization, embeddings, and content pipelines
+Scrape converts full webpages into clean Markdown, HTML and can capture screenshots. Ideal for AI workflows, agents, and document processing. No code required.
 
 ### 3. Crawl
 **Automatically discover and scrape multiple pages from websites.**
