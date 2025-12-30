@@ -114,7 +114,7 @@ const SidebarIconMap = {
   robots_duplicate: "robots_duplicate",
   "robot/extract/robot-duplicate": "robots_duplicate",
   robots_schedule: "robots_schedule",
-  "robot/extract/robot-schedule": "robots_schedule",
+  "robot-schedule": "robots_schedule",
   robots_options: "robots_options",
   "robot/extract/robot-options": "robots_options",
   robots_retrain: "robots_retrain",
