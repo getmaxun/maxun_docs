@@ -21,32 +21,7 @@ Scrape converts full webpages into clean Markdown, HTML and can capture screensh
 Crawl entire websites and extract content from every relevant page, with full control over scope and discovery.
 
 ### 4. Search
-**Perform web searches and scrape results automatically.**
-- Search the web using DuckDuckGo
-- Two modes: discover (metadata only) or scrape (full content)
-- Time-based filters (day, week, month, year)
-- Ideal for research, competitive analysis, and content aggregation
-
-## What Can Robots Do?
-- ✨ Open a webpage
-- ✨ Log in
-- ✨ Click on buttons
-- ✨ Fill out a form
-- ✨ Select from a dropdown menu, radios, checkboxes, dates, times, etc.
-- ✨ Take screenshots
-- ✨ Gather web data without writing a single line of code - just point, click, and collect
-- ✨ Handle infinite scrolling and pagination
-- ✨ Auto-adapt to website layout & structural changes
-- ✨ Run on a specific schedule
-- ✨ Run via APIs for third-party integrations
-- ✨ Extract data behind login
-- ✨ Integrate with your favorite applications. N8N, Google Sheet, Airtable and more
-- ✨ Send data to webhooks
-- ✨ Get clean HTML from websites
-- ✨ Turn websites into LLM-ready markdown for AI applications
-- ✨ Talk to your LLM with MCP (Model Context Protocol)
-
-... and much more!
+Run automated web searches to discover or scrape results, with support for time-based filters.
 
 <!-- ## Robot Actions
 Depending on the use-case, a robot should be configured to perform any of the following actions.
