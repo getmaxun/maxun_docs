@@ -5,7 +5,7 @@ title: Scrape
 
 # Scrape
 
-Scrape lets you convert any webpage into **clean HTML** or **LLM-ready Markdown**.
+Scrape lets you convert any webpage into **clean HTML**, **LLM-ready Markdown** and **capture screenshots**.
 Just provide a URL, choose your output format, and Maxun handles the rest.
 
 ## How It Works
