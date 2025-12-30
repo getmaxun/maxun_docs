@@ -44,10 +44,6 @@ Search performs web searches and scrapes content from search results. Instead of
 - All links found on the page
 - HTTP status code
 
-## Search Provider
-
-Search robots currently use **DuckDuckGo** as the search provider. DuckDuckGo offers privacy-focused search results without tracking or personalization.
-
 ## ✅ When to Use Search Robots
 
 1. You need to gather information from multiple sources on a topic
