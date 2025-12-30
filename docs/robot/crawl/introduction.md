@@ -1,12 +1,12 @@
 ---
-id: crawl-introduction
-title: Crawl Robots
+id: crawl
+title: Crawl
 sidebar_position: 1
 ---
 
-# Crawl Robots
+# Crawl
 
-Crawl robots automatically discover and scrape multiple pages from a website. Instead of manually specifying each URL, crawl robots intelligently find pages using sitemaps and by following links, then extract content from each page.
+Crawl automatically discovers and scrapes multiple pages from a website. Instead of manually specifying each URL, crawl intelligently finds pages and extracts content from each page.
 
 ![Crawl Robot Interface](crawl_interface.png)
 
