@@ -17,7 +17,7 @@ Crawl automatically discovers and scrapes multiple pages from a website. Instead
 
 ## What Gets Extracted
 
-For each page discovered, the crawl robot extracts:
+For each page discovered, the crawl extracts
 - **Page metadata**: Title, language, description, favicon, and all meta tags
 - **HTML content**: Full page HTML
 - **Text content**: Clean body text with word count
@@ -33,13 +33,13 @@ For each page discovered, the crawl robot extracts:
 
 ## ❌ When Not to Use Crawl Robots
 
-1. You only need data from a single page (use Extract or Scrape robots instead)
+1. You only need data from a single page (use Extract or Scrape instead)
 2. You need complex interactions like logins or form submissions
-3. You need to extract structured data in a specific format (use Extract robots)
+3. You need to extract structured data in a specific format (use Extract)
 4. You need to control the exact order pages are visited
 
-For complex workflows with user interactions, use Extract robots instead.
+For complex workflows with user interactions, use Extract instead.
 
 ## Using with SDK
 
-Crawl robots are available through the <a href="/sdk/sdk-crawl">Maxun SDK</a> for programmatic usage and integration into your applications.
+Crawl is available through the <a href="/sdk/sdk-crawl">Maxun SDK</a> for programmatic usage and integration into your applications.
