@@ -18,12 +18,7 @@ Extract emulates real user behavior and captures structured data. No code requir
 Scrape converts full webpages into clean Markdown, HTML and can capture screenshots. Ideal for AI workflows, agents, and document processing. No code required.
 
 ### 3. Crawl
-**Automatically discover and scrape multiple pages from websites.**
-- Intelligent page discovery using sitemaps and link following
-- Configurable crawl scope (domain, subdomain, or path)
-- Filter pages with URL patterns
-- Extract full content from every discovered page
-- Perfect for documentation, blogs, and multi-page content
+Automatically crawl websites to discover, filter, and extract content from every relevant page, with intelligent page discovery, link following and configurable scopes.
 
 ### 4. Search
 **Perform web searches and scrape results automatically.**
