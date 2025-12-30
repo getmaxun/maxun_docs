@@ -33,11 +33,11 @@ Search performs web searches and scrapes content from search results. Instead of
 
 ## What Gets Extracted
 
-**Discover Mode Returns:**
+**Discover Mode Returns**
 - Search result title and description
 - Result URL
 
-**Scrape Mode Returns All Above Plus:**
+**Scrape Mode Returns All Above Plus**
 - Full page metadata (title, language, meta tags, favicon)
 - Complete HTML content
 - Clean text content with word count
