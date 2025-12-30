@@ -1,0 +1,7 @@
+{
+  "label": "Crawl",
+  "link": {
+    "type": "generated-index",
+    "description": "Automatically discover and scrape multiple pages from websites."
+  }
+}

@@ -33,7 +33,7 @@ OPENAI_API_KEY=your-openai-key
 ## SDK Initialization
 
 ```javascript
-import { Extract, Scrape } from 'maxun-sdk';
+import { Extract, Scrape, Crawl, Search } from 'maxun-sdk';
 
 // For Extract robots
 const extractor = new Extract({
@@ -42,6 +42,16 @@ const extractor = new Extract({
 
 // For Scrape robots
 const scraper = new Scrape({
+  apiKey: process.env.MAXUN_API_KEY
+});
+
+// For Crawl robots
+const crawler = new Crawl({
+  apiKey: process.env.MAXUN_API_KEY
+});
+
+// For Search robots
+const searcher = new Search({
   apiKey: process.env.MAXUN_API_KEY
 });
 ```

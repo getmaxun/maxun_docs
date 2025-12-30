@@ -6,7 +6,7 @@ sidebar_position: 1
 
 Maxun robots are automated tools that help you collect data from websites without writing any code. Think of them as your personal web assistants that can navigate websites, extract information, and organize data just like you would manually - but faster and more efficiently.
 
-There are two types of robots, each designed for a different job.
+There are four types of robots, each designed for a different job.
 
 ### 1. Extract Robots
 **Extract robots emulate real user behavior and capture structured data at scale.**
@@ -22,6 +22,21 @@ There are two types of robots, each designed for a different job.
 - Get clean HTML and LLM-ready Markdown
 - No scripts, styling, ads, or clutter
 - Ideal for AI workflows, RAG, summarization, embeddings, and content pipelines
+
+### 3. Crawl Robots
+**Automatically discover and scrape multiple pages from websites.**
+- Intelligent page discovery using sitemaps and link following
+- Configurable crawl scope (domain, subdomain, or path)
+- Filter pages with URL patterns
+- Extract full content from every discovered page
+- Perfect for documentation, blogs, and multi-page content
+
+### 4. Search Robots
+**Perform web searches and scrape results automatically.**
+- Search the web using DuckDuckGo
+- Two modes: discover (metadata only) or scrape (full content)
+- Time-based filters (day, week, month, year)
+- Ideal for research, competitive analysis, and content aggregation
 
 ## What Can Robots Do?
 - ✨ Open a webpage
