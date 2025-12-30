@@ -13,6 +13,8 @@ Extract emulates real user behavior and captures structured data. No code requir
 - Recorder Mode - Record your actions as you browse; Maxun turns them into a reusable extraction robot.
 - AI Mode - Describe what you want in natural language and let LLM-powered extraction do the rest.
 
+Learn more <a href="/category/extract">here</a>.
+
 
 ### 2. Scrape
 Scrape converts full webpages into clean Markdown, HTML and can capture screenshots. Ideal for AI workflows, agents, and document processing. No code required.
