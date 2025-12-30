@@ -19,7 +19,8 @@ AI Mode uses LLMs to automatically create Extract robots from natural language p
    - Example: "Get company names, descriptions, and batch information"
    - Example: "Extract article headlines, authors, and publication dates"
 
-3. **Select LLM Provider**: Choose your preferred AI provider based on your needs:
+3. **Select LLM Provider**: Choose your preferred AI provider based on your needs.
+> Note: This option is available only in open source. Maxun Cloud automatically uses the right LLM for the task.
    - **Ollama**: Best for local/offline use, no costs, no API key needed
    - **Anthropic Claude**: Best for accuracy and complex extractions (recommended)
    - **OpenAI GPT**: Good balance of speed and accuracy
