@@ -3,21 +3,15 @@ id: scrape-robots
 title: Scrape
 ---
 
-# Scrape Robots
+# Scrape
 
-Scrape robots let you convert any webpage into **clean HTML** or **LLM-ready Markdown** with no setup or recording required.  
+Scrape lets you convert any webpage into **clean HTML** or **LLM-ready Markdown**.
 Just provide a URL, choose your output format, and Maxun handles the rest.
-
-## What Are Scrape Robots?
-
-Scrape robots are built for fast, reliable content extraction. Unlike Extract robots (which learn actions through the Recorder), scrape robots fetch a webpage directly and return a clean, structured version of its content—perfect for AI, RAG pipelines, summarization, and content processing.
-
-Scrape robots are available in both **Maxun Cloud** and **Maxun OSS (v0.0.27 and later)**.
 
 ## How It Works
 
 1. Enter the URL you want to scrape.  
-2. Choose your output format:  
+2. Choose your output format  
    - **Clean HTML**  
    - **Markdown** (LLM-ready)  
 3. Run the robot.  
