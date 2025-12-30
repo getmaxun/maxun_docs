@@ -19,11 +19,17 @@ Learn more <a href="/category/extract">here</a>.
 ### 2. Scrape
 Scrape converts full webpages into clean Markdown, HTML and can capture screenshots. Ideal for AI workflows, agents, and document processing. No code required.
 
+Learn more <a href="/robot/scrape/scrape-robots">here</a>.
+
 ### 3. Crawl
 Crawl entire websites and extract content from every relevant page, with full control over scope and discovery.
 
+Learn more <a href="/robot/crawl/crawl-introduction">here</a>.
+
 ### 4. Search
 Run automated web searches to discover or scrape results, with support for time-based filters.
+
+Learn more <a href="/robot/search/search-introduction">here</a>.
 
 <!-- ## Robot Actions
 Depending on the use-case, a robot should be configured to perform any of the following actions.
