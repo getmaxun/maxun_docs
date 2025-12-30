@@ -106,7 +106,7 @@ const SidebarIconMap = {
   "/installation/upgrade": "upgrade",
   // ROBOTS
   scrape_robots: "scrape_robots",
-  "robot/scrape/scrape-robots": "scrape_robots",
+  "robot/scrape": "scrape_robots",
   robots_overview: "robots_overview",
   "robot/robots": "robots_overview",
   robots_actions: "robots_actions",
