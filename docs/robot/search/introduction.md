@@ -4,9 +4,9 @@ title: Overview
 sidebar_position: 1
 ---
 
-# Search Robots
+# Search
 
-Search robots perform web searches and optionally scrape content from search results. Instead of manually searching and visiting each result, search robots automate the entire process - from running queries to scraping content.
+Search performs web searches and scrapes content from search results. Instead of manually searching and visiting each result, search robots automate the entire process - from running queries to scraping content.
 
 ![Search Robot Interface](search_interface.png)
 
