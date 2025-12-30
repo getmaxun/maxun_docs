@@ -25,3 +25,7 @@ Just provide a URL, choose your output format, and Maxun handles the rest.
 - Clean HTML or Markdown for an LLM  
 
 If you need logins, interactions, pagination, or element-level data capture, use **Extract** instead.
+
+## Using with SDK
+
+Scrape is available through the <a href="/sdk/sdk-scrape">Maxun SDK</a> for programmatic usage and integration into your applications.
