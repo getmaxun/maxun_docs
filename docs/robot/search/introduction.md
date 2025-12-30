@@ -44,20 +44,20 @@ Search performs web searches and scrapes content from search results. Instead of
 - All links found on the page
 - HTTP status code
 
-## ✅ When to Use Search Robots
+## ✅ When to Use Search
 
 1. You need to gather information from multiple sources on a topic
 2. You want to scrape content from top search results automatically
 3. You need to monitor search rankings for specific queries
 
-## ❌ When Not to Use Search Robots
+## ❌ When Not to Use Search
 
 1. You already know the exact URLs you want to scrape (use Crawl or Scrape robots)
 2. You need results from a specific search engine other than DuckDuckGo
 3. You need highly personalized or location-specific results
 4. You're searching for extremely niche content with few results
 
-For known URLs, use Crawl robots for multiple pages or Scrape robots for single pages.
+For known URLs, use Crawl for multiple pages or Scrape for single pages.
 
 ## Using with SDK
 
