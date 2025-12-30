@@ -10,12 +10,9 @@ There are four types of robots, each designed for a different job.
 
 ### 1. Extract Robots
 **Extract robots emulate real user behavior and capture structured data at scale.**
-- Built for automation and structured data
+- Built for structured data extraction
 - Point-and-click interface
-- Extract from any website, including behind logins
 - Record user actions (clicks, scrolls, form fills, pagination, etc.)
-- Convert sites into APIs, spreadsheets, and workflows
-- Scale extractions and run on schedules or via API
 
 ### 2. Scrape Robots
 **Built for clean content.**
