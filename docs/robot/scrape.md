@@ -1,5 +1,5 @@
 ---
-id: scrape-robots
+id: scrape
 title: Scrape
 ---
 
