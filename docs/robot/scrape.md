@@ -18,24 +18,6 @@ Just provide a URL, choose your output format, and Maxun handles the rest.
    - **Full page screenshot**
 3. Run the robot.  
 
-That's all.
-
-## Output Formats
-
-### Clean HTML  
-- No ads  
-- No scripts or styling  
-- Inline noise removed  
-- Structure preserved  
-- Ideal for downstream processing or storage
-
-### Markdown  
-- Optimized for LLMs  
-- Headings, lists, tables, links, and text extracted cleanly  
-- Great for embeddings, summarization, and RAG workflows
-
-Both formats are always available for every run.
-
 ## Features
 
 - One-step scraping  
