@@ -41,7 +41,6 @@ const IconMap = {
   engineering: BsCodeSlash,
   usecases: IoFlashOutline,
   extract: LuFocus,
-  scrape: FaMarkdown,
   crawl: TbWorldSearch,
   search: FiSearch,
 };
