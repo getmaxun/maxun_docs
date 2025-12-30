@@ -8,7 +8,6 @@ sidebar_position: 2
 
 Configure how your crawl robot discovers and scrapes pages from a website.
 
-![Crawl Configuration Settings Basic](crawl_config_basic.png)
 
 ## Basic Configuration
 
@@ -24,8 +23,6 @@ Configure how your crawl robot discovers and scrapes pages from a website.
 - Maximum number of pages to crawl
 - Pages are discovered and crawled in order of relevance
 - Recommended: Start with 10-20 pages to test your configuration
-
-![Crawl Configuration Settings Advanced](crawl_config_advanced.png)
 
 ## Advanced Options
 
@@ -56,6 +53,7 @@ Choose how broadly the robot should crawl from your starting URL:
 - Higher depth values discover more pages but increase crawl time
 
 ### URL Filtering
+>**Note:** This feature is currently in development and not fully enforced.
 
 **Include Paths**
 - Regex patterns for URLs to include in your crawl
@@ -74,9 +72,6 @@ Choose how broadly the robot should crawl from your starting URL:
 - The `.*` matches any characters (wildcard)
 - Use `\\.` to match literal dots in URLs
 - Patterns are case-sensitive by default
-
->**Note:** This feature is currently in development and not fully enforced.
-
 
 ### Discovery Options
 
