@@ -2,6 +2,6 @@
   "label": "Crawl",
   "link": {
     "type": "generated-index",
-    "description": "Automatically discover and scrape multiple pages from websites."
+    "description": "Crawl entire websites and extract content from every relevant page, with full control over scope and discovery."
   }
 }
