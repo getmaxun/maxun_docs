@@ -52,7 +52,7 @@ Search performs web searches and scrapes content from search results. Instead of
 
 ## ❌ When Not to Use Search
 
-1. You already know the exact URLs you want to scrape (use Crawl or Scrape robots)
+1. You already know the exact URLs you want to scrape (use Crawl or Scrape)
 2. You need results from a specific search engine other than DuckDuckGo
 3. You need highly personalized or location-specific results
 4. You're searching for extremely niche content with few results
