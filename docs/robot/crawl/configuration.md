@@ -88,10 +88,7 @@ Choose how broadly the robot should crawl from your starting URL:
 **Best Practice**: Enable both options for comprehensive discovery. The robot will combine URLs from both sources and remove duplicates.
 
 ### Robots.txt Compliance
-
-**Respect Robots**
-- When enabled, the crawler respects robots.txt directives
-- Recommended for ethical crawling of third-party websites
+When enabled, the crawler respects robots.txt directives. Recommended for ethical crawling of third-party websites. By default enabled.
 
 ## Example Configurations
 
