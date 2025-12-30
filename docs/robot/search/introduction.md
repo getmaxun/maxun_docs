@@ -47,10 +47,8 @@ Search performs web searches and scrapes content from search results. Instead of
 ## ✅ When to Use Search Robots
 
 1. You need to gather information from multiple sources on a topic
-2. You're doing competitive research or market analysis
-3. You want to scrape content from top search results automatically
-4. You're building datasets for AI training or analysis
-5. You need to monitor search rankings for specific queries
+2. You want to scrape content from top search results automatically
+3. You need to monitor search rankings for specific queries
 
 ## ❌ When Not to Use Search Robots
 
