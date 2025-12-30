@@ -13,9 +13,10 @@ Just provide a URL, choose your output format, and Maxun handles the rest.
 1. Enter the URL you want to scrape.  
 2. Choose your output format  
    - **Clean HTML**  
-   - **Markdown** (LLM-ready)  
+   - **Markdown**
+   - **Visible part screenshot**
+   - **Full page screenshot**
 3. Run the robot.  
-4. Download the results or use them programmatically via API.
 
 That's all.
 
