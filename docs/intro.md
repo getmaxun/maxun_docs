@@ -40,24 +40,3 @@ Maxun lets users creates custom robots that emulate user actions for automated d
 
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ZXGQEwQN7yI?si=uhw4zP3Wx9bGBn49" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
-
-## What Can Robots Do?
-- ✨ Open a webpage
-- ✨ Log in
-- ✨ Click on buttons
-- ✨ Fill out a form
-- ✨ Select from a dropdown menu, radios, checkboxes, dates, times, etc.
-- ✨ Take screenshots
-- ✨ Gather web data without writing a single line of code - just point, click, and collect
-- ✨ Handle infinite scrolling and pagination
-- ✨ Auto-adapt to website layout & structural changes
-- ✨ Run on a specific schedule
-- ✨ Run via APIs for third-party integrations
-- ✨ Extract data behind login
-- ✨ Integrate with your favorite applications. N8N, Google Sheet, Airtable and more
-- ✨ Send data to webhooks
-- ✨ Get clean HTML from websites
-- ✨ Turn websites into LLM-ready markdown for AI applications
-- ✨ Talk to your LLM with MCP (Model Context Protocol)
-
-... and much more!
