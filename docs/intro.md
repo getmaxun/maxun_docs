@@ -21,7 +21,7 @@ Turn websites into structured datasets and APIs, even across dynamic pages and a
 Automatically discover and collect data across entire websites with intelligent link following and scoped control.
 
 ### Scraping
-Capture clean HTML and LLM-ready Markdown, free from scripts, styling, ads, and clutter.
+Convert full webpages into clean Markdown, HTML and capture screenshots. 
 
 ### Search
 Run programmatic web searches and extract results as metadata or full content, with time-based filtering.
