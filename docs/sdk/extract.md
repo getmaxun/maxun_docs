@@ -4,7 +4,7 @@ title: Extract
 sidebar_position: 2
 ---
 
-# Extract Robots
+# Extract
 
 Build structured data extraction workflows programmatically using the SDK.
 
