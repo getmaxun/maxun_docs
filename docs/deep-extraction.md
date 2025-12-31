@@ -12,12 +12,12 @@ sidebar_position: 11
 
 Deep Extraction lets you capture detailed information from multiple pages automatically. Here's what it does:
 
-**Without Deep Extraction:**
+**Without Deep Extraction**
 - You visit a list page (like product listings)
 - You extract data from that page only
 - You manually visit each product to get more details
 
-**With Deep Extraction:**
+**With Deep Extraction**
 - You capture a list of items (like products)
 - You click on one item and capture data from its detail page
 - The robot does the same for all other items in the list
