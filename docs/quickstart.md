@@ -61,3 +61,11 @@ const searcher = new Search({
   apiKey: process.env.MAXUN_API_KEY
 });
 ```
+### Running Robots
+
+```javascript
+const result = await robot.run();
+console.log(result.data);
+```
+
+Learn how to use the SDK in detail <a href="/category/sdk">here</a>.
