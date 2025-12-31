@@ -4,7 +4,7 @@ title: Configuration
 sidebar_position: 2
 ---
 
-# Crawl Configuration
+# Configuration
 
 Configure how your crawl robot discovers and scrapes pages from a website.
 
