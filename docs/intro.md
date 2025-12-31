@@ -28,4 +28,4 @@ Run programmatic web searches and extract results as metadata or full content, w
 
 Maxun is **no-code by default**, with optional APIs and SDKs when deeper integration is needed — without changing how extractions are defined.
 
-👉 Continue to the next chapter to understand how Maxun works under the hood and how these capabilities are powered.
+👉 Continue to the next chapter to understand how Maxun works and how these capabilities are powered.
