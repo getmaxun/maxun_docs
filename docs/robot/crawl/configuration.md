@@ -8,6 +8,8 @@ sidebar_position: 2
 
 Configure how your crawl robot discovers and scrapes pages from a website.
 
+> View how to configure crawl via SDK <a href="/sdk/sdk-crawl">here</a>.
+
 
 ## Basic Configuration
 
