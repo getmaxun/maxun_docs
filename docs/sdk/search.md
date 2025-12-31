@@ -4,7 +4,7 @@ title: Search
 sidebar_position: 5
 ---
 
-# Search Robots
+# Search
 
 Perform web searches and optionally scrape content from search results using DuckDuckGo.
 
