@@ -4,7 +4,7 @@ title: Crawl
 sidebar_position: 4
 ---
 
-# Crawl Robots
+# Crawl
 
 Automatically discover and scrape multiple pages from websites using sitemaps and link following.
 
