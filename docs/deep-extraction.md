@@ -1,95 +1,137 @@
 ---
 id: deep-extraction
-title: Deep Extraction (Beta)
+title: Deep Extraction
 sidebar_position: 11
 ---
 
 # Deep Extraction
 
-> **Note:** Deep Extraction is available exclusively in **Maxun Cloud** and is currently in Beta. This feature is not available in self-hosted installations.
+> **Note:** Deep Extraction is available exclusively in Maxun Cloud.
 
-## Overview
+## What is Deep Extraction?
 
-Deep Extraction allows your robot to process multiple URLs using the same workflow, extracting data from many pages automatically. Instead of running on just one page, your robot can now handle hundreds or thousands of URLs with identical page structures.
+Deep Extraction lets you capture detailed information from multiple pages automatically. Here's what it does:
 
-## Requirements
+**Without Deep Extraction**
+- You visit a list page (like product listings)
+- You extract data from that page only
+- You manually visit each product to get more details
 
-**Same Domain Only**: All URLs must be from the same domain as your original robot. For example, if your robot is trained on `https://example.com/product/1`, all Deep Extraction URLs must also be from `example.com`.
+**With Deep Extraction**
+- You capture a list of items (like products)
+- You click on one item and capture data from its detail page
+- The robot does the same for all other items in the list
 
-**Identical Page Structure**: All URLs must have the same page layout and structure. If your robot extracts product titles and prices, every URL in your list must have these same elements in the same locations.
+## How to Use Deep Extraction
 
-## How It Works
+### Step 1: Enable Deep Extraction Before Recording
 
-### Robot Modes
+When creating a new robot:
+1. Enter your website URL
+2. **Check the "Enable Deep Extraction" checkbox** (this is important!)
+3. Choose "Recorder Mode"
+4. Click "Start Recording"
 
-**Normal Mode**: Processes one URL at a time (default behavior)
+![Enable Deep Extraction](deep_extract.png)
 
-**Bulk Mode**: Processes multiple URLs automatically using your configured URL list
+> **Important:** You must enable this checkbox before starting your recording. You can't add deep extraction to an existing robot.
 
-You can switch between modes anytime. Switching to Bulk Mode enables Deep Extraction, while Normal Mode returns to standard single-URL operation.
+### Step 2: Record Your Workflow
 
-### URL Sources
+Once the recording starts, perform these actions **in order**:
 
-You can provide URLs in two ways:
+1. **Capture the list**
+   - Use "Capture List" to select all items (products, companies, jobs, etc.)
+   - Choose what fields you want from each list item
 
-**1. Manual Upload**: Upload a CSV or JSON file containing all the URLs you want to process.
+2. **Click on one item**
+   - Click on any one item from the list to go to its detail page
+   - This shows the robot the pattern to follow
 
-**2. Extract from Run Data**: Your robot automatically discovers and processes URLs found during regular runs.
+3. **Capture detail page data**
+   - Use "Capture Text" or "Capture List" to extract information from the detail page
+   - Select all the fields you need
 
-## Setup
+4. **Save your robot**
 
-### Manual Upload Method
+That's it! When you run this robot, it will:
+- Capture all items from the list
+- Visit each item's detail page
+- Get the detailed information you specified
 
-**Supported Formats:**
-- CSV files (.csv)
-- JSON files (.json)
+### Step 3: Run Your Robot
 
-**CSV Example:**
-```csv
-url
-https://example.com/product/1
-https://example.com/product/2
-https://example.com/product/3
-```
+When you run the robot:
+- It follows your recorded workflow
+- Visits the list page
+- Extracts data from the list
+- Automatically visits each detail page
+- Collects all the information you configured
 
-**JSON Example:**
-```json
-{
-  "urls": [
-    "https://example.com/product/1", 
-    "https://example.com/product/2",
-    "https://example.com/product/3"
-  ]
-}
-```
+## When Should You Use Deep Extraction?
 
-The upload interface supports drag and drop, validates URLs in real-time, and provides sample file templates for download.
+Deep Extraction is perfect for:
 
-![Manual Upload](deep_extract_file_upload_interface.png)
+### E-Commerce Websites
+Extract product details from shopping sites:
+- **List page**: Product names and prices
+- **Detail pages**: Full descriptions, specs, reviews, stock status
 
-### Automated Collection Method
+### Business Directories
+Get complete company information:
+- **Directory page**: Company names and locations
+- **Company pages**: Full contact details, services, team info
 
-With this method, your robot runs normally and automatically captures URLs encountered during execution. These discovered URLs are then queued for bulk processing in future runs.
+### Job Boards
+Capture job listings with all details:
+- **Listings page**: Job titles and companies
+- **Job pages**: Full descriptions, requirements, salary, how to apply
 
-> **Note:** In this mode, the robot needs to be executed at least once in order to collect and store the URLs required for deep extraction.
+### Any Multi-Page Data
+Whenever you need information that's split across:
+- A main list/search/directory page
+- Individual detail pages for each item
 
-![Automated Collection](deep_extract_run_data_extraction.png)
+## What You Need to Know
 
-## Configuration
+### Same Website Only
+All pages must be on the same website. For example:
+- ✅ `example.com/products` → `example.com/products/item-1`
+- ❌ `example.com/products` → `different-site.com/details`
 
-### Enabling Deep Extraction
+### Same Page Structure
+All detail pages should look similar:
+- Same layout
+- Same type of information
+- Same element positions
 
-1. Select "Deep Extract" icon for the preferred robot
-2. Choose your URL source method (Manual Upload or Automated Collection)
-3. Upload your URL file or set up automated collection
-4. Click "Start Deep Extraction" or "Setup URL Extraction"
+### Works With Pagination
+If your list has multiple pages:
+- Set up pagination as you normally would
+- Deep extraction will process items from all pages
 
-### Mode Management
+## Example: Extracting Product Information
 
-Once configured, you can:
-- **Switch to Bulk Mode**: Enables processing of multiple URLs
-- **Switch to Normal Mode**: Returns to single URL processing  
-- **Remove Deep Extraction**: Permanently removes all settings and returns robot to standard operation
+Let's say you want to extract products from an online store:
 
-## Demo Tutorial
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Atr8V5hgiZQ?si=1Qvh0hlLyz3gpZgf" title="Maxun Deep Extract" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+### What You Record:
+1. ✅ Enable Deep Extraction checkbox
+2. Visit `shop.example.com/products`
+3. Capture List: Product names and prices
+4. Click on one product (e.g., "Blue Widget")
+5. On the detail page, capture: Full description, specifications, reviews
+6. Save robot
+
+### What Happens When You Run It:
+1. Robot goes to the products page
+2. Captures all 50 product names and prices
+3. Visits each product's detail page:
+   - Blue Widget page
+   - Red Gadget page
+   - Green Tool page
+   - ... and 47 more
+4. Gets description, specs, and reviews from each
+5. Returns everything in one file
+
+<!-- ## Demo Tutorial
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Atr8V5hgiZQ?si=1Qvh0hlLyz3gpZgf" title="Maxun Deep Extract" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
