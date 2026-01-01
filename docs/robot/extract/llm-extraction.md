@@ -6,12 +6,9 @@ sidebar_position: 2
 
 # AI Mode
 
-> Note: AI Mode is currently in Beta.
+> Note: AI Mode is currently in Beta. 
 
 AI Mode uses LLMs to automatically create Extract robots from natural language prompts. Simply describe what data you want, and Maxun builds the robot for you.
-
-
-![AI Mode Interface](ai_mode_interface.png)
 
 ## How It Works
 
@@ -22,7 +19,8 @@ AI Mode uses LLMs to automatically create Extract robots from natural language p
    - Example: "Get company names, descriptions, and batch information"
    - Example: "Extract article headlines, authors, and publication dates"
 
-3. **Select LLM Provider**: Choose your preferred AI provider based on your needs:
+3. **Select LLM Provider**: Choose your preferred AI provider based on your needs.
+> Note: This option is available only in open source. Maxun Cloud automatically uses the right LLM for the task.
    - **Ollama**: Best for local/offline use, no costs, no API key needed
    - **Anthropic Claude**: Best for accuracy and complex extractions (recommended)
    - **OpenAI GPT**: Good balance of speed and accuracy
@@ -50,12 +48,8 @@ AI Mode uses LLMs to automatically create Extract robots from natural language p
 - Get your API key from: <a href="https://platform.openai.com/api-keys">OpenAI Platform</a>
 
 ### Setting API Keys
-
-**For Maxun Cloud**
-When you select Anthropic Claude or OpenAI GPT as your provider, an API key field will appear. Enter your API key in this field before creating the robot.
-
 **For Self-Hosted**
-Set the API keys as environment variables before starting Maxun:
+Set the API keys as environment variables before starting Maxun
 ```bash
 ANTHROPIC_API_KEY=your-anthropic-key
 OPENAI_API_KEY=your-openai-key

@@ -1,0 +1,7 @@
+{
+  "label": "Crawl",
+  "link": {
+    "type": "generated-index",
+    "description": "Crawl entire websites and extract content from every relevant page, with full control over scope and discovery."
+  }
+}

@@ -4,7 +4,7 @@ title: Scrape
 sidebar_position: 3
 ---
 
-# Scrape Robots
+# Scrape
 
 Convert webpages into clean HTML, LLM-ready Markdown, or screenshots with zero configuration.
 

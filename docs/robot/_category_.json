@@ -1,8 +1,14 @@
 {
   "label": "Robots",
-  "position": 4,
+  "position": 2,
   "link": {
     "type": "generated-index",
-    "description": "Learn everything about robots in Maxun"
+    "title": "Robots",
+    "description": "Learn everything about robots in Maxun",
+    "slug": "/robots"
+  },
+  "customProps": {
+    "featured": ["extract", "scrape"],
+    "display": "grid"
   }
 }

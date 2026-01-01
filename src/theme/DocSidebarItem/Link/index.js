@@ -6,7 +6,7 @@ import Link from "@docusaurus/Link";
 import isInternalUrl from "@docusaurus/isInternalUrl";
 import IconExternalLink from "@theme/Icon/ExternalLink";
 import styles from "./styles.module.css";
-import { FaRocket } from "react-icons/fa";
+import { FaRocket, FaMarkdown } from "react-icons/fa";
 import { HiOutlineBookOpen } from "react-icons/hi2";
 import { TbBrandDocker } from "react-icons/tb";
 import { RiComputerLine } from "react-icons/ri";
@@ -40,6 +40,8 @@ import { MdOutlineViewList } from "react-icons/md";
 import { BiExtension } from "react-icons/bi";
 import { FiScissors } from "react-icons/fi";
 import { MdManageAccounts } from "react-icons/md";
+import { TbWorldSearch } from "react-icons/tb";
+import { FiSearch } from "react-icons/fi";
 
 const IconMap = {
   introBook: HiOutlineBookOpen,
@@ -74,13 +76,19 @@ const IconMap = {
   webhooks: MdOutlineWebhook,
   quickstart: FaRocket,
   usecases: PiStarFourLight,
-  scrape_robots: MdOutlineInfo,
+  scrape_robots: FaMarkdown,
   llm_extraction: HiSparkles,
   llm_prompts: HiSparkles,
   sdk_overview: MdOutlineViewList,
   sdk_extract: BiExtension,
   sdk_scrape: FiScissors,
+  sdk_crawl: TbWorldSearch,
+  sdk_search: FiSearch,
   sdk_robot: MdManageAccounts,
+  crawl_introduction: MdOutlineInfo,
+  crawl_configuration: FiSettings,
+  search_introduction: MdOutlineInfo,
+  search_configuration: FiSettings,
 };
 
 // manual icon mapping (use docId OR href)
@@ -98,7 +106,7 @@ const SidebarIconMap = {
   "/installation/upgrade": "upgrade",
   // ROBOTS
   scrape_robots: "scrape_robots",
-  "robot/scrape/scrape-robots": "scrape_robots",
+  "robot/scrape": "scrape_robots",
   robots_overview: "robots_overview",
   "robot/robots": "robots_overview",
   robots_actions: "robots_actions",
@@ -106,13 +114,23 @@ const SidebarIconMap = {
   robots_duplicate: "robots_duplicate",
   "robot/extract/robot-duplicate": "robots_duplicate",
   robots_schedule: "robots_schedule",
-  "robot/extract/robot-schedule": "robots_schedule",
+  "robot-schedule": "robots_schedule",
   robots_options: "robots_options",
   "robot/extract/robot-options": "robots_options",
   robots_retrain: "robots_retrain",
   "robot/extract/robot-retrain": "robots_retrain",
   llm_extraction: "llm_extraction",
   "robot/extract/llm-extraction": "llm_extraction",
+  // CRAWL
+  "crawl-introduction": "crawl_introduction",
+  "robot/crawl/crawl-introduction": "crawl_introduction",
+  "crawl-configuration": "crawl_configuration",
+  "robot/crawl/crawl-configuration": "crawl_configuration",
+  // SEARCH
+  "search-introduction": "search_introduction",
+  "robot/search/search-introduction": "search_introduction",
+  "search-configuration": "search_configuration",
+  "robot/search/search-configuration": "search_configuration",
   // SELF-HOST
   self_host: "self_host",
   "/self-host": "self_host",
@@ -183,6 +201,10 @@ const SidebarIconMap = {
   "/sdk/sdk-extract": "sdk_extract",
   "sdk-scrape": "sdk_scrape",
   "/sdk/sdk-scrape": "sdk_scrape",
+  "sdk-crawl": "sdk_crawl",
+  "/sdk/sdk-crawl": "sdk_crawl",
+  "sdk-search": "sdk_search",
+  "/sdk/sdk-search": "sdk_search",
   "sdk-robot": "sdk_robot",
   "/sdk/sdk-robot": "sdk_robot",
 };
