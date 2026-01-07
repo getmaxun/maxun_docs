@@ -19,13 +19,15 @@ import useIsBrowser from '@docusaurus/useIsBrowser';
 import DocSidebarItems from '@theme/DocSidebarItems';
 import { GrInstallOption } from "react-icons/gr";
 import { BsRobot } from "react-icons/bs";
-import { TbApi } from "react-icons/tb";
+import { TbApi, TbWorldSearch } from "react-icons/tb";
 import { LuBrainCircuit } from "react-icons/lu";
 import { AiOutlineApi } from "react-icons/ai";
 import { BsCodeSlash } from "react-icons/bs";
 import { IoFlashOutline } from "react-icons/io5";
 import { FaMarkdown } from "react-icons/fa";
 import { LuFocus } from "react-icons/lu";
+import { BiCodeBlock } from "react-icons/bi";
+import { FiSearch } from "react-icons/fi";
 
 // Map keys are lowercase category labels (exact-match on label)
 // Add entries here for every category label you want icons for.
@@ -33,12 +35,14 @@ const IconMap = {
   "self-host": GrInstallOption,
   robots: BsRobot,
   "api-reference": TbApi,
+  sdk: BiCodeBlock,
   mcp: LuBrainCircuit,
   integrations: AiOutlineApi,
   engineering: BsCodeSlash,
   usecases: IoFlashOutline,
   extract: LuFocus,
-  scrape: FaMarkdown,
+  crawl: TbWorldSearch,
+  search: FiSearch,
 };
 
 // Helper: normalize label (lowercase, remove spaces)

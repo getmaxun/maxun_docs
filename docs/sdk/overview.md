@@ -1,32 +1,26 @@
 ---
-sidebar_position: 2
-slug: /quickstart
+id: sdk-overview
+title: Overview
+sidebar_position: 1
 ---
 
-# Get Started
-
-### Maxun Cloud
-
-- Sign up at https://app.maxun.dev/register
-- Set up your data extraction robot. <a href="/robots">Choose your robot type</a>.
-- Name your robot and set it to run regularly, like daily.
-
-That’s it! Most users create their first robot in about a minute.
-
-### Maxun SDK
+# Maxun SDK
 
 The Maxun SDK lets you create robots programmatically for scraping websites and extracting structured data.
 
-### Installation
+## Installation
 
 ```bash
 npm install maxun-sdk
 ```
 
-### Requirements
+## Requirements
+
+- Node.js 18.0.0 or higher
+- Maxun instance (Cloud or self-hosted)
 - API Key from <a href="/api/api">Maxun Dashboard</a>
 
-### Environment Variables
+## Environment Variables
 
 ```bash
 MAXUN_API_KEY=your-api-key
@@ -36,7 +30,7 @@ ANTHROPIC_API_KEY=your-anthropic-key
 OPENAI_API_KEY=your-openai-key
 ```
 
-### Initialization
+## SDK Initialization
 
 ```javascript
 import { Extract, Scrape, Crawl, Search } from 'maxun-sdk';
@@ -51,7 +45,7 @@ const scraper = new Scrape({
   apiKey: process.env.MAXUN_API_KEY
 });
 
-// For Crawl 
+// For Crawl
 const crawler = new Crawl({
   apiKey: process.env.MAXUN_API_KEY
 });
@@ -61,11 +55,3 @@ const searcher = new Search({
   apiKey: process.env.MAXUN_API_KEY
 });
 ```
-### Running Robots
-
-```javascript
-const result = await robot.run();
-console.log(result.data);
-```
-
-Learn how to use the SDK in detail <a href="/category/sdk">here</a>.

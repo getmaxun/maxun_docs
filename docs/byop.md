@@ -6,7 +6,7 @@ sidebar_position: 9
 
 # BYOP (Bring Your Own Proxy)
 
-> **Note:** BYOP is available only in self-hosted installations and extract robots.
+> **Note:** BYOP is available only in self-hosted installations.
 
 Maxun provides a feature called BYOP (Bring Your Own Proxy), designed to give users greater control over their data extraction activities. With BYOP, you can connect your own proxies to Maxun, enabling:
 
@@ -24,9 +24,5 @@ HTTP and SOCKS proxies are supported. Currently, proxies are configured per user
 
 ### Authenticated Proxies
 You can connect with authenticated proxies that require a username and password. All details are encrypted and securely stored in the database.
-
-### Automatic Proxy Rotation
-Currently, the self-hosted version allows only standard proxy configuration. Automatic rotation is on our roadmap.
-Automatic Proxy Rotation is available only in Maxun Cloud.
 
 ![BYOP](byop.png)
