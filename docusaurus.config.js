@@ -4,7 +4,7 @@
 // There are various equivalent ways to declare your Docusaurus config.
 // See: https://docusaurus.io/docs/api/docusaurus-config
 
-import {themes as prismThemes} from 'prism-react-renderer';
+import { themes as prismThemes } from 'prism-react-renderer';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -73,6 +73,41 @@ const config = {
         },
       }),
     ],
+    [
+      '@docusaurus/plugin-client-redirects',
+      {
+        redirects: [
+          {
+            to: '/robot/robots', // The NEW existing page
+            from: '/robot/robot-options',   // The OLD broken link
+          },
+          {
+            to: '/robot/extract/robot-actions',
+            from: '/robot/extract/robot-actions',
+          },
+          {
+            to: '/category/api-reference',
+            from: '/category/api-docs',
+          },
+          {
+            to: '/robot/robots',
+            from: '/robot/robot-duplicate',
+          },
+          {
+            to: '/category/integrations',
+            from: '/integrations/zapier',
+          },
+          {
+            to: '/installation/local',
+            from: '/category/installation',
+          },
+          {
+            to: '/robot-schedule',
+            from: '/robot/robot-schedule',
+          },
+        ],
+      },
+    ],
   ],
 
   themeConfig:
@@ -98,7 +133,8 @@ const config = {
             label: 'GitHub',
             position: 'right',
           },
-          {to: 'https://app.maxun.dev', 
+          {
+            to: 'https://app.maxun.dev',
             html: '<span>Maxun Cloud ⮞</span>',
             position: 'right',
           },
@@ -159,12 +195,12 @@ const config = {
       //   copyright: `Copyright © ${new Date().getFullYear()} Maxun`,
       // },
       announcementBar: {
-      id: 'scrape_robots_release',
-      content:
-      '✨ Introducing Scrape Robots: Turn websites into LLM-ready Markdown & clean HTML for AI apps.',
-      backgroundColor: '#ff00c3',
-      textColor: '#ffffffff',
-    },
+        id: 'scrape_robots_release',
+        content:
+          '✨ Introducing Scrape Robots: Turn websites into LLM-ready Markdown & clean HTML for AI apps.',
+        backgroundColor: '#ff00c3',
+        textColor: '#ffffffff',
+      },
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
