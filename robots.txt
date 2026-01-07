@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://docs.maxun.dev/sitemap.xml
+Sitemap: https://maxun.dev/sitemap.xml
