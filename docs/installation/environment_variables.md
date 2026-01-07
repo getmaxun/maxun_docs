@@ -30,4 +30,9 @@ It is important to configure all environment variables labeled as "Mandatory" to
 | `GOOGLE_REDIRECT_URI` | No       | Redirect URI for handling Google OAuth responses.                                            | Google login will not work.                                  |
 | `AIRTABLE_CLIENT_ID` | No       | Client ID for Airtable, used for Airtable integration authentication.                         | Airtable login will not work.  |
 | `AIRTABLE_REDIRECT_URI` | No    | Redirect URI for handling Airtable OAuth responses.                                           | Airtable login will not work.  |
+| `BROWSER_WS_PORT`     | Yes       | Port for WebSocket connections to the browser service (used for CDP connections).            | Default value: 3001 |
+| `BROWSER_HEALTH_PORT` | Yes       | Port for browser service health checks.                                                      | Default value: 3002 |
+| `BROWSER_WS_HOST`     | Yes       | Host address for the browser service. Set to `browser` for Docker, `localhost` for local.   | Browser service connections will fail. |
 | `MAXUN_TELEMETRY`     | No        | Disables telemetry to stop sending anonymous usage data. Keeping it enabled helps us understand how the product is used and assess the impact of any new changes. Please keep it enabled. | Telemetry data will not be collected. |
+| `ANTHROPIC_API_KEY`   | No        | API key for Anthropic Claude. Required to use AI Mode with Anthropic Claude as the LLM provider. | AI Mode with Anthropic Claude will not work. |
+| `OPENAI_API_KEY`      | No        | API key for OpenAI GPT. Required to use AI Mode with OpenAI GPT as the LLM provider. | AI Mode with OpenAI GPT will not work. |

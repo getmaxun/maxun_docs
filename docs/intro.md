@@ -8,56 +8,24 @@ slug: /
 
 <br />
 <br />
-Maxun is a powerful no-code platform for web data extraction. With its intuitive point-and-click interface, anyone can extract data from **any** website — no coding required. In just minutes, users can build automation robots to turn websites into structured APIs, spreadsheets, extract data at scale, and much more.
 
-## What Are Robots?
+Maxun is a no-code web data platform for turning the web into structured, reliable data.  
+It supports extraction, crawling, scraping, and search — designed to scale from simple use cases to complex, automated workflows.
 
-Maxun uses web robots to power everything you can do on the platform. There are two types of robots, each designed for a different job.
+## What Maxun Enables
 
-### 1. Extract Robots
-**Extract robots emulate real user behavior and capture structured data at scale.**
-- Built for automation and structured data
-- Point-and-click interface
-- Extract from any website, including behind logins
-- Record user actions (clicks, scrolls, form fills, pagination, etc.)
-- Convert sites into APIs, spreadsheets, and workflows
-- Scale extractions and run on schedules or via API
+### Extraction  
+Turn websites into structured datasets and APIs, even across dynamic pages and authenticated flows.
 
-<video controls width="100%">
-  <source src="https://github.com/user-attachments/assets/c6baa75f-b950-482c-8d26-8a8b6c5382c3" type="video/mp4" />
-  Your browser does not support the video tag.
-</video>
+### Crawling 
+Automatically discover and collect data across entire websites with intelligent link following and scoped control.
 
-### 2. Scrape Robots
-**Built for clean content.**
-- Get clean HTML and LLM-ready Markdown
-- No scripts, styling, ads, or clutter
-- Ideal for AI workflows, RAG, summarization, embeddings, and content pipelines
+### Scraping
+Convert full webpages into clean Markdown, HTML and capture screenshots. 
 
-<!-- ## How Does It Work?
+### Search
+Run programmatic web searches and extract results as metadata or full content, with time-based filtering.
 
-Maxun lets users creates custom robots that emulate user actions for automated data extraction. These robots can perform multiple capture actions to collect data.
+Maxun is no-code by default, with optional APIs and SDKs when deeper integration is needed — without changing how extractions are defined.
 
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ZXGQEwQN7yI?si=uhw4zP3Wx9bGBn49" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
-
-## What Can Robots Do?
-- ✨ Open a webpage
-- ✨ Log in
-- ✨ Click on buttons
-- ✨ Fill out a form
-- ✨ Select from a dropdown menu, radios, checkboxes, dates, times, etc.
-- ✨ Take screenshots
-- ✨ Gather web data without writing a single line of code - just point, click, and collect
-- ✨ Handle infinite scrolling and pagination
-- ✨ Auto-adapt to website layout & structural changes
-- ✨ Run on a specific schedule
-- ✨ Run via APIs for third-party integrations
-- ✨ Extract data behind login
-- ✨ Integrate with your favorite applications. N8N, Google Sheet, Airtable and more
-- ✨ Send data to webhooks
-- ✨ Get clean HTML from websites
-- ✨ Turn websites into LLM-ready markdown for AI applications
-- ✨ Talk to your LLM with MCP (Model Context Protocol)
-
-... and much more!
+👉 Continue to the next chapter to understand how Maxun works and how these capabilities are powered.

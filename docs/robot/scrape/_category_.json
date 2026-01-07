@@ -1,7 +1,0 @@
-{
-  "label": "Scrape",
-  "link": {
-    "type": "generated-index",
-    "description": "Turn websites into LLM-ready Markdown & clean HTML for AI applications."
-  }
-}

@@ -1,0 +1,7 @@
+{
+  "label": "Search",
+  "link": {
+    "type": "generated-index",
+    "description": "Perform web searches and scrape search results automatically."
+  }
+}
