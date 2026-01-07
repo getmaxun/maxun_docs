@@ -20,9 +20,3 @@ An existing robot's name or limit can be changed. Limits are available only for 
 ## 3. Delete
 
 An existing robot can be deleted only if the robot does not have any associated runs. For example, if a robot has 3 runs, all 3 runs must be deleted before the robot is deleted.
-
-## 4. Duplicate 
-
-A robot can be duplicated to extract data from pages **having the same structure**. Read in detail here: <a href="/robot/robot-duplicate">Robot Duplication. </a>
-
-![Maxun Duplicate Option](duplicate_option.png)
