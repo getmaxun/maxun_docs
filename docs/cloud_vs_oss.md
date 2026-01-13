@@ -27,12 +27,12 @@ Features designed to handle complex extraction scenarios at scale.
 | Feature                                                    | Cloud     | Self-Hosted                                 |
 | :--------------------------------------------------------- | :-------- | :------------------------------------------ |
 |Deep Extraction | ✅        | ❌                                          |
-| Auto adapt to website layout & structural changes          | ✅        | ❌                                          |
+| Auto adapt to website layout & structural changes          | ✅        | ❌ Can retrain extract robots               |
 | Captcha Bypass                                             | ✅        | ❌                                          |
 | Automatic Proxy Rotation                                   | ✅        | ❌                                          |
 | Managed Anti-Bot Infrastructure to prevent being blocked   | ✅        | ❌ (Bring Your Own Proxy/Infrastructure)    |
 | Extract Behind Login                                       | ✅        | ✅                                          |
-| Extract Behind Login (2FA/MFA Support)                     | ✅        | ❌                                          |
+| Extract Behind Login (2FA/MFA Support)                     | ✅ Coming Soon        | ❌                                          |
 | Long Task Executions                                       | ✅        | Depends on your infrastructure and system   |
 
 ## Pre-trained Robots & AI Features
@@ -42,7 +42,8 @@ Access to pre-built robots and intelligent capabilities.
 | Feature        | Cloud | Self-Hosted |
 | :------------- | :---- | :---------- |
 | 100+ Auto Robots | ✅    | ❌          |
-| AI Features    | ✅    | ✅          |
+| Basic AI Features    | ✅    | ✅          |
+| Advanced AI Features    | ✅    | ❌          |
 
 ## Notifications & Integrations
 
