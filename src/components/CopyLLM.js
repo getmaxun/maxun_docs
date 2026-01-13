@@ -118,16 +118,6 @@ export default function CopyPageDropdown() {
     setOpen(false);
   }
 
-  function openInGemini() {
-    const prompt = `Please read and analyze this markdown:\n${rawUrl}`;
-    window.open(
-      `https://gemini.google.com/app?q=${encode(prompt)}`,
-      "_blank",
-      "noopener"
-    );
-    setOpen(false);
-  }
-
   return (
     <div className={styles.wrapper} ref={wrapperRef}>
       <button
@@ -174,10 +164,6 @@ export default function CopyPageDropdown() {
           <div className={styles.item} onClick={openInClaude}>
             <SiAnthropic size={15} />
             <div>Open in Claude</div>
-          </div>
-          <div className={styles.item} onClick={openInGemini}>
-            <SiGoogle size={15} />
-            <div>Open in Gemini</div>
           </div>
         </div>
       )}
