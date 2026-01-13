@@ -19,7 +19,6 @@ All things extraction.
 | API Access       | ✅           | ✅             |
 | Monitoring       | ✅           | ✅             |
 | Export            | ✅ (CSV, JSON) | ✅ (CSV, JSON) |
-| Robot Duplication | ✅           | ✅             |
 
 ## Intelligent & Advanced Extraction At Scale
 
