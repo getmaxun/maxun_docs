@@ -19,6 +19,11 @@ All things extraction.
 | API Access       | ✅           | ✅             |
 | Monitoring       | ✅           | ✅             |
 | Export            | ✅ (CSV, JSON) | ✅ (CSV, JSON) |
+| Crawl           | ✅    | ✅      |
+| Extract           | ✅    | ✅      |
+| Scrape           | ✅    | ✅      |
+| Search          | ✅    | ✅      |
+| SDK          | ✅    | ✅      |
 
 ## Intelligent & Advanced Extraction At Scale
 
