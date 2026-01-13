@@ -69,3 +69,6 @@ console.log(result.data);
 ```
 
 Learn how to use the SDK in detail <a href="/category/sdk">here</a>.
+
+### Maxun Community Edition
+Maxun is open-source and can run on your system. Learn how to <a href="/category/self-host">setup Maxun locally</a>.
