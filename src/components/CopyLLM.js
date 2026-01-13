@@ -109,7 +109,7 @@ export default function CopyPageDropdown() {
   }
 
   function openInClaude() {
-    const prompt = `Read this markdown and help me:\n${rawUrl}`;
+    const prompt = `Please read and analyze this markdown:\n${rawUrl}`;
     window.open(
       `https://claude.ai/new?q=${encode(prompt)}`,
       "_blank",
@@ -119,7 +119,7 @@ export default function CopyPageDropdown() {
   }
 
   function openInGemini() {
-    const prompt = `Analyze this markdown page:\n${rawUrl}`;
+    const prompt = `Please read and analyze this markdown:\n${rawUrl}`;
     window.open(
       `https://gemini.google.com/app?q=${encode(prompt)}`,
       "_blank",
