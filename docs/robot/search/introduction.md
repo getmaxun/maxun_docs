@@ -44,13 +44,13 @@ Search performs web searches and scrapes content from search results. Instead of
 - All links found on the page
 - HTTP status code
 
-## ✅ When to Use Search
+### ✅ When to Use Search
 
 1. You need to gather information from multiple sources on a topic
 2. You want to scrape content from top search results automatically
 3. You need to monitor search rankings for specific queries
 
-## ❌ When Not to Use Search
+### ❌ When Not to Use Search
 
 1. You already know the exact URLs you want to scrape (use Crawl or Scrape)
 2. You need results from a specific search engine other than DuckDuckGo

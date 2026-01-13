@@ -57,13 +57,13 @@ OPENAI_API_KEY=your-openai-key
 
 See <a href="/installation/environment_variables">Environment Variables</a> for more details.
 
-## ✅ When to Use AI Mode
+### ✅ When to Use AI Mode
 
 1. You want to quickly extract list data from a single page
 2. You want to avoid learning the Recorder interface
 3. You're extracting common patterns (products, articles, listings)
 
-## ❌ When Not to Use AI Mode
+### ❌ When Not to Use AI Mode
 
 1. You need multi-step workflows (logins, navigation between pages)
 2. You need form submissions before extraction

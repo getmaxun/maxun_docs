@@ -24,14 +24,14 @@ For each page discovered, the crawl extracts
 - **Links**: All links found on the page
 - **Status information**: HTTP status code and scrape timestamp
 
-## ✅ When to Use Crawl Robots
+### ✅ When to Use Crawl 
 
 1. You need to scrape multiple pages from a website
 2. You want to discover pages automatically without listing URLs manually
 3. You're extracting similar content across many pages (blog posts, product pages, documentation)
 4. The website has a clear structure or sitemap
 
-## ❌ When Not to Use Crawl Robots
+### ❌ When Not to Use Crawl
 
 1. You only need data from a single page (use Extract or Scrape instead)
 2. You need complex interactions like logins or form submissions

@@ -4,7 +4,7 @@ title: Cloud vs. Self-Host
 sidebar_position: 14
 ---
 
-This document outlines the key differences between Maxun Cloud and the Self-Hosted (Open-Source Software) version, helping you choose the best solution for your needs.
+This document outlines the key differences between Maxun Cloud and the Self-Hosted (Open-Source Community Edition) version, helping you choose the best solution for your needs.
 
 ## Core Capabilities
 
@@ -19,7 +19,11 @@ All things extraction.
 | API Access       | ✅           | ✅             |
 | Monitoring       | ✅           | ✅             |
 | Export            | ✅ (CSV, JSON) | ✅ (CSV, JSON) |
-| Robot Duplication | ✅           | ✅             |
+| Crawl           | ✅    | ✅      |
+| Extract           | ✅    | ✅      |
+| Scrape           | ✅    | ✅      |
+| Search          | ✅    | ✅      |
+| SDK          | ✅    | ✅      |
 
 ## Intelligent & Advanced Extraction At Scale
 
@@ -28,12 +32,12 @@ Features designed to handle complex extraction scenarios at scale.
 | Feature                                                    | Cloud     | Self-Hosted                                 |
 | :--------------------------------------------------------- | :-------- | :------------------------------------------ |
 |Deep Extraction | ✅        | ❌                                          |
-| Auto adapt to website layout & structural changes          | ✅        | ❌                                          |
+| Auto adapt to website layout & structural changes          | ✅        | ❌ Can retrain extract robots               |
 | Captcha Bypass                                             | ✅        | ❌                                          |
 | Automatic Proxy Rotation                                   | ✅        | ❌                                          |
 | Managed Anti-Bot Infrastructure to prevent being blocked   | ✅        | ❌ (Bring Your Own Proxy/Infrastructure)    |
 | Extract Behind Login                                       | ✅        | ✅                                          |
-| Extract Behind Login (2FA/MFA Support)                     | ✅        | ❌                                          |
+| Extract Behind Login (2FA/MFA Support)                     | ✅ Coming Soon        | ❌                                          |
 | Long Task Executions                                       | ✅        | Depends on your infrastructure and system   |
 
 ## Pre-trained Robots & AI Features
@@ -43,7 +47,8 @@ Access to pre-built robots and intelligent capabilities.
 | Feature        | Cloud | Self-Hosted |
 | :------------- | :---- | :---------- |
 | 100+ Auto Robots | ✅    | ❌          |
-| AI Features    | ✅    | ✅          |
+| Basic AI Features    | ✅    | ✅          |
+| Advanced AI Features    | ✅    | ❌          |
 
 ## Notifications & Integrations
 
