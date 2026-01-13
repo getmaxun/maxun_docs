@@ -142,7 +142,6 @@ export default function CopyPageDropdown() {
 
       {open && (
         <div role="menu" className={styles.dropdown}>
-          {/* Copy markdown */}
           <div
             role="menuitem"
             tabIndex={0}
@@ -152,12 +151,9 @@ export default function CopyPageDropdown() {
           >
             <FiCopy size={15} />
             <div>
-              <div>Copy page</div>
-              <small>Copy this page as Markdown for LLMs</small>
+              <div>Copy page as Markdown</div>
             </div>
           </div>
-
-          {/* View markdown */}
           <div
             role="menuitem"
             tabIndex={0}
@@ -167,24 +163,18 @@ export default function CopyPageDropdown() {
           >
             <LuFileCode2 size={15} />
             <div>
-              <div>View as Markdown</div>
-              <small>View page in plain text</small>
+              <div>View page as Markdown</div>
             </div>
           </div>
-
           <div className={styles.divider} />
-
-          {/* Open in LLMs */}
           <div className={styles.item} onClick={openInChatGPT}>
             <SiOpenai size={15} />
             <div>Open in ChatGPT</div>
           </div>
-
           <div className={styles.item} onClick={openInClaude}>
             <SiAnthropic size={15} />
             <div>Open in Claude</div>
           </div>
-
           <div className={styles.item} onClick={openInGemini}>
             <SiGoogle size={15} />
             <div>Open in Gemini</div>
