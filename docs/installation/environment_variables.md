@@ -5,6 +5,18 @@ sidebar_position: 3
 # Environment Variables
 It is important to configure all environment variables labeled as "Mandatory" to ensure Maxun operates smoothly.
 
+## Generating Secure Secrets
+
+The following variables must be set to unique, randomly generated values for each deployment:
+
+```bash
+openssl rand -base64 48  # For JWT_SECRET
+openssl rand -base64 48  # For SESSION_SECRET
+openssl rand -hex 32     # For ENCRYPTION_KEY
+```
+
+## Variable Reference
+
 | Variable              | Mandatory | Description                                                                                  | If Not Set                                                   |
 |-----------------------|-----------|----------------------------------------------------------------------------------------------|--------------------------------------------------------------|
 | `BACKEND_PORT`            | Yes       | Port to run backend on. Needed for Docker setup                                          | Default value: 8080 |
@@ -13,14 +25,14 @@ It is important to configure all environment variables labeled as "Mandatory" to
 | `VITE_BACKEND_URL`            | Yes       | URL used by frontend to connect to backend                                           | Default value: http://localhost:8080 |
 | `PUBLIC_URL`            | Yes       | URL to run frontend on.                                                                    | Default value: http://localhost:5173 |
 | `VITE_PUBLIC_URL`            | Yes       | URL used by backend to connect to frontend                                           | Default value: http://localhost:5173 |
-| `JWT_SECRET`          | Yes       | Secret key used to sign and verify JSON Web Tokens (JWTs) for authentication.                | JWT authentication will not work.                            |
+| `JWT_SECRET`          | Yes       | Secret key for signing JWTs. Generate with `openssl rand -base64 48`               | Server will refuse to start.                            |
 | `DB_NAME`             | Yes       | Name of the Postgres database to connect to.                                                 | Database connection will fail.                               |
 | `DB_USER`             | Yes       | Username for Postgres database authentication.                                               | Database connection will fail.                               |
 | `DB_PASSWORD`         | Yes       | Password for Postgres database authentication.                                               | Database connection will fail.                               |
 | `DB_HOST`             | Yes       | Host address where the Postgres database server is running.                                  | Database connection will fail.                               |
 | `DB_PORT`             | Yes       | Port number used to connect to the Postgres database server.                                 | Database connection will fail.                               |
-| `ENCRYPTION_KEY`      | Yes       | Key used for encrypting sensitive data (proxies, passwords).                                 | Encryption functionality will not work.                      |
-| `SESSION_SECRET`      | No       | A strong, random string used to sign session cookies                                          | Uses default secret. Recommended to define your own session secret to avoid session hijacking.  |
+| `ENCRYPTION_KEY`      | Yes       | Key for encrypting sensitive data. Generate with `openssl rand -hex 32`                                | Encryption functionality will not work.                      |
+| `SESSION_SECRET`      | Yes       | Secret for signing session cookies. Generate with `openssl rand -base64 48`                                         | Sessions won't persist across restarts.  |
 | `MINIO_ENDPOINT`      | Yes       | Endpoint URL for MinIO, to store Robot Run Screenshots.                                      | Connection to MinIO storage will fail.                       |
 | `MINIO_PORT`          | Yes       | Port number for MinIO service.                                                               | Connection to MinIO storage will fail.                       |
 | `MINIO_CONSOLE_PORT`          | No       | Port number for MinIO WebUI service. Needed for Docker setup.                         | Cannot access MinIO Web UI. |
