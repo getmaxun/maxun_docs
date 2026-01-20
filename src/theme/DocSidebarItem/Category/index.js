@@ -43,6 +43,7 @@ const IconMap = {
   extract: LuFocus,
   crawl: TbWorldSearch,
   search: FiSearch,
+  llmintegrations: LuBrainCircuit,
 };
 
 // Helper: normalize label (lowercase, remove spaces)
