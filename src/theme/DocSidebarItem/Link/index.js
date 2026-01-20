@@ -42,6 +42,10 @@ import { FiScissors } from "react-icons/fi";
 import { MdManageAccounts } from "react-icons/md";
 import { TbWorldSearch } from "react-icons/tb";
 import { FiSearch } from "react-icons/fi";
+import { SiLangchain, SiOpenai } from "react-icons/si";
+import { TbGraph, TbFileSearch } from "react-icons/tb";
+import { RiRobot2Line } from "react-icons/ri";
+import { IoTriangleSharp } from "react-icons/io5";
 
 const IconMap = {
   introBook: HiOutlineBookOpen,
@@ -87,6 +91,12 @@ const IconMap = {
   sdk_robot: MdManageAccounts,
   crawl_introduction: MdOutlineInfo,
   crawl_configuration: FiSettings,
+  langchain: SiLangchain,
+  langgraph: TbGraph,
+  llamaindex: TbFileSearch,
+  mastra: RiRobot2Line,
+  openai: SiOpenai,
+  vercel_ai_sdk: IoTriangleSharp,
   search_introduction: MdOutlineInfo,
   search_configuration: FiSettings,
 };
@@ -157,6 +167,18 @@ const SidebarIconMap = {
   "integrations/n8n": "n8n",
   airtable: "airtable",
   "integrations/airtable": "airtable",
+  langchain: "langchain",
+  "integrations/langchain": "langchain",
+  langgraph: "langgraph",
+  "integrations/langgraph": "langgraph",
+  llamaindex: "llamaindex",
+  "integrations/llamaindex": "llamaindex",
+  mastra: "mastra",
+  "integrations/mastra": "mastra",
+  openai: "openai",
+  "integrations/openai": "openai",
+  "vercel-ai-sdk": "vercel_ai_sdk",
+  "integrations/vercel-ai-sdk": "vercel_ai_sdk",
   // DEVELOPMENT
   i18n: "i18n",
   "/development/i18n": "i18n",
