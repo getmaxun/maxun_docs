@@ -28,7 +28,6 @@ Instead, authentication is handled securely through the **Maxun Chrome Extension
 
 * ✅ No passwords are ever shared or stored
 * ✅ Uses your real browser session and cookies
-* ✅ Works seamlessly with 2FA / MFA
 * ✅ Reduces account flagging risk compared to automated logins
 
 > ⚠️ **This extension‑based login flow is available exclusively on Maxun Cloud.**
