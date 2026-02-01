@@ -19,8 +19,8 @@ Instead, authentication is handled securely through the **Maxun Chrome Extension
 
 ### How it works
 
-1. Go to the **Chrome Web Store** and install the **Maxun Chrome Extension**.
-2. Open the extension and **connect your Maxun account**.
+1. Install the <a href="https://chromewebstore.google.com/detail/maxun-session-sync/poljedlhjgoempmkkfahecniimlejgdh">Maxun Chrome Extension</a>.
+2. Open the extension and connect your Maxun account by adding your API key from the Maxun dashboard.
 3. Log in to the target website normally in your browser.
 4. Click **Sync** in the extension to share the authenticated session with Maxun Cloud.
 
