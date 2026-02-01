@@ -15,7 +15,7 @@ We now support a **password‑free, extension‑based login flow on Maxun Cloud*
 
 You do NOT need to share your username or password with Maxun.
 
-Instead, authentication is handled securely through the **Maxun Chrome Extension**, allowing you to extract data behind login using your own active browser session.
+Instead, authentication is handled securely through the <a href="https://chromewebstore.google.com/detail/maxun-session-sync/poljedlhjgoempmkkfahecniimlejgdh">Maxun Chrome Extension</a>, allowing you to extract data behind login using your own active browser session.
 
 ### How it works
 
