@@ -32,6 +32,9 @@ Instead, authentication is handled securely through the <a href="https://chromew
 
 > ⚠️ **This extension‑based login flow is available exclusively on Maxun Cloud.**
 
+### Demo Tutorial
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/_-n6OFQI_x4?si=zpnJJQnXQEUM9VwH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 ---
 
 ## OSS Extract Robots: Legacy Credential‑Based Login
@@ -66,9 +69,6 @@ Risks include
 * ⚠️ Never use critical personal accounts for scraping
 
 ---
-
----
-
-## Demo Tutorial
+### Demo Tutorial
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/_-n6OFQI_x4?si=zpnJJQnXQEUM9VwH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
