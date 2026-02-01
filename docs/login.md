@@ -1,28 +1,75 @@
 ---
+
 id: extract-login
 title: Extract Behind Login
 sidebar_position: 12
+--------------------
+
+Maxun lets you extract data that sits behind authenticated (logged‑in) pages — **without compromising account security**.
+
+We now support a **password‑free, extension‑based login flow on Maxun Cloud**
+
 ---
 
-> Extract Behind Login is available only for extract robots.
+## Secure, Password‑Free Login (Recommended)
 
-With Maxun, it is possible to extract data behind logins. All you need to do is enter your username/email and password. We strongly recommend extracting public data with your Maxun robots - not data requiring login.
+You do NOT need to share your username or password with Maxun.
 
-## How to extract behind login?
-1. Enter credentials while training the robot.
-2. Perform an action to extract data. See supported robot actions here: <a href="/robot/robot-actions">Recorder Mode.</a>
-3. Credentials entered while robot training are securely encrypted and stored for future logins.
-4. For each run, the robot will enter the stored credentials and login to perform the action specified.
+Instead, authentication is handled securely through the **Maxun Chrome Extension**, allowing you to extract data behind login using your own active browser session.
 
-## Can my account be flagged/deleted?
-Maybe. We do not recommend scraping data that requires logging in on websites that have strong bot detection and can block your accounts.
-Using your personal account for data extraction can result in it being flagged, due to IP address changes.
+### How it works
 
-> Despite this, if you want to extract data behind login, we recommend using Maxun locally, rather than the cloud version. 
+1. Go to the **Chrome Web Store** and install the **Maxun Chrome Extension**.
+2. Open the extension and **connect your Maxun account**.
+3. Log in to the target website normally in your browser.
+4. Click **Sync** in the extension to share the authenticated session with Maxun Cloud.
 
-## Coming Soon
-1. Cookie support for supported websites.
-2. 2FA and MFA support for better automation.
+### Why this is safer
+
+* ✅ No passwords are ever shared or stored
+* ✅ Uses your real browser session and cookies
+* ✅ Works seamlessly with 2FA / MFA
+* ✅ Reduces account flagging risk compared to automated logins
+
+> ⚠️ **This extension‑based login flow is available exclusively on Maxun Cloud.**
+
+---
+
+## OSS Extract Robots: Legacy Credential‑Based Login
+
+For **OSS (self‑hosted) extract robots**, the original login‑based approach is still supported.
+
+### How it works
+
+1. Enter your username/email and password while training the robot.
+2. Perform the required actions to reach the data (see supported actions in [Recorder Mode](/robot/robot-actions)).
+3. Credentials entered during training are **encrypted and stored locally**.
+4. On each run, the robot automatically logs in using the stored credentials and performs the extraction.
+
+---
+
+## Can my account be flagged or blocked?
+
+Possibly.
+
+We strongly discourage scraping private or restricted data from websites with strict bot‑detection policies.
+
+Risks include
+
+* IP address changes triggering security checks
+* Automated login behavior raising flags
+* Personal accounts being rate‑limited or suspended
+
+### Our recommendation
+
+* ✅ Use **Maxun Cloud + Chrome Extension** for authenticated extraction
+* ⚠️ Avoid automated logins on sensitive websites
+* ⚠️ Never use critical personal accounts for scraping
+
+---
+
+---
 
 ## Demo Tutorial
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/_-n6OFQI_x4?si=zpnJJQnXQEUM9VwH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
