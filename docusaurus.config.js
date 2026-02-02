@@ -197,7 +197,7 @@ const config = {
       announcementBar: {
       id: 'scrape_robots_release',
       content:
-      'Introducing Maxun SDK & AI Mode - Use LLMs for prompt-driven extraction for any website.',
+      '<a href="https://www.maxun.dev/blog/secure-extract" target="_blank" rel="noopener noreferrer">Sync your browser sessions to extract data behind login without sharing passwords. Learn more →</a>',
       backgroundColor: '#ff00c3',
       textColor: '#ffffffff',
     },
