@@ -1,9 +1,8 @@
 ---
-
 id: extract-login
-title: Extract Behind Login
+title: extract-login
 sidebar_position: 12
---------------------
+---
 
 Maxun lets you extract data that sits behind authenticated (logged‑in) pages — **without compromising account security**.
 
