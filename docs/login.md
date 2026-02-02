@@ -1,9 +1,8 @@
 ---
-
 id: extract-login
-title: Extract Behind Login
+title: extract-login
 sidebar_position: 12
---------------------
+---
 
 Maxun lets you extract data that sits behind authenticated (logged‑in) pages — **without compromising account security**.
 
@@ -44,7 +43,7 @@ For **OSS (self‑hosted) extract robots**, the original login‑based approach 
 ### How it works
 
 1. Enter your username/email and password while training the robot.
-2. Perform the required actions to reach the data (see supported actions in [Recorder Mode](/robot/robot-actions)).
+2. Perform the required actions to reach the data (see supported actions in [Recorder Mode](https://docs.maxun.dev/robot/extract/robot-actions).
 3. Credentials entered during training are **encrypted and stored locally**.
 4. On each run, the robot automatically logs in using the stored credentials and performs the extraction.
 
