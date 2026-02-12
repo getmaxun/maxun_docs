@@ -99,6 +99,7 @@ const IconMap = {
   vercel_ai_sdk: IoTriangleSharp,
   search_introduction: MdOutlineInfo,
   search_configuration: FiSettings,
+  stealth: RiRobot2Line,
 };
 
 // manual icon mapping (use docId OR href)
@@ -150,6 +151,7 @@ const SidebarIconMap = {
   // DEEP EXTRACT
   "deep-extraction": "deep_extraction",
   "/deep-extraction": "deep_extraction",
+  "stealth": "stealth",
   // BYOP
   byop: "byop",
   "/byop": "byop",
