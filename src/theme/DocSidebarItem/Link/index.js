@@ -41,7 +41,7 @@ import { BiExtension } from "react-icons/bi";
 import { FiScissors } from "react-icons/fi";
 import { MdManageAccounts } from "react-icons/md";
 import { TbWorldSearch } from "react-icons/tb";
-import { FiSearch } from "react-icons/fi";
+import { FiSearch, FiUsers } from "react-icons/fi";
 import { SiLangchain, SiOpenai } from "react-icons/si";
 import { TbGraph, TbFileSearch } from "react-icons/tb";
 import { RiRobot2Line } from "react-icons/ri";
@@ -100,6 +100,7 @@ const IconMap = {
   search_introduction: MdOutlineInfo,
   search_configuration: FiSettings,
   stealth: RiRobot2Line,
+  teams: FiUsers,
 };
 
 // manual icon mapping (use docId OR href)
@@ -162,6 +163,8 @@ const SidebarIconMap = {
   "/mcp/tools": "mcpTools",
   "extract-login": "extract_login",
   "/docs/extract-login": "extract_login",
+  "teams-management": "teams",
+  "/teams-management": "teams",
   // INTEGRATIONS
   gsheet: "gsheet",
   "integrations/gsheet": "gsheet",
