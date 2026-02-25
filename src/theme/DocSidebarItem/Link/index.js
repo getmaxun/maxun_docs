@@ -217,23 +217,25 @@ const SidebarIconMap = {
   "/usecases/lead_generation": "usecases",
   ecommerce_automation: "usecases",
   "/usecases/ecommerce_automation": "usecases",
-    real_estate: "usecases",
+  real_estate: "usecases",
   "/usecases/real_estate": "usecases",
-    academic_research: "usecases",
+  academic_research: "usecases",
   "/usecases/academic_research": "usecases",
-  // SDK
-  "sdk-overview": "sdk_overview",
-  "/sdk/sdk-overview": "sdk_overview",
-  "sdk-extract": "sdk_extract",
-  "/sdk/sdk-extract": "sdk_extract",
-  "sdk-scrape": "sdk_scrape",
-  "/sdk/sdk-scrape": "sdk_scrape",
-  "sdk-crawl": "sdk_crawl",
-  "/sdk/sdk-crawl": "sdk_crawl",
-  "sdk-search": "sdk_search",
-  "/sdk/sdk-search": "sdk_search",
-  "sdk-robot": "sdk_robot",
-  "/sdk/sdk-robot": "sdk_robot",
+  // Node.js SDK routes
+  "/sdk/node-sdk/sdk-overview": "sdk_overview",
+  "/sdk/node-sdk/sdk-extract": "sdk_extract",
+  "/sdk/node-sdk/sdk-scrape": "sdk_scrape",
+  "/sdk/node-sdk/sdk-crawl": "sdk_crawl",
+  "/sdk/node-sdk/sdk-search": "sdk_search",
+  "/sdk/node-sdk/sdk-robot": "sdk_robot",
+
+  // Python SDK routes
+  "/sdk/python-sdk/sdk-overview": "sdk_overview",
+  "/sdk/python-sdk/sdk-extract": "sdk_extract",
+  "/sdk/python-sdk/sdk-scrape": "sdk_scrape",
+  "/sdk/python-sdk/sdk-crawl": "sdk_crawl",
+  "/sdk/python-sdk/sdk-search": "sdk_search",
+  "/sdk/python-sdk/sdk-robot": "sdk_robot",
 };
 
 export default function DocSidebarItemLink({
