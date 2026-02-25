@@ -35,7 +35,7 @@ Environment variables are supported via a `.env file` (uses python-dotenv):
 
 ```bash
 MAXUN_API_KEY=your-api-key
-MAXUN_BASE_URL=http://localhost:8080/api/sdk
+MAXUN_BASE_URL=http://localhost:8080/api/sdk # must be set for self hosted instances, can be skipped if using cloud
 MAXUN_TEAM_ID=your-team-uuid
 
 # For LLM Extraction (optional)
