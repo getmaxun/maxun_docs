@@ -278,4 +278,4 @@ const result = await robot.run({
 });
 ```
 
-For scheduling, webhooks, and other robot management features, see <a href="/sdk/sdk-robot">Robot Management</a>.
+For scheduling, webhooks, and other robot management features, see <a href="/sdk/node-sdk/sdk-robot">Robot Management</a>.
