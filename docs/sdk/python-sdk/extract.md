@@ -303,4 +303,4 @@ result = await robot.run(
 )
 ```
 
-See <a href="/sdk/sdk-robot">Robot Management</a> for scheduling and webhooks.
+See <a href="/sdk/python-sdk/sdk-robot">Robot Management</a> for scheduling and webhooks.

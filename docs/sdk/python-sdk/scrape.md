@@ -170,4 +170,4 @@ result = await robot.run()
 result = await robot.run(timeout=30000)
 ```
 
-For scheduling, webhooks, and other robot management features, see <a href="/sdk/sdk-robot">Robot Management</a>.
+For scheduling, webhooks, and other robot management features, see <a href="/sdk/python-sdk/sdk-robot">Robot Management</a>.
