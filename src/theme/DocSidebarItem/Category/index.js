@@ -36,6 +36,8 @@ const IconMap = {
   robots: BsRobot,
   "api-reference": TbApi,
   sdk: BiCodeBlock,
+  "nodejs-sdk": BiCodeBlock,
+  "python-sdk": BiCodeBlock,
   mcp: LuBrainCircuit,
   integrations: AiOutlineApi,
   engineering: BsCodeSlash,
