@@ -6,122 +6,155 @@ sidebar_position: 2
 
 # Tools
 
-The Maxun MCP Server provides tools allowing you to list robots, run them, and retrieve their results.
+The Maxun MCP Server exposes your robots as tools, letting you list them, run them, and retrieve results — all through natural language.
 
-## Setup
+## Available Tools
 
-### Environment Variables
+The tools available depend on which variant you are using:
 
-| Variable | Description | Required |
-|---|---|---|
-| MCP_API_KEY | Your Maxun API key for authentication | Yes |
-| BACKEND_URL | The Maxun backend URL (defaults to http://localhost:8080) | No |
-| NODE_ENV | Environment mode (set to 'production' to disable logging) | No |
+| Tool | Description |
+|---|---|
+| `list_robots` | List all robots in your account |
+| `get_robot` | Get details for a specific robot |
+| `run_robot` | Execute a robot and return extracted data |
+| `get_robot_runs` | Get the execution history for a robot |
+| `get_run_details` | Get the full output of a specific run |
+| `get_robot_summary` | Get performance stats and success rates |
 
 ## How to Use
 
-Instead of calling tools directly, you interact with the MCP server by giving natural language prompts to your LLM. The LLM will automatically use the appropriate tools based on your request.
+You interact with Maxun through natural language — the AI automatically picks the right tool based on your request.
 
-### Example Prompts
+### Listing Robots
 
-#### Getting Started
 ```
+"What robots do I have?"
 "Show me all my robots"
 "List all available robots"
-"What robots do I have?"
 ```
-*These prompts will trigger the `list_robots` tool*
+*Triggers `list_robots`*
 
-#### Running Robots
-```
-"Run robot [robot-id]"
-"Execute my web scraping robot with ID abc123"
-"Start the robot abc123 and wait for results"
-"Run robot abc123 but don't wait for completion"
-```
-*These prompts will trigger the `run_robot` tool*
+### Running a Robot
 
-#### Getting Robot Information
 ```
-"Tell me about robot [robot-id]"
-"Show me details for robot abc123"
-"What does robot abc123 do?"
+"Run my Amazon price scraper"
+"Execute robot abc123 and show me the results"
+"Run the product catalog robot and return the data as markdown"
 ```
-*These prompts will trigger the `get_robot` tool*
+*Triggers `run_robot`*
 
-#### Checking Run History
-```
-"Show me all runs for robot [robot-id]"
-"What are the recent runs for robot abc123?"
-"List the execution history for robot abc123"
-```
-*These prompts will trigger the `get_robot_runs` tool*
+:::tip
+You don't need to know the robot ID upfront. Ask your AI assistant to list your robots first — it will resolve the name to an ID automatically before running.
+:::
 
-#### Getting Specific Run Details
-```
-"Show me details for run [run-id] of robot [robot-id]"
-"What happened in run xyz789 for robot abc123?"
-"Get the results from run xyz789"
-```
-*These prompts will trigger the `get_run_details` tool*
+### Getting Robot Details
 
-#### Performance Analysis
 ```
-"Give me a performance summary for robot [robot-id]"
-"How well is robot abc123 performing?"
-"Show me success rates and data extraction stats for robot abc123"
-"Analyze the performance of robot abc123"
+"Tell me about robot abc123"
+"What does my product scraper robot do?"
+"Show me the configuration for robot abc123"
 ```
-*These prompts will trigger the `get_robot_summary` tool*
+*Triggers `get_robot`*
+
+### Checking Run History
+
+```
+"Show me recent runs for robot abc123"
+"What's the execution history for my price scraper?"
+"List the last 10 runs of robot abc123"
+```
+*Triggers `get_robot_runs`*
+
+### Getting Run Results
+
+```
+"Show me the results from run xyz789"
+"What data was extracted in the last run?"
+"Get the output from run xyz789"
+```
+*Triggers `get_run_details`*
+
+### Performance Analysis
+
+```
+"Give me a performance summary for robot abc123"
+"How well is my price scraper performing?"
+"Show me success rates for robot abc123"
+```
+*Triggers `get_robot_summary`*
+
+---
 
 ## Common Workflows
 
-### Workflow 1: First Time Setup
-1. **"Show me all my robots"** - See what robots are available
-2. **"Tell me about robot [robot-id]"** - Understand what a specific robot does
-3. **"Run robot [robot-id]"** - Execute the robot and get results
+### First Time Setup
+1. **"Show me all my robots"** — see what's available
+2. **"Tell me about robot [name or id]"** — understand what it does
+3. **"Run robot [name or id]"** — execute it and get results
 
-### Workflow 2: Monitoring and Analysis
-1. **"Show me all runs for robot [robot-id]"** - Check execution history
-2. **"Give me a performance summary for robot [robot-id]"** - Analyze success rates
-3. **"Show me details for the latest run"** - Check recent results
+### Monitoring Runs
+1. **"Show me all runs for robot [name]"** — check history
+2. **"Show me the results from the latest run"** — inspect output
 
-### Workflow 3: Debugging Failed Runs
-1. **"Show me all runs for robot [robot-id]"** - Find failed runs
-2. **"Show me details for run [failed-run-id]"** - Investigate the failure
-3. **"Run robot [robot-id] again"** - Retry the execution
+### Debugging a Failed Run
+1. **"Show me all runs for robot [name]"** — find the failed run
+2. **"Get details for run [run-id]"** — see the error
+3. **"Run robot [name] again"** — retry
 
-### Workflow 4: Asynchronous Execution
-1. **"Run robot [robot-id] but don't wait for completion"** - Start execution
-2. **"Check the status of run [run-id]"** - Monitor progress
-3. **"Get results for run [run-id] when it's done"** - Retrieve final results
+### Chained Extraction
+```
+"List my robots, run the most recently created one, and summarize the results"
+```
+Your AI assistant will chain `list_robots` → `run_robot` → format the output automatically.
 
-## Available Tools Reference
+---
 
-| Tool | Purpose | Triggered By |
+## Tool Reference
+
+### `list_robots`
+Returns all robots in your account with their ID, name, type, and schedule.
+
+**Example response fields:**
+- `id` — robot ID (use this in other tool calls)
+- `name` — human-readable name
+- `type` — robot type (`extract`, `crawl`, `scrape`, `search`)
+- `schedule` — cron schedule if configured
+
+### `run_robot`
+Executes a robot and waits up to **30 minutes** for it to complete.
+
+**Parameters:**
+| Parameter | Required | Description |
 |---|---|---|
-| `list_robots` | Get all available robots | "Show me all robots", "List my robots" |
-| `get_robot` | Get robot details | "Tell me about robot X", "Show robot details" |
-| `run_robot` | Execute a robot | "Run robot X", "Execute robot X" |
-| `get_robot_runs` | Get run history | "Show runs for robot X", "List executions" |
-| `get_run_details` | Get specific run info | "Show run details", "What happened in run X" |
-| `get_robot_summary` | Get performance stats | "Performance summary", "How is robot X doing" |
+| `robot_id` | Yes | The robot ID to execute |
+| `formats` | No | Output formats: `["markdown", "text", "html"]` |
+| `params` | No | Input parameters for the robot workflow |
+
+### `get_robot_runs`
+Returns the execution history for a robot.
+
+**Parameters:**
+| Parameter | Required | Description |
+|---|---|---|
+| `robot_id` | Yes | The robot ID |
+| `limit` | No | Max runs to return (default 20, max 100) |
+
+---
 
 ## Tips for Better Prompts
 
-- **Be specific**: Include robot IDs or run IDs when you know them
-- **Use natural language**: The LLM understands conversational requests
-- **Combine requests**: "Run robot abc123 and then show me a performance summary"
-- **Ask follow-up questions**: "What was the error in that failed run?"
-- **Request specific data**: "Show me only the successful runs from last week"
+- **Skip the ID** — describe the robot by name, the AI will look it up
+- **Ask for specific formats** — "return the data as a markdown table"
+- **Chain requests** — "run the scraper and email me a summary" (if email tools are also configured)
+- **Ask follow-up questions** — "why did that run fail?" after getting an error result
 
 ## Error Handling
 
-When something goes wrong, you'll receive clear error messages. Common issues include:
+Common errors you may see:
 
-- **Invalid IDs**: "Robot with ID abc123 not found"
-- **Authentication**: "API key is invalid or missing"
-- **Network issues**: "Unable to connect to Maxun backend"
-- **Execution failures**: "Robot run failed due to timeout"
-
-Simply ask follow-up questions like "Why did that fail?" or "How can I fix this?" for more help.
+| Error | Cause |
+|---|---|
+| `Robot not found` | The robot ID doesn't exist or belongs to another account |
+| `API key is invalid` | Check your key in the Maxun Dashboard |
+| `Run failed` | The robot encountered an error during extraction — check run details |
+| `Execution timeout` | The robot didn't complete within 30 minutes |
