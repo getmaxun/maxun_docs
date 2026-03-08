@@ -15,3 +15,6 @@ Our main app, SDKs and documentation are separate repositores, under the <a href
 
 ### Maxun Docs
 Maxun Docs Repository: <a href="https://github.com/getmaxun/maxun_docs">https://github.com/getmaxun/maxun_docs</a>
+
+### Maxun SDKs
+- Maxun Node.js SDK: <a href="https://github.com/getmaxun/node-sdk">https://github.com/getmaxun/node-sdk</a>
