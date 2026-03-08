@@ -18,3 +18,4 @@ Maxun Docs Repository: <a href="https://github.com/getmaxun/maxun_docs">https://
 
 ### Maxun SDKs
 - Maxun Node.js SDK: <a href="https://github.com/getmaxun/node-sdk">https://github.com/getmaxun/node-sdk</a>
+- Maxun Python SDK:  <a href="https://github.com/getmaxun/python-sdk">https://github.com/getmaxun/python-sdk</a>
