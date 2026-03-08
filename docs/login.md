@@ -36,7 +36,7 @@ Instead, authentication is handled securely through the <a href="https://chromew
 <iframe width="560" height="315" src="https://www.youtube.com/embed/brGQOdKbj6E?si=60yrWAEXC3BymhaH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 ---
 
-## OSS Extract Robots: Legacy Credential‑Based Login
+## OSS Extract Robots: Credential‑Based Login
 
 For **OSS (self‑hosted) extract robots**, the original login‑based approach is still supported.
 
