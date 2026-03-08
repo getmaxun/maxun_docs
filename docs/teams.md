@@ -16,7 +16,7 @@ Teams provide a unified workspace where members can build, test, and extract dat
 
 You can quickly create a team within the Maxun Dashboard.
 
-1. Navigate to the **My Teams** panel from your user account dropdown.
+1. Navigate to the **My Teams** panel from the dashboard sidebar.
 2. Click **Create Team**.
 3. Give your team a descriptive name (e.g., "Marketing Team") and an optional description.
 
