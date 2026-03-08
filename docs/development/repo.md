@@ -4,7 +4,7 @@ description: How Maxun's repositories are structured
 ---
 # Repository Structure
 
-Our main app and documentation are separate repositores, under the <a href="https://github.com/getmaxun/">Maxun organization</a> on GitHub.
+Our main app, SDKs and documentation are separate repositores, under the <a href="https://github.com/getmaxun/">Maxun organization</a> on GitHub.
 
 ### Maxun 
 - Maxun repository: <a href="https://github.com/getmaxun/maxun">https://github.com/getmaxun/maxun_docs</a>
