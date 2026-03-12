@@ -46,6 +46,9 @@ import { SiLangchain, SiOpenai } from "react-icons/si";
 import { TbGraph, TbFileSearch } from "react-icons/tb";
 import { RiRobot2Line } from "react-icons/ri";
 import { IoTriangleSharp } from "react-icons/io5";
+const OpenClawIcon = ({ style }) => (
+  <img src="/img/openclaw_icon.png" style={{ width: "1.2em", height: "1.2em", verticalAlign: "middle", objectFit: "contain", filter: "grayscale(1)", ...style }} />
+);
 
 const IconMap = {
   introBook: HiOutlineBookOpen,
@@ -97,6 +100,7 @@ const IconMap = {
   mastra: RiRobot2Line,
   openai: SiOpenai,
   vercel_ai_sdk: IoTriangleSharp,
+  openclaw: OpenClawIcon,
   search_introduction: MdOutlineInfo,
   search_configuration: FiSettings,
   stealth: RiRobot2Line,
@@ -184,6 +188,8 @@ const SidebarIconMap = {
   "integrations/openai": "openai",
   "vercel-ai-sdk": "vercel_ai_sdk",
   "integrations/vercel-ai-sdk": "vercel_ai_sdk",
+  openclaw: "openclaw",
+  "integrations/openclaw": "openclaw",
   // DEVELOPMENT
   i18n: "i18n",
   "/development/i18n": "i18n",
