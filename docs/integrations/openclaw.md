@@ -31,7 +31,7 @@ npm i -g clawhub
 ### 1. Install the skill
 
 ```bash
-clawhub install RohitR311/maxun
+clawhub install maxun
 ```
 
 This downloads the skill into your `./skills` directory and records it in `.clawhub/lock.json`.
@@ -53,6 +53,12 @@ Add your Maxun API key to `~/.openclaw/openclaw.json` under the skill's `env` bl
     }
   }
 }
+```
+
+Or run the command
+
+```bash
+openclaw config set env.MAXUN_API_KEY "your_api_key_here"
 ```
 
 ### 3. Restart the gateway
