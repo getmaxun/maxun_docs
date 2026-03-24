@@ -12,7 +12,7 @@ Full reference for all `maxun` CLI commands.
 
 | Command | Description |
 |---------|-------------|
-| `maxun login --api-key <key>` | Authenticate with your Maxun API key |
+| `maxun login --api-url <url> --api-key <key>` | Authenticate with your Maxun instance and API key |
 | `maxun logout` | Clear stored credentials |
 | `maxun status` | Show authentication status, plan, and credits |
 | `maxun credits` | Show remaining credit balance |
@@ -59,6 +59,7 @@ Full reference for all `maxun` CLI commands.
 | Variable | Description |
 |----------|-------------|
 | `MAXUN_API_KEY` | API key — overrides stored config |
+| `MAXUN_API_URL` | API base URL — defaults to https://app.maxun.dev |
 
 ## Configuration File
 
@@ -66,6 +67,7 @@ Credentials are stored at `~/.maxun/config.json`:
 
 ```json
 {
-  "apiKey": "your-api-key"
+  "apiKey": "your-api-key",
+  "apiUrl": "http://localhost:8080"
 }
 ```
