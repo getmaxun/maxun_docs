@@ -22,7 +22,7 @@ Full reference for all `maxun` CLI commands.
 | Command | Description |
 |---------|-------------|
 | `maxun robots list` | List all robots (JSON by default, `--table` for formatted view) |
-| `maxun robots extract -p <prompt>` | Create an AI robot from a natural language prompt |
+| `maxun robots extract -p <prompt> [-u <url>] [--provider <p>] [--model <m>]` | Create an AI robot from a natural language prompt |
 | `maxun robots scrape <url>` | Create a single-page scraping robot |
 | `maxun robots crawl <url>` | Create a multi-page crawling robot |
 | `maxun robots search <query>` | Create a search-based robot |
@@ -59,7 +59,6 @@ Full reference for all `maxun` CLI commands.
 | Variable | Description |
 |----------|-------------|
 | `MAXUN_API_KEY` | API key — overrides stored config |
-| `MAXUN_API_URL` | Custom API base URL — overrides default |
 
 ## Configuration File
 

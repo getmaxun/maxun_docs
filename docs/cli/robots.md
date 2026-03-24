@@ -33,8 +33,11 @@ maxun robots extract -p <prompt> [options]
 | Option | Description |
 |--------|-------------|
 | `-p, --prompt <text>` | Natural language description of what to extract (required) |
-| `-u, --url <url>` | Target URL for the robot |
+| `-u, --url <url>` | Target URL for the robot (optional) |
 | `-n, --name <name>` | Robot name |
+| `--provider <provider>` | LLM provider: `huggingface`, `openrouter` (default: `huggingface`) |
+| `--model <model>` | LLM model name |
+| `--api-key <key>` | LLM API key |
 
 **Example:**
 ```bash
