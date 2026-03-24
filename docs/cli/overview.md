@@ -11,7 +11,7 @@ The Maxun CLI lets you create robots, trigger runs, and fetch extracted data dir
 ## Installation
 
 ```bash
-npm install -g @maxun/cli
+npm install -g maxun-cli
 ```
 
 ## Requirements
