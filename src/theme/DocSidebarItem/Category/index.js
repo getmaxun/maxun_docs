@@ -28,6 +28,7 @@ import { FaMarkdown } from "react-icons/fa";
 import { LuFocus } from "react-icons/lu";
 import { BiCodeBlock } from "react-icons/bi";
 import { FiSearch } from "react-icons/fi";
+import { BsTerminal } from "react-icons/bs";
 
 // Map keys are lowercase category labels (exact-match on label)
 // Add entries here for every category label you want icons for.
@@ -46,6 +47,7 @@ const IconMap = {
   crawl: TbWorldSearch,
   search: FiSearch,
   llmintegrations: LuBrainCircuit,
+  cli: BsTerminal,
 };
 
 // Helper: normalize label (lowercase, remove spaces)

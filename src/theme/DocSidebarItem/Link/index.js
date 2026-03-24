@@ -105,6 +105,11 @@ const IconMap = {
   search_configuration: FiSettings,
   stealth: RiRobot2Line,
   teams: FiUsers,
+  cli_overview: HiOutlineBookOpen,
+  cli_robots: RiRobot2Line,
+  cli_run: VscRunAll,
+  cli_runs: FiDatabase,
+  cli_reference: MdOutlineViewList,
 };
 
 // manual icon mapping (use docId OR href)
@@ -234,6 +239,18 @@ const SidebarIconMap = {
   "/sdk/node-sdk/sdk-crawl": "sdk_crawl",
   "/sdk/node-sdk/sdk-search": "sdk_search",
   "/sdk/node-sdk/sdk-robot": "sdk_robot",
+
+  // CLI routes
+  "cli-overview": "cli_overview",
+  "/cli/cli-overview": "cli_overview",
+  "cli-robots": "cli_robots",
+  "/cli/cli-robots": "cli_robots",
+  "cli-run": "cli_run",
+  "/cli/cli-run": "cli_run",
+  "cli-runs": "cli_runs",
+  "/cli/cli-runs": "cli_runs",
+  "cli-reference": "cli_reference",
+  "/cli/cli-reference": "cli_reference",
 
   // Python SDK routes
   "/sdk/python-sdk/sdk-overview": "sdk_overview",
