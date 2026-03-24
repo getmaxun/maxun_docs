@@ -11,10 +11,8 @@ When enabled, Stealth applies additional techniques to make browser activity app
 
 ### Maxun Cloud
 
-- Stealth is available on paid Cloud plans.
-- It can be toggled on or off per robot and per run.
+- Stealth is enabled by deafult on all Cloud plans.
 - No additional setup is required.
-- If you're on the free trial, Stealth is not included.
 
 ### Maxun OSS
 
