@@ -197,7 +197,7 @@ const config = {
       announcementBar: {
       id: 'scrape_robots_release',
       content:
-      '<a href="https://www.maxun.dev/blog/secure-extract" target="_blank" rel="noopener noreferrer">Sync your browser sessions to extract data behind login without sharing passwords. Learn more →</a>',
+      '<a href="https://www.maxun.dev/blog/maxun-cli" target="_blank" rel="noopener noreferrer">Introducing Maxun CLI - Turn any website into an API from your terminal. Learn more →</a>',
       backgroundColor: '#ff00c3',
       textColor: '#ffffffff',
     },
