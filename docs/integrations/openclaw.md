@@ -16,9 +16,9 @@ The skill is published on <a href="https://clawhub.ai/RohitR311/maxun" target="_
 ## Prerequisites
 
 - OpenClaw running (self-hosted gateway)
-- A Maxun Cloud account at <a href="https://app.maxun.dev" target="_blank">app.maxun.dev</a>
-- A Maxun API key (generated from **Settings → API Key** in your dashboard)
-- The ClawHub CLI installed:
+- A Maxun Cloud account at <a href="https://app.maxun.dev" target="_blank">app.maxun.dev</a> or a self-hosted instance
+- API Key from <a href="/api/api">Maxun Dashboard</a>
+- The ClawHub CLI installed
 
 ```bash
 npm i -g clawhub
@@ -38,28 +38,18 @@ This downloads the skill into your `./skills` directory and records it in `.claw
 
 ### 2. Configure your API key
 
-Add your Maxun API key to `~/.openclaw/openclaw.json` under the skill's `env` block:
-
-```json
-{
-  "skills": {
-    "entries": {
-      "maxun": {
-        "enabled": true,
-        "env": {
-          "MAXUN_API_KEY": "your_api_key_here"
-        }
-      }
-    }
-  }
-}
-```
-
-Or run the command
+The skill automatically looks for a `.env` file in your OpenClaw gateway directory and loads the variables seamlessly without needing to export them manually. Create or edit a `.env` file in the root of your OpenClaw deployment:
 
 ```bash
-openclaw config set env.MAXUN_API_KEY "your_api_key_here"
+MAXUN_API_KEY="your_api_key_here"
 ```
+
+For **self-hosted Maxun** users, also set your base URL in the same `.env` file:
+```bash
+MAXUN_BASE_URL="http://localhost:8080"
+```
+
+*(Alternatively, you can configure your API key directly in your OpenClaw `~/.openclaw/openclaw.json` under the skill's `env` block or run `openclaw config set env.MAXUN_API_KEY "your_key"`)*
 
 ### 3. Restart the gateway
 

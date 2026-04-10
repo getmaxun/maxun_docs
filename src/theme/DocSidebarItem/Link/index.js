@@ -49,6 +49,9 @@ import { IoTriangleSharp } from "react-icons/io5";
 const OpenClawIcon = ({ style }) => (
   <img src="/img/openclaw_icon.png" style={{ width: "1.2em", height: "1.2em", verticalAlign: "middle", objectFit: "contain", filter: "grayscale(1)", ...style }} />
 );
+const ClaudeIcon = ({ style }) => (
+  <img src="/img/claude.svg" style={{ width: "1.2em", height: "1.2em", verticalAlign: "middle", objectFit: "contain", filter: "grayscale(1)", ...style }} />
+);
 
 const IconMap = {
   introBook: HiOutlineBookOpen,
@@ -101,6 +104,7 @@ const IconMap = {
   openai: SiOpenai,
   vercel_ai_sdk: IoTriangleSharp,
   openclaw: OpenClawIcon,
+  "claude-code": ClaudeIcon,
   search_introduction: MdOutlineInfo,
   search_configuration: FiSettings,
   stealth: RiRobot2Line,
@@ -195,6 +199,8 @@ const SidebarIconMap = {
   "integrations/vercel-ai-sdk": "vercel_ai_sdk",
   openclaw: "openclaw",
   "integrations/openclaw": "openclaw",
+  "claude-code": "claude-code",
+  "integrations/claude-code": "claude-code",
   // DEVELOPMENT
   i18n: "i18n",
   "/development/i18n": "i18n",
