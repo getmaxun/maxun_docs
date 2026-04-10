@@ -15,7 +15,7 @@ The Maxun skill for <a href="https://docs.anthropic.com/en/docs/agents-and-tools
 
 - <a href="https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview" target="_blank">Claude Code</a> installed
 - A Maxun Cloud account at <a href="https://app.maxun.dev" target="_blank">app.maxun.dev</a> or a self-hosted instance
-- A Maxun API key (generated from the **API Key** tab in your dashboard sidebar)
+- A Maxun API key (created from the **API Key** tab in your dashboard sidebar)
 
 ---
 

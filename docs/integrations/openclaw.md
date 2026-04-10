@@ -17,7 +17,7 @@ The skill is published on <a href="https://clawhub.ai/RohitR311/maxun" target="_
 
 - OpenClaw running (self-hosted gateway)
 - A Maxun Cloud account at <a href="https://app.maxun.dev" target="_blank">app.maxun.dev</a> or a self-hosted instance
-- A Maxun API key (generated from the **API Key** tab in your dashboard sidebar)
+- A Maxun API key (created from the **API Key** tab in your dashboard sidebar)
 - The ClawHub CLI installed:
 
 ```bash
