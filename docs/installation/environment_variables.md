@@ -31,6 +31,7 @@ openssl rand -hex 32     # For ENCRYPTION_KEY
 | `DB_PASSWORD`         | Yes       | Password for Postgres database authentication.                                               | Database connection will fail.                               |
 | `DB_HOST`             | Yes       | Host address where the Postgres database server is running.                                  | Database connection will fail.                               |
 | `DB_PORT`             | Yes       | Port number used to connect to the Postgres database server.                                 | Database connection will fail.                               |
+| `DB_SSL`              | No        | Set to `true` to enable SSL for the database connection. Required when using Neon or any SSL-enforced PostgreSQL host. | Defaults to `false`. SSL will not be used. |
 | `ENCRYPTION_KEY`      | Yes       | Key for encrypting sensitive data. Generate with `openssl rand -hex 32`                                | Encryption functionality will not work.                      |
 | `SESSION_SECRET`      | Yes       | Secret for signing session cookies. Generate with `openssl rand -base64 48`                                         | Sessions won't persist across restarts.  |
 | `MINIO_ENDPOINT`      | Yes       | Endpoint URL for MinIO, to store Robot Run Screenshots.                                      | Connection to MinIO storage will fail.                       |

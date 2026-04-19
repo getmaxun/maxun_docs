@@ -8,7 +8,7 @@ import IconExternalLink from "@theme/Icon/ExternalLink";
 import styles from "./styles.module.css";
 import { FaRocket, FaMarkdown } from "react-icons/fa";
 import { HiOutlineBookOpen } from "react-icons/hi2";
-import { TbBrandDocker } from "react-icons/tb";
+import { TbBrandDocker, TbDatabaseShare } from "react-icons/tb";
 import { RiComputerLine } from "react-icons/ri";
 import { FiSettings } from "react-icons/fi";
 import { GrUpgrade } from "react-icons/gr";
@@ -66,6 +66,7 @@ const IconMap = {
   robots_options: SlOptions,
   robots_retrain: LiaRedoAltSolid,
   self_host: AiOutlineDeploymentUnit,
+  neon: TbDatabaseShare,
   runs: VscRunAll,
   deep_extraction: FiDatabase,
   byop: LuCable,
@@ -159,6 +160,8 @@ const SidebarIconMap = {
   // SELF-HOST
   self_host: "self_host",
   "/self-host": "self_host",
+  neon: "neon",
+  "/self-host/neon": "neon",
   // RUNS
   runs: "runs",
   "/runs": "runs",
