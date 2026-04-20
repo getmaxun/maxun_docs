@@ -59,6 +59,7 @@ maxun robots scrape <url> [options]
 |--------|-------------|
 | `-n, --name <name>` | Robot name |
 | `-f, --format <fmt>` | Output formats: `markdown`, `html`, `text`, `screenshot-visible`, `screenshot-fullpage` (comma-separated, default: `markdown`) |
+| `-p, --prompt <text>` | Smart Queries: LLM prompt to analyze the page and perform actions post scraping |
 
 **Example:**
 ```bash

@@ -102,6 +102,57 @@ print(result["data"]["html"])
 print(result["data"]["screenshots"])
 ```
 
+---
+
+## Smart Queries
+
+Smart Queries let you attach a natural language prompt to a scrape robot. After the page is scraped, an LLM analyzes the page content and returns an answer to your prompt.
+
+The result is returned as `result["data"]["promptResult"]`.
+
+
+```python
+from maxun import Scrape, Config
+
+scraper = Scrape(Config(api_key="your-api-key"))
+
+robot = await scraper.create(
+    "Pricing Scraper",
+    "https://example.com/pricing",
+    formats=["markdown"],
+    smart_queries="List all plan names and their monthly prices.",
+)
+
+result = await robot.run()
+print(result["data"]["markdown"])       # full page markdown
+print(result["data"]["promptResult"])   # "Starter: $9/mo, Growth: $29/mo, Pro: $99/mo"
+```
+
+### More Examples
+
+```python
+# Extract specific data points
+robot = await scraper.create(
+    "Company Info",
+    "https://example.com/about",
+    formats=["markdown"],
+    smart_queries="What is the company founding year and headquarters location?",
+)
+
+# Summarize content
+robot = await scraper.create(
+    "Article Summarizer",
+    "https://blog.example.com/post",
+    formats=["markdown"],
+    smart_queries="Summarize this article in 3 bullet points.",
+)
+
+result = await robot.run()
+print(result["data"]["promptResult"])
+```
+
+---
+
 ## Examples
 
 ### RAG Pipeline
