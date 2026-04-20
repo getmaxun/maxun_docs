@@ -120,7 +120,7 @@ robot = await scraper.create(
     "Pricing Scraper",
     "https://example.com/pricing",
     formats=["markdown"],
-    prompt_instructions="List all plan names and their monthly prices.",
+    smart_queries="List all plan names and their monthly prices.",
 )
 
 result = await robot.run()
@@ -136,7 +136,7 @@ robot = await scraper.create(
     "Company Info",
     "https://example.com/about",
     formats=["markdown"],
-    prompt_instructions="What is the company founding year and headquarters location?",
+    smart_queries="What is the company founding year and headquarters location?",
 )
 
 # Summarize content
@@ -144,7 +144,7 @@ robot = await scraper.create(
     "Article Summarizer",
     "https://blog.example.com/post",
     formats=["markdown"],
-    prompt_instructions="Summarize this article in 3 bullet points.",
+    smart_queries="Summarize this article in 3 bullet points.",
 )
 
 result = await robot.run()

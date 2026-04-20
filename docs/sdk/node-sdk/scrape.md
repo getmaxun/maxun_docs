@@ -100,7 +100,7 @@ const robot = await scraper.create(
   'https://example.com/pricing',
   {
     formats: ['markdown'],
-    promptInstructions: 'List all plan names and their monthly prices.'
+    smartQueries: 'List all plan names and their monthly prices.'
   }
 );
 
@@ -118,7 +118,7 @@ const robot = await scraper.create(
   'https://example.com/about',
   {
     formats: ['markdown'],
-    promptInstructions: 'What is the company founding year and headquarters location?'
+    smartQueries: 'What is the company founding year and headquarters location?'
   }
 );
 
@@ -128,7 +128,7 @@ const robot = await scraper.create(
   'https://blog.example.com/post',
   {
     formats: ['markdown'],
-    promptInstructions: 'Summarize this article in 3 bullet points.'
+    smartQueries: 'Summarize this article in 3 bullet points.'
   }
 );
 
