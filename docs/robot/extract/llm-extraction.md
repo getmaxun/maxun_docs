@@ -74,7 +74,7 @@ For these use cases, use Recorder Mode to create Extract robots manually.
 
 ## Using with SDK
 
-AI Mode is also available through the <a href="/sdk/sdk-extract">Maxun SDK</a> for programmatic robot creation.
+AI Mode is also available through the <a href="/category/sdk">Maxun SDK</a> for programmatic robot creation.
 
 ## Writing Effective Prompts
 
