@@ -19,7 +19,7 @@ Learn more <a href="/category/extract">here</a>.
 ### 2. Scrape
 Scrape converts full webpages into clean Markdown, HTML and can capture screenshots. Ideal for AI workflows, agents, and document processing. 
 
-Learn more <a href="/robot/scrape/scrape-robots">here</a>.
+Learn more <a href="/robot/scrape">here</a>.
 
 ### 3. Crawl
 Crawl entire websites and extract content from every relevant page, with full control over scope and discovery.
