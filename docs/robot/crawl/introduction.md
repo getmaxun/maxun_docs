@@ -42,4 +42,4 @@ For complex workflows with user interactions, use Extract instead.
 
 ## Using with SDK
 
-Crawl is available through the <a href="/sdk/sdk-crawl">Maxun SDK</a> for programmatic usage and integration into your applications.
+Crawl is available through the <a href="/category/sdk">Maxun SDK</a> for programmatic usage and integration into your applications.
