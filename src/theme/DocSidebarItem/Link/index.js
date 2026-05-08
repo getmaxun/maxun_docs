@@ -7,7 +7,7 @@ import isInternalUrl from "@docusaurus/isInternalUrl";
 import IconExternalLink from "@theme/Icon/ExternalLink";
 import styles from "./styles.module.css";
 import { FaRocket, FaMarkdown } from "react-icons/fa";
-import { HiOutlineBookOpen } from "react-icons/hi2";
+import { HiOutlineBookOpen, HiOutlineDocumentText } from "react-icons/hi2";
 import { TbBrandDocker, TbDatabaseShare } from "react-icons/tb";
 import { RiComputerLine } from "react-icons/ri";
 import { FiSettings } from "react-icons/fi";
@@ -96,6 +96,8 @@ const IconMap = {
   sdk_crawl: TbWorldSearch,
   sdk_search: FiSearch,
   sdk_robot: MdManageAccounts,
+  document: HiOutlineDocumentText,
+  sdk_document: HiOutlineDocumentText,
   crawl_introduction: MdOutlineInfo,
   crawl_configuration: FiSettings,
   langchain: SiLangchain,
@@ -152,6 +154,9 @@ const SidebarIconMap = {
   "robot/crawl/crawl-introduction": "crawl_introduction",
   "crawl-configuration": "crawl_configuration",
   "robot/crawl/crawl-configuration": "crawl_configuration",
+  // DOCUMENT
+  "document": "document",
+  "robot/document": "document",
   // SEARCH
   "search-introduction": "search_introduction",
   "robot/search/search-introduction": "search_introduction",
@@ -248,6 +253,7 @@ const SidebarIconMap = {
   "/sdk/node-sdk/sdk-crawl": "sdk_crawl",
   "/sdk/node-sdk/sdk-search": "sdk_search",
   "/sdk/node-sdk/sdk-robot": "sdk_robot",
+  "/sdk/node-sdk/sdk-document": "sdk_document",
 
   // CLI routes
   "cli-overview": "cli_overview",
@@ -268,6 +274,7 @@ const SidebarIconMap = {
   "/sdk/python-sdk/sdk-crawl": "sdk_crawl",
   "/sdk/python-sdk/sdk-search": "sdk_search",
   "/sdk/python-sdk/sdk-robot": "sdk_robot",
+  "/sdk/python-sdk/sdk-document": "sdk_document",
 };
 
 export default function DocSidebarItemLink({
