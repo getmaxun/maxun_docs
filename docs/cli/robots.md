@@ -107,6 +107,49 @@ maxun robots search <query> [options]
 maxun robots search "Latest AI news" --mode discover --limit 10 -n "AI News"
 ```
 
+### Document Extract (doc-extract)
+
+Create a robot that extracts structured fields from a PDF using AI.
+
+```bash
+maxun robots doc-extract <pdf> [options]
+```
+
+| Option | Description |
+|--------|-------------|
+| `-p, --prompt <prompt>` | What to extract in natural language (required) |
+| `-n, --name <name>` | Robot name |
+| `--model <model>` | Ollama Cloud model override |
+
+**Example:**
+```bash
+maxun robots doc-extract invoice.pdf \
+  --prompt "Extract invoice number, vendor name, issue date, and total amount" \
+  --name "Invoice Extractor"
+```
+
+### Document Parse (doc-parse)
+
+Create a robot that converts a PDF into Markdown, HTML, and/or extracted links — no LLM, free.
+
+```bash
+maxun robots doc-parse <pdf> [options]
+```
+
+| Option | Description |
+|--------|-------------|
+| `-f, --formats <formats>` | Output formats, comma-separated: `markdown`, `html`, `links` (required) |
+| `-n, --name <name>` | Robot name |
+
+**Example:**
+```bash
+maxun robots doc-parse report.pdf \
+  --formats "markdown,html,links" \
+  --name "Report Parser"
+```
+
+Runs complete in 1–3 seconds.
+
 ## Other Robot Commands
 
 | Command | Description |
