@@ -8,7 +8,7 @@ sidebar_position: 5
 
 Work with PDF documents — extract specific fields or convert to Markdown, HTML, and links.
 
-## doc-extract
+## Extract
 
 Upload a PDF and describe what you want. Maxun creates a reusable robot that extracts those fields from any similar document.
 
@@ -34,7 +34,7 @@ print(run['data']['documentData'])
 
 ---
 
-## doc-parse
+## Parse
 
 Convert a PDF into Markdown, HTML, or a list of links.
 
