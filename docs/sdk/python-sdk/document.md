@@ -34,7 +34,7 @@ print(run['data']['documentData'])
 
 ---
 
-## doc-parse
+## Parse
 
 Convert a PDF into Markdown, HTML, or a list of links.
 
