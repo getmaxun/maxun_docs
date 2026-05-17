@@ -11,7 +11,6 @@ Maxun can work with PDF documents in two ways — pull out specific data fields,
 
 Upload a PDF and tell Maxun what information you want from it. Maxun figures out the structure automatically and saves it as a reusable robot — so you can run it on new documents any time.
 
-![Extract](./doc_extract.png)
 
 ### How It Works
 
@@ -31,7 +30,6 @@ Upload a PDF and tell Maxun what information you want from it. Maxun figures out
 
 Upload a PDF and convert it into clean Markdown, HTML, or a list of links. No configuration needed — just pick your format and run.
 
-![Parse](./doc_parse.png)
 
 ### How It Works
 
