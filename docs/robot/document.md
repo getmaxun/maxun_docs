@@ -7,11 +7,11 @@ title: Document
 
 Maxun can work with PDF documents in two ways — pull out specific data fields, or convert the whole document into a clean format.
 
-## doc-extract
+## Extract
 
 Upload a PDF and tell Maxun what information you want from it. Maxun figures out the structure automatically and saves it as a reusable robot — so you can run it on new documents any time.
 
-![doc-extract](./doc_extract.png)
+![Extract](./doc_extract.png)
 
 ### How It Works
 
@@ -20,7 +20,7 @@ Upload a PDF and tell Maxun what information you want from it. Maxun figures out
 3. Maxun creates a robot that can extract those fields from any similar document.
 4. Run the robot whenever you have a new file to process.
 
-### When to Use doc-extract
+### When to Use Extract
 
 - You need specific fields from documents like invoices, contracts, or offer letters.
 - You receive the same type of document repeatedly and want to automate processing it.
