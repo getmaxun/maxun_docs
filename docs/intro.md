@@ -23,8 +23,11 @@ Convert full webpages into clean Markdown, HTML and capture screenshots.
 ### Search
 Run programmatic web searches and extract results as metadata or full content, with time-based filtering.
 
+### Document Extraction & Parsing
+Extract structured data from PDFs and or convert it into clean Markdown, HTML, or a list of links.
+
 <hr />
 
-Maxun is no-code by default, with optional APIs and SDKs when deeper integration is needed — without changing how extractions are defined.
+Maxun is no-code by default, with APIs, CLI, MCP and SDKs when deeper integration is needed — without changing how extractions are defined.
 
 Continue to the next chapter to understand how Maxun works and how these capabilities are powered.
