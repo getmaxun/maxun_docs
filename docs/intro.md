@@ -28,6 +28,6 @@ Extract structured data from PDFs and or convert it into clean Markdown, HTML, o
 
 <hr />
 
-Maxun is no-code by default, with optional APIs and SDKs when deeper integration is needed — without changing how extractions are defined.
+Maxun is no-code by default, with APIs, CLI, MCP and SDKs when deeper integration is needed — without changing how extractions are defined.
 
 Continue to the next chapter to understand how Maxun works and how these capabilities are powered.
