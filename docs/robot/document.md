@@ -7,6 +7,8 @@ title: Document
 
 Maxun can work with PDF documents in two ways — pull out specific data fields, or convert the whole document into a clean format.
 
+> Note: Document robots is in beta.
+
 ## Extract
 
 Upload a PDF and tell Maxun what information you want from it. Maxun figures out the structure automatically and saves it as a reusable robot — so you can run it on new documents any time.
