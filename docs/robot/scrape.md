@@ -16,6 +16,7 @@ Just provide a URL, choose your output format, and Maxun handles the rest.
    - **Markdown**
    - **Text**
    - **Links**
+   - **Summary** 
    - **Visible part screenshot**
    - **Full page screenshot**
 3. Optionally add a **Smart Query** prompt (see below).

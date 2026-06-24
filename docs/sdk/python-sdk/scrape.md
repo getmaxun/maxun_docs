@@ -82,6 +82,43 @@ robot_full = await scraper.create(
 )
 ```
 
+### Summary
+
+Generates an AI-powered plain-text summary of the page. Can be combined with other formats.
+
+```python
+from maxun import Scrape, Config
+
+scraper = Scrape(Config(api_key="your-api-key"))
+
+robot = await scraper.create(
+    "Blog Post Summarizer",
+    "https://blog.example.com/post",
+    formats=["summary"],
+)
+
+result = await robot.run()
+print(result["data"]["summary"])
+```
+
+Combine with `markdown` to get both the full content and a summary:
+
+```python
+from maxun import Scrape, Config
+
+scraper = Scrape(Config(api_key="your-api-key"))
+
+robot = await scraper.create(
+    "Blog Post Summarizer",
+    "https://blog.example.com/post",
+    formats=["summary", "markdown"],
+)
+
+result = await robot.run()
+print(result["data"]["summary"])   # AI-generated plain-text summary
+print(result["data"]["markdown"])  # Full page markdown
+```
+
 ### Multiple Formats
 
 ```python
@@ -141,7 +178,7 @@ robot = await scraper.create(
 
 # Summarize content
 robot = await scraper.create(
-    "Article Summarizer",
+    "Blog Post Summarizer",
     "https://blog.example.com/post",
     formats=["markdown"],
     smart_queries="Summarize this article in 3 bullet points.",

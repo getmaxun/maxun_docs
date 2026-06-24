@@ -20,7 +20,7 @@ Triggers the robot and streams the extracted data to stdout as JSON once the run
 
 | Option | Description |
 |--------|-------------|
-| `-f, --format <fmt>` | Override output formats for this run: `markdown`, `html`, `text`, `screenshot-visible`, `screenshot-fullpage` (comma-separated) |
+| `-f, --format <fmt>` | Override output formats for this run: `markdown`, `html`, `text`, `links`, `summary`, `screenshot-visible`, `screenshot-fullpage` (comma-separated) |
 | `-t, --table` | Display results in a table (best suited for Discovery Search results) |
 
 ## Examples
@@ -35,6 +35,18 @@ maxun run <robot-id>
 
 ```bash
 maxun run <robot-id> -f html,markdown
+```
+
+### Get an AI-generated summary
+
+```bash
+maxun run <robot-id> -f summary
+```
+
+Combine with other formats:
+
+```bash
+maxun run <robot-id> -f summary,markdown
 ```
 
 ### View search results as a table
