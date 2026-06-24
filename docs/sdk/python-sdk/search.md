@@ -302,8 +302,6 @@ if result["data"].get("searchData"):
         print("Summary:", item.get("summary"))
 ```
 
-- **summary** - AI-generated plain-text summary of the result page
-
 ## Managing Search Robots
 
 ```python
