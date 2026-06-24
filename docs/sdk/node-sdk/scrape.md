@@ -70,6 +70,35 @@ const robot = await scraper.create(
 );
 ```
 
+### Summary
+
+Generates an AI-powered plain-text summary of the page. Can be combined with other formats.
+
+```javascript
+const robot = await scraper.create(
+  'Blog Post Summarizer',
+  'https://blog.example.com/post',
+  { formats: ['summary'] }
+);
+
+const result = await robot.run();
+console.log(result.data.summary);
+```
+
+Combine with `markdown` to get both the full content and a summary:
+
+```javascript
+const robot = await scraper.create(
+  'Blog Post Summarizer',
+  'https://blog.example.com/post',
+  { formats: ['summary', 'markdown'] }
+);
+
+const result = await robot.run();
+console.log(result.data.summary);   
+console.log(result.data.markdown);  
+```
+
 ### Multiple Formats
 
 ```javascript
@@ -124,7 +153,7 @@ const robot = await scraper.create(
 
 // Summarize content
 const robot = await scraper.create(
-  'Article Summarizer',
+  'Blog Post Summarizer',
   'https://blog.example.com/post',
   {
     formats: ['markdown'],

@@ -252,6 +252,7 @@ Each page contains:
 - **text** - Clean body text
 - **wordCount** - Number of words
 - **links** - All links found on the page
+- **summary** - AI-generated plain-text summary of the page
 
 ## Managing Crawl Robots
 

@@ -23,9 +23,9 @@ Full reference for all `maxun` CLI commands.
 |---------|-------------|
 | `maxun robots list` | List all robots (JSON by default, `--table` for formatted view) |
 | `maxun robots extract -p <prompt> [-u <url>] [--provider <p>] [--model <m>]` | Create an AI robot from a natural language prompt |
-| `maxun robots scrape <url>` | Create a single-page scraping robot |
-| `maxun robots crawl <url>` | Create a multi-page crawling robot |
-| `maxun robots search <query>` | Create a search-based robot |
+| `maxun robots scrape <url> [-f <formats>]` | Create a single-page scraping robot; `-f` sets output formats: `markdown`, `html`, `text`, `links`, `summary`, `screenshot-visible`, `screenshot-fullpage` |
+| `maxun robots crawl <url> [-f <formats>]` | Create a multi-page crawling robot; `-f` sets per-page output formats |
+| `maxun robots search <query> [-f <formats>]` | Create a search-based robot; `-f` sets per-result output formats (scrape mode only) |
 | `maxun robots get <id>` | Get details for a specific robot |
 | `maxun robots delete <id>` | Delete a robot |
 | `maxun robots duplicate <id> --url <url>` | Duplicate a robot with a new target URL |
@@ -36,7 +36,7 @@ Full reference for all `maxun` CLI commands.
 |---------|-------------|
 | `maxun run <id>` | Run a robot and return results (JSON by default) |
 | `maxun run <id> --table` | Run and display results in table format |
-| `maxun run <id> -f <formats>` | Override output formats for this run |
+| `maxun run <id> -f <formats>` | Override output formats for this run: `markdown`, `html`, `text`, `links`, `summary`, `screenshot-visible`, `screenshot-fullpage` (comma-separated) |
 
 ## Runs & Data
 

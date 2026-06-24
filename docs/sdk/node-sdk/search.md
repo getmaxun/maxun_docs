@@ -306,6 +306,7 @@ if (result.data.searchData) {
     console.log('Text:', item.text);
     console.log('Links:', item.links);
     console.log('Status:', item.metadata?.statusCode);
+    console.log('Summary:', item.summary);
   });
 }
 ```

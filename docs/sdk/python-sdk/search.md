@@ -299,7 +299,10 @@ if result["data"].get("searchData"):
         print("Text:", item.get("text"))
         print("Links:", item.get("links"))
         print("Status:", item.get("metadata", {}).get("statusCode"))
+        print("Summary:", item.get("summary"))
 ```
+
+- **summary** - AI-generated plain-text summary of the result page
 
 ## Managing Search Robots
 

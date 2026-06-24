@@ -16,6 +16,7 @@ Just provide a URL, choose your output format, and Maxun handles the rest.
    - **Markdown**
    - **Text**
    - **Links**
+   - **Summary** (AI-generated plain-text summary of the page; requires an LLM provider on self-hosted — set `ANTHROPIC_API_KEY`, `OPENAI_API_KEY`, or run a local [Ollama](https://ollama.com) instance)
    - **Visible part screenshot**
    - **Full page screenshot**
 3. Optionally add a **Smart Query** prompt (see below).
