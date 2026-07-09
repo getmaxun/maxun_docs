@@ -3,3 +3,5 @@ Allow: /
 
 Sitemap: https://docs.maxun.dev/sitemap.xml
 Sitemap: https://maxun.dev/sitemap.xml
+
+# Algolia-Crawler-Verif: C26F21561F0DF0F2
