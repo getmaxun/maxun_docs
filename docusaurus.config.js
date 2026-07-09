@@ -135,7 +135,7 @@ const config = {
           },
           {
             to: 'https://app.maxun.dev',
-            html: '<span>Maxun Cloud ⮞</span>',
+            html: '<span>Start For Free</span>',
             position: 'right',
           },
           // {
