@@ -63,6 +63,7 @@ div[class*="announcementBarContent"] {
   --ifm-color-primary-light: #ff1dca;
   --ifm-color-primary-lighter: #ff38d1;
   --ifm-color-primary-lightest: #ff38d1;
+  --ifm-color-emphasis-100: #15172A!important;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 
   .cardContainer_fWXF,
@@ -75,7 +76,6 @@ div[class*="announcementBarContent"] {
   }
 
   table {
-
     th,
     td,
     tr {

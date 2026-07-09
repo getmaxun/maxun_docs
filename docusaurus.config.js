@@ -5,6 +5,7 @@
 // See: https://docusaurus.io/docs/api/docusaurus-config
 
 import { themes as prismThemes } from 'prism-react-renderer';
+require('dotenv').config();
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -135,7 +136,7 @@ const config = {
           },
           {
             to: 'https://app.maxun.dev',
-            html: '<span>Maxun Cloud ⮞</span>',
+            html: '<span>Start For Free</span>',
             position: 'right',
           },
           // {
@@ -195,15 +196,21 @@ const config = {
       //   copyright: `Copyright © ${new Date().getFullYear()} Maxun`,
       // },
       announcementBar: {
-      id: 'scrape_robots_release',
-      content:
-      '<a href="https://www.maxun.dev/blog/maxun-summaries" target="_blank" rel="noopener noreferrer">Summarize web pages in one click with Maxun. Learn more →</a>',
-      backgroundColor: '#ff00c3',
-      textColor: '#ffffffff',
-    },
+        id: 'scrape_robots_release',
+        content:
+          '<a href="https://www.maxun.dev/blog/maxun-summaries" target="_blank" rel="noopener noreferrer">Summarize web pages in one click with Maxun. Learn more →</a>',
+        backgroundColor: '#ff00c3',
+        textColor: '#ffffffff',
+      },
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
+      },
+      algolia: {
+        appId: process.env.ALGOLIA_APP_ID,
+        apiKey: process.env.ALGOLIA_SEARCH_API_KEY,
+        indexName: 'Maxun Docs Crawler',
+        contextualSearch: true,
       },
     }),
 };
