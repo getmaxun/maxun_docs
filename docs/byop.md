@@ -24,5 +24,3 @@ HTTP and SOCKS proxies are supported. Currently, proxies are configured per user
 
 ### Authenticated Proxies
 You can connect with authenticated proxies that require a username and password. All details are encrypted and securely stored in the database.
-
-![BYOP](byop.png)
