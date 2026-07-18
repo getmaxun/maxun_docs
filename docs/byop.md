@@ -25,4 +25,38 @@ HTTP and SOCKS proxies are supported. Currently, proxies are configured per user
 ### Authenticated Proxies
 You can connect with authenticated proxies that require a username and password. All details are encrypted and securely stored in the database.
 
-![BYOP](byop.png)
+### Recommended Proxy Providers
+Looking for a proxy provider? The following partners offer reliable proxies that work well with Maxun. Maxun users can also take advantage of exclusive discounts.
+
+<table>
+<tr>
+<td width="30%" height="100">
+<a href="https://www.rapidproxy.io/?ref=maxun">
+  <img src="https://github.com/user-attachments/assets/ccf7c59c-f4ed-4181-9706-6389d7e00f76" alt="Rapid Proxy" width="250" height="150" />
+</a>
+</td>
+<td width="70%">
+
+#### <a href="https://www.rapidproxy.io/?ref=maxun">RapidProxy</a>
+
+RapidProxy is a residential proxy platform with 90M+ real IPs across 200+ countries. It supports rotation, geo-targeting, and high concurrency to improve scraping success and reduce bans. [Start your free trial](https://www.rapidproxy.io/?ref=maxun) today!
+<br />
+<b>Discount Code: `RAPID10` to get 10% off.</b>
+</td>
+</tr>
+
+<tr>
+<td width="30%" height="100">
+<a href="https://mangoproxy.com/?utm_source=github&utm_medium=partner&utm_campaign=getmaxun">
+  <img src="https://github.com/user-attachments/assets/326b5b8f-6a2c-4aa2-94c8-6a29ae23f2ac" alt="Mango Proxy" width="250" height="150" />
+</a>
+</td>
+<td width="70%">
+    
+#### <a href="https://mangoproxy.com/?utm_source=github&utm_medium=partner&utm_campaign=getmaxun">Mango Proxy</a>
+MangoProxy offers Residential, ISP, Datacenter, and Mobile Proxies in 200+ countries with HTTP(S)/SOCKS5 support and flexible IP management.
+<br />
+<b>Discount Code: `MAXUN` - 8% off Static ISP Proxies</b>
+</td>
+</tr>
+</table>
