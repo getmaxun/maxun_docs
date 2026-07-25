@@ -25,6 +25,17 @@ HTTP and SOCKS proxies are supported. Currently, proxies are configured per user
 ### Authenticated Proxies
 You can connect with authenticated proxies that require a username and password. All details are encrypted and securely stored in the database.
 
+If your proxy requires a username and password, always provide them separate from the proxy URL.
+
+#### The right way
+
+- Proxy URL: http://proxy.com:1337
+- Username: myusername
+- Password: mypassword
+
+#### The wrong way
+- Proxy URL: http://myusername:mypassword@proxy.com:1337
+
 ### Recommended Proxy Providers
 Looking for a proxy provider? The following partners offer reliable proxies that work well with Maxun. Maxun users can also take advantage of exclusive discounts.
 
