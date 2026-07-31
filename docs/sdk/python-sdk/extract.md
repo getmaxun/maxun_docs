@@ -23,12 +23,26 @@ extractor = Extract(Config(api_key="your-api-key"))
 robot = await extractor.extract(
     url="https://example.com",
     prompt="Extract first 20 product names and prices",
+)
+
+result = await robot.run()
+```
+
+On Maxun Cloud, that is all you need. The provider, model and credentials are managed for you.
+
+#### Bringing your own model (self-hosted only)
+
+Self-hosted instances can point extraction at your own LLM using `llm_provider`, `llm_model`, `llm_api_key` and `llm_base_url`.
+
+```python
+# Self-hosted instances only
+robot = await extractor.extract(
+    url="https://example.com",
+    prompt="Extract first 20 product names and prices",
     llm_provider="anthropic",
     llm_model="claude-3-5-sonnet-20241022",
     llm_api_key="your-anthropic-api-key",
 )
-
-result = await robot.run()
 ```
 
 See <a href="/robot/extract/llm-extraction">AI Mode</a> for provider details and <a href="/llm-prompts">LLM Extraction Prompts</a> for writing effective prompts.
