@@ -16,7 +16,22 @@ Extract robots can be created using LLM-based extraction or non-LLM rules.
 Create robots using natural language.
 
 ```javascript
-const robot = await extractor.extract('https://example.com', {
+const robot = await extractor.extract({
+  url: 'https://example.com',
+  prompt: 'Extract first 20 product names and prices'
+});
+```
+
+On Maxun Cloud, that is all you need. The provider, model and credentials are managed for you.
+
+#### Bringing your own model (self-hosted only)
+
+Self-hosted instances can point extraction at your own LLM using `llmProvider`, `llmModel`, `llmApiKey` and `llmBaseUrl`.
+
+```javascript
+// Self-hosted instances only
+const robot = await extractor.extract({
+  url: 'https://example.com',
   prompt: 'Extract first 20 product names and prices',
   llmProvider: 'anthropic',
   llmApiKey: process.env.ANTHROPIC_API_KEY
