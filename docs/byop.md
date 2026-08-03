@@ -42,6 +42,22 @@ Looking for a proxy provider? The following partners offer reliable proxies that
 <table>
 <tr>
 <td width="30%" height="100">
+<a href="www.novada.com/?github-maxun">
+  <img src="https://github.com/user-attachments/assets/68262e31-639a-4d36-a281-e50b68fcdc92" alt="Novada" width="300" height="150" />
+</a>
+</td>
+<td width="70%">
+
+#### <a href="www.novada.com/?github-maxun">Novada</a>
+
+Novada provides high-quality residential proxies and a powerful Scraper API for reliable web data collection at scale. Access real residential IPs worldwide, reduce blocks, and collect the data your scraping workflows need.
+<br />
+<b>Discount Code: `GitNOVADA` - Get 20% off Rotating Residential Proxies and Scraping solutions.</b>
+</td>
+</tr>
+
+<tr>
+<td width="30%" height="100">
 <a href="https://www.rapidproxy.io/?ref=maxun">
   <img src="https://github.com/user-attachments/assets/ccf7c59c-f4ed-4181-9706-6389d7e00f76" alt="Rapid Proxy" width="250" height="150" />
 </a>
