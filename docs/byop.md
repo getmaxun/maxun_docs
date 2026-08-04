@@ -51,7 +51,7 @@ Looking for a proxy provider? The following partners offer reliable proxies that
 #### <a href="https://www.ipcook.com/?ref=githubmaxun&utm_source=github&utm_medium=referral&utm_campaign=maxun">IPCook</a>
 
 IPcook provides 55M+ real residential IPs across 185+ countries and regions, delivering fast and reliable proxy solutions for web scraping, automation, and data collection. 99.99% uptime, average response times under 0.5s, and 100,000 concurrency at max. Start with a [FREE 100MB Trial](https://www.ipcook.com/?ref=githubmaxun&utm_source=github&utm_medium=referral&utm_campaign=maxun) to experience IPcook’s proxy service.
-<br />
+
 <b>Discount Code: `WELCOME20` - Get 20% off your first purchase.</b>
 </td>
 </tr>
@@ -89,7 +89,7 @@ The most reliable proxy provider for web scrapping with the Highest Quality IP o
 #### <a href="www.novada.com/?github-maxun">Novada</a>
 
 Novada provides high-quality residential proxies and a powerful Scraper API for reliable web data collection at scale. Access real residential IPs worldwide, reduce blocks, and collect the data your scraping workflows need.
-<br />
+
 <b>Discount Code: `GitNOVADA` - Get 20% off Rotating Residential Proxies and Scraping solutions.</b>
 </td>
 </tr>
