@@ -41,7 +41,30 @@ Looking for a proxy provider? The following partners offer reliable proxies that
 
 <table>
 <tr>
-<td width="30%" height="100">
+<td width="35%" height="100">
+<a href="https://go.nodemaven.com/maxunbyop">
+  <img src="https://github.com/user-attachments/assets/264331ac-d7f4-4001-bc64-1662b11577b9" alt="Nodemaven" width="300" height="150" />
+</a>
+</td>
+<td width="70%">
+
+#### <a href="https://go.nodemaven.com/maxunbyop">Nodemaven</a>
+
+The most reliable proxy provider for web scrapping with the Highest Quality IP on the market. Why <a href="https://go.nodemaven.com/maxunbyop">Nodemaven</a>?
+
+- 99.9% uptime
+- Sticky sessions up to 7 days
+- IP filtering: all proxies have fraud score &lt;97%
+- No KYC required
+- Cashback on traffic - burn GB and earn up to 10% back
+
+<b>Discount Code: <code>MAXUN35</code> - 35% off Mobile and Residential Proxies. <code>MAXUN40</code> - 40% off ISP (Static) Proxies.</b>
+
+</td>
+</tr>
+
+<tr>
+<td width="35%" height="100">
 <a href="www.novada.com/?github-maxun">
   <img src="https://github.com/user-attachments/assets/68262e31-639a-4d36-a281-e50b68fcdc92" alt="Novada" width="300" height="150" />
 </a>
