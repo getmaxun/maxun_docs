@@ -42,8 +42,23 @@ Looking for a proxy provider? The following partners offer reliable proxies that
 <table>
 <tr>
 <td width="35%" height="100">
+<a href="https://www.ipcook.com/?ref=githubmaxun&utm_source=github&utm_medium=referral&utm_campaign=maxun">
+  <img src="https://github.com/user-attachments/assets/b0fba023-a858-4e99-aa28-07754dce67b5" alt="IPCook" width="400" height="150" />
+</a>
+</td>
+<td width="70%">
+
+#### <a href="https://www.ipcook.com/?ref=githubmaxun&utm_source=github&utm_medium=referral&utm_campaign=maxun">IPCook</a>
+
+IPcook provides 55M+ real residential IPs across 185+ countries and regions, delivering fast and reliable proxy solutions for web scraping, automation, and data collection. 99.99% uptime, average response times under 0.5s, and 100,000 concurrency at max. Start with a [FREE 100MB Trial](https://www.ipcook.com/?ref=githubmaxun&utm_source=github&utm_medium=referral&utm_campaign=maxun) to experience IPcook’s proxy service.
+<br />
+<b>Discount Code: `WELCOME20` - Get 20% off your first purchase.</b>
+</td>
+</tr>
+<tr>
+<td width="40%" height="100">
 <a href="https://go.nodemaven.com/maxunbyop">
-  <img src="https://github.com/user-attachments/assets/264331ac-d7f4-4001-bc64-1662b11577b9" alt="Nodemaven" width="300" height="150" />
+  <img src="https://github.com/user-attachments/assets/264331ac-d7f4-4001-bc64-1662b11577b9" alt="Nodemaven" width="500" height="150" />
 </a>
 </td>
 <td width="70%">
@@ -64,9 +79,9 @@ The most reliable proxy provider for web scrapping with the Highest Quality IP o
 </tr>
 
 <tr>
-<td width="35%" height="100">
+<td width="40%" height="100">
 <a href="www.novada.com/?github-maxun">
-  <img src="https://github.com/user-attachments/assets/68262e31-639a-4d36-a281-e50b68fcdc92" alt="Novada" width="300" height="150" />
+  <img src="https://github.com/user-attachments/assets/68262e31-639a-4d36-a281-e50b68fcdc92" alt="Novada" width="500" height="150" />
 </a>
 </td>
 <td width="70%">

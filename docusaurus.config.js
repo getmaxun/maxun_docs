@@ -206,12 +206,12 @@ const config = {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
       },
-      algolia: {
-        appId: process.env.ALGOLIA_APP_ID,
-        apiKey: process.env.ALGOLIA_SEARCH_API_KEY,
-        indexName: 'Maxun Docs Crawler',
-        contextualSearch: true,
-      },
+      // algolia: {
+      //   appId: process.env.ALGOLIA_APP_ID,
+      //   apiKey: process.env.ALGOLIA_SEARCH_API_KEY,
+      //   indexName: 'Maxun Docs Crawler',
+      //   contextualSearch: true,
+      // },
     }),
 };
 
