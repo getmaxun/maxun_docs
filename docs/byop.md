@@ -58,7 +58,7 @@ IPcook provides 55M+ real residential IPs across 185+ countries and regions, del
 <tr>
 <td width="40%" height="100">
 <a href="https://go.nodemaven.com/maxunbyop">
-  <img src="https://github.com/user-attachments/assets/264331ac-d7f4-4001-bc64-1662b11577b9" alt="Nodemaven" width="500" height="150" />
+  <img src="https://github.com/user-attachments/assets/264331ac-d7f4-4001-bc64-1662b11577b9" alt="Nodemaven" width="550" height="150" />
 </a>
 </td>
 <td width="70%">
@@ -91,6 +91,25 @@ The most reliable proxy provider for web scrapping with the Highest Quality IP o
 Novada provides high-quality residential proxies and a powerful Scraper API for reliable web data collection at scale. Access real residential IPs worldwide, reduce blocks, and collect the data your scraping workflows need.
 
 <b>Discount Code: `GitNOVADA` - Get 20% off Rotating Residential Proxies and Scraping solutions.</b>
+</td>
+</tr>
+</table>
+
+### Partners
+
+<table>
+<tr>
+<td width="35%" height="100">
+<a href="https://www.coreclaw.com/?utm_source=github&utm_medium=cpc&utm_campaign=max&utm_term=&utm_id=max">
+  <img src="https://github.com/user-attachments/assets/f3421d5c-d789-4f8c-8bfd-b41a81afdc68" alt="CoreClaw" width="400" height="150" />
+</a>
+</td>
+<td width="70%">
+
+#### <a href="https://www.coreclaw.com/?utm_source=github&utm_medium=cpc&utm_campaign=max&utm_term=&utm_id=max">CoreClaw</a>
+
+CoreClaw — Production-ready Web Data APIs for AI agents and developers. Extract structured data from the web and build powerful automation workflows.
+
 </td>
 </tr>
 </table>
