@@ -7,11 +7,11 @@ slug: /quickstart
 
 ### Maxun Cloud
 
-- Sign up at https://app.maxun.dev/register
+- Sign up at <a href="https://app.maxun.dev/register">https://app.maxun.dev/register</a>.
 - Set up your data extraction robot. <a href="/robots">Choose your robot type</a>.
 - Name your robot and set it to run regularly, like daily.
 
-That’s it! Most users create their first robot in about a minute.
+That’s it! Most users create their first robot in less than a minute.
 
 ### Maxun SDK
 
