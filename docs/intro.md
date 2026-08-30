@@ -7,7 +7,7 @@ slug: /
 <h4>Turn any website into live, clean structured data with Maxun</h4>
 
 Maxun is an open-source no-code web data platform for turning the web into structured, reliable data.  
-It supports extraction, crawling, scraping, and search — designed to scale from simple use cases to complex, automated workflows.
+It supports extraction, crawling, scraping, and search - designed to scale from simple use cases to complex, automated workflows.
 
 ## What Maxun Enables
 
@@ -23,8 +23,11 @@ Convert full webpages into clean Markdown, HTML and capture screenshots.
 ### Search
 Run programmatic web searches and extract results as metadata or full content, with time-based filtering.
 
+### Document Extraction & Parsing
+Extract structured data from PDFs and or convert it into clean Markdown, HTML, or a list of links.
+
 <hr />
 
-Maxun is no-code by default, with optional APIs and SDKs when deeper integration is needed — without changing how extractions are defined.
+Maxun is no-code by default, with APIs, CLI, MCP and SDKs when deeper integration is needed — without changing how extractions are defined.
 
 Continue to the next chapter to understand how Maxun works and how these capabilities are powered.

@@ -1,0 +1,10 @@
+{
+  "headers": [
+    {
+      "source": "/proxy-sponsors-status.json",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+---
+sidebar_position: 9
+slug: /stealth
+---
+
+# Stealth
+Stealth mode helps your automations run more reliably on websites that use bot detection or anti-scraping mechanisms.
+
+When enabled, Stealth applies additional techniques to make browser activity appear more human-like and reduce the chances of being blocked.
+
+
+### Maxun Cloud
+
+- Stealth is enabled by default. No configuration is needed. Simply create your robot.
+- For each run stealth can be enabled or disabled via the robot settings.
+
+### Maxun OSS
+
+If you are self-hosting, you can configure your own stealth setup using a <a href="/byop">Bring Your Own Proxy (BYOP)</a> approach.
+
+Please refer to the <a href="/byop">BYOP</a> section for configuration details and recommendations.

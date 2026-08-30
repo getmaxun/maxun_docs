@@ -36,4 +36,4 @@ Check out this video to understand how to create a robot with capture screenshot
 
 ### Using with SDK
 
-Recorder Mode is also available through the <a href="/sdk/sdk-extract">Maxun SDK</a> for programmatic robot creation.
+Recorder Mode is also available through the <a href="/category/sdk">Maxun SDK</a> for programmatic robot creation.

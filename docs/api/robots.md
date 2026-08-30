@@ -58,8 +58,6 @@ Example Value Schema
   }
 }
 ```
-| Code | Description | Media Type 
-|---|---|---|
 | 500 | Error retrieving robots. | application/json |
 
 Example Value Schema
@@ -122,3 +120,63 @@ Example Value Schema
   "message": "Recording with ID not found."
 }
 ```
+
+### 3. Request: Duplicate a Robot
+- Request type: POST
+- Route: `/api/robots/{id}/duplicate`
+- Description: Duplicate an existing robot to run it on a different URL with the same structure.
+
+#### Parameters
+
+| Name | Description |
+|---|---|
+| id (required) string | The ID of the robot to duplicate.
+
+#### Request Body
+
+| Name | Description |
+|---|---|
+| targetUrl (required) string | The new URL to target in the duplicated robot.
+
+#### Responses
+
+| Code | Description | Media Type 
+|---|---|---|
+| 201 | Robot duplicated successfully. | application/json |
+
+Example Value Schema
+```
+{
+  "statusCode": 201,
+  "messageCode": "success",
+  "robot": {
+    "id": "e4b3c2d1-0a9b-8c7d-6e5f-4g3h2i1j0k9l",
+    "name": "HackerNews (show)",
+    "createdAt": 1748765980000,
+    "inputParameters": [
+      {
+        "type": "string",
+        "name": "originUrl",
+        "label": "Origin URL",
+        "required": true,
+        "defaultValue": "https://news.ycombinator.com/show"
+      }
+    ]
+  }
+}
+```
+| Code | Description | Media Type 
+|---|---|---|
+| 404 | Robot not found. | application/json |
+
+Example Value Schema
+```
+{
+  "statusCode": 404,
+  "messageCode": "not_found",
+  "message": "Robot with ID not found."
+}
+```
+| Code | Description | Media Type 
+|---|---|---|
+| 500 | Internal server error. | application/json |

@@ -70,6 +70,35 @@ const robot = await scraper.create(
 );
 ```
 
+### Summary
+
+Generates an AI-powered plain-text summary of the page. Can be combined with other formats.
+
+```javascript
+const robot = await scraper.create(
+  'Blog Post Summarizer',
+  'https://blog.example.com/post',
+  { formats: ['summary'] }
+);
+
+const result = await robot.run();
+console.log(result.data.summary);
+```
+
+Combine with `markdown` to get both the full content and a summary:
+
+```javascript
+const robot = await scraper.create(
+  'Blog Post Summarizer',
+  'https://blog.example.com/post',
+  { formats: ['summary', 'markdown'] }
+);
+
+const result = await robot.run();
+console.log(result.data.summary);   
+console.log(result.data.markdown);  
+```
+
 ### Multiple Formats
 
 ```javascript
@@ -84,6 +113,59 @@ console.log(result.data.markdown);
 console.log(result.data.html);
 console.log(result.data.screenshots);
 ```
+
+---
+
+## Smart Queries
+
+Smart Queries let you attach a natural language prompt to a scrape robot. After the page is scraped, an LLM analyzes the page content and returns an answer to your prompt.
+
+The result is returned as `result.data.promptResult`.
+
+
+```javascript
+const robot = await scraper.create(
+  'Pricing Scraper',
+  'https://example.com/pricing',
+  {
+    formats: ['markdown'],
+    smartQueries: 'List all plan names and their monthly prices.'
+  }
+);
+
+const result = await robot.run();
+console.log(result.data.markdown);       // full page markdown
+console.log(result.data.promptResult);   // "Starter: $9/mo, Growth: $29/mo, Pro: $99/mo"
+```
+
+### More Examples
+
+```javascript
+// Extract specific data points
+const robot = await scraper.create(
+  'Company Info',
+  'https://example.com/about',
+  {
+    formats: ['markdown'],
+    smartQueries: 'What is the company founding year and headquarters location?'
+  }
+);
+
+// Summarize content
+const robot = await scraper.create(
+  'Blog Post Summarizer',
+  'https://blog.example.com/post',
+  {
+    formats: ['markdown'],
+    smartQueries: 'Summarize this article in 3 bullet points.'
+  }
+);
+
+const result = await robot.run();
+console.log(result.data.promptResult);
+```
+
+---
 
 ## Examples
 
@@ -146,4 +228,4 @@ const result = await robot.run({
 });
 ```
 
-For scheduling, webhooks, and other robot management features, see <a href="/sdk/sdk-robot">Robot Management</a>.
+For scheduling, webhooks, and other robot management features, see <a href="/sdk/node-sdk/sdk-robot">Robot Management</a>.

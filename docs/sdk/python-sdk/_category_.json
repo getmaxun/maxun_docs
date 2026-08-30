@@ -1,0 +1,8 @@
+{
+    "label": "Python SDK",
+    "position": 2,
+    "link": {
+        "type": "generated-index",
+        "description": "Programmatically create, run, and manage automation and data extraction workflows using the Maxun SDK."
+    }
+}

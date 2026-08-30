@@ -7,8 +7,8 @@ import isInternalUrl from "@docusaurus/isInternalUrl";
 import IconExternalLink from "@theme/Icon/ExternalLink";
 import styles from "./styles.module.css";
 import { FaRocket, FaMarkdown } from "react-icons/fa";
-import { HiOutlineBookOpen } from "react-icons/hi2";
-import { TbBrandDocker } from "react-icons/tb";
+import { HiOutlineBookOpen, HiOutlineDocumentText } from "react-icons/hi2";
+import { TbBrandDocker, TbDatabaseShare } from "react-icons/tb";
 import { RiComputerLine } from "react-icons/ri";
 import { FiSettings } from "react-icons/fi";
 import { GrUpgrade } from "react-icons/gr";
@@ -41,7 +41,17 @@ import { BiExtension } from "react-icons/bi";
 import { FiScissors } from "react-icons/fi";
 import { MdManageAccounts } from "react-icons/md";
 import { TbWorldSearch } from "react-icons/tb";
-import { FiSearch } from "react-icons/fi";
+import { FiSearch, FiUsers } from "react-icons/fi";
+import { SiLangchain, SiOpenai } from "react-icons/si";
+import { TbGraph, TbFileSearch } from "react-icons/tb";
+import { RiRobot2Line } from "react-icons/ri";
+import { IoTriangleSharp } from "react-icons/io5";
+const OpenClawIcon = ({ style }) => (
+  <img src="/img/openclaw_icon.png" style={{ width: "1.2em", height: "1.2em", verticalAlign: "middle", objectFit: "contain", filter: "grayscale(1)", ...style }} />
+);
+const ClaudeIcon = ({ style }) => (
+  <img src="/img/claude.svg" style={{ width: "1.2em", height: "1.2em", verticalAlign: "middle", objectFit: "contain", filter: "grayscale(1)", ...style }} />
+);
 
 const IconMap = {
   introBook: HiOutlineBookOpen,
@@ -56,6 +66,7 @@ const IconMap = {
   robots_options: SlOptions,
   robots_retrain: LiaRedoAltSolid,
   self_host: AiOutlineDeploymentUnit,
+  neon: TbDatabaseShare,
   runs: VscRunAll,
   deep_extraction: FiDatabase,
   byop: LuCable,
@@ -85,10 +96,27 @@ const IconMap = {
   sdk_crawl: TbWorldSearch,
   sdk_search: FiSearch,
   sdk_robot: MdManageAccounts,
+  document: HiOutlineDocumentText,
+  sdk_document: HiOutlineDocumentText,
   crawl_introduction: MdOutlineInfo,
   crawl_configuration: FiSettings,
+  langchain: SiLangchain,
+  langgraph: TbGraph,
+  llamaindex: TbFileSearch,
+  mastra: RiRobot2Line,
+  openai: SiOpenai,
+  vercel_ai_sdk: IoTriangleSharp,
+  openclaw: OpenClawIcon,
+  "claude-code": ClaudeIcon,
   search_introduction: MdOutlineInfo,
   search_configuration: FiSettings,
+  stealth: RiRobot2Line,
+  teams: FiUsers,
+  cli_overview: HiOutlineBookOpen,
+  cli_robots: RiRobot2Line,
+  cli_run: VscRunAll,
+  cli_runs: FiDatabase,
+  cli_reference: MdOutlineViewList,
 };
 
 // manual icon mapping (use docId OR href)
@@ -126,6 +154,9 @@ const SidebarIconMap = {
   "robot/crawl/crawl-introduction": "crawl_introduction",
   "crawl-configuration": "crawl_configuration",
   "robot/crawl/crawl-configuration": "crawl_configuration",
+  // DOCUMENT
+  "document": "document",
+  "robot/document": "document",
   // SEARCH
   "search-introduction": "search_introduction",
   "robot/search/search-introduction": "search_introduction",
@@ -134,12 +165,15 @@ const SidebarIconMap = {
   // SELF-HOST
   self_host: "self_host",
   "/self-host": "self_host",
+  neon: "neon",
+  "/self-host/neon": "neon",
   // RUNS
   runs: "runs",
   "/runs": "runs",
   // DEEP EXTRACT
   "deep-extraction": "deep_extraction",
   "/deep-extraction": "deep_extraction",
+  "stealth": "stealth",
   // BYOP
   byop: "byop",
   "/byop": "byop",
@@ -150,6 +184,8 @@ const SidebarIconMap = {
   "/mcp/tools": "mcpTools",
   "extract-login": "extract_login",
   "/docs/extract-login": "extract_login",
+  "teams-management": "teams",
+  "/teams-management": "teams",
   // INTEGRATIONS
   gsheet: "gsheet",
   "integrations/gsheet": "gsheet",
@@ -157,6 +193,22 @@ const SidebarIconMap = {
   "integrations/n8n": "n8n",
   airtable: "airtable",
   "integrations/airtable": "airtable",
+  langchain: "langchain",
+  "integrations/langchain": "langchain",
+  langgraph: "langgraph",
+  "integrations/langgraph": "langgraph",
+  llamaindex: "llamaindex",
+  "integrations/llamaindex": "llamaindex",
+  mastra: "mastra",
+  "integrations/mastra": "mastra",
+  openai: "openai",
+  "integrations/openai": "openai",
+  "vercel-ai-sdk": "vercel_ai_sdk",
+  "integrations/vercel-ai-sdk": "vercel_ai_sdk",
+  openclaw: "openclaw",
+  "integrations/openclaw": "openclaw",
+  "claude-code": "claude-code",
+  "integrations/claude-code": "claude-code",
   // DEVELOPMENT
   i18n: "i18n",
   "/development/i18n": "i18n",
@@ -190,23 +242,39 @@ const SidebarIconMap = {
   "/usecases/lead_generation": "usecases",
   ecommerce_automation: "usecases",
   "/usecases/ecommerce_automation": "usecases",
-    real_estate: "usecases",
+  real_estate: "usecases",
   "/usecases/real_estate": "usecases",
-    academic_research: "usecases",
+  academic_research: "usecases",
   "/usecases/academic_research": "usecases",
-  // SDK
-  "sdk-overview": "sdk_overview",
-  "/sdk/sdk-overview": "sdk_overview",
-  "sdk-extract": "sdk_extract",
-  "/sdk/sdk-extract": "sdk_extract",
-  "sdk-scrape": "sdk_scrape",
-  "/sdk/sdk-scrape": "sdk_scrape",
-  "sdk-crawl": "sdk_crawl",
-  "/sdk/sdk-crawl": "sdk_crawl",
-  "sdk-search": "sdk_search",
-  "/sdk/sdk-search": "sdk_search",
-  "sdk-robot": "sdk_robot",
-  "/sdk/sdk-robot": "sdk_robot",
+  // Node.js SDK routes
+  "/sdk/node-sdk/sdk-overview": "sdk_overview",
+  "/sdk/node-sdk/sdk-extract": "sdk_extract",
+  "/sdk/node-sdk/sdk-scrape": "sdk_scrape",
+  "/sdk/node-sdk/sdk-crawl": "sdk_crawl",
+  "/sdk/node-sdk/sdk-search": "sdk_search",
+  "/sdk/node-sdk/sdk-robot": "sdk_robot",
+  "/sdk/node-sdk/sdk-document": "sdk_document",
+
+  // CLI routes
+  "cli-overview": "cli_overview",
+  "/cli/cli-overview": "cli_overview",
+  "cli-robots": "cli_robots",
+  "/cli/cli-robots": "cli_robots",
+  "cli-run": "cli_run",
+  "/cli/cli-run": "cli_run",
+  "cli-runs": "cli_runs",
+  "/cli/cli-runs": "cli_runs",
+  "cli-reference": "cli_reference",
+  "/cli/cli-reference": "cli_reference",
+
+  // Python SDK routes
+  "/sdk/python-sdk/sdk-overview": "sdk_overview",
+  "/sdk/python-sdk/sdk-extract": "sdk_extract",
+  "/sdk/python-sdk/sdk-scrape": "sdk_scrape",
+  "/sdk/python-sdk/sdk-crawl": "sdk_crawl",
+  "/sdk/python-sdk/sdk-search": "sdk_search",
+  "/sdk/python-sdk/sdk-robot": "sdk_robot",
+  "/sdk/python-sdk/sdk-document": "sdk_document",
 };
 
 export default function DocSidebarItemLink({

@@ -16,12 +16,26 @@ This guide will help you install and run Maxun with Docker Compose. Docker Compo
 
 ## Installation Steps
 1. Create a root folder for your project (e.g. 'maxun')
-2. Create a file named `.env` in the root folder of the project
-3. Copy all content of <a href="https://github.com/getmaxun/maxun/blob/master/ENVEXAMPLE">example env file</a> to your `.env` file.
 
-4. Create a file named `docker-compose.yml` in the root folder of the project 
-5. Copy all content from <a href="https://github.com/getmaxun/maxun/blob/develop/docker-compose.yml">project's docker-compose.yml</a> to your `docker-compose.yml` file.
-6. Run
+2. Generate secure secrets by running these commands and saving the output:
+
+```bash
+openssl rand -base64 48  # For JWT_SECRET
+openssl rand -base64 48  # For SESSION_SECRET
+openssl rand -hex 32     # For ENCRYPTION_KEY
+```
+
+3. Create a file named `.env` in the root folder of the project
+
+4. Copy all content of <a href="https://github.com/getmaxun/maxun/blob/master/ENVEXAMPLE">example env file</a> to your `.env` file.
+
+5. Replace the placeholder values for `JWT_SECRET`, `SESSION_SECRET`, and `ENCRYPTION_KEY` with the secrets you generated in step 2.
+
+6. Create a file named `docker-compose.yml` in the root folder of the project
+
+7. Copy all content from <a href="https://github.com/getmaxun/maxun/blob/develop/docker-compose.yml">project's docker-compose.yml</a> to your `docker-compose.yml` file.
+
+8. Run
 
 ```
 docker-compose up -d

@@ -306,6 +306,7 @@ if (result.data.searchData) {
     console.log('Text:', item.text);
     console.log('Links:', item.links);
     console.log('Status:', item.metadata?.statusCode);
+    console.log('Summary:', item.summary);
   });
 }
 ```
@@ -335,4 +336,4 @@ const result = await robot.run({
 });
 ```
 
-For scheduling, webhooks, and other robot management features, see <a href="/sdk/sdk-robot">Robot Management</a>.
+For scheduling, webhooks, and other robot management features, see <a href="/sdk/node-sdk/sdk-robot">Robot Management</a>.

@@ -6,25 +6,30 @@ sidebar_position: 1
 
 # Setup
 
-This guide will help you setup the MCP server to connect Maxun to your local LLMs. In this guide, we will be taking an example of configuring the MCP server for Claude Desktop.
+Maxun MCP Server lets you connect any MCP-compatible AI client (Claude Desktop, Cursor, Windsurf, Cline, etc.) to your Maxun robots — so you can run extractions, check results, and manage robots through natural language.
 
-## Prerequisites
+There are two variants depending on how you use Maxun:
 
-- Any local LLM with MCP support
+| | **Maxun Cloud** | **Self-Hosted (OSS)** |
+|---|---|---|
+| Setup | API key + URL only | Build step required |
+| Auth | `x-api-key` header | Environment variable |
+| Server URL | `https://app.maxun.dev/api/mcp` | Your local backend |
 
-## Steps
+---
 
-### 1. Build the MCP worker
-Execute the below command to build the MCP server.
+## Maxun Cloud
 
-```
-npm run mcp:build
-```
+No build step needed. Connect directly to the cloud API with your Maxun API key.
 
-This will generate a `dist` folder in your root directory with the `mcp-worker.js` file.
+### Prerequisites
 
-### 2. Generate API Key
-Generate the API Key. You can find your API key in the "API Key" section on Maxun Dashboard.
+- A Maxun Cloud account at [app.maxun.dev](https://app.maxun.dev)
+- An MCP-compatible client (Claude Desktop, Cursor, Windsurf, Cline, etc.)
+
+### 1. Generate your API Key
+
+Go to your Maxun Dashboard and navigate to **Settings → API Key** to generate a key.
 
 ![Generate API Key](gen_api_key.png)|
 :---:|
@@ -34,14 +39,88 @@ Generate the API Key. You can find your API key in the "API Key" section on Maxu
 :---:|
 |API Key Generated|
 
-### 3. Configure the MCP Server JSON file
-Make sure your server is up and running. Configure your build MCP server path, API key and backend url.
+### 2. Configure your MCP client
 
-- Navigate to claude desktop
-- Go to File -> Settings -> Developer -> Edit Config
-- Enter the below configuration for the json file 
+Choose the configuration format that matches your client.
 
+#### Native HTTP
+
+```json
+{
+  "mcpServers": {
+    "maxun": {
+      "url": "https://app.maxun.dev/api/mcp",
+      "headers": {
+        "x-api-key": "your_api_key_here"
+      }
+    }
+  }
+}
 ```
+
+#### Via mcp-remote (stdio bridge)
+
+If your client does not support the `url` + `headers` format natively, use [`mcp-remote`](https://www.npmjs.com/package/mcp-remote) as a stdio-to-HTTP bridge — no separate install needed, `npx` handles it automatically.
+
+```json
+{
+  "mcpServers": {
+    "maxun": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote",
+        "https://app.maxun.dev/api/mcp",
+        "--header",
+        "x-api-key:your_api_key_here"
+      ]
+    }
+  }
+}
+```
+
+Most clients store this config as a JSON file. For example, in **Claude Desktop** it is at:
+- **macOS:** `~/Library/Application Support/Claude/claude_desktop_config.json`
+- **Windows:** `%APPDATA%\Claude\claude_desktop_config.json`
+
+Check your client's documentation for the exact config file location.
+
+### 3. Restart your client
+
+After saving the config, restart the application. On success you will see the Maxun tools available in the client.
+
+![MCP Server Initialized](mcp_init_success.png)
+
+---
+
+## Self-Hosted (OSS)
+
+Use this if you are running the open-source Maxun instance locally or on your own server.
+
+### Prerequisites
+
+- Maxun OSS running locally (default: `http://localhost:8080`)
+- Node.js installed
+
+### 1. Build the MCP worker
+
+Run the following command from the root of your Maxun project:
+
+```bash
+npm run mcp:build
+```
+
+This generates `dist/mcp-worker.js` in your project root.
+
+### 2. Generate your API Key
+
+Generate the API Key from your self-hosted Maxun Dashboard under **Settings → API Key**.
+
+### 3. Configure your MCP client
+
+Add the following to your client's MCP server config. For example, in Claude Desktop go to **File → Settings → Developer → Edit Config**:
+
+```json
 {
   "mcpServers": {
     "maxun": {
@@ -59,8 +138,6 @@ Make sure your server is up and running. Configure your build MCP server path, A
 }
 ```
 
-After following the steps restart the claude desktop application. You'll be able to access all the tools provided by the MCP server on successful configuration.
+Replace `/path/to/your/project` with the absolute path to your Maxun project directory, and `your_backend_url_here` with your backend URL (e.g. `http://localhost:8080`).
 
-![MCP Server Initialized](mcp_init_success.png)
-
-
+After saving, restart your client. You'll see the Maxun tools available on successful configuration.

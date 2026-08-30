@@ -1,7 +1,7 @@
 ---
 id: faq-robot
 title: FAQs
-sidebar_position: 15
+sidebar_position: 16
 ---
 ### What sites does Maxun work on?
 Maxun is designed to work on any website. There are billions of websites out there (and hundreds are created everyday). We do our best to adapt to almost every possible website - that being said there are always unique scenarios that arise, often due to inaccessible code or non-standard practices on certain sites.

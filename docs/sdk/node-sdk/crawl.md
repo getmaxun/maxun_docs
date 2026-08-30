@@ -252,6 +252,7 @@ Each page contains:
 - **text** - Clean body text
 - **wordCount** - Number of words
 - **links** - All links found on the page
+- **summary** - AI-generated plain-text summary of the page
 
 ## Managing Crawl Robots
 
@@ -278,4 +279,4 @@ const result = await robot.run({
 });
 ```
 
-For scheduling, webhooks, and other robot management features, see <a href="/sdk/sdk-robot">Robot Management</a>.
+For scheduling, webhooks, and other robot management features, see <a href="/sdk/node-sdk/sdk-robot">Robot Management</a>.
