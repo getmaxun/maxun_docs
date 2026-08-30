@@ -12,7 +12,7 @@ sidebar_position: 6
 
 
 ### How To Retrain?
-This feature is exclusively available for Extract Robots built using Recorder Mode.
+This feature is exclusively available for <a href="/robot/extract/robot-actions">Extract Robots built using Recorder Mode</a>.
 
 1. Open Robot Options: Navigate to your dashboard and find the robot you wish to update.
 2. Select Retrain: Open the options dropdown menu (the three dots ...) and select "Retrain".
