@@ -63,9 +63,7 @@ Create and run a robot programmatically using the Maxun SDK.
 // Scrape content from a website in markdown and HTML
 import { Scrape } from 'maxun-sdk';
 
-const scraper = new Scrape({
-  apiKey: process.env.MAXUN_API_KEY
-});
+const scraper = new Scrape({apiKey: process.env.MAXUN_API_KEY});
 
 const robot = await scraper.create(
   'Content Scraper',
@@ -81,9 +79,7 @@ const robot = await scraper.create(
 # Scrape content from a website in markdown and HTML
 from maxun import Scrape, Config
 
-scraper = Scrape(
-    Config(api_key="your-api-key")
-)
+scraper = Scrape(Config(api_key="your-api-key"))
 
 robot = await scraper.create(
     "Content Scraper",
@@ -95,9 +91,7 @@ robot = await scraper.create(
   </TabItem>
 </Tabs>
 
-For more detailed usage, see the **[Node.js SDK](/category/node-sdk)** and **[Python SDK](/category/python-sdk)** guides.
-
-Learn how to use the SDK in detail <a href="/category/sdk">here</a>.
+For more detailed usage, see the [Node.js SDK](/sdk/node-sdk/sdk-overview) and [Python SDK](/sdk/python-sdk/sdk-overview) guides.
 
 ### Maxun Community Edition
 Maxun is open-source and can run on your system. Learn how to <a href="/category/self-host">setup Maxun locally</a>.
