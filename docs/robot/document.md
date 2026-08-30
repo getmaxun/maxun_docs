@@ -11,16 +11,16 @@ Maxun can work with documents in two ways — pull out specific data fields, or 
 
 ### Supported Files
 
-Document robots accept **PDF**, **CSV**, and **XLSX** files, up to **10 MB**. For multi-sheet XLSX files, each sheet is treated as a separate page.
+Document robots accept **PDF**, **CSV**, **XLSX**, and **DOCX** files, up to **10 MB**. For multi-sheet XLSX files, each sheet is treated as a separate page.
 
 ## Extract
 
-Upload a PDF, CSV, or XLSX file and tell Maxun what information you want from it. Maxun figures out the structure automatically and saves it as a reusable robot — so you can run it on new documents any time.
+Upload a PDF, CSV, XLSX, or DOCX file and tell Maxun what information you want from it. Maxun figures out the structure automatically and saves it as a reusable robot — so you can run it on new documents any time.
 
 
 ### How It Works
 
-1. Upload a sample document (PDF, CSV, or XLSX).
+1. Upload a sample document (PDF, CSV, XLSX, or DOCX).
 2. Describe what you want to extract (e.g. *"invoice number, vendor name, and total amount"*).
 3. Maxun creates a robot that can extract those fields from any similar document.
 4. Run the robot whenever you have a new file to process.
@@ -34,12 +34,12 @@ Upload a PDF, CSV, or XLSX file and tell Maxun what information you want from it
 
 ## Parse
 
-Upload a PDF, CSV, or XLSX file and convert it into clean Markdown, HTML, a list of links, or an AI-generated summary. No configuration needed — just pick your format and run.
+Upload a PDF, CSV, XLSX, or DOCX file and convert it into clean Markdown, HTML, a list of links, or an AI-generated summary. No configuration needed — just pick your format and run.
 
 
 ### How It Works
 
-1. Upload a document (PDF, CSV, or XLSX).
+1. Upload a document (PDF, CSV, XLSX, or DOCX).
 2. Choose your output format — Markdown, HTML, Links, or Summary.
 3. Maxun converts the document and makes it available for every run.
 
