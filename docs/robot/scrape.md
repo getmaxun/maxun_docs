@@ -40,9 +40,9 @@ Smart Queries let you attach an optional **natural language prompt** to a scrape
 
 When creating a scrape robot, enter your instructions in the **Smart Queries** field:
 
-> *Example: "Click the 'Login' button and extract the user profile data."*  
-> *Example: "Navigate to the pricing page and list all plan names and prices."*  
-> *Example: "Find the company's latest blog post title and publication date."*
+1. Example: "Click the 'Login' button and extract the user profile data."  
+2. Example: "Navigate to the pricing page and list all plan names and prices."  
+3. Example: "Find the company's latest blog post title and publication date."
 
 The result is returned in the run output as `promptResult`.
 
