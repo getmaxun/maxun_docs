@@ -6,8 +6,6 @@ sidebar_position: 2
 
 # AI Mode
 
-> Note: AI Mode is currently in Beta. 
-
 AI Mode uses LLMs to automatically create Extract robots from natural language prompts. Simply describe what data you want, and Maxun builds the robot for you.
 
 ## How It Works
