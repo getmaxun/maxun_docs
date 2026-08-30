@@ -6,6 +6,8 @@ sidebar_position: 3
 
 Robot duplication is useful to extract data from pages with the <b>same structure without training a new robot!</b>
 
+Robot duplication is only available for <a href="/robot/extract/robot-actions">Extract Recorder Mode</a>.
+
 ### ✅ When to duplicate a robot?
 1. The new page has the same structure as the existing page.
 2. You want to extract the same data as the existing page.
