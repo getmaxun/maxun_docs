@@ -60,29 +60,36 @@ Create and run a robot programmatically using the Maxun SDK.
   <TabItem value="node" label="Node.js">
 
 ```javascript
-import { Extract } from 'maxun-sdk';
+// Scrape content from a website in markdown and HTML
+import { Scrape } from 'maxun-sdk';
 
-const extractor = new Extract({
-  apiKey: process.env.MAXUN_API_KEY,
+const scraper = new Scrape({
+  apiKey: process.env.MAXUN_API_KEY
 });
 
-const robot = await extractor
-  .create('My Extractor')
-  .navigate('https://example.com')
-  .capture_text({
-    title: 'h1',
-  });
-
-const result = await robot.run();
-
-console.log(result.data);
+const robot = await scraper.create(
+  'Content Scraper',
+  'https://example.com/article',
+  { formats: ['markdown', 'html'] }
+);
 ```
 
   </TabItem>
   <TabItem value="python" label="Python">
 
 ```python
-# Python example coming soon
+# Scrape content from a website in markdown and HTML
+from maxun import Scrape, Config
+
+scraper = Scrape(
+    Config(api_key="your-api-key")
+)
+
+robot = await scraper.create(
+    "Content Scraper",
+    "https://example.com/article",
+    formats=["markdown", "html"],
+)
 ```
 
   </TabItem>
