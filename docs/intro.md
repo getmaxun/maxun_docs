@@ -28,6 +28,6 @@ Extract and parse structured data from documents (PDF, CSV, XLSX, and DOCX). <a 
 
 <hr />
 
-Maxun is no-code by default, with APIs, CLI, MCP and SDKs when deeper integration is needed — without changing how extractions are defined.
+Maxun is no-code by default, with APIs, CLI, MCP, and SDKs for deeper integrations without changing how extractions are defined.
 
 Continue to the next chapter to understand how Maxun works and how these capabilities are powered.
