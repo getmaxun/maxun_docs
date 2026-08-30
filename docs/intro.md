@@ -24,7 +24,7 @@ Convert full webpages into clean Markdown, HTML and capture screenshots.
 Run programmatic web searches and extract results as metadata or full content, with time-based filtering.
 
 ### Document Extraction & Parsing
-Extract structured data from PDFs and or convert it into clean Markdown, HTML, or a list of links.
+Extract and parse structured data from documents (PDF, CSV, XLSX, and DOCX).
 
 <hr />
 
