@@ -87,4 +87,3 @@ How you receive assistance and community engagement.
 | Community Support | ✅    | ✅          |
 | Priority Support  | ✅    | ❌          |
 
----
