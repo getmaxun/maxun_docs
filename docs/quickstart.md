@@ -2,6 +2,8 @@
 sidebar_position: 2
 slug: /quickstart
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 # Get Started
 
@@ -13,17 +15,31 @@ slug: /quickstart
 
 That’s it! Most users create their first robot in less than a minute.
 
-### Maxun SDK
+### Maxun SDKs
 
-The Maxun SDK lets you create robots programmatically for scraping websites and extracting structured data.
+Maxun provides official **Node.js and Python SDKs** for creating and running robots programmatically. 
 
 ### Installation
+
+<Tabs>
+  <TabItem value="node" label="Node.js">
 
 ```bash
 npm install maxun-sdk
 ```
 
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+```bash
+pip install maxun-sdk
+```
+
+  </TabItem>
+</Tabs>
+
 ### Requirements
+
 - API Key from <a href="/api/api">Maxun Dashboard</a>
 
 ### Environment Variables
@@ -36,37 +52,43 @@ ANTHROPIC_API_KEY=your-anthropic-key
 OPENAI_API_KEY=your-openai-key
 ```
 
-### Initialization
+### Quick Start
+
+Create and run a robot programmatically using the Maxun SDK.
+
+<Tabs>
+  <TabItem value="node" label="Node.js">
 
 ```javascript
-import { Extract, Scrape, Crawl, Search } from 'maxun-sdk';
+import { Extract } from 'maxun-sdk';
 
-// For Extract
 const extractor = new Extract({
-  apiKey: process.env.MAXUN_API_KEY
+  apiKey: process.env.MAXUN_API_KEY,
 });
 
-// For Scrape
-const scraper = new Scrape({
-  apiKey: process.env.MAXUN_API_KEY
-});
+const robot = await extractor
+  .create('My Extractor')
+  .navigate('https://example.com')
+  .capture_text({
+    title: 'h1',
+  });
 
-// For Crawl 
-const crawler = new Crawl({
-  apiKey: process.env.MAXUN_API_KEY
-});
-
-// For Search
-const searcher = new Search({
-  apiKey: process.env.MAXUN_API_KEY
-});
-```
-### Running Robots
-
-```javascript
 const result = await robot.run();
+
 console.log(result.data);
 ```
+
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+```python
+# Python example coming soon
+```
+
+  </TabItem>
+</Tabs>
+
+For more detailed usage, see the **[Node.js SDK](/category/node-sdk)** and **[Python SDK](/category/python-sdk)** guides.
 
 Learn how to use the SDK in detail <a href="/category/sdk">here</a>.
 
