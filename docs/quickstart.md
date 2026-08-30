@@ -32,7 +32,7 @@ npm install maxun-sdk
   <TabItem value="python" label="Python">
 
 ```bash
-pip install maxun-sdk
+pip install maxun
 ```
 
   </TabItem>
