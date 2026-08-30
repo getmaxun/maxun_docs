@@ -6,8 +6,6 @@ sidebar_position: 2
 
 # AI Mode
 
-> Note: AI Mode is currently in Beta. 
-
 AI Mode uses LLMs to automatically create Extract robots from natural language prompts. Simply describe what data you want, and Maxun builds the robot for you.
 
 ## How It Works
@@ -20,7 +18,7 @@ AI Mode uses LLMs to automatically create Extract robots from natural language p
    - Example: "Extract article headlines, authors, and publication dates"
 
 3. **Select LLM Provider**: Choose your preferred AI provider based on your needs.
-> Note: Choosing a provider is available only in self-hosted Maxun. Maxun Cloud manages the provider, model and credentials for you and automatically selects the right LLM for the task.
+> Note: Choosing a provider is available only in Maxun Community Edition. Maxun Cloud manages the provider, model and credentials for you and automatically selects the right LLM for the task.
    - **Ollama**: Best for local/offline use, no costs, no API key needed
    - **Anthropic Claude**: Best for accuracy and complex extractions (recommended)
    - **OpenAI GPT**: Good balance of speed and accuracy

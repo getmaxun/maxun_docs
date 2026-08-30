@@ -17,7 +17,7 @@ Crawl automatically discovers and scrapes multiple pages from a website. Instead
 
 ## What Gets Extracted
 
-For each page discovered, the crawl extracts
+For each page discovered, crawl extracts
 - **Page metadata**: Title, language, description, favicon, and all meta tags
 - **HTML content**: Full page HTML
 - **Text content**: Clean body text with word count
