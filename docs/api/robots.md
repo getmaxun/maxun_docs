@@ -180,3 +180,244 @@ Example Value Schema
 | Code | Description | Media Type 
 |---|---|---|
 | 500 | Internal server error. | application/json |
+
+### 4. Request: Schedule Recurring Runs For A Robot
+- Request type: POST
+- Route: `/api/robots/{id}/schedule`
+- Description: Create or replace a recurring schedule for a robot. The robot will run automatically based on the provided frequency. Re-posting to this endpoint replaces any existing schedule.
+
+#### Parameters
+
+| Name | Description |
+|---|---|
+| id (required) string | The ID of the robot to schedule.
+
+#### Request Body
+
+| Name | Description |
+|---|---|
+| runEvery (required) integer | How often the robot runs, in units of `runEveryUnit`. |
+| runEveryUnit (required) string | The schedule unit. Accepted values: `MINUTES`, `HOURS`, `DAYS`, `WEEKS`, `MONTHS`. |
+| startFrom (required) string | The day to start from. Accepted values: `SUNDAY`, `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY`, `SATURDAY`. |
+| atTimeStart (required) string | Start time in `HH:MM` 24-hour format. |
+| atTimeEnd (required) string | End time in `HH:MM` 24-hour format. |
+| timezone (required) string | IANA timezone name, such as `UTC` or `Asia/Kolkata`. |
+| dayOfMonth string | Day of the month. Used only when `runEveryUnit` is `MONTHS`. |
+
+Example Request Body
+```
+{
+  "runEvery": 6,
+  "runEveryUnit": "HOURS",
+  "startFrom": "MONDAY",
+  "atTimeStart": "09:00",
+  "atTimeEnd": "17:00",
+  "timezone": "UTC"
+}
+```
+
+#### Responses
+
+| Code | Description | Media Type 
+|---|---|---|
+| 200 | Schedule created successfully. | application/json |
+
+Example Value Schema
+```
+{
+  "statusCode": 200,
+  "messageCode": "success",
+  "schedule": {
+    "runEvery": 6,
+    "runEveryUnit": "HOURS",
+    "startFrom": "MONDAY",
+    "atTimeStart": "09:00",
+    "atTimeEnd": "17:00",
+    "timezone": "UTC",
+    "cronExpression": "0 9-17/6 * * *",
+    "nextRunAt": "2025-06-02T09:00:00.000Z"
+  }
+}
+```
+| Code | Description | Media Type 
+|---|---|---|
+| 400 | Invalid schedule parameters. | application/json |
+
+Example Value Schema
+```
+{
+  "statusCode": 400,
+  "messageCode": "bad_request",
+  "message": "Invalid schedule parameters.",
+  "field": "runEveryUnit"
+}
+```
+| Code | Description | Media Type 
+|---|---|---|
+| 401 | Unauthorized access. | application/json |
+
+Example Value Schema
+```
+{
+  "statusCode": 401,
+  "messageCode": "error",
+  "message": "Unauthorized"
+}
+```
+| Code | Description | Media Type 
+|---|---|---|
+| 404 | Robot not found. | application/json |
+
+Example Value Schema
+```
+{
+  "statusCode": 404,
+  "messageCode": "not_found",
+  "message": "Robot with ID not found."
+}
+```
+| Code | Description | Media Type 
+|---|---|---|
+| 500 | Error scheduling robot. | application/json |
+
+Example Value Schema
+```
+{
+  "statusCode": 500,
+  "messageCode": "error",
+  "message": "Failed to schedule robot"
+}
+```
+
+### 5. Request: Get A Robot's Schedule
+- Request type: GET
+- Route: `/api/robots/{id}/schedule`
+- Description: Retrieve the current recurring schedule for a robot, or `null` if no schedule is set.
+
+#### Parameters
+
+| Name | Description |
+|---|---|
+| id (required) string | The ID of the robot.
+
+#### Responses
+
+| Code | Description | Media Type 
+|---|---|---|
+| 200 | The robot's schedule. | application/json |
+
+Example Value Schema
+```
+{
+  "statusCode": 200,
+  "messageCode": "success",
+  "schedule": {
+    "runEvery": 6,
+    "runEveryUnit": "HOURS",
+    "startFrom": "MONDAY",
+    "atTimeStart": "09:00",
+    "atTimeEnd": "17:00",
+    "timezone": "UTC",
+    "cronExpression": "0 9-17/6 * * *",
+    "nextRunAt": "2025-06-02T09:00:00.000Z"
+  }
+}
+```
+| Code | Description | Media Type 
+|---|---|---|
+| 401 | Unauthorized access. | application/json |
+
+Example Value Schema
+```
+{
+  "statusCode": 401,
+  "messageCode": "error",
+  "message": "Unauthorized"
+}
+```
+| Code | Description | Media Type 
+|---|---|---|
+| 404 | Robot not found. | application/json |
+
+Example Value Schema
+```
+{
+  "statusCode": 404,
+  "messageCode": "not_found",
+  "message": "Robot with ID not found."
+}
+```
+| Code | Description | Media Type 
+|---|---|---|
+| 500 | Error retrieving schedule. | application/json |
+
+Example Value Schema
+```
+{
+  "statusCode": 500,
+  "messageCode": "error",
+  "message": "Failed to retrieve schedule"
+}
+```
+
+### 6. Request: Delete A Robot's Schedule
+- Request type: DELETE
+- Route: `/api/robots/{id}/schedule`
+- Description: Cancel a robot's recurring schedule. This endpoint succeeds even if the robot has no schedule.
+
+#### Parameters
+
+| Name | Description |
+|---|---|
+| id (required) string | The ID of the robot.
+
+#### Responses
+
+| Code | Description | Media Type 
+|---|---|---|
+| 200 | Schedule deleted successfully. | application/json |
+
+Example Value Schema
+```
+{
+  "statusCode": 200,
+  "messageCode": "success",
+  "message": "Schedule deleted successfully"
+}
+```
+| Code | Description | Media Type 
+|---|---|---|
+| 401 | Unauthorized access. | application/json |
+
+Example Value Schema
+```
+{
+  "statusCode": 401,
+  "messageCode": "error",
+  "message": "Unauthorized"
+}
+```
+| Code | Description | Media Type 
+|---|---|---|
+| 404 | Robot not found. | application/json |
+
+Example Value Schema
+```
+{
+  "statusCode": 404,
+  "messageCode": "not_found",
+  "message": "Robot with ID not found."
+}
+```
+| Code | Description | Media Type 
+|---|---|---|
+| 500 | Error deleting schedule. | application/json |
+
+Example Value Schema
+```
+{
+  "statusCode": 500,
+  "messageCode": "error",
+  "message": "Failed to delete schedule"
+}
+```
