@@ -60,7 +60,7 @@ Webshare gives you instant access to a proxy pool of 80M+ ethically-sourced IPs 
 <tr>
 <td width="35%" height="100">
 <a href="https://www.ipcook.com/?ref=githubmaxun&utm_source=github&utm_medium=referral&utm_campaign=maxun">
-  <img src="https://github.com/user-attachments/assets/b0fba023-a858-4e99-aa28-07754dce67b5" alt="IPcook" width="400" height="150" />
+  <img src="https://github.com/user-attachments/assets/b0fba023-a858-4e99-aa28-07754dce67b5" alt="IPcook" width="400" height="120" />
 </a>
 </td>
 <td width="70%">
@@ -75,7 +75,7 @@ IPcook provides 55M+ real residential IPs across 185+ countries and regions, del
 <tr>
 <td width="40%" height="100">
 <a href="https://go.nodemaven.com/maxunbyopaugust">
-  <img src="https://github.com/user-attachments/assets/348c011f-8c73-4845-85b9-8dd85f6e85ec" alt="Nodemaven" width="600" height="150" />
+  <img src="https://github.com/user-attachments/assets/348c011f-8c73-4845-85b9-8dd85f6e85ec" alt="Nodemaven" width="600" height="120" />
 </a>
 </td>
 <td width="70%">
