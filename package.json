@@ -17,6 +17,7 @@
     "@docusaurus/core": "^3.10.1",
     "@docusaurus/plugin-client-redirects": "^3.10.1",
     "@docusaurus/preset-classic": "^3.10.1",
+    "@docusaurus/theme-search-algolia": "^3.10.2",
     "@mdx-js/react": "^3.0.0",
     "clsx": "^2.0.0",
     "dotenv": "^17.4.2",
