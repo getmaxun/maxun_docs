@@ -80,22 +80,3 @@ The most efficient proxy provider for Web Scraping and Automation with the Highe
 </td>
 </tr>
 </table>
-
-### Partners
-
-<table>
-<tr>
-<td width="40%" height="100">
-<a href="https://www.coreclaw.com/?utm_source=github&utm_medium=cpc&utm_campaign=max&utm_term=&utm_id=max">
-  <img src="https://github.com/user-attachments/assets/f3421d5c-d789-4f8c-8bfd-b41a81afdc68" alt="CoreClaw" width="400" height="150" />
-</a>
-</td>
-<td width="70%">
-
-#### <a href="https://www.coreclaw.com/?utm_source=github&utm_medium=cpc&utm_campaign=max&utm_term=&utm_id=max">CoreClaw</a>
-
-CoreClaw — Production-ready Web Data APIs for AI agents and developers. Extract structured data from the web and build powerful automation workflows.
-
-</td>
-</tr>
-</table>
