@@ -46,7 +46,7 @@ Looking for a proxy provider? The following partners offer reliable proxies that
 <img src="https://github.com/user-attachments/assets/c3a60969-a8f8-4d2c-acef-22bee80c2484" alt="Webshare" width="300" />
 </a>
 </td>
-<td width="75%" valign="middle">
+<td width="70%" valign="middle">
 <a href="https://www.webshare.io/?referral_code=wwhk524ynls2"><strong>Webshare</strong></a><br/>
 Webshare gives you instant access to a proxy pool of 80M+ ethically-sourced IPs across 195+ countries, with rotating residential, static ISP, and datacenter options plus a full API. It includes a 100+ Gbps backbone, country/city/state/ZIP/ASN-level targeting, and requires no credit card to start.<br/>
 <strong>Free tier:</strong> 10 proxies with 1GB/month - enough to test-drive the service before you commit.<br/>
@@ -56,11 +56,24 @@ Webshare gives you instant access to a proxy pool of 80M+ ethically-sourced IPs 
 
 <tr>
 <td width="30%" align="center" valign="middle">
+<a href="https://mangoproxy.com/?utm_source=github&utm_medium=partner&utm_campaign=getmaxun">
+<img src="https://github.com/user-attachments/assets/326b5b8f-6a2c-4aa2-94c8-6a29ae23f2ac" alt="MangoProxy" width="300" />
+</a>
+</td>
+<td width="70%" valign="middle">
+<a href="https://mangoproxy.com/?utm_source=github&utm_medium=partner&utm_campaign=getmaxun"><strong>MangoProxy</strong></a><br/>
+MangoProxy offers Residential, ISP, Datacenter, and Mobile Proxies in 200+ countries with HTTP(S)/SOCKS5 support and flexible IP management.<br/>
+<strong>Discount Code:</strong> <code>MAXUN</code> 8% off Static ISP Proxies.
+</td>
+</tr>
+
+<tr>
+<td width="30%" align="center" valign="middle">
 <a href="https://go.nodemaven.com/maxunbyopaugust">
 <img src="https://github.com/user-attachments/assets/348c011f-8c73-4845-85b9-8dd85f6e85ec" alt="Nodemaven" width="300" />
 </a>
 </td>
-<td width="75%" valign="middle">
+<td width="70%" valign="middle">
 <a href="https://go.nodemaven.com/maxunbyopaugust"><strong>Nodemaven</strong></a><br/>
 The most efficient proxy provider for Web Scraping and Automation with the Highest Quality IP on the market.<br/>
 <strong>Why Nodemaven?</strong> ZIP targeting · 99.9% uptime · IP filtering: all proxies have fraud score &lt;97% · No KYC required · Free tools including Proxy Bandwidth Checker, Meta Tag Checker, and IP Lookup.<br/>
