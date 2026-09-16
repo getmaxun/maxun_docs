@@ -25,7 +25,7 @@ Screenshot comparison is a **Cloud-only** feature and is not available in the op
 You can turn monitoring on in two places:
 
 1. **At creation time** - when creating a robot, check the monitoring checkbox in the creation flow.
-2. **From robot settings** - open an existing robot's settings and enable monitoring there. This is also where you can turn it off, or configure alerts once it's on.
+2. **From robot settings** - open an existing robot's settings and enable monitoring there. This is also where you can turn it off.
 
 ## AI Mode
 
