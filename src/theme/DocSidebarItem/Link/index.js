@@ -46,6 +46,8 @@ import { SiLangchain, SiOpenai } from "react-icons/si";
 import { TbGraph, TbFileSearch } from "react-icons/tb";
 import { RiRobot2Line } from "react-icons/ri";
 import { IoTriangleSharp } from "react-icons/io5";
+import { AiOutlineMonitor } from "react-icons/ai";
+
 const OpenClawIcon = ({ style }) => (
   <img src="/img/openclaw_icon.png" style={{ width: "1.2em", height: "1.2em", verticalAlign: "middle", objectFit: "contain", filter: "grayscale(1)", ...style }} />
 );
@@ -117,6 +119,7 @@ const IconMap = {
   cli_run: VscRunAll,
   cli_runs: FiDatabase,
   cli_reference: MdOutlineViewList,
+  monitoring: AiOutlineMonitor,
 };
 
 // manual icon mapping (use docId OR href)
@@ -222,6 +225,9 @@ const SidebarIconMap = {
   "/faq-robot": "faq",
   "llm-prompts": "llm_prompts",
   "/llm-prompts": "llm_prompts",
+  // MONITORING
+  "monitoring": "monitoring",
+  "/monitoring": "monitoring",
   // API
   api_key: "api_key",
   "/api/api": "api_key",
