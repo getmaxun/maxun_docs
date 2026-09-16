@@ -18,7 +18,7 @@ What you're monitoring depends on the robot type:
 - **Scrape** - monitor the entire page, captured in whichever output formats you've configured, including screenshots.
 - **Crawl** - monitor an entire website as it crawls across pages.
 
-Screenshot comparison is a **Cloud-only** feature and is not available in the open-source (OSS) version. All other content formats are supported on both Cloud and OSS.
+Screenshot comparison is a **Cloud-only** feature and is not available in the open-source (OSS) version. Crawl monitoring is also **Cloud-only**. All other content formats are supported on both Cloud and OSS.
 
 ## Enabling monitoring
 
