@@ -198,7 +198,7 @@ const config = {
       announcementBar: {
         id: 'scrape_robots_release',
         content:
-          '<a href="https://www.maxun.dev/blog/maxun-summaries" target="_blank" rel="noopener noreferrer">Summarize web pages in one click with Maxun. Learn more →</a>',
+          '<a href="https://www.maxun.dev/blog/monitoring" target="_blank" rel="noopener noreferrer">Monitor websites for real-time changes with Maxun. Learn more →</a>',
         backgroundColor: '#ff00c3',
         textColor: '#ffffffff',
       },
