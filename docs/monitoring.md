@@ -43,9 +43,11 @@ Monitored robots can be scheduled to run automatically at whatever interval you 
 
 ## Alerts
 
-When monitoring detects a change, you can be notified by email. Email alerts are a **Cloud-only** feature and are not available in OSS.
+When monitoring detects a change, you can enable email alerts from the **Monitoring** section in your Robot settings. After enabling monitoring, turn on **Email Alerts** and optionally enter the email address you want to receive alerts at.
 
-To set this up, enable monitoring in robot settings. Emails are sent to the email address associated with your account.
+If the email field is left empty, alerts will be sent to the email address associated with your account.
+
+Email alerts are a **Cloud-only** feature and are not available in OSS.
 
 ## Availability
 
