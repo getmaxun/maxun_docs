@@ -61,12 +61,13 @@ Webshare gives you instant access to a proxy pool of 80M+ ethically-sourced IPs 
 </a>
 </td>
 <td width="70%" valign="middle">
-<a href="https://www.thordata.com/?ls=github&lk=maxun"><strong>Thordata – Reliable Proxies for Web Scraping & AI Data Collection </strong></a><br/>
+<a href="https://www.thordata.com/?ls=github&lk=maxun"><strong>Thordata – Reliable Proxies for Web Scraping & AI Data Collection </strong></a>
 - Residential, Mobile, ISP & Datacenter Proxies
 - 190+ countries with city-level targeting
 - Sticky and rotating sessions for flexible workflows
 - Fast, stable proxy infrastructure for developers.<br/>
-<strong>Discount:</strong> <code>MAXUN10</code> - Get 10% off.
+
+<strong>Discount Code:</strong> <code>MAXUN10</code> - Get 10% off.
 </td>
 </tr>
 
@@ -95,8 +96,11 @@ The most efficient proxy provider for Web Scraping and Automation with the Highe
 Why <a href="https://go.nodemaven.com/maxunbyopaugust">Nodemaven</a>?
 
 
-· ZIP targeting · 99.9% uptime · IP filtering: all proxies have fraud score &lt;97% 
-· No KYC required · Free tools including Proxy Bandwidth Checker, Meta Tag Checker, and IP Lookup.<br/>
+- ZIP targeting 
+- 99.9% uptime 
+- IP filtering: all proxies have fraud score &lt;97% 
+- No KYC required 
+- Free tools including Proxy Bandwidth Checker, Meta Tag Checker, and IP Lookup.<br/>
 <strong>Discount Codes:</strong> <code>MAXUN35</code> - 35% off Mobile and Residential Proxies. <code>MAXUN40</code> - 40% off ISP (Static) Proxies.
 </td>
 </tr>
