@@ -6,8 +6,8 @@ slug: /
 # Welcome
 <h3>Turn any website into live, clean structured data with Maxun</h3>
 
-Maxun is an open-source no-code web data platform for turning the web into structured, reliable data.  
-It supports extraction, crawling, scraping, and search - designed to scale from simple use cases to complex, automated workflows.
+Maxun is the open-source web data platform for turning the web into structured, reliable data.  
+It supports extraction, crawling, scraping, monitoring and search - designed to scale from simple use cases to complex, automated workflows.
 
 ## What Maxun Enables
 
