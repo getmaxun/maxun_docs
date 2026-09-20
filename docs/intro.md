@@ -38,12 +38,32 @@ It supports extraction, crawling, scraping, monitoring and search - designed to 
   </tr>
 </table>
 
-
-<hr />
+## How To Use Maxun.
 
 Maxun is no-code by default, with APIs, CLI, MCP, and SDKs for deeper integrations without changing how extractions are defined.
 
-Continue to the next chapter to understand how Maxun works and how these capabilities are powered.
+<table>
+  <tr>
+    <td width="140"><a href="https://app.maxun.dev/login"><strong>Dashboard</strong></a></td>
+    <td>Build, run, and manage robots through Maxun's visual interface. No coding required.</td>
+  </tr>
+  <tr>
+    <td><a href="https://docs.maxun.dev/category/api-reference"><strong>API</strong></a></td>
+    <td>Integrate Maxun's scraping and extraction capabilities into your applications.</td>
+  </tr>
+  <tr>
+    <td><a href="https://docs.maxun.dev/sdk/sdk-overview"><strong>SDK</strong></a></td>
+    <td>Use Maxun programmatically for scraping, extraction, automation and more.</td>
+  </tr>
+  <tr>
+    <td><a href="https://docs.maxun.dev/category/cli"><strong>CLI</strong></a></td>
+    <td>Create robots, trigger runs, and retrieve data from your terminal.</td>
+  </tr>
+  <tr>
+    <td><a href="https://docs.maxun.dev/category/mcp"><strong>MCP</strong></a></td>
+    <td>Connect Maxun to AI agents through the Model Context Protocol.</td>
+  </tr>
+</table>
 
 ## Sponsors
 
@@ -58,3 +78,6 @@ Continue to the next chapter to understand how Maxun works and how these capabil
     <td><a href="https://www.testmuai.com/?utm_medium=sponsor&utm_source=maxun"><img src="https://github.com/user-attachments/assets/6c96005b-85df-43e0-9b63-96aaca676c11" width="200" height="100" /></a></td>
   </tr>
 </table>
+
+
+Continue to the next chapter to understand how Maxun works and how these capabilities are powered.
