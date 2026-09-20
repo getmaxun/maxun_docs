@@ -44,24 +44,24 @@ Maxun is no-code by default, with APIs, CLI, MCP, and SDKs for deeper integratio
 
 <table>
   <tr>
-    <td width="140"><strong>Dashboard</strong></a></td>
+    <td width="140"><strong>Dashboard</strong></td>
     <td>Build, run, and manage robots through Maxun's visual interface. No coding required.</td>
   </tr>
   <tr>
-    <td><strong>API</strong></a></td>
-    <td>Integrate Maxun's scraping and extraction capabilities into your applications. <a href="https://docs.maxun.dev/category/api-reference">Learn More</a>.</td>
+    <td><strong>API</strong></td>
+    <td>Integrate Maxun's scraping and extraction capabilities into your applications. <a href="https://docs.maxun.dev/category/api-reference"> Learn More</a>.</td>
   </tr>
   <tr>
-    <td><strong>SDK</strong></a></td>
-    <td>Use Maxun programmatically for scraping, extraction, automation and more.<a href="https://docs.maxun.dev/sdk/sdk-overview">Learn more</a>.</td>
+    <td><strong>SDK</strong></td>
+    <td>Use Maxun programmatically for scraping, extraction, automation and more.<a href="https://docs.maxun.dev/sdk/sdk-overview"> Learn more</a>.</td>
   </tr>
   <tr>
-    <td><strong>CLI</strong></a></td>
-    <td>Create robots, trigger runs, and retrieve data from your terminal.<a href="https://docs.maxun.dev/category/cli">Learn more</a>.</td>
+    <td><strong>CLI</strong></td>
+    <td>Create robots, trigger runs, and retrieve data from your terminal.<a href="https://docs.maxun.dev/category/cli"> Learn more</a>.</td>
   </tr>
   <tr>
-    <td><strong>MCP</strong></a></td>
-    <td>Connect Maxun to AI agents through the Model Context Protocol.<a href="https://docs.maxun.dev/category/mcp">Learn more</a>.</td>
+    <td><strong>MCP</strong></td>
+    <td>Connect Maxun to AI agents through the Model Context Protocol.<a href="https://docs.maxun.dev/category/mcp"> Learn more</a>.</td>
   </tr>
 </table>
 
