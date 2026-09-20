@@ -24,10 +24,10 @@ Convert full webpages into clean Markdown, HTML and capture screenshots. <a href
 Run programmatic web searches and extract results as metadata or full content, with time-based filtering. <a href="/robot/search/search-introduction">Learn More</a>.
 
 ### Monitoring
- Track websites over time, detect changes, and get notified when they occur. <a href="/monitoring">Learn More</a>.
+Track websites over time, detect changes, and get notified when they occur. <a href="/monitoring">Learn More</a>.
 
 ### Document Extraction & Parsing
-Extract and parse structured data from documents (PDF, CSV, XLSX, and DOCX). <a href="/robot/document">Learn More</a>.
+Extract and parse structured data from documents (PDF, CSV, XLSX, DOCX, JPG and PNG). <a href="/robot/document">Learn More</a>.
 
 <hr />
 
