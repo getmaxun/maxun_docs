@@ -55,6 +55,17 @@ Webshare gives you instant access to a proxy pool of 80M+ ethically-sourced IPs 
 </tr>
 
 <tr>
+<td width="20%" align="center" valign="middle">
+<a href="https://byteful.com/?utm_source=github&utm_medium=github-sponsor&utm_campaign=maxun_github_sponsorship">
+  <img src="https://github.com/user-attachments/assets/f3f7ea4a-a965-4ff9-aab6-8d257da3b18c" alt="Byteful" width="280" height="130" />
+</a>
+</td>
+<td width="80%" valign="middle">
+<a href="https://byteful.com/?utm_source=github&utm_medium=github-sponsor&utm_campaign=maxun_github_sponsorship"><strong>Byteful</strong></a> is a UK-based web data infrastructure platform providing ethically sourced residential, mobile, static residential (ISP) and datacenter proxies alongside API-first tools for web scraping, data collection, and AI-driven automation, processing tens of billions of requests per month. Discount: <code>MAXUN10</code> - Get 10% off Byteful Residential Proxies.
+</td>
+</tr>
+
+<tr>
 <td width="30%" align="center" valign="middle">
 <a href="https://www.thordata.com/?ls=maxunbyo&lk=maxunbyo">
   <img src="https://github.com/user-attachments/assets/74ba8f9e-a8a8-4c6a-b06c-cd048a118117" alt="Thordata" width="260" height="150" />
