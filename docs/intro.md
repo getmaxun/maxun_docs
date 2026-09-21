@@ -38,7 +38,7 @@ It supports extraction, crawling, scraping, monitoring and search - designed to 
   </tr>
 </table>
 
-## How To Use Maxun.
+## How To Use Maxun
 
 Maxun is no-code by default, with APIs, CLI, MCP, and SDKs for deeper integrations without changing how extractions are defined.
 
@@ -72,7 +72,7 @@ Maxun is no-code by default, with APIs, CLI, MCP, and SDKs for deeper integratio
     <td><a href="https://www.webshare.io/?referral_code=wwhk524ynls"><img src="https://github.com/user-attachments/assets/c3a60969-a8f8-4d2c-acef-22bee80c2484" width="200" height="100" /></a></td>
     <td><a href="https://www.thordata.com/?ls=github&lk=getmaxun"><img src="https://github.com/user-attachments/assets/74ba8f9e-a8a8-4c6a-b06c-cd048a118117" width="200" height="100" /></a></td>
     <td><a href="https://mangoproxy.com/?utm_source=github&utm_medium=partner&utm_campaign=getmaxun"><img src="https://github.com/user-attachments/assets/326b5b8f-6a2c-4aa2-94c8-6a29ae23f2ac" width="200" height="100" /></a></td>
-    <td><a href="https://nodemaven.com/?a_aid=maxun&utm_source=maxun&utm_medium=affiliate&utm_campaign=maxun_readme_august2026&utm_term=github"><img src="https://github.com/user-attachments/assets/348c011f-8c73-4845-85b9-8dd85f6e85ec" width="250" height="100" /></a></td>
+    <td><a href="https://go.nodemaven.com/maxunbyopsept"><img src="https://github.com/user-attachments/assets/7269ea9b-83fb-4b70-9a41-0eb2beaabf2a" width="220" height="90" /></a></td>
   </tr>
   <tr>
     <td><a href="https://www.testmuai.com/?utm_medium=sponsor&utm_source=maxun"><img src="https://github.com/user-attachments/assets/6c96005b-85df-43e0-9b63-96aaca676c11" width="200" height="100" /></a></td>
