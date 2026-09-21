@@ -43,7 +43,7 @@ Looking for a proxy provider? The following partners offer reliable proxies that
 <tr>
 <td width="20%" align="center" valign="middle">
 <a href="https://www.webshare.io/?referral_code=wwhk524ynls2">
-<img src="https://github.com/user-attachments/assets/c3a60969-a8f8-4d2c-acef-22bee80c2484" alt="Webshare" width="300" />
+<img src="https://github.com/user-attachments/assets/c3a60969-a8f8-4d2c-acef-22bee80c2484" alt="Webshare" width="260" />
 </a>
 </td>
 <td width="80%" valign="middle">
@@ -54,7 +54,7 @@ Looking for a proxy provider? The following partners offer reliable proxies that
 <tr>
 <td width="20%" align="center" valign="middle">
 <a href="https://byteful.com/?utm_source=github&utm_medium=github-sponsor&utm_campaign=maxun_github_sponsorship">
-  <img src="https://github.com/user-attachments/assets/f3f7ea4a-a965-4ff9-aab6-8d257da3b18c" alt="Byteful" width="280" height="130" />
+  <img src="https://github.com/user-attachments/assets/f3f7ea4a-a965-4ff9-aab6-8d257da3b18c" alt="Byteful" width="260"  />
 </a>
 </td>
 <td width="80%" valign="middle">
@@ -65,7 +65,7 @@ Looking for a proxy provider? The following partners offer reliable proxies that
 <tr>
 <td width="20%" align="center" valign="middle">
 <a href="https://www.thordata.com/?ls=maxunbyo&lk=maxunbyo">
-  <img src="https://github.com/user-attachments/assets/74ba8f9e-a8a8-4c6a-b06c-cd048a118117" alt="Thordata" width="260" height="150" />
+  <img src="https://github.com/user-attachments/assets/74ba8f9e-a8a8-4c6a-b06c-cd048a118117" alt="Thordata" width="260" />
 </a>
 </td>
 <td width="80%" valign="middle">
@@ -77,7 +77,7 @@ Looking for a proxy provider? The following partners offer reliable proxies that
 <tr>
 <td width="20%" align="center" valign="middle">
 <a href="https://mangoproxy.com/?utm_source=github&utm_medium=partner&utm_campaign=getmaxun">
-<img src="https://github.com/user-attachments/assets/326b5b8f-6a2c-4aa2-94c8-6a29ae23f2ac" alt="MangoProxy" width="300" />
+<img src="https://github.com/user-attachments/assets/326b5b8f-6a2c-4aa2-94c8-6a29ae23f2ac" alt="MangoProxy" width="260" />
 </a>
 </td>
 <td width="80%" valign="middle">
@@ -89,7 +89,7 @@ offers Residential, ISP, Datacenter, and Mobile Proxies in 200+ countries with H
 <tr>
 <td width="20%" align="center" valign="middle">
 <a href="https://go.nodemaven.com/maxunbyopsept">
-<img src="https://github.com/user-attachments/assets/7269ea9b-83fb-4b70-9a41-0eb2beaabf2a" alt="Nodemaven" width="300" />
+<img src="https://github.com/user-attachments/assets/7269ea9b-83fb-4b70-9a41-0eb2beaabf2a" alt="Nodemaven" width="260" />
 </a>
 </td>
 <td width="80%" valign="middle">
