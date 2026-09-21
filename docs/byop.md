@@ -41,16 +41,13 @@ Looking for a proxy provider? The following partners offer reliable proxies that
 
 <table>
 <tr>
-<td width="30%" align="center" valign="middle">
+<td width="20%" align="center" valign="middle">
 <a href="https://www.webshare.io/?referral_code=wwhk524ynls2">
 <img src="https://github.com/user-attachments/assets/c3a60969-a8f8-4d2c-acef-22bee80c2484" alt="Webshare" width="300" />
 </a>
 </td>
-<td width="70%" valign="middle">
-<a href="https://www.webshare.io/?referral_code=wwhk524ynls2"><strong>Webshare</strong></a><br/>
-Webshare gives you instant access to a proxy pool of 80M+ ethically-sourced IPs across 195+ countries, with rotating residential, static ISP, and datacenter options plus a full API. It includes a 100+ Gbps backbone, country/city/state/ZIP/ASN-level targeting, and requires no credit card to start.<br/>
-<strong>Free tier:</strong> 10 proxies with 1GB/month - enough to test-drive the service before you commit.<br/>
-<strong>Discount Code:</strong> <code>MAXUN20</code> - Get 20% off your first purchase.
+<td width="80%" valign="middle">
+<a href="https://www.webshare.io/?referral_code=wwhk524ynls2"><strong>Webshare</strong></a> gives you instant access to a proxy pool of 80M+ ethically-sourced IPs across 195+ countries, with rotating residential, static ISP, and datacenter options plus a full API. It includes a 100+ Gbps backbone, country/city/state/ZIP/ASN-level targeting, and requires no credit card to start. <strong>Free tier:</strong> 10 proxies + 1GB/month · <strong>Discount:</strong> <code>MAXUN20</code> - 20% off your first purchase.
 </td>
 </tr>
 
@@ -66,53 +63,38 @@ Webshare gives you instant access to a proxy pool of 80M+ ethically-sourced IPs 
 </tr>
 
 <tr>
-<td width="30%" align="center" valign="middle">
+<td width="20%" align="center" valign="middle">
 <a href="https://www.thordata.com/?ls=maxunbyo&lk=maxunbyo">
   <img src="https://github.com/user-attachments/assets/74ba8f9e-a8a8-4c6a-b06c-cd048a118117" alt="Thordata" width="260" height="150" />
 </a>
 </td>
-<td width="70%" valign="middle">
+<td width="80%" valign="middle">
 <a href="https://www.thordata.com/?ls=maxunbyo&lk=maxunbyo"><strong>Thordata – Reliable Proxies for Web Scraping & AI Data Collection </strong></a>
-- Residential, Mobile, ISP & Datacenter Proxies
-- 190+ countries with city-level targeting
-- Sticky and rotating sessions for flexible workflows
-- Fast, stable proxy infrastructure for developers.<br/>
-
-<strong>Discount Code:</strong> <code>MAXUN10</code> - Get 10% off.
+ offers Residential, Mobile, ISP & Datacenter Proxies · 190+ countries with city-level targeting · Sticky and rotating sessions for flexible workflows · Fast, stable proxy infrastructure for developers. <strong>Discount:</strong> <code>MAXUN10</code> - Get 10% off.
 </td>
 </tr>
 
 <tr>
-<td width="30%" align="center" valign="middle">
+<td width="20%" align="center" valign="middle">
 <a href="https://mangoproxy.com/?utm_source=github&utm_medium=partner&utm_campaign=getmaxun">
 <img src="https://github.com/user-attachments/assets/326b5b8f-6a2c-4aa2-94c8-6a29ae23f2ac" alt="MangoProxy" width="300" />
 </a>
 </td>
-<td width="70%" valign="middle">
-<a href="https://mangoproxy.com/?utm_source=github&utm_medium=partner&utm_campaign=getmaxun"><strong>MangoProxy</strong></a><br/>
-MangoProxy offers Residential, ISP, Datacenter, and Mobile Proxies in 200+ countries with HTTP(S)/SOCKS5 support and flexible IP management.<br/>
-<strong>Discount Code:</strong> <code>MAXUN</code> 8% off Static ISP Proxies.
+<td width="80%" valign="middle">
+<a href="https://mangoproxy.com/?utm_source=github&utm_medium=partner&utm_campaign=getmaxun"><strong>MangoProxy</strong></a>
+offers Residential, ISP, Datacenter, and Mobile Proxies in 200+ countries with HTTP(S)/SOCKS5 support and flexible IP management. <strong>Discount:</strong> <code>MAXUN</code> - 8% off Static ISP Proxies.
 </td>
 </tr>
 
 <tr>
-<td width="30%" align="center" valign="middle">
+<td width="20%" align="center" valign="middle">
 <a href="https://go.nodemaven.com/maxunbyopsept">
 <img src="https://github.com/user-attachments/assets/7269ea9b-83fb-4b70-9a41-0eb2beaabf2a" alt="Nodemaven" width="300" />
 </a>
 </td>
-<td width="70%" valign="middle">
-<a href="https://go.nodemaven.com/maxunbyopsept"><strong>Nodemaven</strong></a><br/>
-The most efficient proxy provider for Web Scraping and Automation with the Highest Quality IP on the market.<br/>
-Why <a href="https://go.nodemaven.com/maxunbyopsept">Nodemaven</a>?
-
-
-- ZIP targeting 
-- 99.9% uptime 
-- IP filtering: all proxies have fraud score &lt;97% 
-- No KYC required 
-- Free tools including Proxy Bandwidth Checker, Meta Tag Checker, and IP Lookup.<br/>
-<strong>Discount Codes:</strong> <code>MAXUN35</code> - 35% off Mobile and Residential Proxies. <code>MAXUN40</code> - 40% off ISP (Static) Proxies.
+<td width="80%" valign="middle">
+<a href="https://go.nodemaven.com/maxunbyopsept"><strong>Nodemaven</strong></a>
+offers the most efficient proxy provider for Web Scraping and Automation with the Highest Quality IP on the market. Why <a href="https://go.nodemaven.com/maxunbyopsept">Nodemaven</a>? · ZIP targeting · 99.9% uptime · IP filtering: all proxies have fraud score &lt;97%  · No KYC required · Unique free tools: Proxy Bandwidth Checker, Meta Tag Checker, IP Lookup and others! <strong>Discounts:</strong> <code>MAXUN35</code> — 35% off Mobile & Residential · <code>MAXUN40</code> - 40% off ISP (Static)
 </td>
 </tr>
 </table>
