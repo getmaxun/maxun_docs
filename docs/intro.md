@@ -75,7 +75,7 @@ Maxun is no-code by default, with APIs, CLI, MCP, and SDKs for deeper integratio
     <td><a href="https://mangoproxy.com/?utm_source=github&utm_medium=partner&utm_campaign=getmaxun"><img src="https://github.com/user-attachments/assets/326b5b8f-6a2c-4aa2-94c8-6a29ae23f2ac" width="200" height="100" /></a></td>
   </tr>
   <tr>
-    <td><a href="https://go.nodemaven.com/maxunbyopsept"><img src="https://github.com/user-attachments/assets/7269ea9b-83fb-4b70-9a41-0eb2beaabf2a" width="220" height="90" /></a></td>
+    <td><a href="https://go.nodemaven.com/maxunbyopsept"><img src="https://github.com/user-attachments/assets/7269ea9b-83fb-4b70-9a41-0eb2beaabf2a" width="200" height="80" /></a></td>
     <td><a href="https://www.testmuai.com/?utm_medium=sponsor&utm_source=maxun"><img src="https://github.com/user-attachments/assets/6c96005b-85df-43e0-9b63-96aaca676c11" width="200" height="100" /></a></td>
   </tr>
 </table>
