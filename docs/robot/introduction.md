@@ -31,7 +31,11 @@ Run automated web searches to discover or scrape results, with support for time-
 
 Learn more <a href="/robot/search/search-introduction">here</a>.
 
-### 5. Document Extract and Parse
+### 5. Monitoring
+Track websites over time and know when something changes. Your existing robots can become monitors.
+Learn more <a href="/monitoring">here</a>.
+
+### 6. Document Extract and Parse
 Extract and parse structured data from documents. Supports PDF, CSV, XLSX, JPG, PNG and DOCX files.
 
 Learn more <a href="/robot/document">here</a>.
