@@ -41,6 +41,10 @@
   }
 }
 
+.theme-doc-card-icon {
+  display: none;
+}
+
 /* Increase announcement bar text size */
 :root {
   --ifm-announcement-bar-height: auto; /* ensures proper spacing */
