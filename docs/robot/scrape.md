@@ -27,7 +27,7 @@ Just provide a URL, choose your output format, and Maxun handles the rest.
 - Fast content extraction  
 - Clean HTML or Markdown for an LLM  
 
-If you need logins, interactions, pagination, or element-level data capture, use **Extract** instead.
+If you need logins, interactions, pagination, or element-level data capture, use <a href="/category/extract">Extract</a> instead.
 
 ---
 
