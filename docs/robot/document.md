@@ -5,9 +5,11 @@ title: Document
 
 # Document
 
-Maxun can work with documents in two ways — pull out specific data fields, or convert the whole document into a clean format.
+Maxun can work with documents in two ways:
+1. **Structured Extraction**: Extract specific data fields from documents.
+2. **Document Conversion**: Convert entire documents into a clean, structured format.
 
-> Note: Document robots is in beta.
+Note: Document Robots is in beta.
 
 ### Supported Files
 
