@@ -33,7 +33,7 @@ If you need logins, interactions, pagination, or element-level data capture, use
 
 ## Smart Queries
 
-Smart Queries let you attach an optional **natural language prompt** to a scrape robot. After the page is scraped, an LLM analyzes the page content and returns an answer to your prompt — without any extra setup.
+Smart Queries let you attach an optional **natural language prompt** to a scrape robot. After the page is scraped, an LLM analyzes the page content and returns an answer to your prompt - without any extra setup.
 
 ### How to Add a Smart Query
 
