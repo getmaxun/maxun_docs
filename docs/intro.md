@@ -44,7 +44,7 @@ Maxun is no-code by default, with APIs, CLI, MCP, and SDKs for deeper integratio
 
 <table>
   <tr>
-    <td width="140"><strong>No-Code Dashboard</strong></td>
+    <td width="180"><strong>No-Code Dashboard</strong></td>
     <td>Build, run, and manage robots through Maxun's visual interface. No coding required.</td>
   </tr>
   <tr>
