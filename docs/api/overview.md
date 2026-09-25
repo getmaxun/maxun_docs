@@ -26,7 +26,7 @@ You can find your API key in the "API Key" section on Maxun Dashboard.
 2. Click `Authorize`, paste the API Key you copied in step 1 and click `Authorize` to save.
 ![Authorize](api_auth.png)
 
-### 3. Try Out 
+### 3. Live Test
 Click on the **Try it out** button present within each endpoint to get the output. To execute certain endpoints, you may need to provide specific parameters.
 
 ![Try it out](try-it-out.png)
