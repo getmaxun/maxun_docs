@@ -8,7 +8,7 @@ sidebar_position: 5
 
 Extract structured data, generate summaries, or convert documents into clean Markdown, HTML, and links.## Extract
 
-Upload a PDF and describe what you want. Maxun creates a reusable robot that extracts those fields from any similar document.
+Upload a document (PDF, CSV, XLSX, JPG, PNG or DOCX) and describe what you want. Maxun creates a reusable robot that extracts those fields from any similar document.
 
 ```python
 import asyncio, os
@@ -34,7 +34,8 @@ print(run['data']['documentData'])
 
 ## Parse
 
-Convert a PDF into Markdown, HTML, or a list of links.
+Convert a document (PDF, CSV, XLSX, JPG, PNG or DOCX) into Markdown, HTML, or a list of links.
+
 
 ```python
 result = await client.create_document_parse_robot(
