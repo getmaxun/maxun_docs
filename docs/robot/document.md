@@ -47,12 +47,12 @@ Upload a PDF, CSV, XLSX, JPG, PNG, or DOCX file and convert it into clean Markdo
 
 ### Output Formats
 
-- **Markdown** — The full document as clean, readable Markdown. Great for feeding into AI tools.
-- **HTML** — The document as structured HTML.
-- **Links** — Every URL found in the document, deduplicated.
-- **Summary** — A concise, AI-generated summary of the document. Requires an LLM provider (Ollama, Anthropic, or an OpenAI-compatible provider), configured when you create the robot.
+- **Markdown** - The full document as clean, readable Markdown. Great for feeding into AI tools.
+- **HTML** - The document as structured HTML.
+- **Links** - Every URL found in the document, deduplicated.
+- **Summary** - A concise, AI-generated summary of the document. Requires an LLM provider (Ollama, Anthropic, or an OpenAI-compatible provider), configured when you create the robot.
 
-> Note: The Summary format uses your configured LLM. For Ollama it runs locally with no key; for hosted providers you must supply an API key when creating the robot, or set `ANTHROPIC_API_KEY` / `OPENAI_API_KEY` in your server environment.
+> Note: Self-hosted installations use your configured LLM. Ollama runs locally without an API key; hosted providers require an API key when creating the robot or via `ANTHROPIC_API_KEY` / `OPENAI_API_KEY` in your server environment. Maxun Cloud automatically selects the best AI for the task.
 
 ### ✅ When to Use Parse
 
