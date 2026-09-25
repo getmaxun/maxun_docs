@@ -13,7 +13,7 @@ Note: Document Robots is in beta.
 
 ### Supported Files
 
-Document robots accept **PDF**, **CSV**, **XLSX**, and **DOCX** files, up to **10 MB**. For multi-sheet XLSX files, each sheet is treated as a separate page.
+Document robots accept **PDF**, **CSV**, **XLSX**, **JPG**, **PNG** and **DOCX** files, up to **10 MB**. For multi-sheet XLSX files, each sheet is treated as a separate page.
 
 ## Extract
 
