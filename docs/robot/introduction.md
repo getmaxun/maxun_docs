@@ -31,15 +31,11 @@ Run automated web searches to discover or scrape results, with support for time-
 
 Learn more <a href="/robot/search/search-introduction">here</a>.
 
-### 5. Document Extract
-Upload a PDF, describe what you want, and Maxun pulls out those fields automatically. Run the same robot on new documents any time.
+### 5. Document Extract and Parse
+Extract and parse structured data from documents. Supports PDF, CSV, XLSX, JPG, PNG and DOCX files.
 
 Learn more <a href="/robot/document">here</a>.
 
-### 6. Document Parse 
-Convert any PDF into clean Markdown, HTML, or a list of links — no setup needed.
-
-Learn more <a href="/robot/document">here</a>.
 
 <!-- ## Robot Actions
 Depending on the use-case, a robot should be configured to perform any of the following actions.
