@@ -22,7 +22,6 @@ Just provide a URL, choose your output format, and Maxun handles the rest.
 3. Optionally add a **Smart Query** prompt (see below).
 4. Run the robot.  
 
-**Batch scraping** is coming soon, allowing you to process multiple URLs in a single run.
 
 ## When to Use Scrape
 - Fast content extraction  
