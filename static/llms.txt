@@ -1,0 +1,658 @@
+# Maxun Documentation
+
+> Maxun is an open-source web data platform that turns websites into structured data. It scrapes, crawls, extracts, searches, monitors and parses documents through a no-code dashboard, a REST API, Node.js and Python SDKs, a CLI and an MCP server. This file is a machine-readable map of the Maxun documentation at docs.maxun.dev: the concepts, every robot type with its options, SDK, CLI, MCP and API usage, integrations, self-hosting and known limitations.
+
+Maxun runs in two editions: **Maxun Cloud** (fully managed, at https://app.maxun.dev) and the **self-hosted open-source Community Edition** (AGPLv3, https://github.com/getmaxun/maxun). Most features work in both. Differences are marked **(Cloud only)** or **(Self-hosted only)** below.
+
+> **If you are an AI agent:** pick the robot type from the table in "Choosing a robot type", then use the SDK, CLI or MCP examples in the matching section. Authenticate with a Maxun API key from the dashboard (**Settings → API Key**). For self-hosted instances, set the base URL as described in "Endpoints and authentication".
+
+[Docs home](https://docs.maxun.dev/) · [Quickstart](https://docs.maxun.dev/quickstart) · [Product overview](https://maxun.dev/llms.txt) · [Pricing](https://maxun.dev/pricing) · [GitHub](https://github.com/getmaxun/maxun) · [Cloud dashboard](https://app.maxun.dev/)
+
+## Core concepts
+
+- **Robot:** a reusable automation that collects data from websites or documents. Every task in Maxun is a robot. Robots can be created in the dashboard, SDK, CLI or API, and run any number of times.
+- **Robot types:** Extract (Recorder mode or AI mode), Scrape, Crawl, Search, Document Extract and Document Parse.
+- **Input parameters:** robots expose parameters such as the origin URL, so one robot can be reused on other pages with the same structure.
+- **Run:** one complete execution of a robot. Runs are triggered manually from the dashboard, on a schedule, or through the API, SDK, CLI or MCP.
+- **Schedule:** runs a robot automatically at a fixed interval.
+- **Monitoring:** compares each run with the previous one and flags what changed.
+- **Integrations:** deliver run results to webhooks, Google Sheets, Airtable, n8n and AI frameworks.
+
+## Choosing a robot type
+
+| Need | Robot type | Docs |
+|---|---|---|
+| Content of a single page as Markdown, HTML, text, links, screenshot or AI summary | Scrape | [Scrape](https://docs.maxun.dev/robot/scrape) |
+| An answer to a question about a single page | Scrape with Smart Queries | [Scrape](https://docs.maxun.dev/robot/scrape) |
+| Content of many pages or a whole site | Crawl | [Crawl](https://docs.maxun.dev/robot/crawl/crawl-introduction) |
+| Find pages for a query, optionally with their full content | Search | [Search](https://docs.maxun.dev/robot/search/search-introduction) |
+| Structured rows (lists, tables, fields) described in natural language | Extract: AI mode | [AI mode](https://docs.maxun.dev/robot/extract/llm-extraction) |
+| Precise structured data, multi-step flows, logins, forms, pagination, clicks | Extract: Recorder mode (or the SDK builder) | [Recorder mode](https://docs.maxun.dev/robot/extract/robot-actions) |
+| List items plus data from each item's detail page | Extract with Deep Extraction (Cloud only) | [Deep Extraction](https://docs.maxun.dev/deep-extraction) |
+| Specific fields from a PDF | Document Extract | [Document](https://docs.maxun.dev/robot/document) |
+| A PDF converted to Markdown, HTML or links | Document Parse | [Document](https://docs.maxun.dev/robot/document) |
+| Know when a page or dataset changes | Any Extract, Scrape or Crawl robot with Monitoring and a Schedule | [Monitoring](https://docs.maxun.dev/monitoring) |
+
+Rules of thumb from the docs:
+- Use **Extract** rather than Scrape or Crawl when you need logins, interactions, pagination or element-level capture.
+- Use **Recorder mode** rather than AI mode for multi-step flows, forms, cross-page navigation or conditional logic.
+- Don't use **Crawl** for a single page, for pages behind a login or forms, or when page order matters.
+- Don't use **Search** if you need a search engine other than DuckDuckGo.
+
+## Robot reference
+
+### Scrape
+Turns a URL into clean HTML, LLM-ready Markdown and screenshots with no configuration. [Docs](https://docs.maxun.dev/robot/scrape)
+
+- **Formats:** `markdown`, `html`, `text`, `links`, `summary` (AI plain-text summary), `screenshot-visible`, `screenshot-fullpage`. Formats can be combined.
+- **Smart Queries:** an optional natural-language prompt. After the page is scraped, an LLM answers the prompt from the page content. The answer is returned in `promptResult`.
+- Batch scraping is marked "coming soon".
+
+```bash
+maxun robots scrape https://example.com -f markdown
+maxun robots scrape https://example.com -f markdown -p "List all the pricing plans and their monthly costs"
+```
+
+```json
+{ "markdown": "...", "html": "...", "promptResult": "The pricing plans are: Starter ($9/mo), Growth ($29/mo), Pro ($99/mo)." }
+```
+
+### Crawl
+Discovers pages through sitemaps and links from a start URL, then scrapes each page. [Overview](https://docs.maxun.dev/robot/crawl/crawl-introduction) · [Configuration](https://docs.maxun.dev/robot/crawl/crawl-configuration)
+
+Each crawled page returns metadata (url, title, description, language, meta tags, favicon, statusCode), HTML, clean text with word count, links, the scrape timestamp, optional screenshots, and an optional AI summary.
+
+| Option (Node / Python) | Values | Default |
+|---|---|---|
+| `mode` / `mode` (required) | `domain` (single domain), `subdomain` (domain + subdomains), `path` (under the start URL's path) | — |
+| `limit` / `limit` | max pages | 10 |
+| `maxDepth` / `max_depth` | link levels from the start URL | not specified |
+| `useSitemap` / `use_sitemap` | boolean, handles nested sitemaps | true |
+| `followLinks` / `follow_links` | boolean | true |
+| `includePaths` / `include_paths` | array of JavaScript regex strings | — |
+| `excludePaths` / `exclude_paths` | array of JavaScript regex strings | — |
+| `respectRobots` / `respect_robots` | respect robots.txt | true |
+
+Tips from the docs: start with 10–20 pages to test a configuration, and enable both `useSitemap` and `followLinks`. URL include/exclude filtering is "currently in development and not fully enforced".
+
+```javascript
+// Filtered blog crawl
+{ mode: 'path', limit: 50, includePaths: ['/blog/[0-9]{4}/.*'], excludePaths: ['.*/tag/.*', '.*/author/.*'], useSitemap: true, followLinks: true }
+// Full site crawl
+{ mode: 'subdomain', limit: 100, excludePaths: ['.*/admin/.*', '.*/login.*'], useSitemap: true, followLinks: true }
+// Documentation crawl
+{ mode: 'path', limit: 200, useSitemap: true, followLinks: false }
+```
+
+### Search
+Runs a web search for a natural-language query and returns or scrapes the results. The engine is **DuckDuckGo**, the only provider. [Overview](https://docs.maxun.dev/robot/search/search-introduction) · [Configuration](https://docs.maxun.dev/robot/search/search-configuration)
+
+| Option | Values | Default |
+|---|---|---|
+| `query` (required) | string | — |
+| `mode` | `discover` (title, url, description) or `scrape` (full page content per result) | `discover` |
+| `limit` | number of results; typical range 5–50 | 10 |
+| `filters.timeRange` | `day`, `week`, `month`, `year`; omit for all time | all time |
+| `filters.region` | region code, e.g. `us-en` | — |
+| `provider` | `duckduckgo` | `duckduckgo` |
+
+In scrape mode each result includes metadata, HTML, text with word count, links, status, optional screenshots and an optional AI summary.
+
+### Extract: Recorder mode
+Record actions in a browser and Maxun turns them into a reusable extraction robot. [Docs](https://docs.maxun.dev/robot/extract/robot-actions)
+
+- **Capture List:** select repeating items, define the fields, show the robot how to paginate, and set a limit on the number of items.
+- **Capture Text:** capture specific pieces of text.
+- **Capture Screenshot:** full page or visible part.
+- **Pagination:** next button, load more, scroll down or up, and detecting when no more items remain.
+- Supports iFrames and Shadow DOM, form filling, dropdowns, radio buttons and checkboxes.
+- **Retrain:** Recorder-mode robots can be retrained from the dashboard (robot menu → Retrain) when a site changes. [Docs](https://docs.maxun.dev/robot/extract/robot-retrain)
+- **Duplicate:** reuse a robot on another page with the same structure, to bulk-extract the same data from thousands of pages without code. [Docs](https://docs.maxun.dev/robot/extract/robot-duplicate)
+
+### Extract: AI mode
+Enter a URL and a natural-language prompt, and LLM-powered extraction builds the robot. [Docs](https://docs.maxun.dev/robot/extract/llm-extraction) · [Prompt guide](https://docs.maxun.dev/llm-prompts)
+
+- **Cloud:** LLM providers and keys are managed for you.
+- **Self-hosted:** configure a provider with environment variables:
+  - Ollama (local, no key, e.g. `llama3.2-vision`) with `OLLAMA_BASE_URL`. In Docker, use `http://host.docker.internal:11434`.
+  - Anthropic (e.g. `claude-3-5-sonnet-20241022`, recommended for accuracy) with `ANTHROPIC_API_KEY`.
+  - OpenAI (e.g. `gpt-4-vision-preview`) with `OPENAI_API_KEY`.
+- **Prompts that work:**
+  - "Extract product names, prices, and ratings"
+  - "Extract first 20 companies"
+  - "Get top 50 articles"
+  - "Extract all job postings with title, company, and location"
+- **Prompts to avoid:**
+  - Multi-step ("Login and then extract data")
+  - Multiple page types ("Extract from homepage and product pages")
+  - Conditional ("Extract only products cheaper than $50")
+  - Transformations ("Convert prices to EUR")
+  - Single items ("Get the CEO name")
+  - For these, use Recorder mode or the SDK builder.
+
+### Deep Extraction (Cloud only)
+Capture a list, then click one item and capture data from its detail page. The robot repeats this for every item in the list, including across paginated list pages. It must be enabled before recording. The detail pages must be on the same domain and share the same structure. [Docs](https://docs.maxun.dev/deep-extraction)
+
+### Document robots (beta)
+[Docs](https://docs.maxun.dev/robot/document)
+- **Document Extract:** upload a PDF with a prompt describing the fields you want. Creates a reusable robot.
+- **Document Parse:** converts a PDF to `markdown`, `html` or `links` (every URL in the document, deduplicated).
+
+```bash
+maxun robots doc-extract invoice.pdf --prompt "Extract invoice number, vendor name, and total amount" --name "Invoice Extractor"
+maxun robots doc-parse report.pdf --formats "markdown,html,links" --name "Report Parser"
+```
+
+### Extract behind login
+[Docs](https://docs.maxun.dev/extract-login)
+- **Cloud (recommended):** the Maxun Chrome extension. Connect your API key, log in to the site normally, and sync the session. No passwords are shared or stored.
+- **Self-hosted:** enter the username and password while training the robot. They are encrypted and stored locally, and the robot logs in on each run.
+- Use dedicated accounts rather than critical personal accounts, because automated logins can be flagged. 2FA/MFA login support is coming soon on Cloud.
+
+### Stealth, proxies and CAPTCHAs
+- **Stealth mode:** makes browser activity look human to reduce blocking. On Cloud it is on by default and can be toggled per robot. On self-hosted instances it depends on bring-your-own-proxy. [Docs](https://docs.maxun.dev/stealth)
+- **BYOP, bring your own proxy (Self-hosted only):** HTTP and SOCKS proxies, set per user, with a proxy URL (e.g. `http://proxy.com:1337`) and a separate username and password. Per-robot proxies are coming soon. Cloud manages proxies automatically. [Docs](https://docs.maxun.dev/byop)
+- **CAPTCHAs:** Cloud supports reCAPTCHA and hCaptcha, but not custom CAPTCHAs. The self-hosted edition has no CAPTCHA bypass.
+
+## Running and automating robots
+
+### Runs
+Runs are triggered manually from the dashboard, on a schedule, or through the API, SDK, CLI or MCP. [Docs](https://docs.maxun.dev/runs)
+
+### Scheduling
+Dashboard fields: "Run once every" (minutes, hours, days, weeks or months), "Start from" (day of week), "In between" (time window) and timezone. [Docs](https://docs.maxun.dev/robot-schedule)
+
+```javascript
+await robot.schedule({ runEvery: 1, runEveryUnit: 'HOURS', timezone: 'America/New_York', startTime: '09:00', endTime: '17:00' });
+await robot.unschedule();
+```
+
+### Monitoring
+Each monitored run is compared with the previous run, and a "Changed" marker appears in the Runs tab when the output differs. It works for Extract robots (text, lists, screenshots), Scrape robots (the whole page in the configured formats) and Crawl robots (the whole site), through the dashboard, SDK, CLI and API. AI mode lets you describe in plain language which changes matter. Combine monitoring with a schedule. **Cloud only:** screenshot comparison, Crawl monitoring and email alerts. [Docs](https://docs.maxun.dev/monitoring)
+
+### Webhooks
+Configure webhooks in a robot's integration settings. [Docs](https://docs.maxun.dev/api/webhooks)
+
+Dashboard and API webhook events are `run_completed` and `run_failed`:
+
+```json
+{
+  "event_type": "run_completed",
+  "timestamp": "2025-05-29T15:53:15.595Z",
+  "webhook_id": "1b480cbd-...",
+  "data": {
+    "robot_id": "...", "run_id": "...", "robot_name": "Test Robot",
+    "status": "success", "started_at": "...", "finished_at": "...",
+    "extracted_data": {
+      "captured_texts": [ { "Product Name": "...", "Price": "..." } ],
+      "captured_lists": { "list_0": [ { } ] },
+      "total_rows": 5, "captured_texts_count": 3, "captured_lists_count": 2, "screenshots_count": 5
+    },
+    "metadata": { "browser_id": "...", "user_id": 108 }
+  }
+}
+```
+
+```json
+{
+  "event_type": "run_failed",
+  "timestamp": "2025-05-29T15:53:15.595Z",
+  "webhook_id": "1b480cbd-...",
+  "data": {
+    "robotId": "...", "runId": "...", "robotName": "Test Robot", "status": "failed",
+    "error": { "message": "Timeout exceeded while waiting for element", "type": "TimeoutError", "stack": "..." },
+    "metadata": { "browserId": "...", "userId": 108 }
+  }
+}
+```
+
+SDK-managed webhooks use the events `run.started`, `run.completed` and `run.failed`, and support custom headers:
+
+```javascript
+await robot.addWebhook({ url: 'https://your-api.com/webhook', events: ['run.completed', 'run.failed'], headers: { 'Authorization': 'Bearer your-token' } });
+// payload: {"event":"run.completed","robotId":"robot-123","runId":"run-456","status":"success","data":{"textData":{},"listData":[]},"timestamp":"2025-01-15T10:30:00Z"}
+```
+
+### Teams (Cloud only)
+Each account can create one team, and the owner's plan sets the member limit. Free and trial users can't create teams. [Docs](https://docs.maxun.dev/teams-management)
+
+Roles:
+- **Admin:** full access, including invites and API keys.
+- **Member:** can create and edit, but can't delete, manage members or manage API keys.
+- **Viewer:** read-only.
+
+Invites expire after 7 days. The team pauses if the owner's plan expires or the member limit is exceeded.
+
+## Endpoints and authentication
+
+- **API key:** generate it in the dashboard under **Settings → API Key**. [Docs](https://docs.maxun.dev/api/api)
+- **Cloud app:** `https://app.maxun.dev`. This is also the CLI's default `MAXUN_API_URL`.
+- **Cloud MCP endpoint:** `https://app.maxun.dev/api/mcp`, with header `x-api-key: <your key>`.
+- **Self-hosted defaults:** backend `http://localhost:8080`, frontend `http://localhost:5173`. The Python SDK base URL for self-hosted is `MAXUN_BASE_URL=http://localhost:8080/api/sdk`. Cloud users can omit it.
+
+## Node.js SDK
+
+Package `maxun-sdk`. Requires Node.js 18+. Source: https://github.com/getmaxun/node-sdk. [Overview](https://docs.maxun.dev/sdk/node-sdk/sdk-overview)
+
+```bash
+npm install maxun-sdk
+```
+
+```bash
+MAXUN_API_KEY=your-api-key
+ANTHROPIC_API_KEY=your-anthropic-key   # optional, for LLM extraction
+OPENAI_API_KEY=your-openai-key         # optional, for LLM extraction
+```
+
+```javascript
+import { Extract, Scrape, Crawl, Search } from 'maxun-sdk';
+const scraper = new Scrape({ apiKey: process.env.MAXUN_API_KEY });
+const crawler = new Crawl({ apiKey: process.env.MAXUN_API_KEY });
+const searcher = new Search({ apiKey: process.env.MAXUN_API_KEY });
+const extractor = new Extract({ apiKey: process.env.MAXUN_API_KEY });
+```
+
+**Scrape.** [Docs](https://docs.maxun.dev/sdk/node-sdk/sdk-scrape)
+```javascript
+const robot = await scraper.create('Pricing Scraper', 'https://example.com/pricing', {
+  formats: ['markdown'],                                   // markdown | html | screenshot-visible | screenshot-fullpage | summary
+  smartQueries: 'List all plan names and their monthly prices.'
+});
+const result = await robot.run({ timeout: 30000 });
+result.data.markdown; result.data.promptResult;           // also: html, screenshots, summary
+```
+
+**Crawl.** [Docs](https://docs.maxun.dev/sdk/node-sdk/sdk-crawl)
+```javascript
+const robot = await crawler.create('Blog Crawler', 'https://example.com/blog', { mode: 'domain', limit: 50, maxDepth: 3, useSitemap: true, followLinks: true });
+const result = await robot.run({ timeout: 60000 });
+result.data.crawlData.forEach(page => { page.metadata?.url; page.metadata?.title; page.wordCount; page.text; page.links; page.summary; });
+```
+
+**Search.** [Docs](https://docs.maxun.dev/sdk/node-sdk/sdk-search)
+```javascript
+const robot = await searcher.create('Tech News Search', { query: 'artificial intelligence 2025', mode: 'discover', limit: 10, filters: { timeRange: 'week', region: 'us-en' } });
+const result = await robot.run({ timeout: 30000 });
+result.data.searchData.forEach(item => { item.title; item.url; item.description; });
+```
+
+**Extract.** [Docs](https://docs.maxun.dev/sdk/node-sdk/sdk-extract)
+```javascript
+// AI extraction
+const robot = await extractor.extract('https://example.com', {
+  prompt: 'Extract first 20 product names and prices',
+  llmProvider: 'anthropic',
+  llmApiKey: process.env.ANTHROPIC_API_KEY
+});
+
+// Builder (no LLM)
+const robot = await extractor
+  .create('Product Extractor')
+  .navigate('https://example.com/products')
+  .captureText({ productName: '.product-title', price: '.price' })
+  .captureList({ selector: '.product-card', pagination: { type: 'clickNext', selector: 'button.next-page' }, maxItems: 100 })
+  .captureScreenshot('Homepage', { fullPage: true });
+
+const result = await robot.run({ waitForCompletion: true, timeout: 60000 });
+```
+
+Builder methods:
+- `navigate(url)`
+- `captureText(fields, name?)`
+- `captureList({ selector, pagination?, maxItems? }, name?)`. With only a selector, it auto-detects the fields inside each item.
+- `captureScreenshot(name?, { fullPage? })`
+- `click(selector)`
+- `type(selector, text, inputType?)`, where `inputType` is `text|email|password|number|tel|url`
+- `scroll('down'|'up', distance?)`
+- `waitFor(selector, timeout?)`
+- `wait(ms)`
+- `setCookies(cookies)`
+
+Pagination types: `scrollDown`, `scrollUp`, `clickNext`, `clickLoadMore`.
+
+**Document.** [Docs](https://docs.maxun.dev/sdk/node-sdk/sdk-document)
+```javascript
+import { Client } from 'maxun-sdk';
+const client = new Client({ apiKey: process.env.MAXUN_API_KEY, baseUrl: process.env.MAXUN_BASE_URL });
+const { robot } = await client.createDocumentExtractRobot('./invoice.pdf', 'Extract invoice number, vendor name, and total amount', { robotName: 'Invoice Extractor' });
+const result = await client.executeRobot(robot.recording_meta.id);
+result.data.documentData;   // { invoice_number: 'INV-2025-0042', vendor_name: 'Acme Corp', total_amount: 4250 }
+const { parsedOutput } = await client.createDocumentParseRobot('./report.pdf', ['markdown', 'html', 'links'], { robotName: 'Report Parser' });
+```
+
+**Robot management.** Common to all robot types. [Docs](https://docs.maxun.dev/sdk/node-sdk/sdk-robot)
+```javascript
+const robots = await scraper.getRobots(); const robot = await scraper.getRobot('robot-id'); await scraper.deleteRobot('robot-id');
+const result = await robot.run({ waitForCompletion: true, timeout: 60000, webhook: { url: 'https://your-api.com/notify' } });
+// result: { status: 'success', runId: 'run-123', data: { textData, listData, markdown, html }, screenshots: [...] }
+await robot.getRuns(); await robot.getRun('run-id'); await robot.getLatestRun(); await robot.abort('run-id');
+await robot.schedule({ runEvery: 1, runEveryUnit: 'HOURS', timezone: 'UTC' }); await robot.unschedule();   // MINUTES|HOURS|DAYS|WEEKS|MONTHS
+await robot.addWebhook({ url, events: ['run.completed'] }); await robot.removeWebhooks();
+await robot.update({ name: 'New Name' }); await robot.refresh(); await robot.delete();
+```
+Errors expose `error.message` and `error.statusCode`.
+
+## Python SDK
+
+Package `maxun`. Requires Python 3.8+. All calls are async (`await`, run with `asyncio.run(main())`). Method names are snake_case, and option dict keys stay camelCase (`maxItems`, `fullPage`). Source: https://github.com/getmaxun/python-sdk. [Overview](https://docs.maxun.dev/sdk/python-sdk/sdk-overview)
+
+```bash
+pip install maxun
+pip install "maxun[anthropic]"   # or maxun[openai], maxun[all]
+```
+
+```bash
+MAXUN_API_KEY=your-api-key
+MAXUN_BASE_URL=http://localhost:8080/api/sdk   # self-hosted only
+MAXUN_TEAM_ID=your-team-uuid                   # optional
+```
+
+```python
+import asyncio
+from maxun import Config, Scrape, Crawl, CrawlConfig, Search, SearchConfig, Extract
+
+async def main():
+    scraper = Scrape(Config(api_key="..."))
+    robot = await scraper.create("Pricing Scraper", "https://example.com/pricing",
+                                 formats=["markdown"], smart_queries="List all plan names and their monthly prices.")
+    result = await robot.run(timeout=30000)
+    print(result["data"]["markdown"], result["data"]["promptResult"])
+
+    crawler = Crawl(Config(api_key="..."))
+    robot = await crawler.create("Full Site", "https://example.com",
+                                 CrawlConfig(mode="subdomain", limit=500, exclude_paths=[r".*/admin/.*"],
+                                             use_sitemap=True, follow_links=True, respect_robots=True))
+
+    searcher = Search(Config(api_key="..."))
+    robot = await searcher.create("AI News", SearchConfig(query="AI startups", mode="discover", limit=10,
+                                                          filters={"timeRange": "week", "region": "us-en"}))
+
+    extractor = Extract(Config(api_key="..."))
+    robot = await extractor.extract(url="https://example.com", prompt="Extract first 20 product names and prices")
+    robot = await (extractor.create("Product Extractor")
+                   .navigate("https://example.com/products")
+                   .capture_list({"selector": ".product-card",
+                                  "pagination": {"type": "clickNext", "selector": "button.next-page"},
+                                  "maxItems": 100}))
+    result = await robot.run(wait_for_completion=True, timeout=60000)
+
+asyncio.run(main())
+```
+
+- **Self-hosted LLM extraction:** `extractor.extract(url=..., prompt=..., llm_provider="anthropic", llm_model="claude-3-5-sonnet-20241022", llm_api_key="...")`.
+- **Documents:** `Client(Config(api_key=..., base_url=...))`, then `create_document_extract_robot(file=..., prompt=..., robot_name=...)`, `execute_robot(robot_id)`, `create_document_parse_robot(file=..., output_formats=["markdown"], robot_name=...)` and `schedule_robot(robot_id, {...})`.
+- **Robot management:** `get_robots()`, `get_robot(id)`, `delete_robot(id)`, `run()`, `get_runs()`, `get_run(id)`, `get_latest_run()`, `abort(id)`, `schedule(run_every=1, run_every_unit="HOURS", timezone="UTC")`, `unschedule()`, `add_webhook(url=..., events=[...], headers={...})`, `remove_webhooks()`, `update()`, `refresh()`, `delete()`.
+
+Python SDK pages: [Scrape](https://docs.maxun.dev/sdk/python-sdk/sdk-scrape) · [Crawl](https://docs.maxun.dev/sdk/python-sdk/sdk-crawl) · [Search](https://docs.maxun.dev/sdk/python-sdk/sdk-search) · [Extract](https://docs.maxun.dev/sdk/python-sdk/sdk-extract) · [Document](https://docs.maxun.dev/sdk/python-sdk/sdk-document) · [Robot management](https://docs.maxun.dev/sdk/python-sdk/sdk-robot)
+
+## CLI
+
+Package `maxun-cli`, binary `maxun`. Works with Cloud and self-hosted instances. The config file is stored at `~/.maxun/config.json`. [Overview](https://docs.maxun.dev/cli/cli-overview) · [Reference](https://docs.maxun.dev/cli/cli-reference)
+
+```bash
+npm install -g maxun-cli
+maxun login --api-key <key>                                   # Cloud
+maxun login --api-url http://localhost:8080 --api-key <key>   # Self-hosted
+# or: export MAXUN_API_KEY=... ; export MAXUN_API_URL=...     (default https://app.maxun.dev)
+maxun status        # auth status, plan and credits
+maxun credits       # remaining credits
+maxun logout
+```
+
+| Command | Key flags |
+|---|---|
+| `maxun robots list` | `--table` (JSON by default) |
+| `maxun robots scrape <url>` | `-n` name, `-f` format (`markdown`, `html`, `text`, `links`, `summary`, `screenshot-visible`, `screenshot-fullpage`; default `markdown`), `-p` Smart Query prompt |
+| `maxun robots crawl <url>` | `-n`, `-f`, `--limit` (default 10), `--include`, `--exclude` |
+| `maxun robots search <query>` | `-n`, `-f` (scrape mode only), `--limit` (default 10), `--mode discover\|scrape` (default `discover`) |
+| `maxun robots extract` | `-p` prompt (required), `-u` url, `-n`, `--provider`, `--model`, `--api-key` |
+| `maxun robots doc-extract <pdf>` | `-p` prompt (required), `-n`, `--model` |
+| `maxun robots doc-parse <pdf>` | `-f/--formats markdown,html,links` (required), `-n` |
+| `maxun robots get <id>` / `delete <id>` / `duplicate <id> --url <url>` | — |
+| `maxun run <robot-id>` | `-f` format override (comma-separated), `-t/--table` |
+| `maxun runs list <robot-id>` | `--limit` (default 10), `-t` |
+| `maxun runs get <robot-id> <run-id>` | `-f json\|csv\|table`, `-o <file>`, `--pretty` |
+| `maxun runs abort <robot-id> <run-id>` | — |
+
+```bash
+maxun robots extract -p "Extract trending repositories from Github" -n "Github Trends"
+maxun robots crawl https://docs.example.com --limit 20 --include "/docs/*" -n "Docs Crawler"
+maxun run <robot-id> | jq '.[].price'
+maxun runs get <robot-id> <run-id> -f csv -o results.csv
+```
+
+CLI pages: [Robots](https://docs.maxun.dev/cli/cli-robots) · [Running robots](https://docs.maxun.dev/cli/cli-run) · [Runs & data](https://docs.maxun.dev/cli/cli-runs)
+
+## MCP server
+
+Connects Claude Desktop, Claude Code, Cursor, Windsurf, Cline and other MCP clients to your Maxun robots. [Setup](https://docs.maxun.dev/mcp/setup) · [Tools](https://docs.maxun.dev/mcp/tools)
+
+Cloud, native HTTP:
+```json
+{ "mcpServers": { "maxun": { "url": "https://app.maxun.dev/api/mcp", "headers": { "x-api-key": "your_api_key_here" } } } }
+```
+
+Cloud, through the `mcp-remote` bridge:
+```json
+{ "mcpServers": { "maxun": { "command": "npx", "args": ["-y", "mcp-remote", "https://app.maxun.dev/api/mcp", "--header", "x-api-key:your_api_key_here"] } } }
+```
+
+Self-hosted (build with `npm run mcp:build`):
+```json
+{ "mcpServers": { "maxun": { "command": "node", "args": ["/path/to/your/project/dist/mcp-worker.js"], "env": { "MCP_API_KEY": "your_api_key_here", "BACKEND_URL": "your_backend_url_here", "MCP_WORKER": "true" } } } }
+```
+
+Claude Desktop config location: `~/Library/Application Support/Claude/claude_desktop_config.json` (macOS) or `%APPDATA%\Claude\claude_desktop_config.json` (Windows).
+
+| Tool | Purpose | Parameters |
+|---|---|---|
+| `list_robots` | List all robots (id, name, type, schedule) | — |
+| `get_robot` | Get details of a robot | robot id |
+| `run_robot` | Run a robot and return its data (30-minute timeout) | `robot_id` (required), `formats` (e.g. `["markdown","text","html"]`), `params` |
+| `get_robot_runs` | Run history | `robot_id` (required), `limit` (default 20, max 100) |
+| `get_run_details` | Full output of a run | run id |
+| `get_robot_summary` | Performance stats and success rates | robot id |
+
+The MCP server resolves robot names to IDs automatically.
+
+## REST API
+
+Run robots and fetch their data over HTTP. Authenticate with your Maxun API key. [API key](https://docs.maxun.dev/api/api) · [Robot API](https://docs.maxun.dev/api/robot-api) · [Run API](https://docs.maxun.dev/api/run-api) · [Webhooks](https://docs.maxun.dev/api/webhooks)
+
+| Method | Path | Description |
+|---|---|---|
+| GET | `/api/robots` | List robots |
+| GET | `/api/robots/{id}` | Get a robot |
+| POST | `/api/robots/{id}/duplicate` | Duplicate a robot for a new URL (body: `targetUrl`) |
+| GET | `/api/robots/{id}/runs` | List a robot's runs |
+| POST | `/api/robots/{id}/runs` | Run a robot |
+| GET | `/api/robots/{id}/runs/{runId}` | Get a run and its data |
+
+```json
+{"statusCode":200,"messageCode":"success","robots":{"totalCount":2,"items":[{"id":"0a3acb0f-...","name":"100 Blog Posts","createdAt":1748765979000,"inputParameters":[{"type":"string","name":"originUrl","label":"Origin URL","required":true,"defaultValue":"https://linktr.ee/blog/trends/"}]}]}}
+```
+
+```json
+{"statusCode":200,"messageCode":"success","run":{"id":"1ffbc139-...","status":"success","name":"10 post link tree","robotId":"0a3acb0f-...","startedAt":"8/1/2025, 12:04:24 am","finishedAt":"8/1/2025, 12:04:40 am","runByAPI":true,"data":[{"Label 1":"...","Label 2":"..."}],"screenshot":null}}
+```
+
+Errors return `statusCode`, `messageCode` (e.g. `not_found`, `error`) and `message`. An unauthorized request returns `401 {"ok": false, "error": "Unauthorized"}`. For long runs, use webhooks instead of polling.
+
+## Integrations
+
+[All integrations](https://docs.maxun.dev/category/integrations)
+
+**Data destinations**
+- [Google Sheets](https://docs.maxun.dev/integrations/gsheet): OAuth 2.0; Extract robots only. Cloud is one-click. Self-hosted needs `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET` and `GOOGLE_REDIRECT_URI` with the Sheets and Drive APIs enabled. Only data extracted after setup is synced.
+- [Airtable](https://docs.maxun.dev/integrations/airtable): OAuth; appends run data to a chosen base and table. Self-hosted needs `AIRTABLE_CLIENT_ID` and `AIRTABLE_REDIRECT_URI`.
+- [n8n](https://docs.maxun.dev/integrations/n8n) **(Cloud only)**: sends run data to an n8n Webhook trigger node, with a "Test Webhook" button. Payload: `robot_id`, `run_id`, `robot_name`, `timestamp`, `data[]`, `metadata{ total_records, data_types }`.
+- Webhooks: see "Webhooks" above.
+
+**AI agents and coding assistants**
+- [Claude Code](https://docs.maxun.dev/integrations/claude-code): a Claude Code skill from https://github.com/getmaxun/maxun-skills. Install it to `~/.claude/skills/maxun/` and set `MAXUN_API_KEY`, plus `MAXUN_BASE_URL` for self-hosted. Commands: `/maxun list`, `/maxun run <robotId>`, `/maxun result <robotId> <runId>`, `/maxun runs <robotId>`, `/maxun get <robotId>`, `/maxun abort <robotId> <runId>`.
+- [OpenClaw](https://docs.maxun.dev/integrations/openclaw): a skill on ClawHub (`npm i -g clawhub && clawhub install maxun`) that runs robots from WhatsApp, Telegram or Discord through an OpenClaw gateway.
+- MCP clients: see "MCP server" above.
+
+**AI frameworks** (Node `maxun-sdk` examples)
+- [LangChain](https://docs.maxun.dev/integrations/langchain): `DynamicStructuredTool` named `scrape_website`. `npm install maxun-sdk @langchain/openai @langchain/core zod`.
+- [LangGraph](https://docs.maxun.dev/integrations/langgraph): `StateGraph` pipelines (scrape → analyze; search → scrape → summarize). `npm install maxun-sdk @langchain/langgraph @langchain/openai @langchain/core`.
+- [LlamaIndex](https://docs.maxun.dev/integrations/llamaindex): scrape pages into `Document`s, then `VectorStoreIndex` for RAG. `npm install maxun-sdk llamaindex @llamaindex/openai`.
+- [Mastra](https://docs.maxun.dev/integrations/mastra): `createWorkflow` / `createStep` search → scrape → summarize pipelines. `npm install maxun-sdk @mastra/core zod`.
+- [OpenAI SDK](https://docs.maxun.dev/integrations/openai): function calling with a `scrape_website` tool. `npm install maxun-sdk openai`.
+- [Vercel AI SDK](https://docs.maxun.dev/integrations/vercel-ai-sdk): `tool({ description, parameters: z.object({ url }), execute })` with `generateText`. `npm install maxun-sdk ai @ai-sdk/openai zod`.
+
+Framework pattern:
+```javascript
+import { Scrape } from 'maxun-sdk';
+const scraper = new Scrape({ apiKey: process.env.MAXUN_API_KEY });
+const robot = await scraper.create('Scraper', url, { formats: ['markdown'] });
+const result = await robot.run();
+return result.data.markdown;   // pass to your LLM, agent tool or vector store
+```
+
+## Self-hosting
+
+[Self-host overview](https://docs.maxun.dev/category/self-host) · [Docker Compose](https://docs.maxun.dev/installation/docker) · [Local setup](https://docs.maxun.dev/installation/local) · [Environment variables](https://docs.maxun.dev/installation/environment_variables) · [Upgrading](https://docs.maxun.dev/installation/upgrade) · [Production guide with NGINX and HTTPS](https://docs.maxun.dev/self-host)
+
+**Docker Compose** (prerequisite: Docker):
+```bash
+mkdir maxun && cd maxun
+openssl rand -base64 48   # JWT_SECRET
+openssl rand -base64 48   # SESSION_SECRET
+openssl rand -hex 32      # ENCRYPTION_KEY
+# create .env from https://github.com/getmaxun/maxun/blob/master/ENVEXAMPLE and fill in the secrets
+# create docker-compose.yml from https://github.com/getmaxun/maxun/blob/develop/docker-compose.yml
+docker-compose up -d
+```
+The frontend runs at `PUBLIC_URL` (default http://localhost:5173) and the backend at `BACKEND_URL` (default http://localhost:8080).
+
+**Local setup** (Node.js 18+, PostgreSQL, MinIO):
+```bash
+git clone https://github.com/getmaxun/maxun && cd maxun
+npm install && cd maxun-core && npm install && cd ..
+docker-compose up -d browser                  # recommended; or: npx playwright install --with-deps chromium
+npm run start
+```
+Ports: frontend 5173, backend 8080, browser WebSocket 3001, browser health 3002.
+
+**Environment variables:**
+- **Required:**
+  - `BACKEND_PORT` (8080), `FRONTEND_PORT` (5173), `BACKEND_URL`, `VITE_BACKEND_URL`, `PUBLIC_URL`, `VITE_PUBLIC_URL`
+  - `JWT_SECRET`, `ENCRYPTION_KEY`, `SESSION_SECRET`
+  - `DB_NAME`, `DB_USER`, `DB_PASSWORD`, `DB_HOST`, `DB_PORT`
+  - `MINIO_ENDPOINT`, `MINIO_PORT`, `MINIO_ACCESS_KEY`
+  - `BROWSER_WS_PORT` (3001), `BROWSER_WS_HOST` (`browser` in Docker, `localhost` locally), `BROWSER_HEALTH_PORT` (3002)
+- **Optional:**
+  - `DB_SSL` (set to `true` for Neon or other SSL-enforced Postgres hosts)
+  - `MINIO_CONSOLE_PORT`
+  - `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `GOOGLE_REDIRECT_URI`
+  - `AIRTABLE_CLIENT_ID`, `AIRTABLE_REDIRECT_URI`
+  - `ANTHROPIC_API_KEY`, `OPENAI_API_KEY`, `OLLAMA_BASE_URL`
+  - `MAXUN_TELEMETRY` (opt-in anonymous usage telemetry that helps the Maxun team understand usage; nothing is collected if it is not set)
+
+**Upgrade:**
+```bash
+docker-compose down
+docker rmi getmaxun/maxun-frontend:latest getmaxun/maxun-backend:latest   # optional
+docker-compose pull backend frontend && docker-compose up -d
+# local: git pull origin master && npm install && npm run start
+```
+
+## Cloud vs self-hosted
+
+| Feature | Cloud | Self-hosted |
+|---|---|---|
+| Robots, runs, websites | Unlimited | Unlimited |
+| Workspaces | Unlimited | 1 |
+| Scrape, Crawl, Extract, Search, Monitoring, API, SDK, CSV/JSON export | ✅ | ✅ |
+| Extract behind login | ✅ (Chrome extension) | ✅ (encrypted credentials) |
+| Webhooks, Google Sheets, Airtable, MCP | ✅ | ✅ |
+| Basic AI features | ✅ | ✅ |
+| n8n integration | ✅ | ❌ |
+| Deep Extraction | ✅ | ❌ |
+| Auto-adapt to layout changes | ✅ | Retrain robots |
+| CAPTCHA bypass, proxy rotation, managed anti-bot | ✅ | Bring your own proxy |
+| 2FA/MFA login | Coming soon | ❌ |
+| 100+ auto robots, advanced AI features | ✅ | ❌ |
+| Email, Slack and custom notifications | ✅ | Via webhooks |
+| Monitoring email alerts, screenshot diff, crawl monitoring | ✅ | ❌ |
+| Teams, SAML SSO, priority support | ✅ | ❌ (community support) |
+| Long-running tasks | ✅ | Depends on your infrastructure |
+
+[Full comparison](https://docs.maxun.dev/cloud-vs-oss)
+
+## Known limitations
+
+- Search uses DuckDuckGo only.
+- Crawl `includePaths` / `excludePaths` filtering is not fully enforced yet.
+- Batch scraping is coming soon. Document robots are in beta and support PDF files.
+- Robots can't download files, but they can capture file URLs.
+- Custom CAPTCHAs are not supported. Cloud handles reCAPTCHA and hCaptcha, and the self-hosted edition has no CAPTCHA bypass.
+- A/B-tested page variants can cause robot failures. Robots that log in fail more often than public ones.
+- Deep Extraction works on the same domain only, needs detail pages with a consistent structure, and must be enabled before recording.
+- AI mode is not suited to multi-step flows, forms, conditional filters, transformations or single-item extraction.
+- Per-robot proxy configuration (BYOP) is coming soon.
+
+## Use cases
+
+- [Market research](https://docs.maxun.dev/usecases/market_research): prices, product specs, reviews, competitor activity.
+- [E-commerce automation](https://docs.maxun.dev/usecases/ecommerce_automation): stock levels, price changes, competitor pricing.
+- [Lead generation](https://docs.maxun.dev/usecases/lead_generation): contacts from directories, social media and business listings.
+- [Real estate](https://docs.maxun.dev/usecases/real_estate): listings, agent details, rental prices and market trends.
+- [Content aggregation](https://docs.maxun.dev/usecases/content_aggregation): news, blog posts, research papers, product specs.
+- [Academic research](https://docs.maxun.dev/usecases/academic_research): journals, databases and public archives.
+
+## Contributing
+
+- Repositories:
+  - [getmaxun/maxun](https://github.com/getmaxun/maxun): `src` frontend (React, TypeScript), `server` backend (Node.js, TypeScript, Playwright), `maxun-core` (published to npm), `public/locales` (i18n)
+  - [node-sdk](https://github.com/getmaxun/node-sdk)
+  - [python-sdk](https://github.com/getmaxun/python-sdk)
+  - [maxun_docs](https://github.com/getmaxun/maxun_docs)
+  - [maxun-skills](https://github.com/getmaxun/maxun-skills)
+- Workflow: branch from `develop` (`feature/...` or `fix/...`), use conventional commits (`feat(api): ...`), and open PRs against `develop`.
+- Pages: [Repository structure](https://docs.maxun.dev/development/repo) · [Contributing](https://docs.maxun.dev/development/contributing) · [Translations](https://docs.maxun.dev/development/i18n)
+
+## All documentation pages
+
+**Getting started:** [Welcome](https://docs.maxun.dev/) · [Quickstart](https://docs.maxun.dev/quickstart) · [Cloud vs self-host](https://docs.maxun.dev/cloud-vs-oss) · [Robot FAQ](https://docs.maxun.dev/faq-robot)
+
+**Robots:**
+- Categories: [Extract](https://docs.maxun.dev/category/extract) · [Crawl](https://docs.maxun.dev/category/crawl) · [Search](https://docs.maxun.dev/category/search)
+- [Robots overview](https://docs.maxun.dev/robot/robots) · [Scrape](https://docs.maxun.dev/robot/scrape)
+- [Crawl overview](https://docs.maxun.dev/robot/crawl/crawl-introduction) · [Crawl configuration](https://docs.maxun.dev/robot/crawl/crawl-configuration)
+- [Search overview](https://docs.maxun.dev/robot/search/search-introduction) · [Search configuration](https://docs.maxun.dev/robot/search/search-configuration)
+- [Recorder mode](https://docs.maxun.dev/robot/extract/robot-actions) · [AI mode](https://docs.maxun.dev/robot/extract/llm-extraction) · [Duplicate](https://docs.maxun.dev/robot/extract/robot-duplicate) · [Retrain](https://docs.maxun.dev/robot/extract/robot-retrain)
+- [Document](https://docs.maxun.dev/robot/document) · [Deep Extraction](https://docs.maxun.dev/deep-extraction) · [Extract behind login](https://docs.maxun.dev/extract-login) · [LLM prompt guide](https://docs.maxun.dev/llm-prompts)
+
+**Running:** [Runs](https://docs.maxun.dev/runs) · [Schedule](https://docs.maxun.dev/robot-schedule) · [Monitoring](https://docs.maxun.dev/monitoring) · [Stealth](https://docs.maxun.dev/stealth) · [BYOP](https://docs.maxun.dev/byop) · [Teams](https://docs.maxun.dev/teams-management)
+
+**API:** [API reference](https://docs.maxun.dev/category/api-reference) · [API key](https://docs.maxun.dev/api/api) · [Robot API](https://docs.maxun.dev/api/robot-api) · [Run API](https://docs.maxun.dev/api/run-api) · [Webhooks](https://docs.maxun.dev/api/webhooks)
+
+**SDK:**
+- [SDK](https://docs.maxun.dev/category/sdk)
+- [Node SDK](https://docs.maxun.dev/category/node-sdk): [Overview](https://docs.maxun.dev/sdk/node-sdk/sdk-overview), [Scrape](https://docs.maxun.dev/sdk/node-sdk/sdk-scrape), [Crawl](https://docs.maxun.dev/sdk/node-sdk/sdk-crawl), [Search](https://docs.maxun.dev/sdk/node-sdk/sdk-search), [Extract](https://docs.maxun.dev/sdk/node-sdk/sdk-extract), [Document](https://docs.maxun.dev/sdk/node-sdk/sdk-document), [Robot](https://docs.maxun.dev/sdk/node-sdk/sdk-robot)
+- [Python SDK](https://docs.maxun.dev/category/python-sdk): [Overview](https://docs.maxun.dev/sdk/python-sdk/sdk-overview), [Scrape](https://docs.maxun.dev/sdk/python-sdk/sdk-scrape), [Crawl](https://docs.maxun.dev/sdk/python-sdk/sdk-crawl), [Search](https://docs.maxun.dev/sdk/python-sdk/sdk-search), [Extract](https://docs.maxun.dev/sdk/python-sdk/sdk-extract), [Document](https://docs.maxun.dev/sdk/python-sdk/sdk-document), [Robot](https://docs.maxun.dev/sdk/python-sdk/sdk-robot)
+
+**CLI:** [CLI](https://docs.maxun.dev/category/cli) · [Overview](https://docs.maxun.dev/cli/cli-overview) · [Robots](https://docs.maxun.dev/cli/cli-robots) · [Run](https://docs.maxun.dev/cli/cli-run) · [Runs](https://docs.maxun.dev/cli/cli-runs) · [Reference](https://docs.maxun.dev/cli/cli-reference)
+
+**MCP:** [MCP](https://docs.maxun.dev/category/mcp) · [Setup](https://docs.maxun.dev/mcp/setup) · [Tools](https://docs.maxun.dev/mcp/tools)
+
+**Integrations:**
+- [Integrations](https://docs.maxun.dev/category/integrations)
+- Data destinations: [Google Sheets](https://docs.maxun.dev/integrations/gsheet), [Airtable](https://docs.maxun.dev/integrations/airtable), [n8n](https://docs.maxun.dev/integrations/n8n)
+- Agents: [Claude Code](https://docs.maxun.dev/integrations/claude-code), [OpenClaw](https://docs.maxun.dev/integrations/openclaw)
+- AI frameworks: [LangChain](https://docs.maxun.dev/integrations/langchain), [LangGraph](https://docs.maxun.dev/integrations/langgraph), [LlamaIndex](https://docs.maxun.dev/integrations/llamaindex), [Mastra](https://docs.maxun.dev/integrations/mastra), [OpenAI](https://docs.maxun.dev/integrations/openai), [Vercel AI SDK](https://docs.maxun.dev/integrations/vercel-ai-sdk)
+
+**Self-host:** [Self-host](https://docs.maxun.dev/category/self-host) · [Production guide](https://docs.maxun.dev/self-host) · [Docker Compose](https://docs.maxun.dev/installation/docker) · [Local](https://docs.maxun.dev/installation/local) · [Environment variables](https://docs.maxun.dev/installation/environment_variables) · [Upgrading](https://docs.maxun.dev/installation/upgrade)
+
+**Use cases:** [All](https://docs.maxun.dev/category/use-cases) · [Market research](https://docs.maxun.dev/usecases/market_research) · [E-commerce](https://docs.maxun.dev/usecases/ecommerce_automation) · [Lead generation](https://docs.maxun.dev/usecases/lead_generation) · [Real estate](https://docs.maxun.dev/usecases/real_estate) · [Content aggregation](https://docs.maxun.dev/usecases/content_aggregation) · [Academic research](https://docs.maxun.dev/usecases/academic_research)
+
+**Engineering:** [Engineering](https://docs.maxun.dev/category/engineering) · [Repository](https://docs.maxun.dev/development/repo) · [Contributing](https://docs.maxun.dev/development/contributing) · [i18n](https://docs.maxun.dev/development/i18n)
+
+## Support
+
+- Email: [support@maxun.dev](mailto:support@maxun.dev)
+- [GitHub issues](https://github.com/getmaxun/maxun/issues)
+- [Maxun Cloud](https://app.maxun.dev/)
+- [Product overview for AI (maxun.dev/llms.txt)](https://maxun.dev/llms.txt)
