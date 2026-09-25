@@ -55,7 +55,7 @@ Choose how broadly the robot should crawl from your starting URL:
 - Higher depth values discover more pages but increase crawl time
 
 ### URL Filtering
->**Note:** This feature is currently in development and not fully enforced.
+>**Note:** URL Filtering is currently in development and not fully enforced.
 
 **Include Paths**
 - Regex patterns for URLs to include in your crawl
