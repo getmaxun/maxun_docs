@@ -30,10 +30,17 @@
     margin-right: 15px;
   }
 
+  .navbar__logo {
+    display: flex;
+    align-items: center;
+  }
+
   .navbar__logo img {
     border-radius: 5px;
-    height: 35px;
-    width: 42px;
+    height: 50px;
+    width: 50px;
+    object-fit: contain;
+    position: relative;
   }
 
   .navbar__title {
@@ -47,11 +54,13 @@
 
 /* Increase announcement bar text size */
 :root {
-  --ifm-announcement-bar-height: auto; /* ensures proper spacing */
+  --ifm-announcement-bar-height: auto;
+  /* ensures proper spacing */
 }
 
 div[class*="announcementBarContent"] {
-  font-size: 1rem;   /* increase size (default ~0.875rem) */
+  font-size: 1rem;
+  /* increase size (default ~0.875rem) */
   line-height: 1.4;
 }
 
@@ -67,7 +76,7 @@ div[class*="announcementBarContent"] {
   --ifm-color-primary-light: #ff1dca;
   --ifm-color-primary-lighter: #ff38d1;
   --ifm-color-primary-lightest: #ff38d1;
-  --ifm-color-emphasis-100: #15172A!important;
+  --ifm-color-emphasis-100: #15172A !important;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 
   .cardContainer_fWXF,
@@ -80,6 +89,7 @@ div[class*="announcementBarContent"] {
   }
 
   table {
+
     th,
     td,
     tr {
