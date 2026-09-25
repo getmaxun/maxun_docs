@@ -581,17 +581,6 @@ docker-compose pull backend frontend && docker-compose up -d
 
 [Full comparison](https://docs.maxun.dev/cloud-vs-oss)
 
-## Known limitations
-
-- Search uses DuckDuckGo only.
-- Crawl `includePaths` / `excludePaths` filtering is not fully enforced yet.
-- Batch scraping is coming soon. Document robots are in beta and support PDF files.
-- Robots can't download files, but they can capture file URLs.
-- Custom CAPTCHAs are not supported. Cloud handles reCAPTCHA and hCaptcha, and the self-hosted edition has no CAPTCHA bypass.
-- A/B-tested page variants can cause robot failures. Robots that log in fail more often than public ones.
-- Deep Extraction works on the same domain only, needs detail pages with a consistent structure, and must be enabled before recording.
-- AI mode is not suited to multi-step flows, forms, conditional filters, transformations or single-item extraction.
-- Per-robot proxy configuration (BYOP) is coming soon.
 
 ## Use cases
 
