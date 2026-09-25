@@ -111,10 +111,17 @@ div[class*="announcementBarContent"] {
     margin-right: 15px;
   }
 
+  .navbar__logo {
+    display: flex;
+    align-items: center;
+  }
+
   .navbar__logo img {
     border-radius: 5px;
-    height: 35px;
-    width: 42px;
+    height: 50px;
+    width: 50px;
+    object-fit: contain;
+    position: relative;
   }
 
   .navbar__title {
