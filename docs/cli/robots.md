@@ -109,7 +109,7 @@ maxun robots search "Latest AI news" --mode discover --limit 10 -n "AI News"
 
 ### Document Extract (doc-extract)
 
-Create a robot that extracts structured fields from a PDF using AI.
+Create a robot that extracts structured fields from a document using AI.
 
 ```bash
 maxun robots doc-extract <pdf> [options]
@@ -130,7 +130,7 @@ maxun robots doc-extract invoice.pdf \
 
 ### Document Parse (doc-parse)
 
-Create a robot that converts a PDF into Markdown, HTML, and/or extracted links — no LLM, free.
+Create a robot that converts a document into Markdown, HTML, and/or extracted links — no LLM, free.
 
 ```bash
 maxun robots doc-parse <pdf> [options]
