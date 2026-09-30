@@ -1,7 +1,7 @@
 ---
 id: sdk-document
 title: Document
-sidebar_position: 5
+sidebar_position: 6
 ---
 
 # Document

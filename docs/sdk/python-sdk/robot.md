@@ -1,7 +1,7 @@
 ---
 id: sdk-robot
 title: Robot Management
-sidebar_position: 4
+sidebar_position: 7
 ---
 
 # Robot Management

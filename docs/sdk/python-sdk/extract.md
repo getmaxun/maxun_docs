@@ -1,7 +1,7 @@
 ---
 id: sdk-extract
 title: Extract
-sidebar_position: 2
+sidebar_position: 3
 ---
 
 # Extract
