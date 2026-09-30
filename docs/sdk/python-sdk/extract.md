@@ -6,14 +6,18 @@ sidebar_position: 2
 
 # Extract
 
-Build structured data extraction workflows programmatically using the SDK.
+Build structured web data extraction workflows with the Maxun Python SDK.
 
-## Creating Extract Robots
-Extract robots can be created using LLM-based extraction or non-LLM rules.
+Maxun supports two approaches:
 
-### LLM Extraction (Beta)
+* **AI Extraction** — describe what you want in natural language and let an LLM extract it.
+* **Workflow Extraction** — build deterministic extraction workflows using CSS selectors and browser actions.
 
-Create robots using natural language.
+Both approaches return a [`Robot`](./sdk-robot) that you can run and manage.
+
+## AI Extraction
+
+Use `extract()` when you want to describe the data you need in natural language.
 
 ```python
 from maxun import Extract, Config
@@ -21,41 +25,68 @@ from maxun import Extract, Config
 extractor = Extract(Config(api_key="your-api-key"))
 
 robot = await extractor.extract(
-    url="https://example.com",
-    prompt="Extract first 20 product names and prices",
+    url="https://example.com/products",
+    prompt="Extract the first 20 product names and prices",
 )
 
 result = await robot.run()
+
+print(result)
 ```
 
-On Maxun Cloud, that is all you need. The provider, model and credentials are managed for you.
+The returned `Robot` can be run multiple times, scheduled, monitored, or otherwise managed using the [Robot API](./sdk-robot).
 
-#### Bringing your own model (self-hosted only)
+### Using AI Extraction with Maxun Cloud
 
-Self-hosted instances can point extraction at your own LLM using `llm_provider`, `llm_model`, `llm_api_key` and `llm_base_url`.
+With Maxun Cloud, you only need to provide your Maxun API key:
 
 ```python
-# Self-hosted instances only
 robot = await extractor.extract(
-    url="https://example.com",
-    prompt="Extract first 20 product names and prices",
+    url="https://example.com/products",
+    prompt="Extract the first 20 product names and prices",
+)
+```
+
+Maxun Cloud manages the LLM provider, model, and credentials.
+
+### Using Your Own LLM
+
+Self-hosted Maxun instances can use your own LLM provider.
+
+Specify the provider, model, credentials, and optional base URL:
+
+```python
+robot = await extractor.extract(
+    url="https://example.com/products",
+    prompt="Extract the first 20 product names and prices",
     llm_provider="anthropic",
     llm_model="claude-3-5-sonnet-20241022",
     llm_api_key="your-anthropic-api-key",
 )
 ```
 
-See <a href="/robot/extract/llm-extraction">AI Mode</a> for provider details and <a href="/llm-prompts">LLM Extraction Prompts</a> for writing effective prompts.
+The `llm_*` options are for self-hosted Maxun instances. When using Maxun Cloud, leave these options unset.
 
-### Non LLM Extraction
-
-For non-LLM extraction, you define exact CSS selectors to capture data from web pages.
+You can also specify:
 
 ```python
-from maxun import Extract, Config
+robot = await extractor.extract(
+    url="https://example.com/products",
+    prompt="Extract product information",
+    llm_provider="anthropic",
+    llm_model="your-model",
+    llm_api_key="your-api-key",
+    llm_base_url="https://your-llm-endpoint.example.com",
+)
+```
 
-extractor = Extract(Config(api_key="your-api-key"))
+## Workflow Extraction
 
+Use workflow extraction when you want precise control over how data is collected.
+
+Create a workflow with `extractor.create()` and chain browser and extraction actions together:
+
+```python
 robot = await (
     extractor
     .create("Product Extractor")
@@ -65,79 +96,37 @@ robot = await (
         "price": ".price",
     })
 )
+```
 
+Run the resulting robot:
+
+```python
 result = await robot.run()
 ```
 
-### Key Features
+Workflow extraction does not require an LLM for basic selector-based extraction.
 
-### 1. Auto List Capture
+## Capturing Data
 
-When using `captureList`, you only need to provide the list item selector. Maxun automatically:
-- Detects all meaningful fields within each list item
-- Extracts clean, structured data from those fields
+### Capture Text
+
+Use `capture_text()` to extract specific fields using CSS selectors:
 
 ```python
 robot = await (
     extractor
-    .create("Products")
-    .navigate("https://example.com")
-    .capture_list({
-        "selector": ".product-card"
+    .create("Article Info")
+    .navigate("https://example.com/article")
+    .capture_text({
+        "title": ".article-title",
+        "author": ".author-name",
     })
 )
+
+result = await robot.run()
 ```
 
-###  2. Auto Pagination (Optional)
-
-Pagination is completely optional. When you **don't specify** the `pagination` field, Maxun automatically detects and handles pagination for you.
-
-```python
-.capture_list({
-    "selector": ".product-card",
-    "maxItems": 100,
-})
-```
-
-### 3. Pagination with Selectors
-
-For precise control, specify the pagination type and selector
-
-```python
-.capture_list({
-    "selector": ".product-card",
-    "pagination": {
-        "type": "clickNext",
-        "selector": "button.next-page",
-    },
-    "maxItems": 100,
-})
-```
-
-**Pagination Types**
-
-| Type | Description | Selector Required? | Example |
-|------|-------------|-------------------|---------|
-| `scrollDown` | Infinite scroll (downward) | ❌ No | `{ type: 'scrollDown' }` |
-| `scrollUp` | Infinite scroll (upward) | ❌ No | `{ type: 'scrollUp' }` |
-| `clickNext` | Click "Next" button/link | ✅ Yes | `{ type: 'clickNext', selector: 'a.next' }` |
-| `clickLoadMore` | Click "Load More" button | ✅ Yes | `{ type: 'clickLoadMore', selector: 'button.load-more' }` |
-
-## Methods
-
-### Navigation
-
-**navigate(url)**
-
-```python
-.navigate("https://example.com")
-```
-
-### Data Extraction
-
-**captureText(fields, name?)**
-
-Extract specific text fields using CSS selectors:
+You can optionally give the capture action a name:
 
 ```python
 .capture_text(
@@ -149,74 +138,204 @@ Extract specific text fields using CSS selectors:
 )
 ```
 
-**captureList(config, name?)**
+### Capture Lists
 
-Extract data from lists with automatic field detection. See [Key Features](#key-features) above for details on auto list capture and pagination.
+Use `capture_list()` to extract repeated items from a page.
+
+Provide the selector for each list item:
 
 ```python
-# Simple auto-detection
-.capture_list(
-    {"selector": ".product-item"},
-    name="Products",
+robot = await (
+    extractor
+    .create("Products")
+    .navigate("https://example.com/products")
+    .capture_list({
+        "selector": ".product-card",
+    })
 )
+```
 
-# With pagination
-.capture_list(
-    {
-        "selector": ".product-item",
-        "pagination": {"type": "scrollDown"},
-        "maxItems": 50,
+Maxun automatically detects the meaningful fields within each list item.
+
+You can also specify the maximum number of items:
+
+```python
+.capture_list({
+    "selector": ".product-card",
+    "maxItems": 100,
+})
+```
+
+## Pagination
+
+Pagination is optional.
+
+If you don't provide a pagination configuration, Maxun can automatically handle pagination for supported page patterns.
+
+```python
+.capture_list({
+    "selector": ".product-card",
+    "maxItems": 100,
+})
+```
+
+For more control, specify the pagination type and selector.
+
+### Infinite Scroll
+
+For pages that load more content while scrolling:
+
+```python
+.capture_list({
+    "selector": ".product-card",
+    "pagination": {
+        "type": "scrollDown",
     },
-    name="Products",
+    "maxItems": 100,
+})
+```
+
+Available scroll types:
+
+* `scrollDown`
+* `scrollUp`
+
+### Next Page
+
+Click a next-page element:
+
+```python
+.capture_list({
+    "selector": ".product-card",
+    "pagination": {
+        "type": "clickNext",
+        "selector": "a.next-page",
+    },
+    "maxItems": 100,
+})
+```
+
+### Load More
+
+Click a Load More button:
+
+```python
+.capture_list({
+    "selector": ".product-card",
+    "pagination": {
+        "type": "clickLoadMore",
+        "selector": "button.load-more",
+    },
+    "maxItems": 100,
+})
+```
+
+### Pagination Types
+
+| Type            | Description                      | Selector     |
+| --------------- | -------------------------------- | ------------ |
+| `scrollDown`    | Scroll down to load more items   | Not required |
+| `scrollUp`      | Scroll up to load more items     | Not required |
+| `clickNext`     | Click a next-page button or link | Required     |
+| `clickLoadMore` | Click a Load More button         | Required     |
+
+## Browser Actions
+
+Workflow extraction supports browser actions that can be combined with extraction steps.
+
+### Navigate
+
+Navigate to a URL:
+
+```python
+.navigate("https://example.com")
+```
+
+### Click
+
+Click an element using a CSS selector:
+
+```python
+.click("button.show-more")
+```
+
+### Type
+
+Enter text into an input:
+
+```python
+.type("input[name='search']", "web scraping")
+```
+
+You can optionally specify the input type:
+
+```python
+.type(
+    "input[name='email']",
+    "user@example.com",
+    "email",
 )
 ```
 
-**captureScreenshot(name?, options?)**
+Supported input types include:
+
+* `text`
+* `email`
+* `password`
+* `number`
+* `tel`
+* `url`
+
+### Scroll
+
+Scroll the page:
 
 ```python
-.capture_screenshot("Homepage", {"fullPage": True})
+.scroll("down", 500)
 ```
 
-### Interaction
-
-**click(selector)**
+The distance is optional:
 
 ```python
-.click('button.show-more')
+.scroll("up")
 ```
 
-**type(selector, text, inputType?)**
+### Wait for an Element
+
+Wait for an element to appear:
 
 ```python
-.type("input[name='search']", "web scraping", "text")
+.wait_for(".dynamic-content", 5000)
 ```
 
-Input types: `text`, `email`, `password`, `number`, `tel`, `url`
+The timeout is in milliseconds.
 
-**scroll(direction, distance?)**
+If no timeout is provided, Maxun uses the default timeout.
 
-```python
-.scroll('down', 500)
-.scroll('up')
-```
+### Wait
 
-### Waiting
-
-**waitFor(selector, timeout?)**
-
-```python
-.wait_for(".dynamic-content", 5000))
-```
-
-**wait(milliseconds)**
+Wait for a fixed amount of time:
 
 ```python
 .wait(2000)
 ```
 
-### Configuration
+The duration is in milliseconds.
 
-**setCookies(cookies)**
+### Screenshots
+
+Capture a screenshot during a workflow:
+
+```python
+.capture_screenshot(
+    "Homepage",
+    {"fullPage": True},
+)
+```
+
+### Cookies
+
+Set cookies for the current navigation step:
 
 ```python
 .set_cookies([
@@ -228,9 +347,9 @@ Input types: `text`, `email`, `password`, `number`, `tel`, `url`
 ])
 ```
 
-## Examples
+## Complete Examples
 
-### List with Pagination
+### List Extraction with Pagination
 
 ```python
 robot = await (
@@ -252,6 +371,8 @@ result = await robot.run()
 
 ### Multi-Step Workflow
 
+Combine navigation, interaction, waiting, and extraction:
+
 ```python
 robot = await (
     extractor
@@ -260,19 +381,31 @@ robot = await (
     .type("input[name='q']", "data extraction")
     .click("button[type='submit']")
     .wait_for(".results")
-    .capture_list({"selector": ".result-item"})
+    .capture_list({
+        "selector": ".result-item",
+    })
 )
+
+result = await robot.run()
 ```
 
-### Form Fill
+### Form Fill and Extraction
 
 ```python
 robot = await (
     extractor
-    .create("Login and Extract")
+    .create("Account Data")
     .navigate("https://example.com/login")
-    .type("input[name='email']", "user@example.com", "email")
-    .type("input[name='password']", "password123", "password")
+    .type(
+        "input[name='email']",
+        "user@example.com",
+        "email",
+    )
+    .type(
+        "input[name='password']",
+        "password123",
+        "password",
+    )
     .click("button[type='submit']")
     .wait_for(".dashboard")
     .capture_text({
@@ -284,37 +417,59 @@ robot = await (
 result = await robot.run()
 ```
 
-## Managing Robots
+## Managing Extract Robots
 
-### Get All Robots
+Unlike `Scrape`, the `Extract` service provides methods for retrieving and deleting extract robots.
+
+### Get All Extract Robots
 
 ```python
 robots = await extractor.get_robots()
 ```
 
-### Get Specific Robot
+This returns the extract robots associated with the current Maxun account/team.
+
+### Get a Specific Robot
 
 ```python
 robot = await extractor.get_robot("robot-id")
 ```
 
-### Delete Robot
+The returned value is a [`Robot`](./sdk-robot) instance.
+
+You can then run or manage it normally:
+
+```python
+result = await robot.run()
+```
+
+### Delete a Robot
 
 ```python
 await extractor.delete_robot("robot-id")
 ```
 
-## Running Robots
+You can also delete a robot through the `Robot` instance:
 
 ```python
-# Run immediately
-result = await robot.run()
-
-# Run with options
-result = await robot.run(
-    wait_for_completion=True,
-    timeout=60000,
-)
+await robot.delete()
 ```
 
-See <a href="/sdk/python-sdk/sdk-robot">Robot Management</a> for scheduling and webhooks.
+## Running Robots
+
+Run a robot immediately:
+
+```python
+result = await robot.run()
+```
+
+You can also pass run options as a dictionary:
+
+```python
+result = await robot.run({
+    "wait_for_completion": True,
+    "timeout": 60000,
+})
+```
+
+See [Robot Management](./sdk-robot) for runs, scheduling, webhooks, monitoring, and other robot operations.
