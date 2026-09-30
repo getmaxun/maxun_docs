@@ -6,16 +6,14 @@ sidebar_position: 5
 
 # Search
 
-Perform web searches and optionally scrape content from search results using DuckDuckGo.
+Perform web searches using DuckDuckGo and optionally scrape content from search results.
 
 ## Creating Search Robots
 
 ```python
 from maxun import Search, SearchConfig, Config
 
-searcher = Search(
-    Config(api_key="your-api-key")
-)
+searcher = Search(Config(api_key="your-api-key"))
 
 robot = await searcher.create(
     "Tech News Search",
@@ -31,7 +29,7 @@ robot = await searcher.create(
 
 ### Required Options
 
-**query** (required)
+**`query`** (required)
 
 The search query in natural language.
 
@@ -43,12 +41,12 @@ SearchConfig(
 
 ### Optional Configuration
 
-**mode** (optional)
+**`mode`** (optional)
 
 Search mode. Defaults to `discover`.
 
-- `discover` - Returns only search result metadata (title, URL, description)
-- `scrape` - Visits each result page and extracts full content
+* `discover` - Returns search result metadata such as title, URL, and description.
+* `scrape` - Visits each result page and extracts its content.
 
 ```python
 SearchConfig(
@@ -57,9 +55,9 @@ SearchConfig(
 )
 ```
 
-**limit** (optional)
+**`limit`** (optional)
 
-Maximum number of search results to return. Defaults to 10.
+Maximum number of search results to return. Defaults to `10`.
 
 ```python
 SearchConfig(
@@ -68,7 +66,7 @@ SearchConfig(
 )
 ```
 
-**filters** (optional)
+**`filters`** (optional)
 
 Search filters for time range and region.
 
@@ -76,15 +74,15 @@ Search filters for time range and region.
 SearchConfig(
     query="AI startups",
     filters={
-        "timeRange": "week",   # "day", "week", "month", "year"
+        "timeRange": "week",  # "day", "week", "month", "year"
         "region": "us-en",
     },
 )
 ```
 
-**provider** (optional)
+**`provider`** (optional)
 
-Search provider. Currently only `duckduckgo` is supported. Defaults to `duckduckgo`.
+Search provider. Currently, only `duckduckgo` is supported. Defaults to `duckduckgo`.
 
 ```python
 SearchConfig(
@@ -97,7 +95,7 @@ SearchConfig(
 
 ### Discover Mode
 
-Returns search result metadata only. Fast and lightweight.
+Returns search result metadata only. This is the faster and lighter search mode.
 
 ```python
 robot = await searcher.create(
@@ -112,14 +110,15 @@ robot = await searcher.create(
 result = await robot.run()
 ```
 
-**Returns:**
-- Title
-- URL
-- Description
+Each result can include:
+
+* Title
+* URL
+* Description
 
 ### Scrape Mode
 
-Visits each search result and extracts full page content.
+Visits each search result and extracts page content.
 
 ```python
 robot = await searcher.create(
@@ -134,12 +133,15 @@ robot = await searcher.create(
 result = await robot.run()
 ```
 
-**Returns all above plus:**
-- Full page metadata
-- HTML content
-- Clean text content
-- Links found on page
-- HTTP status code
+Scraped results can include:
+
+* Page metadata
+* HTML content
+* Clean text content
+* Links found on the page
+* HTTP status code
+* Page summary
+* Word count
 
 ## Time Filters
 
@@ -228,6 +230,8 @@ robot = await searcher.create(
         filters={"timeRange": "day"},
     ),
 )
+
+result = await robot.run()
 ```
 
 ### Competitive Research
@@ -236,12 +240,14 @@ robot = await searcher.create(
 robot = await searcher.create(
     "Competitor Analysis",
     SearchConfig(
-        query="best project management tools",
+        query="project management tools",
         mode="scrape",
         limit=30,
         filters={"timeRange": "year"},
     ),
 )
+
+result = await robot.run()
 ```
 
 ### Market Analysis
@@ -302,27 +308,20 @@ if result["data"].get("searchData"):
         print("Summary:", item.get("summary"))
 ```
 
-## Managing Search Robots
-
-```python
-# Get all search robots
-robots = await searcher.get_robots()
-
-# Get specific robot
-robot = await searcher.get_robot("robot-id")
-
-# Delete robot
-await searcher.delete_robot("robot-id")
-```
-
 ## Running Search Robots
 
-```python
-# Run immediately
-result = await robot.run()
+Run a search robot immediately:
 
-# Run with timeout (milliseconds)
-result = await robot.run(timeout=30000)
+```python
+result = await robot.run()
 ```
 
-For scheduling, webhooks, and other robot management features, see <a href="/sdk/python-sdk/sdk-robot">Robot Management</a>.
+You can also pass execution options:
+
+```python
+result = await robot.run({
+    "timeout": 30000,
+})
+```
+
+For scheduling, webhooks, and other robot management features, see [Robot Management](/sdk/python-sdk/sdk-robot).
