@@ -1,231 +1,178 @@
 ---
 id: sdk-scrape
 title: Scrape
-sidebar_position: 3
+sidebar_position: 2
 ---
 
 # Scrape
 
-Convert webpages into clean HTML, LLM-ready Markdown, or screenshots with zero configuration.
-
-## Creating Scrape Robots
+A scrape robot turns a web page into clean Markdown, HTML, plain text, a list of links, an AI summary or screenshots.
 
 ```javascript
-import { Scrape } from 'maxun-sdk';
+import { Maxun } from 'maxun-sdk';
 
-const scraper = new Scrape({
-  apiKey: process.env.MAXUN_API_KEY
+const maxun = new Maxun();
+
+const robot = await maxun.scrape('Example page', 'https://example.com');
+const result = await robot.run();
+
+console.log(result.markdown);
+```
+
+`maxun.scrape(name, url)` saves the robot on your account. Run it again any time with `await robot.run()`.
+
+## Output formats
+
+Choose what you want back with `formats`. The default is `['markdown']`.
+
+| Format | Read it from | What you get |
+|---|---|---|
+| `markdown` | `result.markdown` | The page as clean Markdown, ready for an LLM |
+| `html` | `result.html` | The page's HTML |
+| `text` | `result.text` | The page's visible text |
+| `links` | `result.links` | Every link on the page |
+| `summary` | `result.summary` | An AI-written summary of the page |
+| `screenshot-visible` | `result.screenshots` | A screenshot of the visible part of the page |
+| `screenshot-fullpage` | `result.screenshots` | A screenshot of the whole page |
+
+Ask for as many formats as you need in one robot:
+
+```javascript
+const robot = await maxun.scrape('Pricing page', 'https://example.com/pricing', {
+  formats: ['markdown', 'links', 'screenshot-fullpage'],
 });
 
-const robot = await scraper.create(
-  'Content Scraper',
-  'https://example.com/article',
-  { formats: ['markdown', 'html'] }
-);
-```
-
-## Output Formats
-
-### Markdown
-
-```javascript
-const robot = await scraper.create(
-  'Article Scraper',
-  'https://blog.example.com/post',
-  { formats: ['markdown'] }
-);
-
 const result = await robot.run();
-console.log(result.data.markdown);
+
+console.log(result.markdown);
+console.log(result.links);
+console.log(result.screenshots);
 ```
 
-### HTML
+The result only contains the formats the robot produced:
 
 ```javascript
-const robot = await scraper.create(
-  'HTML Scraper',
-  'https://example.com',
-  { formats: ['html'] }
-);
-
-const result = await robot.run();
-console.log(result.data.html);
-```
-
-### Screenshots
-
-```javascript
-// Visible viewport
-const robot = await scraper.create(
-  'Screenshot Bot',
-  'https://example.com',
-  { formats: ['screenshot-visible'] }
-);
-
-// Full page
-const robot = await scraper.create(
-  'Full Page Screenshot',
-  'https://example.com',
-  { formats: ['screenshot-fullpage'] }
-);
+console.log(result);
+// {
+//   runId: 'b05cea93-…',
+//   status: 'success',
+//   markdown: '# Pricing\n\n…',
+//   links: [ … ],
+//   screenshots: [ … ]
+// }
 ```
 
 ### Summary
 
-Generates an AI-powered plain-text summary of the page. Can be combined with other formats.
+`summary` adds a short AI-written summary next to the other formats:
 
 ```javascript
-const robot = await scraper.create(
-  'Blog Post Summarizer',
-  'https://blog.example.com/post',
-  { formats: ['summary'] }
-);
+const robot = await maxun.scrape('Blog post', 'https://blog.example.com/post', {
+  formats: ['markdown', 'summary'],
+});
 
 const result = await robot.run();
-console.log(result.data.summary);
+console.log(result.summary);
 ```
-
-Combine with `markdown` to get both the full content and a summary:
-
-```javascript
-const robot = await scraper.create(
-  'Blog Post Summarizer',
-  'https://blog.example.com/post',
-  { formats: ['summary', 'markdown'] }
-);
-
-const result = await robot.run();
-console.log(result.data.summary);   
-console.log(result.data.markdown);  
-```
-
-### Multiple Formats
-
-```javascript
-const robot = await scraper.create(
-  'Multi-Format Scraper',
-  'https://example.com',
-  { formats: ['markdown', 'html', 'screenshot-visible'] }
-);
-
-const result = await robot.run();
-console.log(result.data.markdown);
-console.log(result.data.html);
-console.log(result.data.screenshots);
-```
-
----
 
 ## Smart Queries
 
-Smart Queries let you attach a natural language prompt to a scrape robot. After the page is scraped, an LLM analyzes the page content and returns an answer to your prompt.
-
-The result is returned as `result.data.promptResult`.
-
+A Smart Query is a question about the page. Maxun scrapes the page, then an LLM answers your question on every run.
 
 ```javascript
-const robot = await scraper.create(
-  'Pricing Scraper',
-  'https://example.com/pricing',
-  {
-    formats: ['markdown'],
-    smartQueries: 'List all plan names and their monthly prices.'
-  }
-);
+const robot = await maxun.scrape('Pricing plans', 'https://example.com/pricing', {
+  smartQueries: 'List every plan with its monthly price.',
+});
 
 const result = await robot.run();
-console.log(result.data.markdown);       // full page markdown
-console.log(result.data.promptResult);   // "Starter: $9/mo, Growth: $29/mo, Pro: $99/mo"
+console.log(result.smartQueryResult);
 ```
 
-### More Examples
+You can also ask a different question for a single run, without changing the robot:
 
 ```javascript
-// Extract specific data points
-const robot = await scraper.create(
-  'Company Info',
-  'https://example.com/about',
-  {
-    formats: ['markdown'],
-    smartQueries: 'What is the company founding year and headquarters location?'
-  }
-);
+const result = await robot.run({ smartQueries: 'Which plan includes SSO?' });
+console.log(result.smartQueryResult);
+```
 
-// Summarize content
-const robot = await scraper.create(
-  'Blog Post Summarizer',
-  'https://blog.example.com/post',
-  {
-    formats: ['markdown'],
-    smartQueries: 'Summarize this article in 3 bullet points.'
-  }
-);
+:::note
+`summary` and Smart Queries use an LLM. On Maxun Cloud this is handled for you. On self-hosted Maxun, add the [LLM settings](#llm-settings-self-hosted) below.
+:::
 
+## Options
+
+| Option | Default | Description |
+|---|---|---|
+| `formats` | `['markdown']` | Output formats (see above) |
+| `smartQueries` | none | A question an LLM answers about the page on every run |
+| `monitor` | `false` | Compare every run with the previous one. See [Monitoring](./sdk-monitoring) |
+| `llmProvider`, `llmModel`, `llmApiKey`, `llmBaseUrl` | none | Self-hosted Maxun only, see below |
+
+## Running a scrape robot
+
+```javascript
 const result = await robot.run();
-console.log(result.data.promptResult);
 ```
 
----
-
-## Examples
-
-### RAG Pipeline
+`run()` waits until the page is scraped and returns the result. You can change the formats for a single run:
 
 ```javascript
-const robot = await scraper.create(
-  'RAG Content',
-  'https://docs.example.com/guide',
-  { formats: ['markdown'] }
-);
-
-const result = await robot.run();
-const markdown = result.data.markdown;
-
-// Send to embedding service
-await createEmbeddings(markdown);
+const result = await robot.run({ formats: ['html'] });
+console.log(result.html);
 ```
 
-### Content Aggregation
+If the run fails, `run()` throws `RunFailedError`. See [Robot Management](./sdk-robot) for run history, schedules and webhooks.
+
+## LLM settings (self-hosted)
+
+Self-hosted Maxun has no built-in LLM, so `summary` and Smart Queries need one:
 
 ```javascript
-const urls = [
-  'https://blog.example.com/post-1',
-  'https://blog.example.com/post-2'
-];
-
-for (const url of urls) {
-  const robot = await scraper.create(`Article ${url}`, url, {
-    formats: ['markdown']
-  });
-
-  const result = await robot.run();
-  await saveToDatabase(result.data.markdown);
-}
-```
-
-## Managing Scrape Robots
-
-```javascript
-// Get all scrape robots
-const robots = await scraper.getRobots();
-
-// Get specific robot
-const robot = await scraper.getRobot('robot-id');
-
-// Delete robot
-await scraper.deleteRobot('robot-id');
-```
-
-## Running Scrape Robots
-
-```javascript
-// Run immediately
-const result = await robot.run();
-
-// Run with timeout
-const result = await robot.run({
-  timeout: 30000
+const robot = await maxun.scrape('Pricing plans', 'https://example.com/pricing', {
+  smartQueries: 'List every plan with its monthly price.',
+  llmProvider: 'anthropic',        // 'anthropic', 'openai' or 'ollama'
+  llmApiKey: 'your-llm-api-key',   // required for anthropic and openai
+  llmModel: 'claude-sonnet-4-5',   // optional
 });
 ```
 
-For scheduling, webhooks, and other robot management features, see <a href="/sdk/node-sdk/sdk-robot">Robot Management</a>.
+:::caution
+Do not pass `llm*` options on Maxun Cloud. Cloud manages the model for you and rejects them.
+:::
+
+## Examples
+
+### Feed a RAG pipeline
+
+```javascript
+const robot = await maxun.scrape('Docs guide', 'https://docs.example.com/guide');
+const result = await robot.run();
+
+await createEmbeddings(result.markdown);
+```
+
+### Scrape several pages
+
+Give each robot its own name:
+
+```javascript
+const pages = {
+  'Post: Launch week': 'https://blog.example.com/launch-week',
+  'Post: Pricing update': 'https://blog.example.com/pricing-update',
+};
+
+for (const [name, url] of Object.entries(pages)) {
+  const robot = await maxun.scrape(name, url);
+  const result = await robot.run();
+  await saveToDatabase(url, result.markdown);
+}
+```
+
+### Use an existing robot
+
+```javascript
+const robot = await maxun.robots.find('Pricing plans');   // by name
+const result = await robot.run();
+```
+
+List your scrape robots with `await maxun.scrape.list()`. See [Robot Management](./sdk-robot) for everything else you can do with a robot.

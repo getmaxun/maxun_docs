@@ -1,105 +1,132 @@
 ---
 id: sdk-document
 title: Document
-sidebar_position: 5
+sidebar_position: 6
 ---
 
 # Document
 
-Extract structured data, generate summaries, or convert documents into clean Markdown, HTML, and links.
+Document robots read files instead of web pages. They can:
+
+- **Extract** specific data from a file, described in plain English.
+- **Parse** a file into Markdown, HTML, a list of links or a summary.
+
+Supported files: PDF, DOCX, XLSX, CSV, JPG and PNG.
 
 ## Extract
 
-Upload a document (PDF, CSV, XLSX, JPG, PNG or DOCX) and describe what you want. Maxun creates a reusable robot that extracts those fields from any similar document.
+Upload a file and describe the data you want:
 
 ```javascript
-import { Client } from 'maxun-sdk';
-
-const client = new Client({
-  apiKey: process.env.MAXUN_API_KEY,
-  baseUrl: process.env.MAXUN_BASE_URL,
-});
-
-const { robot } = await client.createDocumentExtractRobot(
+const robot = await maxun.documents.extract(
+  'Invoice reader',
   './invoice.pdf',
-  'Extract invoice number, vendor name, and total amount',
-  { robotName: 'Invoice Extractor' }
+  'Invoice number, vendor name, date and total amount',
 );
 
-const result = await client.executeRobot(robot.recording_meta.id);
-console.log(result.data.documentData);
-// { invoice_number: 'INV-2025-0042', vendor_name: 'Acme Corp', total_amount: 4250 }
+const result = await robot.run();
+console.log(result.documentData);
 ```
 
----
+```javascript
+{
+  invoice_number: 'INV-2025-0042',
+  vendor_name: 'Acme Corp',
+  date: '2025-03-14',
+  total_amount: 4250
+}
+```
+
+The fields you get back follow your prompt.
 
 ## Parse
 
-Convert a document (PDF, CSV, XLSX, JPG, PNG or DOCX) into Markdown, HTML, or a list of links.
+Convert a file into text formats:
 
 ```javascript
-const { robot, parsedOutput } = await client.createDocumentParseRobot(
-  './report.pdf',
-  ['markdown', 'html', 'links'],
-  { robotName: 'Report Parser' }
-);
+const robot = await maxun.documents.parse('Annual report', './report.docx', {
+  formats: ['markdown', 'summary'],
+});
 
-// Output is available straight away after creation
-console.log(parsedOutput.markdown);
-console.log(parsedOutput.links);
+const result = await robot.run();
+
+console.log(result.markdown);
+console.log(result.summary);
 ```
 
-### Running Again
+| Format | Read it from |
+|---|---|
+| `markdown` | `result.markdown` |
+| `html` | `result.html` |
+| `links` | `result.links` |
+| `summary` | `result.summary` |
+
+Leave out `formats` to get all four.
+
+## Passing the file
+
+Pass a path, or a `Buffer`. With a buffer, add `fileName` so Maxun knows the file type:
 
 ```javascript
-const result = await client.executeRobot(robot.recording_meta.id);
-console.log(result.data.markdown);
-console.log(result.data.links);
-```
+import { readFile } from 'node:fs/promises';
 
----
+const data = await readFile('invoice.pdf');
 
-## Scheduling
-
-```javascript
-await client.scheduleRobot(robot.recording_meta.id, {
-  runEvery: 1,
-  runEveryUnit: 'DAYS',
-  timezone: 'UTC',
-  atTimeStart: '08:00',
-  startFrom: 'MONDAY',
+const robot = await maxun.documents.extract('Invoice reader', data, 'Invoice number and total', {
+  fileName: 'invoice.pdf',
 });
 ```
 
-For full robot management see <a href="/sdk/node-sdk/sdk-robot">Robot Management</a>.
+## Running again
 
----
+A document robot keeps its file, so you can run it again later. Find it by name:
 
-## Complete Example
+```javascript
+const robot = await maxun.robots.find('Invoice reader');
+const result = await robot.run();
+```
+
+List all document robots with `await maxun.documents.list()`.
+
+:::note
+Document robot names must be unique. Creating one with a name that already exists throws `ConflictError`.
+:::
+
+## LLM settings (self-hosted)
+
+`documents.extract` and the `summary` format use an LLM. On Maxun Cloud this is handled for you. On self-hosted Maxun, pass one:
+
+```javascript
+const robot = await maxun.documents.extract('Invoice reader', './invoice.pdf', 'Invoice number and total', {
+  llmProvider: 'openai',           // 'anthropic', 'openai' or 'ollama'
+  llmApiKey: 'your-llm-api-key',
+  llmModel: 'gpt-4o-mini',         // optional
+});
+```
+
+## Complete example
 
 ```javascript
 import 'dotenv/config';
-import { Client } from 'maxun-sdk';
+import { Maxun } from 'maxun-sdk';
 
-const client = new Client({
-  apiKey: process.env.MAXUN_API_KEY,
-  baseUrl: process.env.MAXUN_BASE_URL,
+const maxun = new Maxun();
+
+// Pull the key fields out of an offer letter
+const extractor = await maxun.documents.extract(
+  'Offer letter fields',
+  './offer-letter.pdf',
+  'Student name, university, course title and start date',
+);
+console.log((await extractor.run()).documentData);
+
+// Convert the same letter to Markdown with a summary
+const parser = await maxun.documents.parse('Offer letter text', './offer-letter.pdf', {
+  formats: ['markdown', 'summary'],
 });
-
-// Pull specific fields from a PDF
-const { robot } = await client.createDocumentExtractRobot(
-  './offer-letter.pdf',
-  'Extract student name, university, course title, and start date',
-  { robotName: 'Offer Letter Extractor' }
-);
-const result = await client.executeRobot(robot.recording_meta.id);
-console.log(result.data.documentData);
-
-// Or convert the whole document to Markdown
-const { parsedOutput } = await client.createDocumentParseRobot(
-  './offer-letter.pdf',
-  ['markdown'],
-  { robotName: 'Offer Letter Parser' }
-);
-console.log(parsedOutput.markdown);
+const result = await parser.run();
+console.log(result.summary);
+console.log(result.markdown);
 ```
+
+See [Robot Management](./sdk-robot) to schedule document robots or add webhooks.

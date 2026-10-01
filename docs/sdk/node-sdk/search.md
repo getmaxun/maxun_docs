@@ -6,334 +6,133 @@ sidebar_position: 5
 
 # Search
 
-Perform web searches and optionally scrape content from search results using DuckDuckGo.
-
-## Creating Search Robots
+A search robot searches the web (with DuckDuckGo) and returns the results. It can also open each result and scrape its content, so you get search plus page content in one step.
 
 ```javascript
-import { Search } from 'maxun-sdk';
+const robot = await maxun.search('AI news', 'AI model releases', { mode: 'discover', timeRange: 'week' });
 
-const searcher = new Search({
-  apiKey: process.env.MAXUN_API_KEY
+const result = await robot.run();
+
+for (const item of result.searchData['Search Results'].results) {
+  console.log(item.title, item.url);
+}
+```
+
+## Options
+
+| Option | Default | Description |
+|---|---|---|
+| `mode` | `'scrape'` | `'discover'` returns titles, URLs and snippets. `'scrape'` also opens every result and scrapes it |
+| `limit` | `10` | Number of results |
+| `timeRange` | any time | Only results from the last `'day'`, `'week'`, `'month'` or `'year'` |
+| `formats` | `['markdown']` | In scrape mode, what to capture from each result: `markdown`, `html`, `text`, `links`, `summary`, `screenshot-visible`, `screenshot-fullpage` |
+
+## Search modes
+
+### Discover
+
+Fast. Returns the search results themselves, without visiting the pages.
+
+```javascript
+const robot = await maxun.search('Scraping tools', 'open source web scraping tools', {
+  mode: 'discover',
+  limit: 20,
 });
 
-const robot = await searcher.create(
-  'Tech News Search',
-  {
-    query: 'artificial intelligence 2025',
-    mode: 'discover',
-    limit: 10
-  }
-);
-```
+const result = await robot.run();
 
-## Configuration
-
-### Required Options
-
-**query** (required)
-
-The search query in natural language.
-
-```javascript
-{
-  query: 'latest AI developments'
+for (const item of result.searchData['Search Results'].results) {
+  console.log(item.position, item.title);
+  console.log(item.url);
+  console.log(item.description);
 }
 ```
 
-### Optional Configuration
+### Scrape
 
-**mode** (optional)
-
-Search mode. Defaults to `discover`.
-
-- `discover` - Returns only search result metadata (title, URL, description)
-- `scrape` - Visits each result page and extracts full content
+The default. Opens every result and returns its content in the formats you choose.
 
 ```javascript
-{
-  mode: 'discover'  // or 'scrape'
-}
-```
-
-**limit** (optional)
-
-Maximum number of search results to return. Defaults to 10.
-
-```javascript
-{
-  limit: 20
-}
-```
-
-**filters** (optional)
-
-Search filters for time range and region.
-
-```javascript
-{
-  filters: {
-    timeRange: 'week',  // 'day', 'week', 'month', 'year'
-    region: 'us-en'     // Region code
-  }
-}
-```
-
-**provider** (optional)
-
-Search provider. Currently only `duckduckgo` is supported. Defaults to `duckduckgo`.
-
-```javascript
-{
-  provider: 'duckduckgo'
-}
-```
-
-## Search Modes
-
-### Discover Mode
-
-Returns search result metadata only. Fast and lightweight.
-
-```javascript
-const robot = await searcher.create(
-  'Quick Research',
-  {
-    query: 'web scraping tools',
-    mode: 'discover',
-    limit: 10
-  }
-);
+const robot = await maxun.search('Scraping guides', 'how to scrape a website with node.js', {
+  limit: 5,
+  formats: ['markdown', 'links'],
+});
 
 const result = await robot.run();
+
+for (const page of result.searchData['Search Results'].results) {
+  console.log(page.metadata.url);
+  console.log(page.markdown?.slice(0, 300));
+}
 ```
 
-**Returns:**
-- Title
-- URL
-- Description
+Each scraped result has the formats you asked for plus `metadata` (`url`, `title`, ...) and `searchResult` (the original `position` and title in the search results). A result that could not be opened has an `error` instead.
 
-### Scrape Mode
-
-Visits each search result and extracts full page content.
+## Time range
 
 ```javascript
-const robot = await searcher.create(
-  'Deep Research',
-  {
-    query: 'machine learning tutorials',
-    mode: 'scrape',
-    limit: 10
-  }
-);
-
-const result = await robot.run();
+const robot = await maxun.search("Today's AI news", 'artificial intelligence', {
+  mode: 'discover',
+  timeRange: 'day',
+});
 ```
 
-**Returns all above plus:**
-- Full page metadata
-- HTML content
-- Clean text content
-- Links found on page
-- HTTP status code
-
-## Time Filters
-
-Filter results by publication date.
-
-```javascript
-// Last 24 hours
-{
-  filters: { timeRange: 'day' }
-}
-
-// Last 7 days
-{
-  filters: { timeRange: 'week' }
-}
-
-// Last 30 days
-{
-  filters: { timeRange: 'month' }
-}
-
-// Last 12 months
-{
-  filters: { timeRange: 'year' }
-}
-```
+Use `'day'`, `'week'`, `'month'` or `'year'`. Leave it out to search any time.
 
 ## Examples
 
-### Quick Research
+### Research a topic
 
 ```javascript
-const robot = await searcher.create(
-  'Topic Research',
-  {
-    query: 'react best practices 2025',
-    mode: 'discover',
-    limit: 15,
-    filters: {
-      timeRange: 'year'
-    }
-  }
-);
+const robot = await maxun.search('LLM agents research', 'LLM agent benchmarks', {
+  limit: 5,
+  formats: ['summary'],
+});
 
 const result = await robot.run();
+for (const page of result.searchData['Search Results'].results) {
+  console.log(page.metadata.url, '→', page.summary);
+}
+```
 
-result.data.searchData.forEach(item => {
-  console.log('Title:', item.title);
-  console.log('URL:', item.url);
-  console.log('Description:', item.description);
+`summary` uses an LLM. On self-hosted Maxun, also pass `llmProvider`, `llmApiKey` and optionally `llmModel` and `llmBaseUrl`. On Maxun Cloud, leave them out.
+
+### Daily news digest
+
+```javascript
+const robot = await maxun.search('Competitor news', 'Acme Corp announcement', {
+  mode: 'discover',
+  timeRange: 'day',
 });
+
+await robot.schedule({ runEvery: 1, runEveryUnit: 'DAYS', atTimeStart: '08:00', timezone: 'Asia/Kolkata' });
+await robot.addWebhook('https://your-app.com/hooks/news');
 ```
 
-### Content Scraping
+Every morning Maxun runs the search and sends the results to your webhook.
+
+### Several queries
 
 ```javascript
-const robot = await searcher.create(
-  'Content Analysis',
-  {
-    query: 'climate change solutions',
-    mode: 'scrape',
-    limit: 10,
-    filters: {
-      timeRange: 'month'
-    }
-  }
-);
-
-const result = await robot.run();
-
-result.data.searchData.forEach(item => {
-  console.log('URL:', item.metadata?.url);
-  console.log('Title:', item.metadata?.title);
-  console.log('Content:', item.text);
-  console.log('Word count:', item.wordCount);
-});
-```
-
-### Breaking News
-
-```javascript
-const robot = await searcher.create(
-  'News Monitor',
-  {
-    query: 'technology breakthroughs',
-    mode: 'scrape',
-    limit: 20,
-    filters: {
-      timeRange: 'day'
-    }
-  }
-);
-```
-
-### Competitive Research
-
-```javascript
-const robot = await searcher.create(
-  'Competitor Analysis',
-  {
-    query: 'best project management tools',
-    mode: 'scrape',
-    limit: 30,
-    filters: {
-      timeRange: 'year'
-    }
-  }
-);
-```
-
-### Market Analysis
-
-```javascript
-const queries = [
-  'AI automation tools',
-  'workflow automation software',
-  'business process automation'
-];
+const queries = ['AI automation tools', 'workflow automation software', 'RPA platforms'];
 
 for (const query of queries) {
-  const robot = await searcher.create(
-    `Market Research: ${query}`,
-    {
-      query,
-      mode: 'discover',
-      limit: 20,
-      filters: {
-        timeRange: 'month'
-      }
-    }
-  );
-
+  const robot = await maxun.search(`Market: ${query}`, query, { mode: 'discover', timeRange: 'month' });
   const result = await robot.run();
-  await saveToDatabase(query, result.data.searchData);
+  await saveToDatabase(query, result.searchData['Search Results'].results);
 }
 ```
 
-## Accessing Search Results
-
-### Discover Mode Results
+## Managing search robots
 
 ```javascript
-const result = await robot.run();
-
-if (result.data.searchData) {
-  const results = result.data.searchData;
-
-  results.forEach(item => {
-    console.log('Title:', item.title);
-    console.log('URL:', item.url);
-    console.log('Description:', item.description);
-  });
-}
+const robots = await maxun.search.list();
+await robot.setListLimit(25);     // change the number of results
+await robot.delete();
 ```
 
-### Scrape Mode Results
+:::note
+Search robots are not deduplicated by name: every `maxun.search(...)` call creates a new robot. Reuse a robot with `await maxun.robots.find(name)` instead of creating it again.
+:::
 
-```javascript
-const result = await robot.run();
-
-if (result.data.searchData) {
-  const results = result.data.searchData;
-
-  results.forEach(item => {
-    console.log('URL:', item.metadata?.url);
-    console.log('Title:', item.metadata?.title);
-    console.log('HTML:', item.html);
-    console.log('Text:', item.text);
-    console.log('Links:', item.links);
-    console.log('Status:', item.metadata?.statusCode);
-    console.log('Summary:', item.summary);
-  });
-}
-```
-
-## Managing Search Robots
-
-```javascript
-// Get all search robots
-const robots = await searcher.getRobots();
-
-// Get specific robot
-const robot = await searcher.getRobot('robot-id');
-
-// Delete robot
-await searcher.deleteRobot('robot-id');
-```
-
-## Running Search Robots
-
-```javascript
-// Run immediately
-const result = await robot.run();
-
-// Run with timeout
-const result = await robot.run({
-  timeout: 30000
-});
-```
-
-For scheduling, webhooks, and other robot management features, see <a href="/sdk/node-sdk/sdk-robot">Robot Management</a>.
+See [Robot Management](./sdk-robot) to run, schedule and manage robots.

@@ -6,277 +6,143 @@ sidebar_position: 4
 
 # Crawl
 
-Automatically discover and scrape multiple pages from websites using sitemaps and link following.
-
-## Creating Crawl Robots
+A crawl robot starts on one page, follows the links it finds and collects the content of every page it visits. Use it to grab a whole documentation site, a blog or a product catalogue.
 
 ```javascript
-import { Crawl } from 'maxun-sdk';
+const robot = await maxun.crawl('Example docs', 'https://docs.example.com', { limit: 20 });
 
-const crawler = new Crawl({
-  apiKey: process.env.MAXUN_API_KEY
+const result = await robot.run();
+
+for (const page of result.crawlData) {
+  console.log(page.metadata.url);
+  console.log(page.markdown?.slice(0, 200));
+}
+```
+
+## Options
+
+Every option has a sensible default, so a name and a URL are enough to start.
+
+| Option | Default | Description |
+|---|---|---|
+| `mode` | `'domain'` | Which links to follow: `'domain'`, `'subdomain'` or `'path'` (see below) |
+| `limit` | `50` | Maximum number of pages to crawl |
+| `maxDepth` | `3` | How many links away from the start page to go |
+| `includePaths` | none | Only crawl URLs matching these patterns, e.g. `['/blog/*']` |
+| `excludePaths` | none | Skip URLs matching these patterns, e.g. `['/admin/*']` |
+| `useSitemap` | `true` | Also find pages through the site's `sitemap.xml` |
+| `followLinks` | `true` | Follow links found on each page |
+| `respectRobots` | `true` | Obey the site's `robots.txt` |
+| `formats` | `['markdown']` | What to capture from each page: `markdown`, `html`, `text`, `links`, `summary`, `screenshot-visible`, `screenshot-fullpage` |
+| `monitor` | `false` | Compare every run with the previous one. See [Monitoring](./sdk-monitoring) |
+
+```javascript
+const robot = await maxun.crawl('Docs guides', 'https://docs.example.com', {
+  limit: 100,
+  maxDepth: 4,
+  includePaths: ['/guides/*'],
+  excludePaths: ['/guides/archive/*'],
+  formats: ['markdown', 'links'],
 });
-
-const robot = await crawler.create(
-  'Blog Crawler',
-  'https://example.com/blog',
-  {
-    mode: 'domain',
-    limit: 50,
-    useSitemap: true,
-    followLinks: true
-  }
-);
 ```
 
-## Configuration
+## Crawl modes
 
-### Basic Options
+`mode` decides how far the crawl may wander from the start URL.
 
-**mode** (required)
-
-Defines the crawl scope:
-- `domain` - Only pages on the exact same domain
-- `subdomain` - Domain and all its subdomains
-- `path` - Only pages under the same path
-
-**limit** (optional)
-
-Maximum number of pages to crawl. Defaults to 10.
+| Mode | Starting at `https://example.com/blog` it crawls |
+|---|---|
+| `domain` | Any page on `example.com` |
+| `subdomain` | Pages on `example.com` and its subdomains, such as `docs.example.com` |
+| `path` | Only pages under `example.com/blog` |
 
 ```javascript
-{
-  limit: 100
+const robot = await maxun.crawl('Blog', 'https://example.com/blog', { mode: 'path' });
+```
+
+## Reading the results
+
+`result.crawlData` is an array with one entry per page:
+
+```javascript
+const result = await robot.run();
+
+for (const page of result.crawlData) {
+  console.log(page.metadata.url);
+  console.log(page.metadata.title);
+  console.log(page.markdown);
 }
 ```
 
-### Advanced Options
+Each page contains the formats you asked for (`markdown`, `html`, `text`, `links`, ...) plus `metadata` with the page's `url`, `title` and other meta tags. A page that could not be loaded has an `error` instead.
 
-**maxDepth** (optional)
-
-Maximum crawl depth from starting URL. Each link level counts as one depth.
-
-```javascript
-{
-  maxDepth: 3
-}
-```
-
-**useSitemap** (optional)
-
-Fetch and parse the website's sitemap.xml. Defaults to `true`.
-
-```javascript
-{
-  useSitemap: true
-}
-```
-
-**followLinks** (optional)
-
-Extract and follow links from each visited page. Defaults to `true`.
-
-```javascript
-{
-  followLinks: true
-}
-```
-
-**includePaths** (optional)
-
-Regex patterns for URLs to include. Only matching URLs will be crawled.
-
-```javascript
-{
-  includePaths: ['/blog/[0-9]{4}/.*']
-}
-```
-
-**excludePaths** (optional)
-
-Regex patterns for URLs to exclude from crawling.
-
-```javascript
-{
-  excludePaths: ['.*/admin/.*', '.*/tag/.*']
-}
-```
-
-**respectRobots** (optional)
-
-Respect robots.txt directives. Defaults to `true`.
-
-```javascript
-{
-  respectRobots: true
-}
-```
-
-## Crawl Modes
-
-### Domain Mode
-
-```javascript
-const robot = await crawler.create(
-  'Domain Crawler',
-  'https://blog.example.com',
-  {
-    mode: 'domain',
-    limit: 50
-  }
-);
-```
-
-Crawls only `blog.example.com`. Won't crawl `shop.example.com` or `example.com`.
-
-### Subdomain Mode
-
-```javascript
-const robot = await crawler.create(
-  'Subdomain Crawler',
-  'https://example.com',
-  {
-    mode: 'subdomain',
-    limit: 100
-  }
-);
-```
-
-Crawls `example.com`, `blog.example.com`, `shop.example.com`, etc.
-
-### Path Mode
-
-```javascript
-const robot = await crawler.create(
-  'Path Crawler',
-  'https://example.com/blog',
-  {
-    mode: 'path',
-    limit: 50
-  }
-);
-```
-
-Crawls only pages under `/blog/` path.
+:::tip
+Large crawls can take a while. `run()` waits until the crawl finishes. Pass `{ timeout: 600000 }` (milliseconds) to stop waiting sooner; the crawl keeps going on Maxun and you can read it later with `await robot.getLatestRun()`.
+:::
 
 ## Examples
 
-### Blog Crawl
+### A whole documentation site
 
 ```javascript
-const robot = await crawler.create(
-  'Blog Posts',
-  'https://example.com/blog',
-  {
-    mode: 'path',
-    limit: 50,
-    useSitemap: true,
-    followLinks: true
-  }
-);
+const robot = await maxun.crawl('Product docs', 'https://docs.example.com', {
+  limit: 200,
+  maxDepth: 5,
+});
 
 const result = await robot.run();
-console.log('Pages crawled:', result.data.crawlData.length);
-```
 
-### Documentation Crawl
-
-```javascript
-const robot = await crawler.create(
-  'Documentation',
-  'https://docs.example.com',
-  {
-    mode: 'subdomain',
-    limit: 200,
-    useSitemap: true,
-    followLinks: false,
-    maxDepth: 5
-  }
+const docs = Object.fromEntries(
+  result.crawlData
+    .filter((page) => page.markdown)
+    .map((page) => [page.metadata.url, page.markdown]),
 );
 ```
 
-### Filtered Crawl
+### Only blog posts
 
 ```javascript
-const robot = await crawler.create(
-  'Product Pages',
-  'https://example.com',
-  {
-    mode: 'domain',
-    limit: 100,
-    includePaths: ['/products/.*'],
-    excludePaths: ['.*/reviews/.*', '.*/comments/.*'],
-    useSitemap: true,
-    followLinks: true
-  }
-);
-```
-
-### Full Site Crawl
-
-```javascript
-const robot = await crawler.create(
-  'Full Site',
-  'https://example.com',
-  {
-    mode: 'subdomain',
-    limit: 500,
-    excludePaths: ['.*/admin/.*', '.*/login.*'],
-    useSitemap: true,
-    followLinks: true,
-    respectRobots: true
-  }
-);
-```
-
-## Accessing Crawl Results
-
-```javascript
-const result = await robot.run();
-
-if (result.data.crawlData) {
-  const pages = result.data.crawlData;
-
-  pages.forEach(page => {
-    console.log('URL:', page.metadata?.url);
-    console.log('Title:', page.metadata?.title);
-    console.log('Word count:', page.wordCount);
-    console.log('Status:', page.metadata?.statusCode);
-  });
-}
-```
-
-Each page contains:
-- **metadata** - URL, title, description, language, meta tags, favicon, status code
-- **html** - Full page HTML
-- **text** - Clean body text
-- **wordCount** - Number of words
-- **links** - All links found on the page
-- **summary** - AI-generated plain-text summary of the page
-
-## Managing Crawl Robots
-
-```javascript
-// Get all crawl robots
-const robots = await crawler.getRobots();
-
-// Get specific robot
-const robot = await crawler.getRobot('robot-id');
-
-// Delete robot
-await crawler.deleteRobot('robot-id');
-```
-
-## Running Crawl Robots
-
-```javascript
-// Run immediately
-const result = await robot.run();
-
-// Run with timeout
-const result = await robot.run({
-  timeout: 60000
+const robot = await maxun.crawl('Blog posts', 'https://example.com', {
+  includePaths: ['/blog/*'],
+  excludePaths: ['/blog/tag/*', '/blog/page/*'],
+  limit: 50,
 });
 ```
 
-For scheduling, webhooks, and other robot management features, see <a href="/sdk/node-sdk/sdk-robot">Robot Management</a>.
+### Keep a knowledge base up to date
+
+Crawl once a week and see which pages were added, removed or changed:
+
+```javascript
+const robot = await maxun.crawl('Help center', 'https://help.example.com', { limit: 100, monitor: true });
+await robot.schedule({ runEvery: 1, runEveryUnit: 'WEEKS', startFrom: 'MONDAY', atTimeStart: '06:00' });
+```
+
+See [Monitoring](./sdk-monitoring) for how to read the changes.
+
+### Summarize every page
+
+```javascript
+const robot = await maxun.crawl('Docs summaries', 'https://docs.example.com', {
+  formats: ['summary'],
+  limit: 20,
+});
+
+const result = await robot.run();
+for (const page of result.crawlData) {
+  console.log(page.metadata.url, '→', page.summary);
+}
+```
+
+`summary` uses an LLM. On self-hosted Maxun, also pass `llmProvider`, `llmApiKey` and optionally `llmModel` and `llmBaseUrl`. On Maxun Cloud, leave them out.
+
+## Managing crawl robots
+
+```javascript
+const robots = await maxun.crawl.list();             // all crawl robots
+const robot = await maxun.robots.find('Blog posts');
+await robot.setListLimit(500);                       // crawl more pages from now on
+await robot.delete();
+```
+
+See [Robot Management](./sdk-robot) to run, schedule and manage robots.

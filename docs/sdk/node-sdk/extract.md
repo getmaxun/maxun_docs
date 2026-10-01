@@ -1,287 +1,230 @@
 ---
 id: sdk-extract
 title: Extract
-sidebar_position: 2
+sidebar_position: 3
 ---
 
 # Extract
 
-Build structured data extraction workflows programmatically using the SDK.
+An extract robot pulls structured data (product lists, prices, job postings, tables) out of web pages. There are two ways to build one with Maxun SDK:
 
-## Creating Extract Robots
-Extract robots can be created using LLM-based extraction or non-LLM rules.
+- **With a prompt**: describe the data in plain English and Maxun builds the robot for you.
+- **With selectors**: list the steps and CSS or XPath selectors yourself, for precise and predictable results.
 
-### LLM Extraction (Beta)
+Both return a [`Robot`](./sdk-robot) that you can run as often as you like.
 
-Create robots using natural language.
+## Extract with a prompt
 
 ```javascript
-const robot = await extractor.extract({
-  url: 'https://example.com',
-  prompt: 'Extract first 20 product names and prices'
+const robot = await maxun.extract('YC companies', 'https://www.ycombinator.com/companies', {
+  prompt: 'Company name, description and batch for the first 15 companies',
+});
+
+const result = await robot.run();
+
+for (const company of result.listData) {
+  console.log(company);
+}
+```
+
+```javascript
+{ 'Company name': 'Airbnb', Description: 'Book accommodations around the world.', Batch: 'W09' }
+{ 'Company name': 'Stripe', Description: 'Economic infrastructure for the internet.', Batch: 'S09' }
+...
+```
+
+### Without a URL
+
+Leave the URL out and Maxun searches the web for a suitable page first:
+
+```javascript
+const robot = await maxun.extract('Top AI startups', {
+  prompt: 'Names and funding of the top 10 AI startups from YCombinator',
 });
 ```
 
-On Maxun Cloud, that is all you need. The provider, model and credentials are managed for you.
+### LLM settings (self-hosted)
 
-#### Bringing your own model (self-hosted only)
-
-Self-hosted instances can point extraction at your own LLM using `llmProvider`, `llmModel`, `llmApiKey` and `llmBaseUrl`.
+On Maxun Cloud, a prompt is all you need. Self-hosted Maxun has no built-in LLM, so pass one:
 
 ```javascript
-// Self-hosted instances only
-const robot = await extractor.extract({
-  url: 'https://example.com',
-  prompt: 'Extract first 20 product names and prices',
-  llmProvider: 'anthropic',
-  llmApiKey: process.env.ANTHROPIC_API_KEY
+const robot = await maxun.extract('Products', 'https://shop.example.com', {
+  prompt: 'Product names and prices',
+  llmProvider: 'anthropic',        // 'anthropic', 'openai' or 'ollama'
+  llmApiKey: 'your-llm-api-key',   // required for anthropic and openai
+  llmModel: 'claude-sonnet-4-5',   // optional
+  // llmBaseUrl: 'http://localhost:11434',   // optional, e.g. your Ollama server
 });
 ```
 
-See <a href="/robot/extract/llm-extraction">AI Mode</a> for provider details and <a href="/llm-prompts">LLM Extraction Prompts</a> for writing effective prompts.
+:::caution
+Do not pass `llm*` options on Maxun Cloud. Cloud manages the model for you and rejects them.
+:::
 
-### Non LLM Extraction
+## Extract with selectors
 
-For non-LLM extraction, you define exact CSS selectors to capture data from web pages.
-
-```javascript
-import { Extract } from 'maxun-sdk';
-
-const extractor = new Extract({
-  apiKey: process.env.MAXUN_API_KEY
-});
-
-const robot = await extractor
-  .create('Product Extractor')
-  .navigate('https://example.com/products')
-  .captureText({
-    productName: '.product-title',
-    price: '.price'
-  });
-```
-
-### Key Features
-
-### 1. Auto List Capture
-
-When using `captureList`, you only need to provide the list item selector. Maxun automatically:
-- Detects all meaningful fields within each list item
-- Extracts clean, structured data from those fields
+`maxun.extract(name, url)` starts a robot on that page. Chain the steps you want, then finish with `.build()`:
 
 ```javascript
-.captureList({ 
-  selector: '.product-card'  // That's it! Maxun finds all fields inside
-})
+const robot = await maxun
+  .extract('Bookstore', 'https://books.toscrape.com')
+  .captureText({ Heading: 'h1' })
+  .captureList({ selector: 'article.product_pod', maxItems: 20 })
+  .build();
+
+const result = await robot.run();
+
+console.log(result.textData);   // { Heading: 'All products' }
+console.log(result.listData);   // [ {...}, {...}, ... ]
 ```
 
-###  2. Auto Pagination (Optional)
+Selector robots don't use an LLM, so they work the same on Maxun Cloud and self-hosted Maxun.
 
-Pagination is completely optional. When you **don't specify** the `pagination` field, Maxun automatically detects and handles pagination for you.
+### Capture text
 
-```javascript
-.captureList({ 
-  selector: '.product-card',
-  maxItems: 100
-})
-```
-
-### 3. Pagination with Selectors
-
-For precise control, specify the pagination type and selector
-
-```javascript
-.captureList({ 
-  selector: '.product-card',
-  pagination: {
-    type: 'clickNext',
-    selector: 'button.next-page'
-  },
-  maxItems: 100
-})
-```
-
-**Pagination Types**
-
-| Type | Description | Selector Required? | Example |
-|------|-------------|-------------------|---------|
-| `scrollDown` | Infinite scroll (downward) | ❌ No | `{ type: 'scrollDown' }` |
-| `scrollUp` | Infinite scroll (upward) | ❌ No | `{ type: 'scrollUp' }` |
-| `clickNext` | Click "Next" button/link | ✅ Yes | `{ type: 'clickNext', selector: 'a.next' }` |
-| `clickLoadMore` | Click "Load More" button | ✅ Yes | `{ type: 'clickLoadMore', selector: 'button.load-more' }` |
-
-## Methods
-
-### Navigation
-
-**navigate(url)**
-
-```javascript
-.navigate('https://example.com')
-```
-
-### Data Extraction
-
-**captureText(fields, name?)**
-
-Extract specific text fields using CSS selectors:
+`captureText` reads single values. Give each field a name and a selector:
 
 ```javascript
 .captureText({
-  title: '.article-title',
-  author: '.author-name'
-}, 'Article Info')
+  Title: 'h1.article-title',
+  Author: '.author-name',
+  Published: 'time',
+})
 ```
 
-**captureList(config, name?)**
+The values are in `result.textData`. CSS and XPath selectors both work.
 
-Extract data from lists with automatic field detection. See [Key Features](#key-features) above for details on auto list capture and pagination.
+### Capture a list
+
+`captureList` reads every element that matches a selector. The fields inside each item are detected automatically:
 
 ```javascript
-// Simple - auto-detects all fields
+.captureList({ selector: 'article.product_pod', maxItems: 50 })
+```
+
+The items are in `result.listData`. `maxItems` defaults to 100.
+
+### Pagination
+
+Maxun detects pagination automatically. To control it yourself, add `pagination`:
+
+```javascript
+// Click a "Next" button
 .captureList({
-  selector: '.product-item'
-}, 'Products')
+  selector: 'article.product_pod',
+  maxItems: 100,
+  pagination: { type: 'clickNext', selector: 'li.next a' },
+})
 
-// With pagination
-.captureList({
-  selector: '.product-item',
-  pagination: { type: 'scrollDown' },
-  maxItems: 50
-}, 'Products')
+// Click a "Load more" button
+.captureList({ selector: '.card', pagination: { type: 'clickLoadMore', selector: 'button.load-more' } })
+
+// Infinite scroll
+.captureList({ selector: '.feed-item', pagination: { type: 'scrollDown' } })
+
+// First page only
+.captureList({ selector: '.result', pagination: { type: 'none' } })
 ```
 
-**captureScreenshot(name?, options?)**
+| `type` | Use it for | Needs `selector` |
+|---|---|---|
+| `clickNext` | A "Next" button or link | Yes |
+| `clickLoadMore` | A "Load more" button | Yes |
+| `scrollDown` | Infinite scroll | No |
+| `scrollUp` | Content that loads when scrolling up | No |
+| `none` | Reading only the first page | No |
 
-```javascript
-.captureScreenshot('Homepage', { fullPage: true })
-```
+### Browser actions
 
-### Interaction
+Add steps in the order they should happen:
 
-**click(selector)**
+| Step | What it does |
+|---|---|
+| `.navigate(url)` | Go to another page |
+| `.click(selector)` | Click an element |
+| `.type(selector, text)` | Type into an input. The text is stored encrypted. |
+| `.waitFor(selector, 30000)` | Wait for an element to appear (milliseconds) |
+| `.wait(1000)` | Pause (milliseconds) |
+| `.scroll(2)` | Scroll down by a number of screen heights |
+| `.captureScreenshot('name', { fullPage: true })` | Take a screenshot, returned in `result.screenshots` |
 
-```javascript
-.click('button.show-more')
-```
-
-**type(selector, text, inputType?)**
-
-```javascript
-.type('input[name="search"]', 'web scraping', 'text')
-```
-
-Input types: `text`, `email`, `password`, `number`, `tel`, `url`
-
-**scroll(direction, distance?)**
-
-```javascript
-.scroll('down', 500)
-.scroll('up')
-```
-
-### Waiting
-
-**waitFor(selector, timeout?)**
-
-```javascript
-.waitFor('.dynamic-content', 5000)
-```
-
-**wait(milliseconds)**
-
-```javascript
-.wait(2000)
-```
-
-### Configuration
-
-**setCookies(cookies)**
-
-```javascript
-.setCookies([
-  { name: 'session', value: 'abc123', domain: '.example.com' }
-])
-```
+Give any capture a label by passing a name as the second argument, for example `.captureList({ selector: '.product' }, 'Products')`.
 
 ## Examples
 
-### List with Pagination
+### A list across several pages
 
 ```javascript
-const robot = await extractor
-  .create('News Articles')
-  .navigate('https://news.example.com')
+const robot = await maxun
+  .extract('Quotes', 'https://quotes.toscrape.com')
   .captureList({
-    selector: 'article.news-item',
-    pagination: {
-      type: 'clickNext',
-      selector: 'a.next-page'
-    },
-    maxItems: 100
-  });
+    selector: 'div.quote',
+    maxItems: 50,
+    pagination: { type: 'clickNext', selector: 'li.next a' },
+  })
+  .build();
 
 const result = await robot.run();
+console.log(`${result.listData.length} quotes`);
 ```
 
-### Multi-Step Workflow
+### Several pages in one robot
 
 ```javascript
-const robot = await extractor
-  .create('Search Results')
-  .navigate('https://example.com')
-  .type('input[name="q"]', 'data extraction')
-  .click('button[type="submit"]')
-  .waitFor('.results')
-  .captureList({ selector: '.result-item' });
+const robot = await maxun
+  .extract('Store overview', 'https://shop.example.com')
+  .captureText({ 'Store name': 'h1' })
+  .navigate('https://shop.example.com/products')
+  .captureList({ selector: '.product' }, 'Products')
+  .navigate('https://shop.example.com/reviews')
+  .captureList({ selector: '.review' }, 'Reviews')
+  .build();
 ```
 
-### Form Fill
+### Log in, then extract
 
 ```javascript
-const robot = await extractor
-  .create('Login and Extract')
-  .navigate('https://example.com/login')
-  .type('input[name="email"]', 'user@example.com', 'email')
-  .type('input[name="password"]', 'password123', 'password')
-  .click('button[type="submit"]')
+const robot = await maxun
+  .extract('Dashboard data', 'https://app.example.com/login')
+  .type('#email', 'you@example.com')
+  .type('#password', 'your-password')
+  .click('button[type=submit]')
   .waitFor('.dashboard')
-  .captureText({
-    username: '.user-name',
-    balance: '.account-balance'
-  });
+  .captureText({ Balance: '.balance', Plan: '.plan-name' })
+  .captureScreenshot('Dashboard')
+  .build();
 ```
 
-## Managing Robots
+### Watch for changes
 
-### Get All Robots
-
-```javascript
-const robots = await extractor.getRobots();
-```
-
-### Get Specific Robot
+Turn on [monitoring](./sdk-monitoring) to compare every run with the previous one:
 
 ```javascript
-const robot = await extractor.getRobot('robot-id');
-```
-
-### Delete Robot
-
-```javascript
-await extractor.deleteRobot('robot-id');
-```
-
-## Running Robots
-
-```javascript
-// Run immediately
-const result = await robot.run();
-
-// Run with options
-const result = await robot.run({
-  waitForCompletion: true,
-  timeout: 60000
+const robot = await maxun.extract('Product prices', 'https://shop.example.com/product/42', {
+  prompt: 'Product name, price and availability',
+  monitor: true,
 });
 ```
 
-See <a href="/sdk/node-sdk/sdk-robot">Robot Management</a> for scheduling and webhooks.
+For selector robots, pass `{ monitor: true }` before building:
+
+```javascript
+const robot = await maxun
+  .extract('Product prices', 'https://shop.example.com', { monitor: true })
+  .captureList({ selector: '.product' })
+  .build();
+```
+
+## Managing extract robots
+
+```javascript
+const robots = await maxun.extract.list();            // all extract robots
+const robot = await maxun.robots.find('Bookstore');   // one robot, by name
+await robot.delete();
+```
+
+:::note
+Building a selector robot with a name and URL that already exist returns the existing robot unchanged, even if your steps are different. The SDK warns you when this happens. Use a new name, or delete the old robot first.
+:::
+
+See [Robot Management](./sdk-robot) to run, schedule and manage robots.
