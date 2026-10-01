@@ -6,170 +6,144 @@ sidebar_position: 6
 
 # Document
 
-Process documents with the Maxun Python SDK. You can:
+Document robots read files instead of web pages. They can:
 
-* Extract structured data from documents using a natural language prompt.
-* Convert documents into Markdown or HTML.
-* Generate summaries.
-* Extract links from documents.
-* Run document robots again or schedule them for later.
+- **Extract** specific data from a file, described in plain English.
+- **Parse** a file into Markdown, HTML, a list of links or a summary.
 
-Supported document formats include PDF, CSV, XLSX, JPG, PNG, and DOCX.
+Supported files: PDF, DOCX, XLSX, CSV, JPG and PNG.
 
 ## Extract
 
-Upload a document and describe the information you want to extract. Maxun creates a reusable robot that can process the document.
+Upload a file and describe the data you want:
 
-```python id="l6l38m"
-import os
-
-from dotenv import load_dotenv
-from maxun import Client, Config
-
-load_dotenv()
-
-client = Client(Config(api_key=os.environ["MAXUN_API_KEY"]))
-
-result = await client.create_document_extract_robot(
-    file="./invoice.pdf",
-    prompt="Extract invoice number, vendor name, and total amount",
-    robot_name="Invoice Extractor",
+```python
+robot = await maxun.documents.extract(
+    "Invoice reader",
+    "./invoice.pdf",
+    "Invoice number, vendor name, date and total amount",
 )
 
-robot_id = result.get("robotId")
-
-run = await client.execute_robot(robot_id)
-
-print(run["data"]["documentData"])
+result = await robot.run()
+print(result.document_data)
 ```
 
-Example output:
-
-```python id="78zx2o"
+```python
 {
     "invoice_number": "INV-2025-0042",
     "vendor_name": "Acme Corp",
+    "date": "2025-03-14",
     "total_amount": 4250
 }
 ```
 
-The extracted fields depend on the prompt you provide.
+The fields you get back follow your prompt.
 
 ## Parse
 
-Convert a document into one or more supported output formats:
+Convert a file into text formats:
 
-* `markdown` - Convert the document into Markdown.
-* `html` - Convert the document into HTML.
-* `summary` - Generate a summary of the document.
-* `links` - Extract links from the document.
-
-```python id="8jbr4j"
-result = await client.create_document_parse_robot(
-    file="./report.pdf",
-    output_formats=["markdown", "html", "summary", "links"],
-    robot_name="Report Parser",
+```python
+robot = await maxun.documents.parse(
+    "Annual report",
+    "./report.docx",
+    formats=["markdown", "summary"],
 )
 
-parsed = result.get("parsedOutput", {})
+result = await robot.run()
 
-print(parsed.get("markdown"))
-print(parsed.get("html"))
-print(parsed.get("summary"))
-print(parsed.get("links"))
+print(result.markdown)
+print(result.summary)
 ```
 
-You can request only the formats you need:
+| Format | Read it from |
+|---|---|
+| `markdown` | `result.markdown` |
+| `html` | `result.html` |
+| `links` | `result.links` |
+| `summary` | `result.summary` |
 
-```python id="9h8x4k"
-result = await client.create_document_parse_robot(
-    file="./report.pdf",
-    output_formats=["summary"],
-    robot_name="Report Summary",
-)
+Leave out `formats` to get all four.
 
-print(result["parsedOutput"]["summary"])
-```
+## Passing the file
 
-### Running Again
+Pass a path, or the file's bytes. With bytes, add `file_name` so Maxun knows the file type:
 
-Once the document robot has been created, you can run it again using its robot ID:
+```python
+with open("invoice.pdf", "rb") as f:
+    data = f.read()
 
-```python id="ifhoht"
-robot_id = result.get("robotId")
-
-run = await client.execute_robot(robot_id)
-
-print(run["data"]["markdown"])
-print(run["data"]["html"])
-print(run["data"]["summary"])
-print(run["data"]["links"])
-```
-
-The available output depends on the formats configured when the robot was created.
-
-## Scheduling
-
-Document robots can be scheduled using the `Client` API.
-
-```python id="aq45hl"
-await client.schedule_robot(
-    robot_id,
-    {
-        "runEvery": 1,
-        "runEveryUnit": "DAYS",
-        "timezone": "UTC",
-        "atTimeStart": "08:00",
-        "startFrom": "MONDAY",
-    },
+robot = await maxun.documents.extract(
+    "Invoice reader",
+    data,
+    "Invoice number and total",
+    file_name="invoice.pdf",
 )
 ```
 
-For more scheduling options and robot management features, see [Robot Management](/sdk/python-sdk/sdk-robot).
+## Running again
 
-## Complete Example
+A document robot keeps its file, so you can run it again later. Find it by name:
 
-```python id="qwni0j"
+```python
+robot = await maxun.robots.find("Invoice reader")
+result = await robot.run()
+```
+
+List all document robots with `await maxun.documents.list()`.
+
+:::note
+Document robot names must be unique. Creating one with a name that already exists raises `ConflictError`.
+:::
+
+## LLM settings (self-hosted)
+
+`documents.extract` and the `summary` format use an LLM. On Maxun Cloud this is handled for you. On self-hosted Maxun, pass one:
+
+```python
+robot = await maxun.documents.extract(
+    "Invoice reader",
+    "./invoice.pdf",
+    "Invoice number and total",
+    llm_provider="openai",           # "anthropic", "openai" or "ollama"
+    llm_api_key="your-llm-api-key",
+    llm_model="gpt-4o-mini",         # optional
+)
+```
+
+## Complete example
+
+```python
 import asyncio
-import os
 
 from dotenv import load_dotenv
-from maxun import Client, Config
+from maxun import Maxun
 
 load_dotenv()
 
 
 async def main():
-    client = Client(
-        Config(
-            api_key=os.environ["MAXUN_API_KEY"],
-            base_url=os.environ.get("MAXUN_BASE_URL"),
+    async with Maxun() as maxun:
+        # Pull the key fields out of an offer letter
+        extractor = await maxun.documents.extract(
+            "Offer letter fields",
+            "./offer-letter.pdf",
+            "Student name, university, course title and start date",
         )
-    )
+        print((await extractor.run()).document_data)
 
-    # Extract specific fields from a PDF
-    extract_result = await client.create_document_extract_robot(
-        file="./offer-letter.pdf",
-        prompt="Extract student name, university, course title, and start date",
-        robot_name="Offer Letter Extractor",
-    )
-
-    extract_run = await client.execute_robot(
-        extract_result.get("robotId")
-    )
-
-    print(extract_run["data"]["documentData"])
-
-    # Convert the document to Markdown and generate a summary
-    parse_result = await client.create_document_parse_robot(
-        file="./offer-letter.pdf",
-        output_formats=["markdown", "summary"],
-        robot_name="Offer Letter Parser",
-    )
-
-    print(parse_result["parsedOutput"]["markdown"])
-    print(parse_result["parsedOutput"]["summary"])
+        # Convert the same letter to Markdown with a summary
+        parser = await maxun.documents.parse(
+            "Offer letter text",
+            "./offer-letter.pdf",
+            formats=["markdown", "summary"],
+        )
+        result = await parser.run()
+        print(result.summary)
+        print(result.markdown)
 
 
 asyncio.run(main())
 ```
+
+See [Robot Management](./sdk-robot) to schedule document robots or add webhooks.

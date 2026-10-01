@@ -1,494 +1,188 @@
 ---
 id: sdk-monitoring
 title: Monitoring
-sidebar_position: 6
+sidebar_position: 7
 ---
 
 # Monitoring
 
-Maxun can monitor websites for changes by comparing the results of successive robot runs.
+Monitoring compares every run of a robot with its previous successful run, so you can tell when a page changes: a new price, a new job posting, an updated policy.
 
-Monitoring can be enabled for:
+It works for **scrape**, **crawl** and **extract** robots.
 
-* **AI Mode Extract**
-* **Recorder / Workflow Mode Extract**
-* **Scrape**
-* **Crawl** — available on Maxun Cloud
+## Turn on monitoring
 
-Once monitoring is enabled, Maxun compares a new run with the previous successful run. You can then retrieve the changes between runs using the `Robot` API.
-
-## Extract Monitoring
-
-Monitoring is supported by both AI Mode and Recorder / Workflow Mode extraction.
-
-### AI Mode
-
-Use the `monitor` parameter when creating an AI extraction robot:
+Pass `monitor=True` when you create the robot:
 
 ```python
-from maxun import Extract
+# Scrape: watch a page's content
+robot = await maxun.scrape("Pricing watch", "https://example.com/pricing", formats=["text"], monitor=True)
 
-extractor = Extract(config)
+# Crawl: watch every page of a site
+robot = await maxun.crawl("Docs watch", "https://docs.example.com", limit=50, monitor=True)
 
-robot = await extractor.extract(
-    prompt="Extract the product name, price, and availability",
-    url="https://example.com/product",
+# Extract with a prompt: watch specific data
+robot = await maxun.extract(
+    "Product watch",
+    "https://shop.example.com/product/42",
+    prompt="Product name, price and availability",
     monitor=True,
 )
-```
 
-The returned robot can be run normally:
-
-```python
-run = await robot.run()
-```
-
-AI Mode monitoring is useful when you want Maxun to extract specific information from a page and detect when the extracted data changes.
-
-For example:
-
-```python
-robot = await extractor.extract(
-    prompt="""
-    Extract:
-    - Product name
-    - Price
-    - Availability
-    """,
-    url="https://example.com/product",
-    monitor=True,
-)
-```
-
-Maxun will use the extraction result when comparing subsequent runs.
-
-### Recorder / Workflow Mode
-
-For workflow-based extraction, enable monitoring with `monitor_changes()`:
-
-```python
+# Extract with selectors
 robot = await (
-    extractor
-    .create("Product Monitor")
-    .navigate("https://example.com/product")
-    .capture_text({
-        "Name": "h1",
-        "Price": ".price",
-        "Availability": ".availability",
-    })
-    .monitor_changes()
+    maxun.extract("Listings watch", "https://shop.example.com/new", monitor=True)
+    .capture_list(".listing")
+    .build()
 )
 ```
 
-You can then run the robot normally:
+Or turn it on and off for an existing robot:
 
 ```python
-run = await robot.run()
+await robot.set_monitoring(True)
+await robot.set_monitoring(False)
+
+print(robot.is_monitoring)
 ```
 
-`monitor_changes()` enables monitoring on the workflow:
+## Checking for changes
+
+The first run is the baseline. From the second run on, the result says whether anything changed:
 
 ```python
-.monitor_changes()
-```
+result = await robot.run()
 
-You can also explicitly disable it:
+if result.has_changes:
+    print("Changed:", result.changed_formats)
+else:
+    print("No changes")
+```
 
 ```python
-.monitor_changes(False)
+>>> result
+{'runId': '9e1f…', 'status': 'success', 'text': '…', 'hasChanges': True, 'changedFormats': ['text']}
 ```
 
-Both AI Mode and Recorder / Workflow Mode ultimately create Extract robots with monitoring enabled. The difference is how the extraction workflow is defined.
+`hasChanges` and `changedFormats` only appear on robots with monitoring turned on.
 
----
+| Robot | What is compared | `changed_formats` values |
+|---|---|---|
+| Scrape | The page's `text`, `markdown` and `html` | `text`, `markdown`, `html` |
+| Crawl | Every page's `text`, `markdown` and `html`, matched by URL | `text`, `markdown`, `html` |
+| Extract | The captured text and lists | `captured-text`, `captured-list` |
 
-## Scrape Monitoring
+## Seeing what changed
 
-Scrape robots also support monitoring.
-
-Pass `monitor=True` when creating a scrape robot:
+`get_run_diff` returns the changes line by line:
 
 ```python
-from maxun import Scrape
+diff = await robot.get_run_diff(result.run_id)
 
-scraper = Scrape(config)
-
-robot = await scraper.create(
-    "Product Monitor",
-    "https://example.com/product",
-    monitor=True,
-)
+for section in diff["diffs"]:
+    print("Format:", section["format"])
+    for change in section["changes"]:
+        if change["added"]:
+            print("+", change["value"])
+        elif change["removed"]:
+            print("-", change["value"])
 ```
-
-You can then run the robot normally:
-
-```python
-run = await robot.run()
-```
-
-Monitoring works with the supported scrape formats, allowing you to track changes in the scraped content over time.
-
-For example:
-
-```python
-robot = await scraper.create(
-    "Article Monitor",
-    "https://example.com/article",
-    formats=["markdown"],
-    monitor=True,
-)
-```
-
----
-
-## Crawl Monitoring
-
-Crawl monitoring is available on **Maxun Cloud**.
-
-A monitored crawl can track changes across the pages discovered during a crawl.
-
-Crawl monitoring is configured through Maxun Cloud rather than the current Python `CrawlConfig`, so there is no `monitor` parameter in the Python crawl configuration.
-
-A typical monitored crawl looks like:
 
 ```text
-Crawl website
-     ↓
-Discover pages
-     ↓
-Run crawl periodically
-     ↓
-Compare results
-     ↓
-Detect changes
+Format: text
+- Pro plan: $49 / month
++ Pro plan: $59 / month
 ```
 
-For Cloud users, crawl monitoring can be combined with scheduling to continuously monitor a website or a set of pages.
-
----
-
-## Comparing Runs
-
-When monitoring is enabled, Maxun compares the result of a new run with a previous run.
-
-The `Robot` API provides `get_run_diff()` for retrieving these changes.
+Limit the diff to one format with `format`:
 
 ```python
-diff = await robot.get_run_diff(run_id)
+diff = await robot.get_run_diff(result.run_id, format="markdown")
 ```
 
-You can also specify the output format:
+`get_run_diff` works for any run, including scheduled runs:
 
 ```python
-diff = await robot.get_run_diff(
-    run_id,
-    format="markdown",
-)
+run = await robot.get_latest_run()
+diff = await robot.get_run_diff(run.run_id)
 ```
 
-The available diff output depends on the robot and the data being monitored.
+### Crawl changes
 
-### Getting the Run History
-
-You can inspect the robot's previous runs with:
+For crawl robots you also get the pages that were added, removed or changed:
 
 ```python
-runs = await robot.get_runs()
+result = await robot.run()
+
+if result.has_changes:
+    pages = result.changed_pages
+    print("New pages:", pages["added"])
+    print("Removed pages:", pages["removed"])
+    print("Changed pages:", pages["changed"])
 ```
 
-To retrieve a specific run:
+The same list is in `diff["pages"]`.
+
+:::note
+Crawl changes are computed by the SDK. `result.has_changes` is filled in for runs started with `robot.run()`. For scheduled crawl runs, use `get_run_diff`. Webhooks and the Maxun dashboard don't show crawl changes.
+:::
+
+## Monitor on a schedule
+
+Monitoring is most useful with a [schedule](./sdk-robot#scheduling) and a [webhook](./sdk-robot#webhooks): Maxun checks the page for you and calls your server after every run.
 
 ```python
-run = await robot.get_run(run_id)
+robot = await maxun.scrape("Pricing watch", "https://example.com/pricing", formats=["text"], monitor=True)
+
+await robot.run()   # first run: the baseline
+
+await robot.schedule(run_every=6, run_every_unit="HOURS")
+await robot.add_webhook("https://your-app.com/hooks/pricing")
 ```
 
-Or retrieve the latest run:
+Later, check the latest scheduled run:
 
 ```python
-latest_run = await robot.get_latest_run()
+run = await robot.get_latest_run()
+diff = await robot.get_run_diff(run.run_id)
+
+if diff["hasChanges"]:
+    notify_team(diff)
 ```
 
-For example, you can retrieve the latest run and then inspect its changes:
+## Complete example
 
 ```python
-latest_run = await robot.get_latest_run()
+import asyncio
 
-diff = await robot.get_run_diff(
-    latest_run["id"],
-    format="markdown",
-)
+from dotenv import load_dotenv
+from maxun import Maxun
+
+load_dotenv()
+
+
+async def main():
+    async with Maxun() as maxun:
+        robot = await maxun.extract(
+            "HN top stories watch",
+            "https://news.ycombinator.com",
+            prompt="Title and points of the top 10 stories",
+            monitor=True,
+        )
+
+        await robot.run()                 # baseline
+        result = await robot.run()        # compared with the baseline
+
+        if not result.has_changes:
+            print("Nothing changed")
+            return
+
+        diff = await robot.get_run_diff(result.run_id)
+        for section in diff["diffs"]:
+            for change in section["changes"]:
+                if change["added"] or change["removed"]:
+                    print("+" if change["added"] else "-", change["value"])
+
+
+asyncio.run(main())
 ```
-
----
-
-## Scheduling Monitoring Robots
-
-Monitoring becomes useful when a robot runs repeatedly.
-
-You can schedule a robot using the `Robot` API:
-
-```python
-await robot.schedule({
-    "runEvery": 1,
-    "runEveryUnit": "DAYS",
-})
-```
-
-The robot will then run according to the configured schedule.
-
-You can inspect the current schedule with:
-
-```python
-schedule = await robot.get_schedule()
-```
-
-To remove the schedule:
-
-```python
-await robot.unschedule()
-```
-
-A common monitoring setup is:
-
-```text
-Create robot
-     ↓
-Enable monitoring
-     ↓
-Schedule robot
-     ↓
-Robot runs periodically
-     ↓
-Maxun compares runs
-     ↓
-Retrieve detected changes
-```
-
----
-
-## Webhooks
-
-Monitoring and notifications are separate concepts.
-
-**Monitoring** determines whether the results of successive runs have changed.
-
-**Webhooks** allow you to receive run-related events in an external application.
-
-You can add a webhook to a robot with:
-
-```python
-await robot.add_webhook({
-    "url": "https://example.com/webhook",
-})
-```
-
-To view the robot's webhooks:
-
-```python
-webhooks = await robot.get_webhooks()
-```
-
-To remove webhooks:
-
-```python
-await robot.remove_webhooks()
-```
-
-This allows you to build workflows where Maxun runs a monitored robot and your application receives the relevant run events.
-
----
-
-## A Complete Monitoring Example
-
-The following example creates an AI extraction robot, enables monitoring, schedules it to run daily, and retrieves the latest changes.
-
-```python
-from maxun import Extract
-
-extractor = Extract(config)
-
-robot = await extractor.extract(
-    prompt="""
-    Extract the following product information:
-    - Product name
-    - Price
-    - Availability
-    """,
-    url="https://example.com/product",
-    monitor=True,
-)
-
-await robot.schedule({
-    "runEvery": 1,
-    "runEveryUnit": "DAYS",
-})
-
-latest_run = await robot.get_latest_run()
-
-if latest_run:
-    diff = await robot.get_run_diff(
-        latest_run["id"],
-        format="markdown",
-    )
-
-    print(diff)
-```
-
-For a workflow-based extraction, the same monitoring flow can be used:
-
-```python
-robot = await (
-    extractor
-    .create("Product Monitor")
-    .navigate("https://example.com/product")
-    .capture_text({
-        "Name": "h1",
-        "Price": ".price",
-        "Availability": ".availability",
-    })
-    .monitor_changes()
-)
-
-await robot.schedule({
-    "runEvery": 1,
-    "runEveryUnit": "DAYS",
-})
-```
-
-The difference is only how the robot is created. Once you have a `Robot`, the monitoring-related APIs are the same.
-
----
-
-## Monitoring with the Robot API
-
-Monitoring uses the standard `Robot` API, so you can combine it with other robot operations.
-
-### Run a robot
-
-```python
-run = await robot.run()
-```
-
-### Get run history
-
-```python
-runs = await robot.get_runs()
-```
-
-### Get a specific run
-
-```python
-run = await robot.get_run(run_id)
-```
-
-### Get the latest run
-
-```python
-latest_run = await robot.get_latest_run()
-```
-
-### Get changes
-
-```python
-diff = await robot.get_run_diff(run_id)
-```
-
-### Schedule the robot
-
-```python
-await robot.schedule({
-    "runEvery": 1,
-    "runEveryUnit": "DAYS",
-})
-```
-
-### Remove the schedule
-
-```python
-await robot.unschedule()
-```
-
-### Add a webhook
-
-```python
-await robot.add_webhook({
-    "url": "https://example.com/webhook",
-})
-```
-
----
-
-## Monitoring vs. Scheduling
-
-Monitoring and scheduling serve different purposes:
-
-| Feature     | Purpose                                    |
-| ----------- | ------------------------------------------ |
-| Monitoring  | Compare results between runs               |
-| Scheduling  | Automatically run a robot periodically     |
-| Webhooks    | Send run events to an external application |
-| Run history | Inspect previous executions                |
-| Run diff    | Retrieve changes between runs              |
-
-You can use them independently or together.
-
-For example, a robot can have monitoring enabled but be run manually:
-
-```python
-robot = await extractor.extract(
-    prompt="Extract the product price",
-    url="https://example.com/product",
-    monitor=True,
-)
-
-await robot.run()
-```
-
-Or you can combine monitoring with scheduling for continuous monitoring:
-
-```python
-await robot.schedule({
-    "runEvery": 1,
-    "runEveryUnit": "DAYS",
-})
-```
-
----
-
-## Monitoring Workflow
-
-A typical monitoring workflow looks like this:
-
-```text
-Create robot
-     ↓
-Enable monitoring
-     ↓
-Run robot
-     ↓
-Run robot again
-     ↓
-Compare runs
-     ↓
-Retrieve changes
-```
-
-For continuous monitoring:
-
-```text
-Create robot
-     ↓
-Enable monitoring
-     ↓
-Schedule robot
-     ↓
-Maxun runs periodically
-     ↓
-Compare successive runs
-     ↓
-Retrieve changes
-     ↓
-Optionally receive run events through webhooks
-```
-
-Monitoring is available across **AI Mode Extract, Recorder / Workflow Mode Extract, and Scrape**, while **Crawl monitoring is available through Maxun Cloud**.

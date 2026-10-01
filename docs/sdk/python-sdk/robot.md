@@ -1,350 +1,309 @@
 ---
 id: sdk-robot
 title: Robot Management
-sidebar_position: 7
+sidebar_position: 8
 ---
 
 # Robot Management
 
-Manage robot execution, runs, schedules, webhooks, updates, and lifecycle through the SDK.
+Every `maxun.scrape(...)`, `maxun.extract(...)`, `maxun.crawl(...)`, `maxun.search(...)` and `maxun.documents...` call returns a **robot**. A robot is saved on your account. You can run it, schedule it, get notified when it finishes and look back at earlier runs.
 
-A `Robot` is returned when you create or retrieve a robot through the SDK.
+## Finding robots
 
-## Running Robots
+```python
+robots = await maxun.robots.list()                # every robot
+robots = await maxun.robots.list(type="crawl")    # one type
+robots = await maxun.scrape.list()                # same thing, per type
 
-### Immediate Execution
+robot = await maxun.robots.get("robot-id")
+robot = await maxun.robots.find("Pricing page")   # by exact name
+```
 
-Run a robot immediately:
+A robot prints as its id, name and type:
 
-```python id="6q2x1a"
+```python
+>>> await maxun.robots.list()
+[
+    {"id": "a2e3af0f-fd5b-45cc-b2d0-83e7e5aaf5b3", "name": "Pricing page", "type": "scrape"},
+    {"id": "76f3e1c2-9b1a-4c8e-8f0e-2d1c5b7a9e44", "name": "Bookstore", "type": "extract"}
+]
+```
+
+Types are `scrape`, `extract`, `crawl`, `search`, `doc-extract` and `doc-parse`.
+
+Read more about a robot from its attributes:
+
+| Attribute | Description |
+|---|---|
+| `robot.id` | The robot's id |
+| `robot.name` | The robot's name |
+| `robot.type` | `scrape`, `extract`, `crawl`, `search`, `doc-extract` or `doc-parse` |
+| `robot.url` | The page the robot starts on |
+| `robot.formats` | The robot's output formats |
+| `robot.is_monitoring` | Whether [monitoring](./sdk-monitoring) is on |
+| `robot.get_data()` | The full robot record from Maxun |
+
+## Running a robot
+
+```python
 result = await robot.run()
-
-print(result["data"])
 ```
 
-### With Options
+`run()` waits until the run finishes and returns the result. If the run fails or is aborted, it raises `RunFailedError`.
 
-Pass execution options as a dictionary:
+The result contains the run id, the status and only the outputs the robot produced:
 
-```python id="9c7v3p"
-result = await robot.run({
-    "timeout": 60000,
-    "webhook": {
-        "url": "https://your-api.com/notify",
-        "events": ["run.completed"],
-    },
-})
+```python
+>>> result
+{'runId': 'b05cea93-31d1-4a17-9e6c-e278b4e4abf3', 'status': 'success', 'markdown': '# Example Domain\n\n…'}
 ```
 
-The SDK supports the following execution options:
+Read outputs as attributes:
 
-* `timeout` - Request timeout in milliseconds.
-* `params` - Parameters passed to the robot execution.
-* `webhook` - Webhook configuration for the execution.
+| Attribute | Filled by |
+|---|---|
+| `result.run_id`, `result.status` | Every run |
+| `result.markdown`, `.html`, `.text`, `.links`, `.summary` | Scrape and document parse robots |
+| `result.smart_query_result` | Scrape robots with Smart Queries |
+| `result.text_data` | `capture_text` |
+| `result.list_data` | `capture_list` and prompt extraction |
+| `result.crawl_data` | Crawl robots, one entry per page |
+| `result.search_data` | Search robots |
+| `result.document_data` | Document extract robots |
+| `result.screenshots` | Screenshot formats and `capture_screenshot` |
+| `result.has_changes`, `.changed_formats` | Robots with [monitoring](./sdk-monitoring) on |
 
-For example:
+An attribute for an output the run didn't produce is `None` or empty, so it is always safe to read.
 
-```python id="2xj5sk"
-result = await robot.run({
-    "params": {
-        "product_id": "12345",
-    },
-    "timeout": 60000,
-})
+### Run options
+
+```python
+result = await robot.run(formats=["markdown", "html"])          # different formats, this run only
+result = await robot.run(smart_queries="Which plan has SSO?")   # a question, this run only (scrape)
+result = await robot.run(timeout=600)                            # stop waiting after 600 seconds
 ```
 
-### Run Result
+With `timeout`, the run keeps going on Maxun after `run()` stops waiting. Read it later with `get_latest_run()`.
 
-The result depends on the robot type and workflow being executed.
+## Run history
 
-```python id="f8n2qk"
-{
-    "status": "success",
-    "runId": "run-123",
-    "data": {
-        # Robot-specific output
-    }
-}
-```
-
-## Execution History
-
-### Get All Runs
-
-```python id="3d8m1v"
-runs = await robot.get_runs()
-
-for run in runs:
-    print(f"Run {run['id']}: {run['status']}")
-```
-
-### Get Specific Run
-
-```python id="7h4p2n"
+```python
+runs = await robot.get_runs()           # newest first
+run = await robot.get_latest_run()
 run = await robot.get_run("run-id")
-
-print(run)
 ```
 
-### Get Latest Run
+A run prints as a short summary:
 
-```python id="5k9w2r"
-latest_run = await robot.get_latest_run()
-
-if latest_run:
-    print(latest_run)
+```python
+>>> await robot.get_runs()
+[
+    {
+        "id": "3faaa1cd-5c3a-4b7e-a0a1-27c8f0b1f9d2",
+        "runId": "bdae3b5a-8f2e-4d71-9c55-0e6f3a2b1c48",
+        "robotId": "2c56ce3b-1d9e-4f6a-8b3c-7e5d4a2f1b90",
+        "name": "Pricing page",
+        "status": "success",
+        "startedAt": "2026-10-01T00:46:25Z",
+        "finishedAt": "2026-10-01T00:47:14Z"
+    }
+]
 ```
 
-`get_latest_run()` returns `None` when the robot has no runs.
+Times are in UTC. `status` is `queued`, `running`, `success`, `failed`, `aborting` or `aborted`.
 
-## Aborting Runs
+Get a run's output with `run.result`. This works for every run, including scheduled ones:
 
-Abort a running robot execution using its run ID:
+```python
+run = await robot.get_latest_run()
+if run.status == "success":
+    print(run.result.markdown)
+```
 
-```python id="1m6x8q"
+### Aborting a run
+
+```python
 await robot.abort("run-id")
 ```
 
 ## Scheduling
 
-Schedules are passed as a dictionary to `robot.schedule()`.
+Run a robot automatically:
 
-### Basic Scheduling
+```python
+# Every 6 hours
+await robot.schedule(run_every=6, run_every_unit="HOURS")
 
-```python id="8v3j5m"
-await robot.schedule({
-    "runEvery": 6,
-    "runEveryUnit": "HOURS",
-})
+# Every day at 9:00 in Kolkata time
+await robot.schedule(run_every=1, run_every_unit="DAYS", at_time_start="09:00", timezone="Asia/Kolkata")
+
+# Every Monday at 9:00
+await robot.schedule(run_every=1, run_every_unit="WEEKS", start_from="MONDAY", at_time_start="09:00")
+
+# On the 1st of every month at 6:30
+await robot.schedule(run_every=1, run_every_unit="MONTHS", day_of_month=1, at_time_start="06:30")
 ```
 
-### With Timezone
+| Option | Description |
+|---|---|
+| `run_every` | How many units between runs |
+| `run_every_unit` | `MINUTES`, `HOURS`, `DAYS`, `WEEKS` or `MONTHS` |
+| `timezone` | An IANA time zone, such as `"America/New_York"`. Defaults to `"UTC"` |
+| `at_time_start` | Time of day as `"HH:MM"` for daily, weekly and monthly schedules |
+| `at_time_end` | Optional end of the time window, as `"HH:MM"` |
+| `start_from` | Day of the week for weekly schedules, such as `"MONDAY"` |
+| `day_of_month` | Day of the month for monthly schedules |
 
-```python id="4p7n2x"
-await robot.schedule({
-    "runEvery": 1,
-    "runEveryUnit": "DAYS",
-    "timezone": "America/New_York",
-})
-```
+Check or remove the schedule:
 
-### Time Windows
+```python
+schedule = await robot.get_schedule()
+if schedule:
+    print("Next run:", schedule["nextRunAt"])
+else:
+    print("Not scheduled")
 
-You can include additional scheduling configuration supported by Maxun:
-
-```python id="0r5k8c"
-await robot.schedule({
-    "runEvery": 1,
-    "runEveryUnit": "HOURS",
-    "timezone": "America/New_York",
-    "startTime": "09:00",
-    "endTime": "17:00",
-})
-```
-
-Common time units include:
-
-* `MINUTES`
-* `HOURS`
-* `DAYS`
-* `WEEKS`
-* `MONTHS`
-
-### Remove Schedule
-
-Remove the robot's schedule:
-
-```python id="6b2m9x"
 await robot.unschedule()
 ```
 
-You can also inspect the current schedule:
-
-```python id="7q4v1k"
-schedule = robot.get_schedule()
-
-print(schedule)
-```
+`get_schedule()` returns `None` when the robot has no schedule.
 
 ## Webhooks
 
-Webhooks can be attached to a robot to receive notifications for robot events.
-
-### Add Webhook
-
-```python id="3n8p5r"
-await robot.add_webhook({
-    "url": "https://your-api.com/webhook",
-    "events": ["run.completed", "run.failed"],
-})
-```
-
-Supported events include:
-
-* `run.started`
-* `run.completed`
-* `run.failed`
-
-If `events` is omitted, Maxun defaults to:
+Get an HTTP POST to your server every time a run finishes:
 
 ```python
-["run.completed", "run.failed"]
+await robot.add_webhook("https://your-app.com/hooks/maxun")
 ```
 
-### Get Webhooks
+Only failed runs, with more retries:
 
-```python id="9x2m6v"
-webhooks = robot.get_webhooks()
-
-print(webhooks)
-```
-
-### Remove Webhooks
-
-Remove all webhooks configured for the robot:
-
-```python id="5r7k3p"
-await robot.remove_webhooks()
-```
-
-## Updating Robots
-
-Update robot properties by passing a dictionary:
-
-```python id="2v8n4m"
-await robot.update({
-    "name": "New Robot Name",
-})
-```
-
-The `update()` method sends the provided fields to the Maxun API.
-
-After updating a robot, its local data is updated automatically.
-
-### Refresh Robot Data
-
-Fetch the latest robot data from Maxun:
-
-```python id="8k5q1x"
-await robot.refresh()
-
-print(robot.get_data())
-```
-
-## Updating List Limits
-
-For robots containing a `scrapeList`, `crawl`, or `search` action with a configured limit, you can update the limit without resending the entire workflow:
-
-```python id="4m9p2v"
-await robot.set_list_limit(100)
-```
-
-This updates the first matching list limit in the robot workflow.
-
-## Duplicating Robots
-
-Create a copy of a robot for a different target URL:
-
-```python id="7x3k6n"
-new_robot = await robot.duplicate(
-    "https://example.com/new-page"
+```python
+await robot.add_webhook(
+    "https://your-app.com/hooks/maxun-alerts",
+    events=["run_failed"],
+    retry_attempts=5,
 )
-
-print(new_robot.id)
-print(new_robot.name)
 ```
 
-The returned value is a new `Robot` instance.
+| Option | Default | Description |
+|---|---|---|
+| `events` | both | `run_completed`, `run_failed` |
+| `retry_attempts` | `3` | How many times to retry a failed delivery |
+| `retry_delay` | `5` | Seconds before the first retry. The wait grows with each retry |
+| `timeout` | `30` | Seconds to wait for your server to respond |
 
-## Deleting Robots
+Adding a URL that is already registered updates it instead of adding a duplicate.
 
-Delete a robot:
+```python
+hooks = await robot.get_webhooks()                                  # [] if none
+await robot.remove_webhook("https://your-app.com/hooks/maxun-alerts")   # by URL or id
+await robot.remove_webhooks()                                       # remove all
+```
 
-```python id="1q8v5m"
+### Payload
+
+```json
+{
+  "event_type": "run_completed",
+  "timestamp": "2026-10-01T09:00:42.120Z",
+  "webhook_id": "webhook_3f1c…",
+  "data": {
+    "robot_id": "2c56ce3b-…",
+    "run_id": "bdae3b5a-…",
+    "robot_name": "Pricing page",
+    "status": "success",
+    "started_at": "2026-10-01T09:00:03.551Z",
+    "finished_at": "2026-10-01T09:00:41.904Z",
+    "extracted_data": { "…": "…" }
+  }
+}
+```
+
+## Editing robots
+
+```python
+await robot.rename("Pricing page (EU)")
+await robot.set_list_limit(25)          # item limit of a list, crawl or search robot
+copy = await robot.duplicate("https://example.com/eu/pricing")   # same robot, different URL
+await robot.refresh()                   # reload the robot from Maxun
+```
+
+## Deleting robots
+
+```python
 await robot.delete()
+await maxun.robots.delete("robot-id")
 ```
 
-This permanently removes the robot.
+## Reusing a robot name
 
-## Robot Properties
+Robot names identify robots in the dashboard. When you create a robot with a name that already exists:
 
-Access basic robot information through properties and `get_data()`:
+| Robot | Same name |
+|---|---|
+| Scrape, crawl, prompt extract | Same settings: you get the existing robot. Different settings: `ConflictError` |
+| Selector extract | Same URL: you get the existing robot, unchanged, even if your steps differ. The SDK warns you |
+| Document | Always `ConflictError` |
+| Search | Not checked: a new robot is created every time |
 
-```python id="6n4r9x"
-print(robot.id)
-print(robot.name)
+To reuse a robot, find it instead of creating it again:
 
-data = robot.get_data()
-
-print(data)
-```
-
-`robot.id` and `robot.name` are read directly from the robot's metadata.
-
-The complete robot data returned by `get_data()` depends on the robot type and configuration.
-
-## Complete Example
-
-```python id="3p7m2k"
-from maxun import Extract, Config
-
-extractor = Extract(
-    Config(api_key="your-api-key")
-)
-
-# Create robot
-robot = await (
-    extractor
-    .create("Daily Price Monitor")
-    .navigate("https://example.com/products")
-    .capture_list({
-        "selector": ".product",
-        "maxItems": 50,
-    })
-)
-
-# Run once to test
-test_run = await robot.run()
-
-print("Test run:", test_run["status"])
-
-# Schedule daily execution
-await robot.schedule({
-    "runEvery": 1,
-    "runEveryUnit": "DAYS",
-    "timezone": "America/New_York",
-    "startTime": "08:00",
-})
-
-# Add webhook
-await robot.add_webhook({
-    "url": "https://your-api.com/price-changes",
-    "events": ["run.completed"],
-})
-
-print(f"Robot {robot.id} is now scheduled")
-```
-
-## Error Handling
-
-SDK operations raise an exception when the API request fails.
-
-```python id="8m2q6v"
-try:
-    result = await robot.run()
-    print("Success:", result["data"])
-except Exception as error:
-    print("Robot failed:", str(error))
-```
-
-For API-specific errors, you can catch `MaxunError`:
-
-```python id="5x9n3k"
-from maxun import MaxunError
+```python
+from maxun import ConflictError
 
 try:
-    result = await robot.run()
-except MaxunError as error:
-    print("Error:", str(error))
-    print("Status:", error.status_code)
+    robot = await maxun.scrape("Pricing page", "https://example.com/pricing")
+except ConflictError:
+    robot = await maxun.robots.find("Pricing page")
 ```
+
+## Complete example
+
+```python
+import asyncio
+
+from dotenv import load_dotenv
+from maxun import Maxun, RunFailedError
+
+load_dotenv()
+
+
+async def main():
+    async with Maxun() as maxun:
+        robot = await (
+            maxun.extract("Hacker News front page", "https://news.ycombinator.com")
+            .capture_list("tr.athing", max_items=30)
+            .build()
+        )
+
+        # Check it works
+        try:
+            result = await robot.run()
+            print(f"{len(result.list_data)} stories")
+        except RunFailedError as error:
+            print("Run failed:", error)
+            return
+
+        # Then run it every morning and get notified
+        await robot.schedule(run_every=1, run_every_unit="DAYS", at_time_start="08:00")
+        await robot.add_webhook("https://your-app.com/hooks/maxun")
+
+        schedule = await robot.get_schedule()
+        print("Next run:", schedule["nextRunAt"])
+
+
+asyncio.run(main())
+```
+
+## Errors
+
+| Error | When |
+|---|---|
+| `AuthenticationError` | The API key is missing or invalid |
+| `NotFoundError` | The robot or run does not exist |
+| `ConflictError` | A robot with that name already exists with different settings |
+| `ValidationError` | Maxun rejected the input |
+| `RunFailedError` | A run failed or was aborted |
+
+All of them are subclasses of `MaxunError`, which has `.status_code` and `.details`.
