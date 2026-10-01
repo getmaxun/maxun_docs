@@ -260,6 +260,7 @@ const SidebarIconMap = {
   "/sdk/node-sdk/sdk-search": "sdk_search",
   "/sdk/node-sdk/sdk-robot": "sdk_robot",
   "/sdk/node-sdk/sdk-document": "sdk_document",
+  "/sdk/node-sdk/sdk-monitoring": "monitoring",
 
   // CLI routes
   "cli-overview": "cli_overview",
@@ -281,6 +282,7 @@ const SidebarIconMap = {
   "/sdk/python-sdk/sdk-search": "sdk_search",
   "/sdk/python-sdk/sdk-robot": "sdk_robot",
   "/sdk/python-sdk/sdk-document": "sdk_document",
+  "/sdk/python-sdk/sdk-monitoring": "monitoring",
 };
 
 export default function DocSidebarItemLink({
