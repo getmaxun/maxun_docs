@@ -6,14 +6,14 @@ sidebar_position: 1
 
 # Maxun Node.js SDK
 
-The Maxun Node.js SDK turns websites and documents into structured data from your JavaScript or TypeScript code. You create data scraping robots and run them whenever you need fresh data.
+The Maxun Node.js SDK turns websites and documents into structured data from your JavaScript or TypeScript code. You create **robots** (saved, reusable jobs) and run them whenever you need fresh data.
 
 ```javascript
 import { Maxun } from 'maxun-sdk';
 
 const maxun = new Maxun({ apiKey: 'your-api-key' });
 
-const robot = await maxun.scrape('Maxun', 'https://maxun.dev', { formats: ['markdown'] });
+const robot = await maxun.scrape('Maxun home', 'https://maxun.dev', { formats: ['markdown'] });
 const result = await robot.run();
 
 console.log(result.markdown);
@@ -33,29 +33,20 @@ npm install maxun-sdk
 
 ## Configuration
 
-Pass your settings directly:
+Pass your API key directly:
 
 ```javascript
 import { Maxun } from 'maxun-sdk';
 
-// Maxun Cloud
-const maxun = new Maxun({
-  apiKey: 'your-api-key',
-});
-
-// Self-hosted Maxun
-const maxun = new Maxun({
-  apiKey: 'your-api-key',
-  baseUrl: 'http://localhost:8080/api/sdk',
-});
+const maxun = new Maxun({ apiKey: 'your-api-key' });
 ```
 
-Or set them in the environment and create `new Maxun()` with no arguments:
+Or set it in the environment and create `new Maxun()` with no arguments:
 
 ```bash
 MAXUN_API_KEY=your-api-key
-MAXUN_BASE_URL=http://localhost:8080/api/sdk   # for self hosted Maxun only
-MAXUN_TEAM_ID=your-team-uuid                    # optional, Maxun Cloud teams
+MAXUN_TEAM_ID=your-team-uuid                      # optional, Maxun Cloud teams
+MAXUN_BASE_URL=http://localhost:8080/api/sdk/     # only for self-hosted Maxun
 ```
 
 ```javascript
@@ -65,9 +56,11 @@ import { Maxun } from 'maxun-sdk';
 const maxun = new Maxun();
 ```
 
-:::note
-The SDK connects to Maxun Cloud by default. For a self-hosted instance, set `MAXUN_BASE_URL` or pass `base_url`.
-:::
+The SDK connects to Maxun Cloud by default. For a self-hosted instance, set `MAXUN_BASE_URL` or pass `baseUrl`:
+
+```javascript
+const maxun = new Maxun({ apiKey: 'your-api-key', baseUrl: 'http://localhost:8080/api/sdk/' });
+```
 
 ## Everything starts from `maxun`
 
