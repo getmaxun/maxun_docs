@@ -9,7 +9,7 @@ sidebar_position: 5
 A search robot searches the web (with DuckDuckGo) and returns the results. It can also open each result and scrape its content, so you get search plus page content in one step.
 
 ```python
-robot = await maxun.search("AI news", "AI model releases", mode="discover", time_range="week")
+robot = await maxun.search("AI news", "AI model releases", time_range="week")
 
 result = await robot.run()
 
@@ -21,7 +21,7 @@ for item in result.search_data["Search Results"]["results"]:
 
 | Option | Default | Description |
 |---|---|---|
-| `mode` | `"scrape"` | `"discover"` returns titles, URLs and snippets. `"scrape"` also opens every result and scrapes it |
+| `mode` | `"discover"` | `"discover"` returns titles, URLs and snippets. `"scrape"` also opens every result and scrapes it |
 | `limit` | `10` | Number of results |
 | `time_range` | any time | Only results from the last `"day"`, `"week"`, `"month"` or `"year"` |
 | `formats` | `["markdown"]` | In scrape mode, what to capture from each result: `markdown`, `html`, `text`, `links`, `summary`, `screenshot-visible`, `screenshot-fullpage` |
@@ -30,10 +30,10 @@ for item in result.search_data["Search Results"]["results"]:
 
 ### Discover
 
-Fast. Returns the search results themselves, without visiting the pages.
+The default. Fast: returns the search results themselves, without visiting the pages.
 
 ```python
-robot = await maxun.search("Scraping tools", "open source web scraping tools", mode="discover", limit=20)
+robot = await maxun.search("Scraping tools", "open source web scraping tools", limit=20)
 
 result = await robot.run()
 
@@ -45,12 +45,13 @@ for item in result.search_data["Search Results"]["results"]:
 
 ### Scrape
 
-The default. Opens every result and returns its content in the formats you choose.
+Pass `mode="scrape"` to open every result and get its content in the formats you choose.
 
 ```python
 robot = await maxun.search(
     "Scraping guides",
     "how to scrape a website with python",
+    mode="scrape",
     limit=5,
     formats=["markdown", "links"],
 )
@@ -67,7 +68,7 @@ Each scraped result has the formats you asked for plus `metadata` (`url`, `title
 ## Time range
 
 ```python
-robot = await maxun.search("Today's AI news", "artificial intelligence", mode="discover", time_range="day")
+robot = await maxun.search("Today's AI news", "artificial intelligence", time_range="day")
 ```
 
 Use `"day"`, `"week"`, `"month"` or `"year"`. Leave it out to search any time.
@@ -80,6 +81,7 @@ Use `"day"`, `"week"`, `"month"` or `"year"`. Leave it out to search any time.
 robot = await maxun.search(
     "LLM agents research",
     "LLM agent benchmarks",
+    mode="scrape",
     limit=5,
     formats=["summary"],
 )
@@ -94,7 +96,7 @@ for page in result.search_data["Search Results"]["results"]:
 ### Daily news digest
 
 ```python
-robot = await maxun.search("Competitor news", "Acme Corp announcement", mode="discover", time_range="day")
+robot = await maxun.search("Competitor news", "Acme Corp announcement", time_range="day")
 await robot.schedule(run_every=1, run_every_unit="DAYS", at_time_start="08:00", timezone="Asia/Kolkata")
 await robot.add_webhook("https://your-app.com/hooks/news")
 ```
@@ -107,7 +109,7 @@ Every morning Maxun runs the search and sends the results to your webhook.
 queries = ["AI automation tools", "workflow automation software", "RPA platforms"]
 
 for query in queries:
-    robot = await maxun.search(f"Market: {query}", query, mode="discover", time_range="month")
+    robot = await maxun.search(f"Market: {query}", query, time_range="month")
     result = await robot.run()
     save_to_database(query, result.search_data["Search Results"]["results"])
 ```

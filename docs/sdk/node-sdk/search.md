@@ -9,7 +9,7 @@ sidebar_position: 5
 A search robot searches the web (with DuckDuckGo) and returns the results. It can also open each result and scrape its content, so you get search plus page content in one step.
 
 ```javascript
-const robot = await maxun.search('AI news', 'AI model releases', { mode: 'discover', timeRange: 'week' });
+const robot = await maxun.search('AI news', 'AI model releases', { timeRange: 'week' });
 
 const result = await robot.run();
 
@@ -22,7 +22,7 @@ for (const item of result.searchData['Search Results'].results) {
 
 | Option | Default | Description |
 |---|---|---|
-| `mode` | `'scrape'` | `'discover'` returns titles, URLs and snippets. `'scrape'` also opens every result and scrapes it |
+| `mode` | `'discover'` | `'discover'` returns titles, URLs and snippets. `'scrape'` also opens every result and scrapes it |
 | `limit` | `10` | Number of results |
 | `timeRange` | any time | Only results from the last `'day'`, `'week'`, `'month'` or `'year'` |
 | `formats` | `['markdown']` | In scrape mode, what to capture from each result: `markdown`, `html`, `text`, `links`, `summary`, `screenshot-visible`, `screenshot-fullpage` |
@@ -31,11 +31,10 @@ for (const item of result.searchData['Search Results'].results) {
 
 ### Discover
 
-Fast. Returns the search results themselves, without visiting the pages.
+The default. Fast: returns the search results themselves, without visiting the pages.
 
 ```javascript
 const robot = await maxun.search('Scraping tools', 'open source web scraping tools', {
-  mode: 'discover',
   limit: 20,
 });
 
@@ -50,10 +49,11 @@ for (const item of result.searchData['Search Results'].results) {
 
 ### Scrape
 
-The default. Opens every result and returns its content in the formats you choose.
+Pass `mode: 'scrape'` to open every result and get its content in the formats you choose.
 
 ```javascript
 const robot = await maxun.search('Scraping guides', 'how to scrape a website with node.js', {
+  mode: 'scrape',
   limit: 5,
   formats: ['markdown', 'links'],
 });
@@ -72,7 +72,6 @@ Each scraped result has the formats you asked for plus `metadata` (`url`, `title
 
 ```javascript
 const robot = await maxun.search("Today's AI news", 'artificial intelligence', {
-  mode: 'discover',
   timeRange: 'day',
 });
 ```
@@ -85,6 +84,7 @@ Use `'day'`, `'week'`, `'month'` or `'year'`. Leave it out to search any time.
 
 ```javascript
 const robot = await maxun.search('LLM agents research', 'LLM agent benchmarks', {
+  mode: 'scrape',
   limit: 5,
   formats: ['summary'],
 });
@@ -101,7 +101,6 @@ for (const page of result.searchData['Search Results'].results) {
 
 ```javascript
 const robot = await maxun.search('Competitor news', 'Acme Corp announcement', {
-  mode: 'discover',
   timeRange: 'day',
 });
 
@@ -117,7 +116,7 @@ Every morning Maxun runs the search and sends the results to your webhook.
 const queries = ['AI automation tools', 'workflow automation software', 'RPA platforms'];
 
 for (const query of queries) {
-  const robot = await maxun.search(`Market: ${query}`, query, { mode: 'discover', timeRange: 'month' });
+  const robot = await maxun.search(`Market: ${query}`, query, { timeRange: 'month' });
   const result = await robot.run();
   await saveToDatabase(query, result.searchData['Search Results'].results);
 }
