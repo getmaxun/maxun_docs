@@ -74,16 +74,12 @@ console.log(result.markdown);
   <TabItem value="python" label="Python">
 
 ```python
-# Scrape content from a website in markdown and HTML
-from maxun import Scrape, Config
+from maxun import Maxun
 
-scraper = Scrape(Config(api_key="your-api-key"))
-
-robot = await scraper.create(
-    "Content Scraper",
-    "https://example.com/article",
-    formats=["markdown", "html"],
-)
+async with Maxun() as maxun:
+    robot = await maxun.scrape("Example page", "https://example.com")
+    result = await robot.run()
+    print(result.markdown)
 ```
 
   </TabItem>
