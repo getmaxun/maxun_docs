@@ -53,7 +53,7 @@ Maxun is no-code by default, with APIs, CLI, MCP, and SDKs for deeper integratio
   </tr>
   <tr>
     <td><strong>SDK</strong></td>
-    <td>Use Maxun programmatically for scraping, extraction, automation and more.<a href="https://docs.maxun.dev/sdk/sdk-overview"> Learn more</a>.</td>
+    <td>Use Maxun programmatically for scraping, extraction, automation and more.<a href="https://docs.maxun.dev/category/sdk"> Learn more</a>.</td>
   </tr>
   <tr>
     <td><strong>CLI</strong></td>
