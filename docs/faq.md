@@ -18,7 +18,7 @@ Yes. Maxun supports several pagination methods to accommodate different website 
 5. **No more items to load**: This option indicates that there are no more items to load on the current page or in the entire list.
 
 
-### Can my robot login to websites?
+### Can my robot log in to websites?
 Yes. Refer this section: <a href="/extract-login">Extract behind login.</a>
 
 ### Can I extract data from an iFrame?
@@ -53,7 +53,7 @@ Definitely! Your robot can:
 
 ### Captchas
 1. We support solving several types of captcha in Maxun Cloud (e.g., ReCaptcha, hCaptcha), but not custom captcha.
-2. Captcha bypass in not supported in Maxun Open Source. Contributions are welcome!
+2. Captcha bypass is not supported in Maxun Open Source. 
 
 ### A/B tests on websites
 If a website is running an A/B test and the robot encounters a different version of the page than the one it was trained on, it might either fail or collect incorrect information. While the robot can adapt to certain differences, it may not handle all variations effectively.
@@ -64,4 +64,4 @@ However, if your robot needs to log into a website, then there is a higher chanc
 1. The same user is accessing the account from different IP addresses (your local IP and Maxun's IPs).
 2. High run frequency by the robot can appear suspicious.
 As a result, robots that require login credentials are more likely to be flagged.
-Flagging rate might reduce when you robots are run at a high frequency locally.
+Flagging rate might reduce when your robots are run at a high frequency locally.
