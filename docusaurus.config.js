@@ -122,7 +122,6 @@ const config = {
           alt: 'Maxun Logo',
           src: 'img/maxunlogo.png',
         },
-        metadata: [{ name: 'og:site_name', content: 'Maxun Documentation' }],
         items: [
           // {
           //   type: 'docSidebar',
