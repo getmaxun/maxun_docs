@@ -7,7 +7,9 @@ import TabItem from '@theme/TabItem';
 
 # Get Started
 
-### Maxun Cloud
+Get started with Maxun in minutes. There are three ways to use Maxun. Pick Cloud for the fastest start, the SDK to build robots in code, or the Community Edition to self-host.
+
+## Maxun Cloud
 
 - Sign up at <a href="https://app.maxun.dev/register">https://app.maxun.dev/register</a>.
 - Set up your data extraction robot. <a href="/robot/robots">Choose your robot type</a>.
@@ -15,7 +17,7 @@ import TabItem from '@theme/TabItem';
 
 That’s it! Most users create their first robot in less than a minute.
 
-### Maxun SDKs
+## Maxun SDKs
 
 Maxun provides official **Node.js and Python SDKs** for creating and running robots programmatically. 
 
@@ -87,5 +89,5 @@ async with Maxun() as maxun:
 
 For more detailed usage, see the [Node.js SDK](/sdk/node-sdk/sdk-overview) and [Python SDK](/sdk/python-sdk/sdk-overview) guides.
 
-### Maxun Community Edition
+## Maxun Community Edition
 Maxun is open-source and can run on your system. Learn how to <a href="/category/self-host">setup Maxun locally</a>.
