@@ -11,8 +11,8 @@ require('dotenv').config();
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Maxun',
-  tagline: 'Open-Source No-Code Web Data Extraction Platform',
+  title: 'Maxun Documentation',
+  tagline: 'Maxun is the open-source web data platform for gathering, monitoring, and analyzing web data. Turn websites into APIs.',
   favicon: 'img/maxunlogo.png',
 
   // Set the production url of your site here
@@ -117,11 +117,12 @@ const config = {
       // Replace with your project's social card
       image: 'img/maxunlogo.png',
       navbar: {
-        title: 'Maxun',
+        title: 'Maxun Documentation',
         logo: {
           alt: 'Maxun Logo',
           src: 'img/maxunlogo.png',
         },
+        metadata: [{ name: 'og:site_name', content: 'Maxun Documentation' }],
         items: [
           // {
           //   type: 'docSidebar',
