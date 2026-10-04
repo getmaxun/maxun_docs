@@ -4,6 +4,8 @@ title: Crawl Entire Websites
 sidebar_label: Crawl
 sidebar_position: 2
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 # Crawl
 
@@ -210,12 +212,8 @@ async with Maxun() as maxun:
 
 ## Using with CLI
 
-```bash
-# Basic scrape
-maxun robots scrape https://example.com -f markdown
+Crawl is available through the <a href="/category/cli">Maxun CLI</a> for quick data gathering from the terminal.
 
-# Scrape with a Smart Query prompt
-maxun robots scrape https://example.com \
-  -f markdown \
-  -p "List all the pricing plans and their monthly costs"
+```bash
+maxun robots crawl https://docs.example.com --limit 20 --include "/docs/*" -n "Docs Crawler"
 ```
