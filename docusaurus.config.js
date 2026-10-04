@@ -125,7 +125,7 @@ const config = {
         { name: 'twitter:site', content: '@MaxunHQ' },
       ],
       navbar: {
-        title: 'Maxun Documentation',
+        title: 'Maxun',
         logo: {
           alt: 'Maxun Logo',
           src: 'img/maxunlogo.png',
