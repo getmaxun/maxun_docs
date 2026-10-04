@@ -58,7 +58,7 @@ maxun robots scrape https://example.com -f markdown -p "List all the pricing pla
 ```
 
 ### Crawl
-Discovers pages through sitemaps and links from a start URL, then scrapes each page. [Overview](https://docs.maxun.dev/robot/crawl) · [Configuration](https://docs.maxun.dev/robot/crawl-configuration)
+Discovers pages through sitemaps and links from a start URL, then scrapes each page. [Overview](https://docs.maxun.dev/robot/crawl)
 
 Each crawled page returns metadata (url, title, description, language, meta tags, favicon, statusCode), HTML, clean text with word count, links, the scrape timestamp, optional screenshots, and an optional AI summary.
 
