@@ -2,6 +2,7 @@
 id: scrape
 title: Scrape Any Website to Markdown, HTML & Screenshots
 sidebar_label: Scrape
+sidebar_position: 1
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

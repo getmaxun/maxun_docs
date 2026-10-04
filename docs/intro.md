@@ -18,7 +18,7 @@ It supports extraction, crawling, scraping, monitoring and search - designed to 
   </tr>
   <tr>
     <td><strong>Crawling</strong></td>
-    <td>Automatically discover and collect data across entire websites with intelligent link following and scoped control. <a href="/robot/crawl/crawl-introduction">Learn More</a>.</td>
+    <td>Automatically discover and collect data across entire websites with intelligent link following and scoped control. <a href="/robot/crawl">Learn More</a>.</td>
   </tr>
   <tr>
     <td><strong>Scraping</strong></td>

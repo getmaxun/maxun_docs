@@ -24,7 +24,7 @@ Maxun runs in two editions: **Maxun Cloud** (fully managed, at https://app.maxun
 |---|---|---|
 | Content of a single page as Markdown, HTML, text, links, screenshot or AI summary | Scrape | [Scrape](https://docs.maxun.dev/robot/scrape) |
 | An answer to a question about a single page | Scrape with Smart Queries | [Scrape](https://docs.maxun.dev/robot/scrape) |
-| Content of many pages or a whole site | Crawl | [Crawl](https://docs.maxun.dev/robot/crawl/crawl-introduction) |
+| Content of many pages or a whole site | Crawl | [Crawl](https://docs.maxun.dev/robot/crawl) |
 | Find pages for a query, optionally with their full content | Search | [Search](https://docs.maxun.dev/robot/search/search-introduction) |
 | Structured rows (lists, tables, fields) described in natural language | Extract: AI mode | [AI mode](https://docs.maxun.dev/robot/extract/llm-extraction) |
 | Precise structured data, multi-step flows, logins, forms, pagination, clicks | Extract: Recorder mode (or the SDK builder) | [Recorder mode](https://docs.maxun.dev/robot/extract/robot-actions) |
@@ -58,7 +58,7 @@ maxun robots scrape https://example.com -f markdown -p "List all the pricing pla
 ```
 
 ### Crawl
-Discovers pages through sitemaps and links from a start URL, then scrapes each page. [Overview](https://docs.maxun.dev/robot/crawl/crawl-introduction) · [Configuration](https://docs.maxun.dev/robot/crawl/crawl-configuration)
+Discovers pages through sitemaps and links from a start URL, then scrapes each page. [Overview](https://docs.maxun.dev/robot/crawl) · [Configuration](https://docs.maxun.dev/robot/crawl-configuration)
 
 Each crawled page returns metadata (url, title, description, language, meta tags, favicon, statusCode), HTML, clean text with word count, links, the scrape timestamp, optional screenshots, and an optional AI summary.
 
@@ -609,7 +609,7 @@ docker-compose pull backend frontend && docker-compose up -d
 **Robots:**
 - Categories: [Extract](https://docs.maxun.dev/category/extract) · [Crawl](https://docs.maxun.dev/category/crawl) · [Search](https://docs.maxun.dev/category/search)
 - [Robots overview](https://docs.maxun.dev/robot/robots) · [Scrape](https://docs.maxun.dev/robot/scrape)
-- [Crawl overview](https://docs.maxun.dev/robot/crawl/crawl-introduction) · [Crawl configuration](https://docs.maxun.dev/robot/crawl/crawl-configuration)
+- [Crawl overview](https://docs.maxun.dev/robot/crawl) · [Crawl configuration](https://docs.maxun.dev/robot/crawl-configuration)
 - [Search overview](https://docs.maxun.dev/robot/search/search-introduction) · [Search configuration](https://docs.maxun.dev/robot/search/search-configuration)
 - [Recorder mode](https://docs.maxun.dev/robot/extract/robot-actions) · [AI mode](https://docs.maxun.dev/robot/extract/llm-extraction) · [Duplicate](https://docs.maxun.dev/robot/extract/robot-duplicate) · [Retrain](https://docs.maxun.dev/robot/extract/robot-retrain)
 - [Document](https://docs.maxun.dev/robot/document) · [Deep Extraction](https://docs.maxun.dev/deep-extraction) · [Extract behind login](https://docs.maxun.dev/extract-login) · [LLM prompt guide](https://docs.maxun.dev/llm-prompts)
