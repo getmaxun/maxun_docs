@@ -1,6 +1,8 @@
 ---
 id: search-configuration
-title: Configuration
+title: "Search Configuration: Modes, Limits & Time Filters"
+description: "Configure Maxun search robots: query, result limit, discover or scrape mode, and time filters (day, week, month, year)."
+sidebar_label: "Configuration"
 sidebar_position: 2
 ---
 

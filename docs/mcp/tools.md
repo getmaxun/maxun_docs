@@ -1,10 +1,12 @@
 ---
 id: tools
-title: Tools
+title: "Maxun MCP Tools Reference"
+description: "Every tool the Maxun MCP server exposes to AI agents: list robots, run a robot, check run history, get run results and performance stats."
+sidebar_label: "Tools"
 sidebar_position: 2
 ---
 
-# Tools
+# MCP Tools
 
 The Maxun MCP Server exposes your robots as tools, letting you list them, run them, and retrieve results — all through natural language.
 

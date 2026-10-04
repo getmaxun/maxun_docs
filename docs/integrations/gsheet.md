@@ -1,10 +1,12 @@
 ---
+title: "Scrape Websites to Google Sheets Automatically"
+sidebar_label: "Google Sheets"
 sidebar_position: 1
-description: Sync the data extracted by your robot directly into a Google Sheet.
+description: "Sync data extracted by Maxun robots into Google Sheets after every run. One-click on Cloud, or bring your own OAuth keys when self-hosting."
 ---
 
-# Google Sheet
-> Google Sheet integration is available only for extract robots.
+# Google Sheets
+> Google Sheets integration is available only for extract robots.
 
 ## Overview
 
@@ -52,7 +54,7 @@ Set up the OAuth Keys in the `.env` file and authenticate the robot with google 
 
 ![Maxun GSheet Integration](gsheet_integration.png)
 
-#### 3. Select Spread Sheet From Google Drive
+#### 3. Select a Spreadsheet from Google Drive
 On successful authentication with google, the robot will be granted access to Google Drive. A spreadsheet can be selected from the Drive to store data from the run.
 
 ![Maxun GSheet Sheets](gsheet_sheets.png)

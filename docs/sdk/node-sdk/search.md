@@ -1,6 +1,8 @@
 ---
 id: sdk-search
-title: Search
+title: "Node.js: Web Search & Scrape Results"
+description: "Run web searches from Node.js with the Maxun SDK. Get titles and URLs (discover mode) or full page content (scrape mode), filtered by time."
+sidebar_label: "Search"
 sidebar_position: 5
 ---
 

@@ -1,6 +1,8 @@
 ---
 id: sdk-document
-title: Document
+title: "Python: Extract Data From PDFs & Documents"
+description: "Extract fields from PDFs and other documents, or convert them to Markdown, HTML and links, with the Maxun Python SDK."
+sidebar_label: "Document"
 sidebar_position: 6
 ---
 

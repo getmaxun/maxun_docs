@@ -1,4 +1,7 @@
 ---
+title: "Upgrade Self-Hosted Maxun (Docker & Local)"
+description: "Upgrade self-hosted Maxun to the latest version with Docker Compose or a local setup. Pull new images or code and restart in a few commands."
+sidebar_label: "Upgrading"
 sidebar_position: 4
 ---
 

@@ -1,6 +1,8 @@
 ---
 id: llm-extraction
-title: AI Mode
+title: "AI Mode: Extract Web Data With Natural Language"
+description: "Describe the data you want in plain English and Maxun's AI Mode builds the extraction robot. Supports Anthropic, OpenAI and Ollama when self-hosting."
+sidebar_label: "AI Mode"
 sidebar_position: 2
 ---
 
@@ -47,7 +49,7 @@ AI Mode uses LLMs to automatically create Extract robots from natural language p
 - Model: `gpt-4-vision-preview`
 - Get your API key from: <a href="https://platform.openai.com/api-keys">OpenAI Platform</a>
 
-### Setting API Keys
+## Setting API Keys
 **For Self-Hosted**
 Set the API keys as environment variables before starting Maxun
 ```bash
@@ -57,13 +59,13 @@ OPENAI_API_KEY=your-openai-key
 
 See <a href="/installation/environment_variables">Environment Variables</a> for more details.
 
-### ✅ When to Use AI Mode
+## When to Use AI Mode
 
 1. You want to quickly extract list data from a single page
 2. You want to avoid learning the Recorder interface
 3. You're extracting common patterns (products, articles, listings)
 
-### ❌ When Not to Use AI Mode
+## When Not to Use AI Mode
 
 1. You need multi-step workflows (logins, navigation between pages)
 2. You need form submissions before extraction
@@ -74,7 +76,16 @@ For these use cases, use Recorder Mode to create Extract robots manually.
 
 ## Using with SDK
 
-AI Mode is also available through the <a href="/category/sdk">Maxun SDK</a> for programmatic robot creation.
+AI Mode is also available through the <a href="/category/sdk">Maxun SDK</a> for programmatic robot creation:
+
+```javascript
+const robot = await maxun.extract('YC companies', 'https://www.ycombinator.com/companies', {
+  prompt: 'Extract the first 20 company names and descriptions',
+});
+const result = await robot.run();
+```
+
+See [Node.js Extract](/sdk/node-sdk/sdk-extract) and [Python Extract](/sdk/python-sdk/sdk-extract).
 
 ## Writing Effective Prompts
 

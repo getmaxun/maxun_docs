@@ -1,6 +1,8 @@
 ---
 id: cli-reference
-title: Command Reference
+title: "Maxun CLI Command Reference"
+description: "Complete reference for every Maxun CLI command and flag: auth, robots, run, runs, global flags, environment variables and config file."
+sidebar_label: "Command Reference"
 sidebar_position: 5
 ---
 

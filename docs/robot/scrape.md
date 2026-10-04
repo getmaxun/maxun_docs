@@ -1,6 +1,7 @@
 ---
 id: scrape
 title: Scrape Any Website to Markdown, HTML & Screenshots
+description: "Convert any webpage into clean HTML, LLM-ready Markdown, text, links, AI summaries or screenshots. Ask questions about a page with Smart Queries."
 sidebar_label: Scrape
 sidebar_position: 1
 ---

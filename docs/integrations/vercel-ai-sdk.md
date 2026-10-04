@@ -1,8 +1,9 @@
 ---
 id: vercel-ai-sdk
-title: Vercel AI SDK
+title: "Vercel AI SDK Web Scraping Tools"
+sidebar_label: "Vercel AI SDK"
 sidebar_position: 5
-description: Integrate Maxun SDK with Vercel AI SDK for React and Next.js applications.
+description: "Give Vercel AI SDK apps web scraping, crawling, search and extraction tools with Maxun. Ready-made tool definitions for React and Next.js."
 ---
 
 # Vercel AI SDK

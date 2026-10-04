@@ -1,8 +1,9 @@
 ---
 id: claude-code
-title: Claude Code
+title: "Claude Code Web Scraping Skill"
+sidebar_label: "Claude Code"
 sidebar_position: 10
-description: List and run Maxun robots directly from your terminal using the Claude Code skill.
+description: "Install the Maxun skill for Claude Code to list, run and get results from web scraping robots inside your terminal with /maxun commands."
 ---
 
 # Claude Code

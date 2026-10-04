@@ -1,6 +1,8 @@
 ---
 id: sdk-monitoring
-title: Monitoring
+title: "Python: Monitor Websites for Changes"
+description: "Turn on change monitoring for scrape, extract and crawl robots in Python and check what changed between runs with the Maxun SDK."
+sidebar_label: "Monitoring"
 sidebar_position: 7
 ---
 

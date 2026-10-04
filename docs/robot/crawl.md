@@ -1,6 +1,7 @@
 ---
 id: crawl
-title: Crawl Entire Websites 
+title: "Website Crawler: Crawl & Scrape Entire Websites"
+description: "Crawl entire websites with Maxun: discover pages via sitemaps and links, then get every page as Markdown, HTML or text. Control scope, depth and filters."
 sidebar_label: Crawl
 sidebar_position: 2
 ---

@@ -1,10 +1,12 @@
 ---
 id: setup
-title: Setup
+title: "Set Up the Maxun MCP Server (Claude, Cursor)"
+description: "Connect Claude Desktop, Cursor, Windsurf or Cline to Maxun with the MCP server. Run extractions and manage robots through natural language."
+sidebar_label: "Setup"
 sidebar_position: 1
 ---
 
-# Setup
+# MCP Server Setup
 
 Maxun MCP Server lets you connect any MCP-compatible AI client (Claude Desktop, Cursor, Windsurf, Cline, etc.) to your Maxun robots — so you can run extractions, check results, and manage robots through natural language.
 

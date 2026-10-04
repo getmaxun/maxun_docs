@@ -2,6 +2,8 @@
   "label": "Integrations",
   "position": 7,
   "link": {
-    "type": "generated-index"
+    "type": "generated-index",
+    "title": "Maxun Integrations: Sheets, n8n, LangChain & More",
+    "description": "Send scraped data to Google Sheets, Airtable and n8n, or use Maxun with LangChain, LangGraph, LlamaIndex, Mastra, OpenAI, Vercel AI SDK and Claude Code."
   }
 }

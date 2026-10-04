@@ -3,6 +3,7 @@
   "position": 13,
   "link": {
     "type": "generated-index",
-    "description": "Know everything about a run in Maxun"
+    "description": "How Maxun's open-source repositories are organized, how to contribute code and how to add translations.",
+    "title": "Contribute to Maxun (Open Source)"
   }
 }

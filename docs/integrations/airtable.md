@@ -1,6 +1,8 @@
 ---
+title: "Scrape Websites to Airtable Automatically"
+sidebar_label: "Airtable"
 sidebar_position: 3
-description: Sync the data extracted by your robot directly into an Airtable Base.
+description: "Sync data extracted by Maxun robots into an Airtable base and table after every run. Works on Cloud and self-hosted with OAuth."
 ---
 
 # Airtable
@@ -43,7 +45,7 @@ Simply authenticate using your Airtable account. Maxun Cloud handles the secure 
 #### 1. Bring Your Own Airtable Client ID
 Obtain Airtable Client Id by setting up a project in the [Airtable OAuth Integrations Platform](https://airtable.com/create/oauth).
 
-#### 2. Authenticate With Airtable
+#### 2. Authenticate with Airtable
 Set up the OAuth Keys in the `.env` file and authenticate the robot with airtable **using the same account that was used to create the Client ID**.
 
 ![Maxun Airtable Integration](airtable_integrate.png)

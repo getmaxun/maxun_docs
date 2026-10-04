@@ -1,10 +1,17 @@
 ---
 id: faq-robot
-title: FAQs
+title: "Maxun FAQ: Pagination, Logins, CAPTCHAs & More"
+description: "Answers to common Maxun robot questions: supported websites, pagination, logins, iFrames, Shadow DOM, forms, file downloads, CAPTCHAs and bot detection."
+sidebar_label: "FAQs"
 sidebar_position: 16
 ---
+
+# Frequently Asked Questions
+
+## General
+
 ### What sites does Maxun work on?
-Maxun is designed to work on any website. There are billions of websites out there (and hundreds are created everyday). We do our best to adapt to almost every possible website - that being said there are always unique scenarios that arise, often due to inaccessible code or non-standard practices on certain sites.
+Maxun is designed to work on any website. There are billions of websites out there (and hundreds are created every day). We do our best to adapt to almost every possible website - that being said there are always unique scenarios that arise, often due to inaccessible code or non-standard practices on certain sites.
 
 ### Is Maxun available on the cloud?
 Maxun cloud has been highly requested by our users. Access the hosted version at https://app.maxun.dev
@@ -19,13 +26,13 @@ Yes. Maxun supports several pagination methods to accommodate different website 
 
 
 ### Can my robot log in to websites?
-Yes. Refer this section: <a href="/extract-login">Extract behind login.</a>
+Yes. See <a href="/extract-login">Extract behind login</a>.
 
 ### Can I extract data from an iFrame?
-Yes. Maxun 0.0.6 onwards data inside iFrame can be extracted.
+Yes. From Maxun 0.0.6 onwards, data inside iFrames can be extracted.
 
 ### Can I extract data from Shadow DOM?
-Yes. Maxun 0.0.6 onwards data inside Shadow DOM can be extracted.
+Yes. From Maxun 0.0.6 onwards, data inside Shadow DOM can be extracted.
 
 ### Can I download files using Maxun?
 Maxun is primarily designed to extract text data, but this is a part of our roadmap.
@@ -48,8 +55,8 @@ Definitely! Your robot can:
 - Extract structured data from a webpage into a spreadsheet
 - Take screenshots
 
-## Robot FAQs
-> ℹ️ Maxun is designed to work on any website. Below are some limitations
+## Limitations
+> ℹ️ Maxun is designed to work on any website. Below are some known limitations.
 
 ### Captchas
 1. We support solving several types of captcha in Maxun Cloud (e.g., ReCaptcha, hCaptcha), but not custom captcha.
@@ -64,4 +71,4 @@ However, if your robot needs to log into a website, then there is a higher chanc
 1. The same user is accessing the account from different IP addresses (your local IP and Maxun's IPs).
 2. High run frequency by the robot can appear suspicious.
 As a result, robots that require login credentials are more likely to be flagged.
-Flagging rate might reduce when your robots are run at a high frequency locally.
+Running login robots less frequently, or locally, can reduce the flagging rate. See <a href="/stealth">Stealth</a> and <a href="/byop">BYOP</a> for more ways to avoid blocks.

@@ -1,6 +1,8 @@
 ---
 id: sdk-overview
-title: Overview
+title: "Node.js Web Scraping SDK: Install & Setup"
+description: "Install maxun-sdk for Node.js 18+, set your API key and create scrape, crawl, search, extract and document robots in JavaScript or TypeScript."
+sidebar_label: "Overview"
 sidebar_position: 1
 ---
 

@@ -1,6 +1,8 @@
 ---
 id: cli-run
-title: Running Robots
+title: "CLI: Run Robots & Get Results"
+description: "Run any Maxun robot from the terminal with maxun run, override output formats, get AI summaries and print results as JSON or a table."
+sidebar_label: "Running Robots"
 sidebar_position: 3
 ---
 

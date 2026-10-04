@@ -1,4 +1,7 @@
 ---
+title: "Maxun Quickstart: Cloud, SDK & Open-Source Setup"
+description: "Get started with Maxun in minutes. Sign up for Maxun Cloud, install the Node.js or Python SDK, or self-host the open-source edition with Docker."
+sidebar_label: "Get Started"
 sidebar_position: 2
 slug: /quickstart
 ---
@@ -90,4 +93,12 @@ async with Maxun() as maxun:
 For more detailed usage, see the [Node.js SDK](/sdk/node-sdk/sdk-overview) and [Python SDK](/sdk/python-sdk/sdk-overview) guides.
 
 ## Maxun Community Edition
-Maxun is open-source and can run on your system. Learn how to <a href="/category/self-host">setup Maxun locally</a>.
+Maxun is open-source and can run on your own infrastructure. Learn how to <a href="/category/self-host">self-host Maxun</a> with Docker Compose or a local setup.
+
+## Next Steps
+
+- [Choose a robot type](/robot/robots): Extract, Scrape, Crawl, Search or Document
+- [Scrape a page to Markdown](/robot/scrape)
+- [Extract structured data with Recorder Mode](/robot/extract/robot-actions) or [AI Mode](/robot/extract/llm-extraction)
+- [Connect AI agents with MCP](/mcp/setup)
+- [Get your API key](/api/api)

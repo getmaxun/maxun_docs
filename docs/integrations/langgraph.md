@@ -1,8 +1,9 @@
 ---
 id: langgraph
-title: LangGraph
+title: "LangGraph Web Scraping: Maxun Integration"
+sidebar_label: "LangGraph"
 sidebar_position: 5
-description: Build stateful multi-step AI workflows with Maxun SDK and LangGraph.
+description: "Give LangGraph agents live web data. Build stateful scrape-and-analyze and search-scrape-summarize workflows with the Maxun SDK."
 ---
 
 # LangGraph

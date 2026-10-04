@@ -1,8 +1,14 @@
 ---
 id: webhooks
-title: Webhooks
+title: "Webhooks: Get Robot Run Results in Real Time"
+description: "Receive Maxun robot results the moment a run finishes. Webhook events (run completed, run failed), payload schema and example JSON."
+sidebar_label: "Webhooks"
 sidebar_position: 4
 ---
+
+# Webhooks
+
+Webhooks send a robot's results to your server the moment a run finishes, so you don't need to poll the API. Maxun sends a `POST` request with a JSON payload to the URL you configure, for successful runs and for failed runs.
 
 You can find the webhook integration option in the integration settings for each robot.
 

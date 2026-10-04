@@ -1,8 +1,27 @@
 ---
 id: run-api
-title: Run API
+title: "Run API: Run Robots & Get Results via REST"
+description: "REST endpoints to run a robot, list its runs and get a specific run's extracted data, with parameters and example JSON responses."
+sidebar_label: "Run API"
 sidebar_position: 3
 ---
+
+# Run API
+
+Use the Run API to run a robot and fetch the data it extracted. All requests need the `x-api-key` header. See [API Key & Authentication](/api/api).
+
+| Method | Endpoint | Description |
+|---|---|---|
+| `GET` | `/api/robots/{id}/runs` | Get all runs for a robot |
+| `POST` | `/api/robots/{id}/runs` | Run a robot |
+| `GET` | `/api/robots/{id}/runs/{runId}` | Get a specific run and its data |
+
+```bash
+curl -X POST https://app.maxun.dev/api/robots/ROBOT_ID/runs \
+  -H "x-api-key: YOUR_API_KEY"
+```
+
+For long-running robots, use [Webhooks](/api/webhooks) to receive results instead of polling.
 
 ### 1. Request: Get All Runs For A Robot
 - Request type: GET

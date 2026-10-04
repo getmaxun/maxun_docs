@@ -1,42 +1,44 @@
 ---
 id: byop
-title: BYOP 
+title: "BYOP: Bring Your Own Proxy for Web Scraping"
+description: "Use your own HTTP or SOCKS proxies with self-hosted Maxun for geo-targeted scraping and fewer blocks. Setup, authenticated proxies and recommended providers."
+sidebar_label: "BYOP"
 sidebar_position: 9
 ---
 
 # BYOP (Bring Your Own Proxy)
 
-> **Note:** BYOP is available only in self-hosted installations.
+Maxun provides a feature called BYOP (Bring Your Own Proxy), designed to give users greater control over their data extraction activities.
 
-Maxun provides a feature called BYOP (Bring Your Own Proxy), designed to give users greater control over their data extraction activities. With BYOP, you can connect your own proxies to Maxun, enabling:
+> **Note:** BYOP is available only in self-hosted installations. With BYOP, you can connect your own proxies to Maxun, enabling:
 
 1. Location-Specific Scraping: Access data specific to certain geographical regions.
 2. Geo-Restricted Data Access: Overcome restrictions on location-based content.
 3. Enhanced Security: Keep all proxy configurations secure on your self-hosted platform.
 
-### Availability
+## Availability
 
 This feature is available **exclusively for the self-hosted version of Maxun**. For cloud users, Maxun manages all anti-bot infrastructure, ensuring reliable scraping without requiring additional proxy setup.
 
-### Proxy Configuration
+## Proxy Configuration
 
-HTTP and SOCKS proxies are supported. Currently, proxies are configured per user rather than per robot. However, support for per robot proxy configuration is coming soon, offering even more granular control over your scraping workflows.
+HTTP and SOCKS proxies are supported. Currently, proxies are configured per user rather than per robot. However, support for per-robot proxy configuration is coming soon, offering even more granular control over your scraping workflows.
 
-### Authenticated Proxies
+## Authenticated Proxies
 You can connect with authenticated proxies that require a username and password. All details are encrypted and securely stored in the database.
 
 If your proxy requires a username and password, always provide them separate from the proxy URL.
 
-#### The right way
+### The Right Way
 
 - Proxy URL: http://proxy.com:1337
 - Username: myusername
 - Password: mypassword
 
-#### The wrong way
+### The Wrong Way
 - Proxy URL: http://myusername:mypassword@proxy.com:1337
 
-### Recommended Proxy Providers
+## Recommended Proxy Providers
 Looking for a proxy provider? The following partners offer reliable proxies that work well with Maxun. Maxun users can also take advantage of exclusive discounts.
 
 <table>

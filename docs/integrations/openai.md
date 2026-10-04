@@ -1,8 +1,9 @@
 ---
 id: openai
-title: OpenAI SDK
+title: "OpenAI Function Calling for Web Scraping"
+sidebar_label: "OpenAI SDK"
 sidebar_position: 6
-description: Integrate Maxun SDK with OpenAI SDK for direct function calling.
+description: "Let OpenAI models scrape and search the web through function calling with the Maxun SDK. Scrape-and-summarize and search-and-analyze examples."
 ---
 
 # OpenAI SDK

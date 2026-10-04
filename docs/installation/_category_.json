@@ -1,8 +1,9 @@
 {
-    "label": "Self Host",
-    "position": 8,
-    "link": {
-      "type": "generated-index"
-    }
+  "label": "Self-Host",
+  "position": 8,
+  "link": {
+    "type": "generated-index",
+    "title": "Self-Host Maxun: Open-Source Web Scraper",
+    "description": "Self-host Maxun, the open-source web scraping platform, with Docker Compose or a local setup. Environment variables, production deployment and upgrades."
+  }
 }
-  

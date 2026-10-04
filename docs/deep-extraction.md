@@ -1,16 +1,20 @@
 ---
 id: deep-extraction
-title: Deep Extraction
+title: "Deep Extraction: Scrape List & Detail Pages Together"
+description: "Capture a list and data from every item's detail page in one robot. Ideal for e-commerce, directories and job boards. Available on Maxun Cloud."
+sidebar_label: "Deep Extraction"
 sidebar_position: 11
 ---
 
 # Deep Extraction
 
+Deep Extraction lets you capture a list of items and the details from each item's own page in a single robot, automatically.
+
 > **Note:** Deep Extraction is available exclusively in Maxun Cloud.
 
 ## What is Deep Extraction?
 
-Deep Extraction lets you capture detailed information from multiple pages automatically. Here's what it does:
+Here's what it does:
 
 **Without Deep Extraction**
 - You visit a list page (like product listings)
@@ -114,7 +118,7 @@ If your list has multiple pages:
 
 Let's say you want to extract products from an online store:
 
-### What You Record:
+### What You Record
 1. ✅ Enable Deep Extraction checkbox
 2. Visit `shop.example.com/products`
 3. Capture List: Product names and prices
@@ -122,7 +126,7 @@ Let's say you want to extract products from an online store:
 5. On the detail page, capture: Full description, specifications, reviews
 6. Save robot
 
-### What Happens When You Run It:
+### What Happens When You Run It
 1. Robot goes to the products page
 2. Captures all 50 product names and prices
 3. Visits each product's detail page:

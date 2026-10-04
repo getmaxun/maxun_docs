@@ -1,6 +1,8 @@
 ---
 id: sdk-robot
-title: Robot Management
+title: "Python: Run, Schedule & Manage Robots"
+description: "Run, schedule, rename, duplicate and delete Maxun robots from Python, view run history and add webhooks."
+sidebar_label: "Robot Management"
 sidebar_position: 8
 ---
 

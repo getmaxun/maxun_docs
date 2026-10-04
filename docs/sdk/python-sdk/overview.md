@@ -1,6 +1,8 @@
 ---
 id: sdk-overview
-title: Overview
+title: "Python Web Scraping SDK: Install & Setup"
+description: "Install the maxun Python package, set your API key and create scrape, crawl, search, extract and document robots with async Python."
+sidebar_label: "Overview"
 sidebar_position: 1
 ---
 

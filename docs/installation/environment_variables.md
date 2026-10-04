@@ -1,4 +1,7 @@
 ---
+title: "Maxun Environment Variables Reference (.env)"
+description: "Every environment variable for self-hosted Maxun: URLs and ports, secrets, PostgreSQL, MinIO, browser service, Google and Airtable OAuth, and AI keys."
+sidebar_label: "Environment Variables"
 sidebar_position: 3
 ---
 
@@ -38,6 +41,11 @@ openssl rand -hex 32     # For ENCRYPTION_KEY
 | `MINIO_PORT`          | Yes       | Port number for MinIO service.                                                               | Connection to MinIO storage will fail.                       |
 | `MINIO_CONSOLE_PORT`          | No       | Port number for MinIO WebUI service. Needed for Docker setup.                         | Cannot access MinIO Web UI. |
 | `MINIO_ACCESS_KEY`    | Yes       | Access key for authenticating with MinIO.                                                    | MinIO authentication will fail.                              |
+| `MINIO_SECRET_KEY`    | Yes       | Secret key for authenticating with MinIO. Generate with `openssl rand -base64 24`           | MinIO authentication will fail.                              |
+| `MINIO_PUBLIC_URL`    | No        | Public base URL browsers use to reach stored screenshots and files, e.g. `https://storage.example.com`. Set it when MinIO is behind a reverse proxy. | Files are served from the MinIO endpoint and port. |
+| `REDIS_HOST`          | Yes       | Host of the Redis server. Use `redis` (or your Redis container name) in Docker.               | Redis connection will fail.                                  |
+| `REDIS_PORT`          | Yes       | Port of the Redis server.                                                                    | Default value: 6379 |
+| `REDIS_PASSWORD`      | No        | Password for a password-protected Redis instance.                                            | Redis connects without authentication. |
 | `GOOGLE_CLIENT_ID`    | No       | Client ID for Google OAuth, used for Google Sheet integration authentication.                 | Google login will not work.                                  |
 | `GOOGLE_CLIENT_SECRET`| No       | Client Secret for Google OAuth.                                                              | Google login will not work.                                  |
 | `GOOGLE_REDIRECT_URI` | No       | Redirect URI for handling Google OAuth responses.                                            | Google login will not work.                                  |
@@ -46,6 +54,6 @@ openssl rand -hex 32     # For ENCRYPTION_KEY
 | `BROWSER_WS_PORT`     | Yes       | Port for WebSocket connections to the browser service (used for CDP connections).            | Default value: 3001 |
 | `BROWSER_HEALTH_PORT` | Yes       | Port for browser service health checks.                                                      | Default value: 3002 |
 | `BROWSER_WS_HOST`     | Yes       | Host address for the browser service. Set to `browser` for Docker, `localhost` for local.   | Browser service connections will fail. |
-| `MAXUN_TELEMETRY`     | No        | Disables telemetry to stop sending anonymous usage data. Keeping it enabled helps us understand how the product is used and assess the impact of any new changes. Please keep it enabled. | Telemetry data will not be collected. |
+| `MAXUN_TELEMETRY`     | No        | Enables anonymous usage telemetry. Keeping it enabled helps us understand how the product is used and assess the impact of any new changes. Please keep it enabled. | Telemetry data will not be collected. |
 | `ANTHROPIC_API_KEY`   | No        | API key for Anthropic Claude. Required to use AI Mode with Anthropic Claude as the LLM provider. | AI Mode with Anthropic Claude will not work. |
 | `OPENAI_API_KEY`      | No        | API key for OpenAI GPT. Required to use AI Mode with OpenAI GPT as the LLM provider. | AI Mode with OpenAI GPT will not work. |

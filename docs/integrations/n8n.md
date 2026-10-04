@@ -1,15 +1,17 @@
 ---
+title: "n8n Web Scraping Integration: Send Data to n8n"
+sidebar_label: "n8n"
 sidebar_position: 2
-description: Send data extracted by your robot directly to N8N workflows via webhook.
+description: "Scrape any website with Maxun and send structured data straight into n8n workflows via webhook. Setup steps, data format and a demo video."
 ---
 
-# N8N
+# n8n
 
-> **Note:** N8N integration is available exclusively in **Maxun Cloud**. This feature is not available in self-hosted installations.
+> **Note:** n8n integration is available exclusively in **Maxun Cloud**. This feature is not available in self-hosted installations.
 
 ## Overview
 
-N8N integration allows you to automatically send the data extracted by your robot directly to your N8N workflow via webhook. Whenever the robot completes a successful run, the captured data is sent as a POST request to your configured n8n webhook endpoint, enabling seamless automation and data processing within your n8n workflows.
+n8n integration allows you to automatically send the data extracted by your robot directly to your n8n workflow via webhook. Whenever the robot completes a successful run, the captured data is sent as a POST request to your configured n8n webhook endpoint, enabling seamless automation and data processing within your n8n workflows.
 
 ## Key Features
 
@@ -23,8 +25,8 @@ The data extracted before integrating with n8n will not be sent to your workflow
 
 ## Setting Up n8n Integration
 
-### Step 1: Configure Webhook in N8N
-Create a webhook trigger node in your N8N workflow and copy the webhook URL.
+### Step 1: Configure Webhook in n8n
+Create a webhook trigger node in your n8n workflow and copy the webhook URL.
 
 ![n8n Webhook Configuration](n8n_webhook_config.png)
 
@@ -44,7 +46,7 @@ Configure the webhook endpoint in your robot integration settings with the follo
 ![n8n Integration Form](n8n_integration_form_configured.png)
 
 ### Step 3: Test the Integration
-Run your robot to test the webhook integration or use the Test Webhook button. The extracted data will be sent to your N8N workflow.
+Run your robot to test the webhook integration or use the Test Webhook button. The extracted data will be sent to your n8n workflow.
 
 <!-- ![n8n Integration Success](n8n_integration_success.png) -->
 
@@ -100,6 +102,6 @@ When your robot sends data to n8n, it will be structured as follows:
 
 ## Demo Tutorial
 
-In this tutorial, learn how to use Maxun with N8N and GPT to generate responses for Chrome extension reviews automatically!
+In this tutorial, learn how to use Maxun with n8n and GPT to generate responses for Chrome extension reviews automatically!
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/0o2xMOa8Ee8?si=lnZE-Idky-X46hd-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

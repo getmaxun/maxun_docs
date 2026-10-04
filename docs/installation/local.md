@@ -1,4 +1,7 @@
 ---
+title: "Run Maxun Locally (Node.js Development Setup)"
+description: "Run Maxun locally for development with Node.js 18+, PostgreSQL and MinIO. Clone the repo, install dependencies, start the browser service and the app."
+sidebar_label: "Local Setup"
 sidebar_position: 2
 ---
 

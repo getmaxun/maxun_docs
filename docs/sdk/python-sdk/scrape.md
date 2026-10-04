@@ -1,6 +1,8 @@
 ---
 id: sdk-scrape
-title: Scrape
+title: "Python: Scrape Websites to Markdown & HTML"
+description: "Scrape any webpage to Markdown, HTML, text, links, screenshots or AI summaries with the Maxun Python SDK."
+sidebar_label: "Scrape"
 sidebar_position: 2
 ---
 
