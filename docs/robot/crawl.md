@@ -172,3 +172,50 @@ For complex workflows with user interactions, use Extract instead.
 ## Using with SDK
 
 Crawl is available through the <a href="/category/sdk">Maxun SDK</a> for programmatic usage and integration into your applications.
+
+<Tabs>
+  <TabItem value="node" label="Node.js">
+
+```javascript
+import { Maxun } from 'maxun-sdk';
+
+const maxun = new Maxun();
+
+const robot = await maxun.crawl('Example docs', 'https://docs.example.com', { limit: 20 });
+
+const result = await robot.run();
+
+for (const page of result.crawlData) {
+  console.log(page.metadata.url);
+  console.log(page.markdown?.slice(0, 200));
+}
+```
+
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+```python
+from maxun import Maxun
+
+async with Maxun() as maxun:
+    robot = await maxun.crawl("Example docs", "https://docs.example.com", limit=20)
+    result = await robot.run()
+    for page in result.crawl_data:
+        print(page["metadata"]["url"])
+        print(page.get("markdown", "")[:200])
+```
+
+  </TabItem>
+</Tabs>
+
+## Using with CLI
+
+```bash
+# Basic scrape
+maxun robots scrape https://example.com -f markdown
+
+# Scrape with a Smart Query prompt
+maxun robots scrape https://example.com \
+  -f markdown \
+  -p "List all the pricing plans and their monthly costs"
+```
