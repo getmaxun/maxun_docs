@@ -65,7 +65,7 @@ Upload a PDF, CSV, XLSX, JPG, PNG, or DOCX file and convert it into clean Markdo
 
 ## Using with SDK
 
-Both robot types are available through the <a href="/category/sdk">Maxun SDK</a>:
+Document Robots are available through the <a href="/category/sdk">Maxun SDK</a> for programmatic usage and integration into your applications.
 
 ```javascript
 // Extract specific fields
@@ -78,6 +78,8 @@ const parseRobot = await maxun.documents.parse('Report Parser', './report.pdf');
 See [Node.js Document](/sdk/node-sdk/sdk-document) and [Python Document](/sdk/python-sdk/sdk-document) for all options.
 
 ## Using with CLI
+
+Document Robots are available through the <a href="/category/cli">Maxun CLI</a> for quick data gathering from the terminal.
 
 ```bash
 # Extract specific fields from a PDF, CSV, or XLSX file

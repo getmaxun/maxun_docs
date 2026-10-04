@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 # Get Started
 
-Get started with Maxun in minutes. There are three ways to use Maxun. Pick Cloud for the fastest start, the SDK to build robots in code, or the Community Edition to self-host.
+Get started with Maxun in minutes. Sign up for Maxun Cloud, install the Node.js or Python SDK, or self-host the open-source edition with Docker.
 
 ## Maxun Cloud
 
@@ -94,11 +94,3 @@ For more detailed usage, see the [Node.js SDK](/sdk/node-sdk/sdk-overview) and [
 
 ## Maxun Community Edition
 Maxun is open-source and can run on your own infrastructure. Learn how to <a href="/category/self-host">self-host Maxun</a> with Docker Compose or a local setup.
-
-## Next Steps
-
-- [Choose a robot type](/robot/robots): Extract, Scrape, Crawl, Search or Document
-- [Scrape a page to Markdown](/robot/scrape)
-- [Extract structured data with Recorder Mode](/robot/extract/robot-actions) or [AI Mode](/robot/extract/llm-extraction)
-- [Connect AI agents with MCP](/mcp/setup)
-- [Get your API key](/api/api)
