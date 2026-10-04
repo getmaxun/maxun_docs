@@ -1,14 +1,26 @@
 ---
 id: robots
-title: Overview
+title: Maxun Robots: Extract, Scrape, Crawl, Monitor & Search
 sidebar_position: 1
+sidebar_label: Overview
 ---
 
 Maxun robots are automated tools that help you collect data from websites without writing any code. Think of them as your personal web assistants that can navigate websites, extract information, and organize data just like you would manually - but faster and more efficiently.
 
 There are four types of robots, each designed for a different job.
 
-### 1. Extract
+## Which Robot Should I Use?
+
+| I want to… | Use |
+| :--- | :--- |
+| Get one page as Markdown/HTML | Scrape |
+| Get every page of a site | Crawl |
+| Get structured rows (prices, listings) | Extract |
+| Find pages for a query | Search |
+| Track changes | Monitoring |
+| Pull data from a documents | Document |
+
+## 1. Extract
 Extract emulates real user behavior and captures structured data.
 - <a href="/robot/extract/robot-actions">Recorder Mode</a> - Record your actions as you browse; Maxun turns them into a reusable extraction robot.
 - <a href="/robot/extract/llm-extraction">AI Mode</a> - Describe what you want in natural language and let LLM-powered extraction do the rest.
@@ -16,26 +28,26 @@ Extract emulates real user behavior and captures structured data.
 Learn more <a href="/category/extract">here</a>.
 
 
-### 2. Scrape
+## 2. Scrape
 Scrape converts full webpages into clean Markdown, HTML and can capture screenshots. Ideal for AI workflows, agents, and document processing. 
 
 Learn more <a href="/robot/scrape">here</a>.
 
-### 3. Crawl
+## 3. Crawl
 Crawl entire websites and extract content from every relevant page, with full control over scope and discovery.
 
 Learn more <a href="/robot/crawl/crawl-introduction">here</a>.
 
-### 4. Search
+## 4. Search
 Run automated web searches to discover or scrape results, with support for time-based filters.
 
 Learn more <a href="/robot/search/search-introduction">here</a>.
 
-### 5. Monitoring
+## 5. Monitoring
 Track websites over time and know when something changes. Your existing robots can become monitors.
 Learn more <a href="/monitoring">here</a>.
 
-### 6. Document Extract and Parse
+## 6. Document Extract and Parse
 Extract and parse structured data from documents. Supports PDF, CSV, XLSX, JPG, PNG and DOCX files.
 
 Learn more <a href="/robot/document">here</a>.
