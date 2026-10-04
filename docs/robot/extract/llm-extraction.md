@@ -87,6 +87,18 @@ const result = await robot.run();
 
 See [Node.js Extract](/sdk/node-sdk/sdk-extract) and [Python Extract](/sdk/python-sdk/sdk-extract).
 
+## Using with CLI
+
+AI Mode is available through the <a href="/category/cli">Maxun CLI</a> for quick data gathering from the terminal.
+
+
+```bash
+maxun robots extract \
+  -p "Extract all product names and prices" \
+  -u "https://example.com/shop" \
+  -n "Shop Extractor"
+```
+
 ## Writing Effective Prompts
 
 For guidance on writing effective LLM extraction prompts, see <a href="/llm-prompts">LLM Extraction Prompts</a>.

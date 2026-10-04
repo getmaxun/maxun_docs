@@ -61,7 +61,6 @@ Upload a PDF, CSV, XLSX, JPG, PNG, or DOCX file and convert it into clean Markdo
 - You want to feed a document into an AI tool or pipeline.
 - You need the content of a document in a readable, structured format.
 
----
 
 ## Using with SDK
 
