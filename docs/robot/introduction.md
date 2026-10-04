@@ -1,9 +1,11 @@
 ---
 id: robots
-title: Maxun Robots: Extract, Scrape, Crawl, Monitor & Search
+title: Extract, scrape, crawl, monitor, & search the web with Maxun
 sidebar_position: 1
 sidebar_label: Overview
 ---
+
+# What are Maxun Robots?
 
 Maxun robots are automated tools that help you collect data from websites without writing any code. Think of them as your personal web assistants that can navigate websites, extract information, and organize data just like you would manually - but faster and more efficiently.
 
