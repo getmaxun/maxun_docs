@@ -1,8 +1,9 @@
 ---
 id: llamaindex
-title: LlamaIndex
+title: "LlamaIndex RAG With Live Web Data"
+sidebar_label: "LlamaIndex"
 sidebar_position: 8
-description: Build RAG applications with Maxun SDK and LlamaIndex.
+description: "Build RAG apps on live web data: scrape pages with Maxun, index them in LlamaIndex and query them, for one page or many."
 ---
 
 # LlamaIndex

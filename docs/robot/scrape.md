@@ -1,6 +1,7 @@
 ---
 id: scrape
 title: Scrape Any Website to Markdown, HTML & Screenshots
+description: "Convert any webpage into clean HTML, LLM-ready Markdown, text, links, AI summaries or screenshots. Ask questions about a page with Smart Queries."
 sidebar_label: Scrape
 sidebar_position: 1
 ---
@@ -63,8 +64,6 @@ When a Smart Query is configured, the run result includes an additional `promptR
   "promptResult": "The pricing plans are: Starter ($9/mo), Growth ($29/mo), Pro ($99/mo)."
 }
 ```
-
----
 
 ## Using with SDK
 

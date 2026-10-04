@@ -1,8 +1,20 @@
 ---
 id: robot-api
-title: Robot API
+title: "Robot API: List, Get & Duplicate Robots"
+description: "REST endpoints to list all robots, get a robot by ID and duplicate a robot for a new URL, with request parameters and example responses."
+sidebar_label: "Robot API"
 sidebar_position: 2
 ---
+
+# Robot API
+
+Use the Robot API to list your robots, fetch a single robot and duplicate a robot for a new URL. All requests need the `x-api-key` header. See [API Key & Authentication](/api/api).
+
+| Method | Endpoint | Description |
+|---|---|---|
+| `GET` | `/api/robots` | Get all robots |
+| `GET` | `/api/robots/{id}` | Get a robot by ID |
+| `POST` | `/api/robots/{id}/duplicate` | Duplicate a robot with a new target URL |
 
 ### 1. Request: Get All Robots
 - Request type: GET

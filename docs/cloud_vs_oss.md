@@ -1,6 +1,7 @@
 ---
 id: cloud-vs-oss
 title: Maxun Cloud vs Self-Hosted Open Source
+description: "Compare Maxun Cloud with the free self-hosted open-source edition: anti-bot, CAPTCHA bypass, Deep Extraction, integrations, support and more."
 sidebar_position: 15
 sidebar_label: Cloud vs Open Source
 ---

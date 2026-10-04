@@ -1,6 +1,7 @@
 ---
 id: robots
-title: Extract, scrape, crawl, monitor, & search the web with Maxun
+title: "Maxun Robots: Extract, Scrape, Crawl & Search"
+description: "Robots collect data from websites without code. Compare Maxun's robot types (Extract, Scrape, Crawl, Search, Monitoring and Document) and pick the right one."
 sidebar_position: 1
 sidebar_label: Overview
 ---

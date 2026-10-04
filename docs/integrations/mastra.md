@@ -1,8 +1,9 @@
 ---
 id: mastra
-title: Mastra
+title: "Mastra Web Scraping Workflows With Maxun"
+sidebar_label: "Mastra"
 sidebar_position: 7
-description: Build AI agent workflows with Maxun SDK and Mastra.
+description: "Build Mastra AI agent workflows that search, scrape and summarize the web using the Maxun SDK. Full multi-step workflow example in TypeScript."
 ---
 
 # Mastra

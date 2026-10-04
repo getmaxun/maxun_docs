@@ -1,6 +1,8 @@
 ---
 id: sdk-robot
-title: Robot Management
+title: "Node.js: Run, Schedule & Manage Robots"
+description: "Run, schedule, rename, duplicate and delete Maxun robots from Node.js, view run history and add webhooks."
+sidebar_label: "Robot Management"
 sidebar_position: 8
 ---
 

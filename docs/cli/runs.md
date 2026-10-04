@@ -1,6 +1,8 @@
 ---
 id: cli-runs
-title: Runs & Data
+title: "CLI: List Runs & Export Data to CSV/JSON"
+description: "List a robot's past runs, export run data as JSON or CSV and abort running jobs with the maxun runs command."
+sidebar_label: "Runs & Data"
 sidebar_position: 4
 ---
 

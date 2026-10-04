@@ -1,6 +1,7 @@
 ---
 id: openclaw
-title: OpenClaw
+title: "OpenClaw Web Scraping Skill"
+sidebar_label: "OpenClaw"
 sidebar_position: 9
 description: List and run Maxun robots from any messaging app using the OpenClaw skill.
 ---

@@ -1,6 +1,8 @@
 ---
 id: sdk-extract
-title: Extract
+title: "Node.js: Extract Structured Data From Websites"
+description: "Extract structured data in Node.js with the Maxun SDK, from a plain-English prompt or CSS selectors, with lists, pagination and interactions."
+sidebar_label: "Extract"
 sidebar_position: 3
 ---
 

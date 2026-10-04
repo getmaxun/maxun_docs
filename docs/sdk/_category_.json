@@ -3,6 +3,7 @@
   "position": 7,
   "link": {
     "type": "generated-index",
-    "description": "Build web automation and data extraction into your Node.js and Python applications with the Maxun SDK."
+    "description": "Add web scraping, crawling, search and data extraction to your Node.js or Python app with the Maxun SDK. Install, authenticate and create robots in code.",
+    "title": "Maxun SDK for Node.js & Python"
   }
 }

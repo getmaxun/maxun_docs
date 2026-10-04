@@ -1,7 +1,9 @@
 {
-    "label": "Use Cases",
-    "position": 8,
-    "link": {
-      "type": "generated-index"
-    }
+  "label": "Use Cases",
+  "position": 8,
+  "link": {
+    "type": "generated-index",
+    "title": "Web Scraping Use Cases",
+    "description": "How teams use Maxun: market research, e-commerce price monitoring, lead generation, real estate data, content aggregation and academic research."
+  }
 }

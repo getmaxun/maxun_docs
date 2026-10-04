@@ -1,8 +1,9 @@
 ---
 id: langchain
-title: LangChain
+title: "LangChain Web Scraping Tool: Maxun Integration"
+sidebar_label: "LangChain"
 sidebar_position: 4
-description: Integrate Maxun SDK with LangChain for AI-powered web scraping chains and agents.
+description: "Add web scraping to LangChain chains and agents with Maxun: scrape and chat, tool calling, and search and analyze examples in TypeScript."
 ---
 
 # LangChain

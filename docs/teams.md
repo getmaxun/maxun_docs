@@ -1,14 +1,18 @@
 ---
 id: teams-management
-title: Teams Management
+title: "Teams: Share Robots, Roles & Permissions"
+description: "Collaborate on Maxun Cloud with Teams. Invite members, set Admin, Member or Viewer roles, share robots and runs, and switch between accounts."
+sidebar_label: "Teams Management"
 sidebar_position: 14
 ---
+
+# Teams Management
 
 Maxun Cloud allows you to collaborate effectively by sharing robots, runs, and settings across multiple accounts using **Teams**. 
 
 Teams provide a unified workspace where members can build, test, and extract data together securely, all without having to share personal account credentials.
 
-![Teams Overview Placeholder](./teams_overview.png)
+![Maxun Teams overview screen](./teams_overview.png)
 
 ---
 
@@ -20,7 +24,7 @@ You can quickly create a team within the Maxun Dashboard.
 2. Click **Create Team**.
 3. Give your team a descriptive name (e.g., "Marketing Team") and an optional description.
 
-![Create Team Placeholder](./teams_create.png)
+![Create a team in Maxun](./teams_create.png)
 
 > **Note:** Team creation limits are tied to your subscription plan. Users on free or trial tiers may be restricted to their Personal Account and must upgrade to unlock collaborative features. Users are allowed to create 1 team per account.
 
@@ -57,7 +61,7 @@ Maxun provides access control through three specific roles to keep your data sec
 - **Read-Only**: View existing resources, robot configurations, and extracted data.
 - **Restrictions**: Cannot create, modify, execute, or delete any resources or settings.
 
-![Team Limits Placeholder](./teams_roles.png)
+![Team roles and permissions in Maxun](./teams_roles.png)
 
 ---
 
@@ -80,4 +84,4 @@ By using the **Switch Team** button on your Team configurations page, you can dy
 * When in your **Personal Account**, all robots, runs, and data reside securely and privately under your individual account limits.
 * When toggled into a **Team Context**, all building, extractions, and API logs will automatically execute and associate directly with that Team, tracking against the team owner's unified account.
 
-![Switch Context Placeholder](./teams_switch_context.png)
+![Switch between personal account and team in Maxun](./teams_switch_context.png)

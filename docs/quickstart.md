@@ -1,4 +1,7 @@
 ---
+title: "Maxun Quickstart: Cloud, SDK & Open-Source Setup"
+description: "Get started with Maxun in minutes. Sign up for Maxun Cloud, install the Node.js or Python SDK, or self-host the open-source edition with Docker."
+sidebar_label: "Get Started"
 sidebar_position: 2
 slug: /quickstart
 ---
@@ -7,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 # Get Started
 
-Get started with Maxun in minutes. There are three ways to use Maxun. Pick Cloud for the fastest start, the SDK to build robots in code, or the Community Edition to self-host.
+Get started with Maxun in minutes. Sign up for Maxun Cloud, install the Node.js or Python SDK, or self-host the open-source edition with Docker.
 
 ## Maxun Cloud
 
@@ -90,4 +93,4 @@ async with Maxun() as maxun:
 For more detailed usage, see the [Node.js SDK](/sdk/node-sdk/sdk-overview) and [Python SDK](/sdk/python-sdk/sdk-overview) guides.
 
 ## Maxun Community Edition
-Maxun is open-source and can run on your system. Learn how to <a href="/category/self-host">setup Maxun locally</a>.
+Maxun is open-source and can run on your own infrastructure. Learn how to <a href="/category/self-host">self-host Maxun</a> with Docker Compose or a local setup.

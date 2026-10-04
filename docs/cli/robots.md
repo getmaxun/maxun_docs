@@ -1,6 +1,8 @@
 ---
 id: cli-robots
-title: Robots
+title: "CLI: Create & Manage Robots"
+description: "Create scrape, crawl, search, AI extract and document robots from the terminal with maxun robots, then list, inspect, duplicate and delete them."
+sidebar_label: "Robots"
 sidebar_position: 2
 ---
 

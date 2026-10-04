@@ -1,4 +1,7 @@
 ---
+title: "Install Maxun With Docker Compose"
+description: "Install and run self-hosted Maxun with Docker Compose: generate secrets, set up .env and start the containers. Frontend on 5173, backend on 8080."
+sidebar_label: "Docker Compose"
 sidebar_position: 1
 ---
 

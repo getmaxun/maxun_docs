@@ -1,6 +1,8 @@
 ---
 id: llm-prompts
-title: LLM Prompt Engineering
+title: "How to Write Prompts for AI Web Data Extraction"
+description: "Examples of prompts that work, and prompts to avoid, when extracting web data with Maxun AI Mode and the SDK's LLM extraction."
+sidebar_label: "LLM Prompt Engineering"
 sidebar_position: 13
 ---
 
@@ -8,7 +10,7 @@ sidebar_position: 13
 
 This guide applies when using LLM-powered extraction, whether through the AI Mode or the SDK's LLM extraction feature.
 
-### ✅ Do
+## Prompts That Work
 
 **Be Specific About Fields**
 - ✅ "Extract product names, prices, and ratings"
@@ -27,7 +29,7 @@ This guide applies when using LLM-powered extraction, whether through the AI Mod
 - ✅ "Extract all job postings with title, company, and location"
 - ✅ "Get product listings with name and price"
 
-### ❌ Don't
+## Prompts to Avoid
 
 **Multi-Step Workflows**
 - ❌ "Login and then extract data"
@@ -49,13 +51,13 @@ This guide applies when using LLM-powered extraction, whether through the AI Mod
 - ❌ "Get the CEO name"
 - ❌ "Extract the main headline"
 
-### ✅ When to Use LLM Extraction
+## When to Use LLM Extraction
 
 1. You want to quickly extract list data from a single page
 2. You want to avoid manually creating extraction selectors
 3. You're extracting common patterns (products, articles, listings)
 
-### ❌ When Not to Use LLM Extraction
+## When Not to Use LLM Extraction
 
 1. You need multi-step workflows (logins, navigation between pages)
 2. You need form submissions before extraction

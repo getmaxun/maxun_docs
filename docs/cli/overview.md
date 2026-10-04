@@ -1,6 +1,8 @@
 ---
 id: cli-overview
-title: Overview
+title: "Maxun CLI: Install & Quick Start"
+description: "Install the Maxun CLI with npm, log in with your API key and create, run and export robots from the terminal. Works with Cloud and self-hosted."
+sidebar_label: "Overview"
 sidebar_position: 1
 ---
 
@@ -8,16 +10,17 @@ sidebar_position: 1
 
 The Maxun CLI lets you create robots, trigger runs, and fetch extracted data directly from your terminal — without opening the dashboard. It's fully compatible with both the **Cloud version** and **Self-hosted / OSS version** of Maxun.
 
+## Requirements
+
+- Node.js 18.0.0 or higher
+- A Maxun account and API key from [app.maxun.dev](https://app.maxun.dev) (for Cloud) or your local instance (for Self-hosted).
+
+
 ## Installation
 
 ```bash
 npm install -g maxun-cli
 ```
-
-## Requirements
-
-- Node.js 18.0.0 or higher
-- A Maxun account and API key from [app.maxun.dev](https://app.maxun.dev) (for Cloud) or your local instance (for Self-hosted).
 
 ## Authentication
 

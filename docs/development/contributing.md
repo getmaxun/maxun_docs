@@ -1,9 +1,13 @@
 ---
+title: "Contributing to Maxun"
+sidebar_label: "Contributing"
 sidebar_position: 2
-description: Contribution Guidelines
+description: "How to contribute to Maxun: set up locally, branch from develop, use conventional commits and open a pull request. Guidelines for AI-assisted code."
 ---
 
-# Contributing
+# Contributing to Maxun
+
+Maxun is open source and we welcome contributions, from bug fixes and new features to docs and translations. Here's how to get your first pull request merged.
 
 ## Local Setup
 Read local installation instructions here: <a href="/installation/local">Local Installation</a>

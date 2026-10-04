@@ -11,7 +11,7 @@ require('dotenv').config();
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Maxun Documentation',
+  title: 'Maxun',
   tagline: 'Maxun is the open-source web data platform for gathering, monitoring, and analyzing web data. Turn websites into APIs.',
   favicon: 'img/maxunlogo.png',
 
@@ -71,9 +71,13 @@ const config = {
           lastmod: 'date',
           changefreq: 'weekly',
           priority: 0.5,
+          ignorePatterns: ['/search', '/tags/**'],
         },
       }),
     ],
+  ],
+
+  plugins: [
     [
       '@docusaurus/plugin-client-redirects',
       {
@@ -81,10 +85,6 @@ const config = {
           {
             to: '/robot/robots', // The NEW existing page
             from: '/robot/robot-options',   // The OLD broken link
-          },
-          {
-            to: '/robot/extract/robot-actions',
-            from: '/robot/extract/robot-actions',
           },
           {
             to: '/category/api-reference',
@@ -106,6 +106,10 @@ const config = {
             to: '/robot-schedule',
             from: '/robot/robot-schedule',
           },
+          {
+            to: '/robot/crawl',
+            from: ['/category/crawl', '/robot/crawl/crawl-introduction', '/robot/crawl/crawl-configuration'],
+          },
         ],
       },
     ],
@@ -116,8 +120,12 @@ const config = {
     ({
       // Replace with your project's social card
       image: 'img/maxunlogo.png',
+      metadata: [
+        { property: 'og:site_name', content: 'Maxun Docs' },
+        { name: 'twitter:site', content: '@MaxunHQ' },
+      ],
       navbar: {
-        title: 'Maxun Documentation',
+        title: 'Maxun',
         logo: {
           alt: 'Maxun Logo',
           src: 'img/maxunlogo.png',

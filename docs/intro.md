@@ -1,13 +1,24 @@
 ---
+title: "Maxun Docs: Open-Source Web Scraping & Extraction"
+description: "Documentation for Maxun, the open-source platform to scrape, crawl, extract, search and monitor websites via API, SDK, CLI, MCP or no-code."
+sidebar_label: "Welcome"
 sidebar_position: 1
 slug: /
 ---
 
-# Welcome
+# Maxun Documentation
 <h3>Turn any website into live, clean structured data with Maxun</h3>
 
 Maxun is the open-source web data platform for turning the web into structured, reliable data.  
 It supports extraction, crawling, scraping, monitoring and search - designed to scale from simple use cases to complex, automated workflows.
+
+## Start Here
+
+- **New to Maxun?** Follow the [Quickstart](/quickstart) to create your first robot in minutes.
+- **Not sure which robot to use?** See [Robots Overview](/robot/robots) to compare Extract, Scrape, Crawl, Search and Document robots.
+- **Building in code?** Install the [Node.js or Python SDK](/category/sdk), or use the [REST API](/category/api-reference).
+- **Using AI agents?** Connect Claude, Cursor and other MCP clients with the [MCP server](/mcp/setup).
+- **Self-hosting?** Install the open-source edition with [Docker Compose](/installation/docker).
 
 ## What Maxun Enables
 
@@ -64,6 +75,10 @@ Maxun is no-code by default, with APIs, CLI, MCP, and SDKs for deeper integratio
     <td>Connect Maxun to AI agents through the Model Context Protocol.<a href="https://docs.maxun.dev/category/mcp"> Learn more</a>.</td>
   </tr>
 </table>
+
+## What Can You Build?
+
+Teams use Maxun for [e-commerce price and stock monitoring](/usecases/ecommerce_automation), [market research](/usecases/market_research), [lead generation](/usecases/lead_generation), [real estate data](/usecases/real_estate), [content aggregation](/usecases/content_aggregation) and [academic research](/usecases/academic_research), as well as RAG pipelines and AI agents that need live web data.
 
 ## Sponsors
 

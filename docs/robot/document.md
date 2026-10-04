@@ -1,17 +1,19 @@
 ---
 id: document
-title: Document
+title: "Document Robots: Extract & Parse PDFs and Files"
+description: "Extract specific fields from documents with a prompt, or convert PDFs and other files to clean Markdown, HTML or links. Available in the SDK and CLI."
+sidebar_label: "Document"
 ---
 
-# Document
+# Document Robots
 
 Maxun can work with documents in two ways:
 1. **Structured Extraction**: Extract specific data fields from documents.
 2. **Document Conversion**: Convert entire documents into a clean, structured format.
 
-Note: Document Robots is in beta.
+Note: Document robots are in beta.
 
-### Supported Files
+## Supported Files
 
 Document robots accept **PDF**, **CSV**, **XLSX**, **JPG**, **PNG**, and **DOCX** files, up to **10 MB**. For multi-sheet XLSX files, each sheet is treated as a separate page.
 
@@ -20,14 +22,14 @@ Document robots accept **PDF**, **CSV**, **XLSX**, **JPG**, **PNG**, and **DOCX*
 Upload a PDF, CSV, XLSX, JPG, PNG or DOCX file and tell Maxun what information you want from it. Maxun figures out the structure automatically and saves it as a reusable robot — so you can run it on new documents any time.
 
 
-### How It Works
+### How Document Extraction Works
 
 1. Upload a sample document (PDF, CSV, XLSX, JPG, PNG, or DOCX).
 2. Describe what you want to extract (e.g. *"invoice number, vendor name, and total amount"*).
 3. Maxun creates a robot that can extract those fields from any similar document.
 4. Run the robot whenever you have a new file to process.
 
-### ✅ When to Use Extract
+### When to Use Extract
 
 - You need specific fields from documents like invoices, contracts, or offer letters.
 - You receive the same type of document repeatedly and want to automate processing it.
@@ -39,9 +41,9 @@ Upload a PDF, CSV, XLSX, JPG, PNG or DOCX file and tell Maxun what information y
 Upload a PDF, CSV, XLSX, JPG, PNG, or DOCX file and convert it into clean Markdown, HTML, a list of links, or an AI-generated summary. No configuration needed — just pick your format and run.
 
 
-### How It Works
+### How Document Parsing Works
 
-1. Upload a document (PDF, CSV, XLSX, JPG, PNG, or DOCX ).
+1. Upload a document (PDF, CSV, XLSX, JPG, PNG, or DOCX).
 2. Choose your output format - Markdown, HTML, Links, or Summary.
 3. Maxun converts the document and makes it available for every run.
 
@@ -54,18 +56,29 @@ Upload a PDF, CSV, XLSX, JPG, PNG, or DOCX file and convert it into clean Markdo
 
 > Note: Self-hosted installations use your configured LLM. Ollama runs locally without an API key; hosted providers require an API key when creating the robot or via `ANTHROPIC_API_KEY` / `OPENAI_API_KEY` in your server environment. Maxun Cloud automatically selects the best AI for the task.
 
-### ✅ When to Use Parse
+### When to Use Parse
 
 - You want to feed a document into an AI tool or pipeline.
 - You need the content of a document in a readable, structured format.
 
----
 
 ## Using with SDK
 
-Both robot types are available through the <a href="/category/sdk">Maxun SDK</a>.
+Document Robots are available through the <a href="/category/sdk">Maxun SDK</a> for programmatic usage and integration into your applications.
+
+```javascript
+// Extract specific fields
+const invoiceRobot = await maxun.documents.extract('Invoice Extractor', './invoice.pdf', 'Extract invoice number, vendor name, and total amount');
+
+// Convert a document to Markdown
+const parseRobot = await maxun.documents.parse('Report Parser', './report.pdf');
+```
+
+See [Node.js Document](/sdk/node-sdk/sdk-document) and [Python Document](/sdk/python-sdk/sdk-document) for all options.
 
 ## Using with CLI
+
+Document Robots are available through the <a href="/category/cli">Maxun CLI</a> for quick data gathering from the terminal.
 
 ```bash
 # Extract specific fields from a PDF, CSV, or XLSX file

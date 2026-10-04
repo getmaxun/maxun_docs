@@ -1,6 +1,8 @@
 ---
 id: monitoring
-title: Monitoring
+title: "Website Change Monitoring & Alerts"
+description: "Track websites over time and get notified when they change. Monitor an entire site, a page or specific data with Extract, Scrape and Crawl robots."
+sidebar_label: "Monitoring"
 sidebar_position: 6
 ---
 

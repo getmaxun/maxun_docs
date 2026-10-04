@@ -1,6 +1,8 @@
 ---
 id: sdk-crawl
-title: Crawl
+title: "Python Web Crawler: Crawl Entire Websites"
+description: "Crawl entire websites in Python with the Maxun SDK. Domain, subdomain and path modes, page limits, depth, path filters and sitemap discovery."
+sidebar_label: "Crawl"
 sidebar_position: 4
 ---
 
