@@ -3,8 +3,28 @@
     {
       "source": "/proxy-sponsors-status.json",
       "headers": [
-        { "key": "Access-Control-Allow-Origin", "value": "*" }
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
       ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/category/crawl",
+      "destination": "/robot/crawl",
+      "permanent": true
+    },
+    {
+      "source": "/robot/crawl/crawl-introduction",
+      "destination": "/robot/crawl",
+      "permanent": true
+    },
+    {
+      "source": "/robot/crawl/crawl-configuration",
+      "destination": "/robot/crawl",
+      "permanent": true
     }
   ]
 }
