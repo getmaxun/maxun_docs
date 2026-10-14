@@ -16,22 +16,26 @@ From October 2026, the original `/api/robots` API is deprecated on Maxun Cloud. 
 
 ## Basics
 
-**Base URL**
+### Base URL
 
 ```
 https://app.maxun.dev/api/v1
 ```
 
-**Authentication.** Send your [API key](/api/api) as `Authorization: Bearer <api-key>` or `x-api-key: <api-key>`.
+### Authentication
+
+Send your [API key](/api/api) as `Authorization: Bearer <api-key>` or `x-api-key: <api-key>`.
 
 ```bash
 curl https://app.maxun.dev/api/v1/robots \
   -H "Authorization: Bearer YOUR_API_KEY"
 ```
 
-**Teams.** Requests use your personal robots. To use a team's robots, add `x-team-id: <team-id>`. The Team ID is on the **Teams** page of the dashboard and in [`GET /me`](#account). Your team role applies: viewers can read, members can also create, update and run, and admins can also delete.
+### Teams
+ Requests use your personal robots. To use a team's robots, add `x-team-id: <team-id>`. The Team ID is on the **Teams** page of the dashboard and in [`GET /me`](#account). Your team role applies: viewers can read, members can also create, update and run, and admins can also delete.
 
-**Responses.** Every response is JSON:
+### Responses
+Every response is JSON:
 
 ```json
 { "success": true, "data": { … } }
@@ -50,9 +54,11 @@ curl https://app.maxun.dev/api/v1/robots \
 | `409` | Conflict, such as a duplicate robot name or a run that has already finished |
 | `429` | Rate limited; wait for the `Retry-After` seconds |
 
-**Pagination.** Lists take `limit` (default `25`, max `100`) and `offset`, newest first. A page shorter than `limit` is the last one.
+### Pagination
+Lists take `limit` (default `25`, max `100`) and `offset`, newest first. A page shorter than `limit` is the last one.
 
-**Rate limits.** Limits are per minute and scale with your plan. Responses carry `X-RateLimit-Limit` and `X-RateLimit-Remaining`.
+### Rate limits
+Limits are per minute and scale with your plan. Responses carry `X-RateLimit-Limit` and `X-RateLimit-Remaining`.
 
 ## Endpoints
 
