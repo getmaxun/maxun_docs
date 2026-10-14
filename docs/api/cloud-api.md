@@ -22,11 +22,11 @@ From October 2026, the original `/api/robots` API is deprecated on Maxun Cloud. 
 <ApiSections items={[
   { title: 'Basics', href: '#basics', description: 'Base URL, authentication, teams, errors and limits' },
   { title: 'Account', href: '#account', description: 'Your plan, credits, usage and queue',},
-  { title: 'Robots', href: '#robots', description: 'Create scrape, crawl, search and document robots',  },
-  { title: 'Agents', href: '#agents', description: 'Build web extraction agents using prompts with AI' },
-  { title: 'Runs', href: '#runs', description: 'Start runs and read the data they extract' },
-  { title: 'Schedules', href: '#schedules', description: 'Run robots automatically', },
-  { title: 'Monitoring', href: '#monitoring', description: 'Detect changes between runs and get alerts', },
+  { title: 'Robot', href: '#robots', description: 'Scrape, crawl, search and document robots',  },
+  { title: 'Agent', href: '#agents', description: 'Web extraction agents using prompts with AI' },
+  { title: 'Run', href: '#runs', description: 'Fetch data collected by robots & agents' },
+  { title: 'Schedule', href: '#schedules', description: 'Extract data on a schedule', },
+  { title: 'Monitor', href: '#monitoring', description: 'Detect websites changes and get alerts', },
   { title: 'Webhooks', href: '#webhooks', description: 'Get notified when runs finish', },
 ]} />
 
