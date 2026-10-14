@@ -10,10 +10,6 @@ sidebar_position: 3
 
 This is the REST API of self-hosted (open source) Maxun.
 
-:::note
-From October 2026, this API is deprecated on Maxun Cloud. Cloud users should use the [Cloud API](/api/cloud-api).
-:::
-
 ## Base URL and authentication
 
 ```
