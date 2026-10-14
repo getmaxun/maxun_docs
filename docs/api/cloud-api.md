@@ -4,15 +4,31 @@ title: "Cloud API: Robots, Agents, Runs, Schedules, Monitoring & Webhooks"
 description: "The Maxun Cloud REST API (v1): create robots and agents, run and schedule them, monitor changes and manage webhooks."
 sidebar_label: "Cloud API"
 sidebar_position: 2
+toc_max_heading_level: 3
 ---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import ApiSections from '@site/src/components/ApiSections';
 
 # Cloud API
 
-The Cloud API (v1) lets you create robots and agents, run and schedule them, watch for changes and manage webhooks on [Maxun Cloud](https://app.maxun.dev).
+Create robots and agents, run and schedule them, watch for changes and manage webhooks on [Maxun Cloud](https://app.maxun.dev).
 
 :::note
 From October 2026, the original `/api/robots` API is deprecated on Maxun Cloud. Use the v1 endpoints on this page.
 :::
+
+<ApiSections items={[
+  { title: 'Basics', href: '#basics', description: 'Base URL, authentication, teams, errors and limits' },
+  { title: 'Account', href: '#account', description: 'Your plan, credits, usage and queue', endpoints: '/me · /usage · /queue' },
+  { title: 'Robots', href: '#robots', description: 'Create scrape, crawl, search and document robots', endpoints: '/robots' },
+  { title: 'Agents', href: '#agents', description: 'Build a robot from a plain-English prompt', endpoints: '/agents' },
+  { title: 'Runs', href: '#runs', description: 'Start runs and read the data they extract', endpoints: '/runs' },
+  { title: 'Schedules', href: '#schedules', description: 'Run robots automatically', endpoints: '/robots/{id}/schedule' },
+  { title: 'Monitoring', href: '#monitoring', description: 'Detect changes between runs and get alerts', endpoints: '/robots/{id}/monitoring' },
+  { title: 'Webhooks', href: '#webhooks', description: 'Get notified when runs finish', endpoints: '/robots/{id}/webhooks' },
+]} />
 
 ## Basics
 
@@ -26,16 +42,47 @@ https://app.maxun.dev/api/v1
 
 Send your [API key](/api/api) as `Authorization: Bearer <api-key>` or `x-api-key: <api-key>`.
 
+<Tabs groupId="lang" queryString>
+  <TabItem value="curl" label="cURL">
+
 ```bash
 curl https://app.maxun.dev/api/v1/robots \
   -H "Authorization: Bearer YOUR_API_KEY"
 ```
 
+  </TabItem>
+  <TabItem value="js" label="JavaScript">
+
+```js
+const res = await fetch('https://app.maxun.dev/api/v1/robots', {
+  headers: { Authorization: `Bearer ${process.env.MAXUN_API_KEY}` },
+});
+const { data: robots } = await res.json();
+```
+
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+```python
+import os, requests
+
+res = requests.get(
+    "https://app.maxun.dev/api/v1/robots",
+    headers={"Authorization": f"Bearer {os.environ['MAXUN_API_KEY']}"},
+)
+robots = res.json()["data"]
+```
+
+  </TabItem>
+</Tabs>
+
 ### Teams
- Requests use your personal robots. To use a team's robots, add `x-team-id: <team-id>`. The Team ID is on the **Teams** page of the dashboard and in [`GET /me`](#account). Your team role applies: viewers can read, members can also create, update and run, and admins can also delete.
+
+Requests use your personal robots. To use a team's robots, add `x-team-id: <team-id>`. The Team ID is on the **Teams** page of the dashboard and in [`GET /me`](#get-me). Your team role applies: viewers can read, members can also create, update and run, and admins can also delete.
 
 ### Responses
-Every response is JSON:
+
+Every response is JSON with a `success` flag:
 
 ```json
 { "success": true, "data": { … } }
@@ -55,12 +102,14 @@ Every response is JSON:
 | `429` | Rate limited; wait for the `Retry-After` seconds |
 
 ### Pagination
+
 Lists take `limit` (default `25`, max `100`) and `offset`, newest first. A page shorter than `limit` is the last one.
 
 ### Rate limits
+
 Limits are per minute and scale with your plan. Responses carry `X-RateLimit-Limit` and `X-RateLimit-Remaining`.
 
-## Endpoints
+## Account
 
 | Method | Endpoint | Description |
 |---|---|---|
@@ -68,40 +117,10 @@ Limits are per minute and scale with your plan. Responses carry `X-RateLimit-Lim
 | `GET` | `/usage` | Plan, credits and robot, agent and run counts |
 | `GET` | `/usage/rate-limits` | Your current rate limits |
 | `GET` | `/queue` | Runs running and waiting |
-| `GET` | `/robots` | List robots |
-| `GET` | `/robots/{id}` | Get a robot |
-| `POST` | `/robots/scrape` | Create a scrape robot |
-| `POST` | `/robots/crawl` | Create a crawl robot |
-| `POST` | `/robots/search` | Create a search robot |
-| `POST` | `/robots/document-extract` | Create a document extract robot |
-| `POST` | `/robots/document-parse` | Create a document parse robot |
-| `PATCH` | `/robots/{id}` | Update a robot |
-| `POST` | `/robots/{id}/duplicate` | Copy a robot onto another URL |
-| `DELETE` | `/robots/{id}` | Delete a robot and its runs |
-| `PUT` | `/robots/{id}/document` | Replace a document robot's file |
-| `PATCH` | `/robots/{id}/document-prompt` | Change a document extract robot's prompt |
-| `POST` | `/agents` | Create an agent from a prompt |
-| `GET` | `/agents` | List agents |
-| `POST` | `/robots/{id}/runs` | Start a run |
-| `GET` | `/robots/{id}/runs` | List a robot's runs |
-| `GET` | `/runs` | List runs |
-| `GET` | `/runs/active` | List queued and running runs |
-| `GET` | `/runs/{runId}` | Get a run and its data |
-| `POST` | `/runs/{runId}/cancel` | Cancel a run |
-| `DELETE` | `/runs/{runId}` | Delete a run |
-| `GET` `PUT` `DELETE` | `/robots/{id}/schedule` | Read, set or remove a schedule |
-| `GET` | `/schedules` | List scheduled robots |
-| `GET` `PUT` | `/robots/{id}/monitoring` | Read or change monitoring |
-| `GET` | `/runs/{runId}/diff` | Compare a run with the previous one |
-| `GET` `POST` | `/robots/{id}/webhooks` | List or add webhooks |
-| `PATCH` `DELETE` | `/robots/{id}/webhooks/{webhookId}` | Update or remove a webhook |
-| `POST` | `/robots/{id}/webhooks/{webhookId}/test` | Send a test event |
 
-Every `/robots/{id}` endpoint also works as `/agents/{id}` for agents.
+### Get me
 
-## Account
-
-**`GET /me`**
+`GET /me`
 
 ```json
 {
@@ -116,7 +135,9 @@ Every `/robots/{id}` endpoint also works as `/agents/{id}` for agents.
 }
 ```
 
-**`GET /usage`.** With `x-team-id`, the plan and credits are the team owner's and the counts are the team's.
+### Get usage
+
+`GET /usage`. With `x-team-id`, the plan and credits are the team owner's and the counts are the team's.
 
 ```json
 {
@@ -136,11 +157,29 @@ Every `/robots/{id}` endpoint also works as `/agents/{id}` for agents.
 
 `robots` includes agents. `runs` counts runs to date.
 
-**`GET /usage/rate-limits`** returns each limit with `category`, `limitPerMinute` and `remaining`.
+### Rate limits and queue
 
-**`GET /queue`** returns `running`, `queued`, `oldestQueuedAt` and `lastSuccessAt`. Runs wait in the queue when all your browser slots are busy.
+- `GET /usage/rate-limits` returns each limit with `category`, `limitPerMinute` and `remaining`.
+- `GET /queue` returns `running`, `queued`, `oldestQueuedAt` and `lastSuccessAt`. Runs wait in the queue when all your browser slots are busy.
 
 ## Robots
+
+| Method | Endpoint | Description |
+|---|---|---|
+| `GET` | `/robots` | List robots |
+| `GET` | `/robots/{id}` | Get a robot |
+| `POST` | `/robots/scrape` | Create a scrape robot |
+| `POST` | `/robots/crawl` | Create a crawl robot |
+| `POST` | `/robots/search` | Create a search robot |
+| `POST` | `/robots/document-extract` | Create a document extract robot |
+| `POST` | `/robots/document-parse` | Create a document parse robot |
+| `PATCH` | `/robots/{id}` | Update a robot |
+| `POST` | `/robots/{id}/duplicate` | Copy a robot onto another URL |
+| `DELETE` | `/robots/{id}` | Delete a robot and its runs |
+| `PUT` | `/robots/{id}/document` | Replace a document robot's file |
+| `PATCH` | `/robots/{id}/document-prompt` | Change a document extract robot's prompt |
+
+Robots built in the recorder are created in the dashboard; every other endpoint works with them.
 
 ### The robot object
 
@@ -172,9 +211,7 @@ Every `/robots/{id}` endpoint also works as `/agents/{id}` for agents.
 | `prompt`, `deepExtraction` | Agents only |
 | `schedule`, `monitoring`, `webhooks` | See [Schedules](#schedules), [Monitoring](#monitoring) and [Webhooks](#webhooks) |
 
-Robots built in the recorder are created in the dashboard; every other endpoint works with them.
-
-### List and get
+### List and get robots
 
 `GET /robots` takes `type`, `q` (name search), `scheduled` (`true` or `false`), `limit` and `offset`. `GET /robots/{id}` returns one robot.
 
@@ -189,12 +226,45 @@ Robots built in the recorder are created in the dashboard; every other endpoint 
 | `formats` | No | Any of `markdown`, `html`, `text`, `links`, `summary`, `screenshot-visible`, `screenshot-fullpage`. Default `["markdown"]` |
 | `smartQueries` | No | Questions to answer from the page |
 
+<Tabs groupId="lang" queryString>
+  <TabItem value="curl" label="cURL">
+
 ```bash
 curl -X POST https://app.maxun.dev/api/v1/robots/scrape \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{ "url": "https://example.com/pricing", "formats": ["markdown", "links"] }'
 ```
+
+  </TabItem>
+  <TabItem value="js" label="JavaScript">
+
+```js
+const res = await fetch('https://app.maxun.dev/api/v1/robots/scrape', {
+  method: 'POST',
+  headers: {
+    Authorization: `Bearer ${process.env.MAXUN_API_KEY}`,
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({ url: 'https://example.com/pricing', formats: ['markdown', 'links'] }),
+});
+const { data: robot } = await res.json();
+```
+
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+```python
+res = requests.post(
+    "https://app.maxun.dev/api/v1/robots/scrape",
+    headers={"Authorization": f"Bearer {os.environ['MAXUN_API_KEY']}"},
+    json={"url": "https://example.com/pricing", "formats": ["markdown", "links"]},
+)
+robot = res.json()["data"]
+```
+
+  </TabItem>
+</Tabs>
 
 ### Create a crawl robot
 
@@ -249,6 +319,17 @@ curl -X POST https://app.maxun.dev/api/v1/robots/document-extract \
 
 An agent is a robot built from a prompt, like AI Mode in the dashboard.
 
+| Method | Endpoint | Description |
+|---|---|---|
+| `POST` | `/agents` | Create an agent |
+| `GET` | `/agents` | List agents |
+| `GET` `PATCH` `DELETE` | `/agents/{id}` | Get, rename or delete an agent |
+| `POST` `GET` | `/agents/{id}/runs` | Run an agent or list its runs |
+
+Agents are robots, so the [schedule](#schedules), [monitoring](#monitoring) and [webhook](#webhooks) endpoints also work under `/agents/{id}/…`.
+
+### Create an agent
+
 `POST /agents`
 
 | Field | Required | Description |
@@ -258,6 +339,9 @@ An agent is a robot built from a prompt, like AI Mode in the dashboard.
 | `name` | No | Defaults to `LLM Extract: <prompt>` |
 | `deepExtraction` | No | Also open each item's detail page (paid plans). See [Deep Extraction](/deep-extraction) |
 
+<Tabs groupId="lang" queryString>
+  <TabItem value="curl" label="cURL">
+
 ```bash
 curl -X POST https://app.maxun.dev/api/v1/agents \
   -H "Authorization: Bearer YOUR_API_KEY" \
@@ -265,20 +349,110 @@ curl -X POST https://app.maxun.dev/api/v1/agents \
   -d '{ "prompt": "Job title, location and team for every open role", "url": "https://example.com/careers" }'
 ```
 
-Building takes a minute or two, so this returns `202` with the agent in `status: "creating"` and a `url` to check. Poll `GET /agents/{id}` until `status` is `ready`, or `failed` with the reason in `error`. Then run, schedule and monitor it like any robot. Failed agents don't count toward your plan limits.
+  </TabItem>
+  <TabItem value="js" label="JavaScript">
+
+```js
+const res = await fetch('https://app.maxun.dev/api/v1/agents', {
+  method: 'POST',
+  headers: {
+    Authorization: `Bearer ${process.env.MAXUN_API_KEY}`,
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    prompt: 'Job title, location and team for every open role',
+    url: 'https://example.com/careers',
+  }),
+});
+const { id } = await res.json();
+```
+
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+```python
+res = requests.post(
+    "https://app.maxun.dev/api/v1/agents",
+    headers={"Authorization": f"Bearer {os.environ['MAXUN_API_KEY']}"},
+    json={
+        "prompt": "Job title, location and team for every open role",
+        "url": "https://example.com/careers",
+    },
+)
+agent_id = res.json()["id"]
+```
+
+  </TabItem>
+</Tabs>
+
+### Wait until it's ready
+
+Building takes a minute or two, so `POST /agents` returns `202` with the agent in `status: "creating"`. Poll `GET /agents/{id}` until `status` is `ready`, or `failed` with the reason in `error`. Then run, schedule and monitor it like any robot. Failed agents don't count toward your plan limits.
 
 ## Runs
 
+| Method | Endpoint | Description |
+|---|---|---|
+| `POST` | `/robots/{id}/runs` | Start a run |
+| `GET` | `/runs/{runId}` | Get a run and its data |
+| `GET` | `/runs` | List runs |
+| `GET` | `/robots/{id}/runs` | List a robot's runs |
+| `GET` | `/runs/active` | List queued and running runs |
+| `POST` | `/runs/{runId}/cancel` | Cancel a run |
+| `DELETE` | `/runs/{runId}` | Delete a run |
+
 ### Start a run
 
-`POST /robots/{id}/runs` takes optional `formats` (to override the robot's formats) and `params` (input parameter values).
+`POST /robots/{id}/runs` takes optional `formats` (to override the robot's formats) and `params` (input parameter values). It returns `202` at once. If your browser slots are busy, `status` is `queued` and the run starts when one frees up. Each run needs at least 1 credit.
+
+<Tabs groupId="lang" queryString>
+  <TabItem value="curl" label="cURL">
 
 ```bash
 curl -X POST https://app.maxun.dev/api/v1/robots/ROBOT_ID/runs \
   -H "Authorization: Bearer YOUR_API_KEY"
 ```
 
-It returns `202` at once. If your browser slots are busy, `status` is `queued` and the run starts when one frees up. Each run needs at least 1 credit.
+  </TabItem>
+  <TabItem value="js" label="JavaScript">
+
+```js
+const headers = { Authorization: `Bearer ${process.env.MAXUN_API_KEY}` };
+
+const start = await fetch(`https://app.maxun.dev/api/v1/robots/${robotId}/runs`, { method: 'POST', headers });
+const { url } = await start.json();
+
+let run;
+do {
+  await new Promise((resolve) => setTimeout(resolve, 3000));
+  ({ data: run } = await (await fetch(url, { headers })).json());
+} while (['queued', 'running'].includes(run.status));
+
+console.log(run.status, run.data.markdown);
+```
+
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+```python
+import time
+
+headers = {"Authorization": f"Bearer {os.environ['MAXUN_API_KEY']}"}
+
+start = requests.post(f"https://app.maxun.dev/api/v1/robots/{robot_id}/runs", headers=headers)
+url = start.json()["url"]
+
+while True:
+    time.sleep(3)
+    run = requests.get(url, headers=headers).json()["data"]
+    if run["status"] not in ("queued", "running"):
+        break
+
+print(run["status"], run["data"]["markdown"])
+```
+
+  </TabItem>
+</Tabs>
 
 ```json
 { "success": true, "id": "a30eba41-…", "status": "running", "url": "https://app.maxun.dev/api/v1/runs/a30eba41-…" }
@@ -332,7 +506,7 @@ Poll `GET /runs/{runId}` until `status` is `success`, `failed` or `aborted`, or 
 | `data.promptResult` | Answers to a scrape robot's `smartQueries` |
 | `data.documentData` | Fields from a document extract robot |
 
-### List, cancel and delete
+### List, cancel and delete runs
 
 - **`GET /runs`** and **`GET /robots/{id}/runs`** list runs without their `data`. Filter with `robotId` (on `/runs`), `status` (comma-separated), `source`, `hasChanges`, `since` and `until` (ISO 8601), plus `limit` and `offset`.
 - **`GET /runs/active`** lists queued and running runs.
@@ -341,7 +515,16 @@ Poll `GET /runs/{runId}` until `status` is `success`, `failed` or `aborted`, or 
 
 ## Schedules
 
-`PUT /robots/{id}/schedule` sets or replaces a robot's schedule. It's the same schedule as in the dashboard.
+| Method | Endpoint | Description |
+|---|---|---|
+| `PUT` | `/robots/{id}/schedule` | Set or replace a schedule |
+| `GET` | `/robots/{id}/schedule` | Get a schedule, or `null` |
+| `DELETE` | `/robots/{id}/schedule` | Remove a schedule |
+| `GET` | `/schedules` | List scheduled robots, soonest first |
+
+### Set a schedule
+
+`PUT /robots/{id}/schedule`. It's the same schedule as in the dashboard.
 
 | Field | Required | Description |
 |---|---|---|
@@ -361,13 +544,18 @@ curl -X PUT https://app.maxun.dev/api/v1/robots/ROBOT_ID/schedule \
 
 The response includes the `cronExpression` and `nextRunAt`. Scheduled runs use the credits of the person who created the robot.
 
-`GET /robots/{id}/schedule` returns the schedule, or `null`. `DELETE /robots/{id}/schedule` removes it. `GET /schedules` lists scheduled robots, soonest first.
-
 ## Monitoring
 
 With monitoring on, each successful run is compared with the previous one and flagged with `hasChanges`. See [Monitoring](/monitoring) for how it works.
 
-`PUT /robots/{id}/monitoring` (fields you leave out keep their value):
+| Method | Endpoint | Description |
+|---|---|---|
+| `GET` `PUT` | `/robots/{id}/monitoring` | Read or change monitoring settings |
+| `GET` | `/runs/{runId}/diff` | Compare a run with the previous one |
+
+### Change settings
+
+`PUT /robots/{id}/monitoring`. Fields you leave out keep their value. You can also send these when creating a scrape robot, crawl robot or agent.
 
 | Field | Description |
 |---|---|
@@ -376,7 +564,7 @@ With monitoring on, each successful run is compared with the previous one and fl
 | `alertsEnabled` | Email when a run has changes. Needs `compareRuns` |
 | `alertEmail` | Where to send alerts. Defaults to the robot owner |
 
-You can also send these fields when creating a scrape robot, crawl robot or agent.
+### Read a diff
 
 `GET /runs/{runId}/diff` returns a line diff for each changed format (`text`, `markdown`, `html`, `captured-text`, `captured-list`). Add `?format=markdown` for one format. To find runs with changes, use `GET /runs?hasChanges=true`.
 
@@ -405,7 +593,15 @@ You can also send these fields when creating a scrape robot, crawl robot or agen
 
 Webhooks POST to your URL when a run completes or fails. See [Webhooks](/api/webhooks) for the payload.
 
-`POST /robots/{id}/webhooks`
+| Method | Endpoint | Description |
+|---|---|---|
+| `GET` `POST` | `/robots/{id}/webhooks` | List or add webhooks |
+| `PATCH` `DELETE` | `/robots/{id}/webhooks/{webhookId}` | Update or remove a webhook |
+| `POST` | `/robots/{id}/webhooks/{webhookId}/test` | Send a test event |
+
+### Add a webhook
+
+`POST /robots/{id}/webhooks`. A robot can have up to 10 webhooks.
 
 | Field | Default | Description |
 |---|---|---|
@@ -423,4 +619,4 @@ curl -X POST https://app.maxun.dev/api/v1/robots/ROBOT_ID/webhooks \
   -d '{ "url": "https://example.com/hooks/maxun" }'
 ```
 
-`PATCH` and `DELETE /robots/{id}/webhooks/{webhookId}` update or remove a webhook. `POST …/{webhookId}/test` sends a sample event and returns whether your server accepted it. A robot can have up to 10 webhooks.
+`POST …/{webhookId}/test` sends a sample event and returns whether your server accepted it.

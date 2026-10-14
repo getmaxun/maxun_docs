@@ -29,15 +29,15 @@ curl http://localhost:8080/api/robots \
 
 | Method | Endpoint | Description |
 |---|---|---|
-| `GET` | `/api/robots` | Get all robots |
-| `GET` | `/api/robots/{id}` | Get a robot by ID |
-| `POST` | `/api/robots/{id}/duplicate` | Duplicate a robot with a new target URL |
-| `POST` | `/api/robots/{id}/schedule` | Schedule recurring runs for a robot |
-| `GET` | `/api/robots/{id}/schedule` | Get a robot's schedule |
-| `DELETE` | `/api/robots/{id}/schedule` | Delete a robot's schedule |
-| `GET` | `/api/robots/{id}/runs` | Get all runs for a robot |
-| `POST` | `/api/robots/{id}/runs` | Run a robot |
-| `GET` | `/api/robots/{id}/runs/{runId}` | Get a specific run and its data |
+| `GET` | `/api/robots` | [Get all robots](#1-request-get-all-robots) |
+| `GET` | `/api/robots/{id}` | [Get a robot by ID](#2-request-get-robot-by-id) |
+| `POST` | `/api/robots/{id}/duplicate` | [Duplicate a robot with a new target URL](#3-request-duplicate-a-robot) |
+| `POST` | `/api/robots/{id}/schedule` | [Schedule recurring runs for a robot](#4-request-schedule-recurring-runs-for-a-robot) |
+| `GET` | `/api/robots/{id}/schedule` | [Get a robot's schedule](#5-request-get-a-robots-schedule) |
+| `DELETE` | `/api/robots/{id}/schedule` | [Delete a robot's schedule](#6-request-delete-a-robots-schedule) |
+| `GET` | `/api/robots/{id}/runs` | [Get all runs for a robot](#1-request-get-all-runs-for-a-robot) |
+| `POST` | `/api/robots/{id}/runs` | [Run a robot](#2-request-run-a-robot-by-id) |
+| `GET` | `/api/robots/{id}/runs/{runId}` | [Get a specific run and its data](#3-request-get-a-specific-run-by-id-for-a-robot) |
 
 For long-running robots, use [Webhooks](/api/webhooks) to receive results instead of polling.
 
