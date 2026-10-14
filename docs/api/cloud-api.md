@@ -21,13 +21,13 @@ From October 2026, the original `/api/robots` API is deprecated on Maxun Cloud. 
 
 <ApiSections items={[
   { title: 'Basics', href: '#basics', description: 'Base URL, authentication, teams, errors and limits' },
-  { title: 'Account', href: '#account', description: 'Your plan, credits, usage and queue', endpoints: '/me · /usage · /queue' },
-  { title: 'Robots', href: '#robots', description: 'Create scrape, crawl, search and document robots', endpoints: '/robots' },
-  { title: 'Agents', href: '#agents', description: 'Build a robot from a plain-English prompt', endpoints: '/agents' },
-  { title: 'Runs', href: '#runs', description: 'Start runs and read the data they extract', endpoints: '/runs' },
-  { title: 'Schedules', href: '#schedules', description: 'Run robots automatically', endpoints: '/robots/{id}/schedule' },
-  { title: 'Monitoring', href: '#monitoring', description: 'Detect changes between runs and get alerts', endpoints: '/robots/{id}/monitoring' },
-  { title: 'Webhooks', href: '#webhooks', description: 'Get notified when runs finish', endpoints: '/robots/{id}/webhooks' },
+  { title: 'Account', href: '#account', description: 'Your plan, credits, usage and queue',},
+  { title: 'Robots', href: '#robots', description: 'Create scrape, crawl, search and document robots',  },
+  { title: 'Agents', href: '#agents', description: 'Build web extraction agents using prompts with AI' },
+  { title: 'Runs', href: '#runs', description: 'Start runs and read the data they extract' },
+  { title: 'Schedules', href: '#schedules', description: 'Run robots automatically', },
+  { title: 'Monitoring', href: '#monitoring', description: 'Detect changes between runs and get alerts', },
+  { title: 'Webhooks', href: '#webhooks', description: 'Get notified when runs finish', },
 ]} />
 
 ## Basics
