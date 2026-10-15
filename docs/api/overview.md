@@ -14,22 +14,23 @@ Maxun lets you get the data your robot extracted and run robots via API. Every r
 
 | | Maxun Cloud | Self-hosted |
 |---|---|---|
-| Base URL | `https://app.maxun.dev` | Your `BACKEND_URL` (default `http://localhost:8080`) |
-| Auth header | `x-api-key: <your-api-key>` | `x-api-key: <your-api-key>` |
+| API | [Cloud API](/api/cloud-api) | [Open Source API](/api/open-source-api) |
+| Base URL | `https://app.maxun.dev/api/v1` | Your `BACKEND_URL` + `/api` (default `http://localhost:8080/api`) |
+| Auth header | `x-api-key: <your-api-key>` or `Authorization: Bearer <your-api-key>` | `x-api-key: <your-api-key>` |
 
-All REST endpoints live under `/api`. For example, to list your robots:
+For example, to list your robots on Maxun Cloud:
 
 ```bash
-curl https://app.maxun.dev/api/robots \
+curl https://app.maxun.dev/api/v1/robots \
   -H "x-api-key: YOUR_API_KEY"
 ```
 
-A request without a key returns `401 API key is missing`, and an invalid key returns `403 Invalid API key`.
+A request without a key returns `401`, and an invalid key returns `403`.
 
 Available endpoints:
 
-1. [Robot API](./robots.md): list, get and duplicate robots
-2. [Run API](./runs.md): run robots and fetch their results
+1. [Cloud API](./cloud-api.md): robots, agents, runs, schedules, monitoring and webhooks on Maxun Cloud
+2. [Open Source API](./open-source-api.md): robots, runs and schedules on self-hosted Maxun
 3. [Webhooks](./webhooks.md): receive results the moment a run finishes
 
 ## 1. Generate API Key

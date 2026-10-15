@@ -33,7 +33,7 @@ You can also duplicate robots programmatically:
 
 ### REST API
 
-`POST /api/robots/{id}/duplicate` with a `targetUrl` in the body. See [Robot API](/api/robot-api).
+`POST /api/v1/robots/{id}/duplicate` with a `url` in the body. See [Cloud API](/api/cloud-api#update-duplicate-and-delete).
 
 ### CLI
 

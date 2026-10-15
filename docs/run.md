@@ -26,7 +26,7 @@ Robot runs can be initiated in three different ways:
 |---|---|
 | Dashboard | Click **Run** on any robot |
 | Schedule | Set an interval in the robot's [schedule settings](/robot-schedule) |
-| REST API | `POST /api/robots/{id}/runs` ([Run API](/api/run-api)) |
+| REST API | `POST /api/v1/robots/{id}/runs` ([Cloud API](/api/cloud-api#runs)) |
 | Node.js SDK | `const result = await robot.run();` ([Robot Management](/sdk/node-sdk/sdk-robot)) |
 | Python SDK | `result = await robot.run()` ([Robot Management](/sdk/python-sdk/sdk-robot)) |
 | CLI | `maxun run <robot-id>` ([Running Robots](/cli/cli-run)) |

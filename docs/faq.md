@@ -182,7 +182,7 @@ Yes. Alongside the API and SDKs, Maxun has a no-code dashboard. Build a robot in
 Maxun provides a [REST API](/category/api-reference), official SDKs for [Node.js/TypeScript](/sdk/node-sdk/sdk-overview) and [Python](/sdk/python-sdk/sdk-overview), a [CLI](/cli/cli-overview) for terminal workflows, an [MCP server](/mcp/setup) for AI agents, and [webhooks](/api/webhooks) for real-time delivery.
 
 ### How do I authenticate API requests?
-Generate an API key in the Maxun dashboard and send it in the `x-api-key` header. On Maxun Cloud, the base URL is `https://app.maxun.dev` and all endpoints live under `/api`, for example `GET /api/robots`. See [API Key & Authentication](/api/api).
+Generate an API key in the Maxun dashboard and send it in the `x-api-key` header. On Maxun Cloud, the base URL is `https://app.maxun.dev/api/v1`, for example `GET /api/v1/robots`. See [API Key & Authentication](/api/api).
 
 ### Does Maxun work with AI agents and MCP?
 Yes. Maxun has an MCP server, so agents in Claude, Cursor, Windsurf, Cline and other MCP-compatible tools can run your robots and get results through natural language. See [MCP Setup](/mcp/setup) and [MCP Tools](/mcp/tools). There is also a [Claude Code skill](/integrations/claude-code).

@@ -25,6 +25,16 @@
       "source": "/robot/crawl/crawl-configuration",
       "destination": "/robot/crawl",
       "permanent": true
+    },
+    {
+      "source": "/api/robot-api",
+      "destination": "/api/open-source-api",
+      "permanent": true
+    },
+    {
+      "source": "/api/run-api",
+      "destination": "/api/open-source-api",
+      "permanent": true
     }
   ]
 }
