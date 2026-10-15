@@ -30,7 +30,7 @@ Robot runs can be initiated in three different ways:
 | Node.js SDK | `const result = await robot.run();` ([Robot Management](/sdk/node-sdk/sdk-robot)) |
 | Python SDK | `result = await robot.run()` ([Robot Management](/sdk/python-sdk/sdk-robot)) |
 | CLI | `maxun run <robot-id>` ([Running Robots](/cli/cli-run)) |
-| MCP | Ask your AI client to run a robot with the `run_robot` tool ([MCP Tools](/mcp/tools)) |
+| MCP | Ask your AI client to run a robot with the `maxun_run_robot` tool ([MCP Tools](/mcp/tools)) |
 
 ## Viewing and Exporting Results
 
