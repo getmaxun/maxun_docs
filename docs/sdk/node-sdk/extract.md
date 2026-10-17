@@ -37,7 +37,7 @@ for (const company of result.listData) {
 
 ### Without a URL
 
-Leave the URL out and Maxun searches the web for a suitable page first:
+On Maxun Cloud, leave the URL out and the agent searches the web for a suitable page first. Self-hosted Maxun requires a URL: AI Extract reads only the page you give it (see [Agent vs AI Extract](/robot/extract/llm-extraction#agent-vs-ai-extract)).
 
 ```javascript
 const robot = await maxun.extract('Top AI startups', {
