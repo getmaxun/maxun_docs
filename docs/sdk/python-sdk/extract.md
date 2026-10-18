@@ -38,7 +38,7 @@ for company in result.list_data:
 
 ### Without a URL
 
-Leave the URL out and Maxun searches the web for a suitable page first:
+On Maxun Cloud, leave the URL out and the agent searches the web for a suitable page first. Self-hosted Maxun requires a URL: [AI Mode](/robot/extract/llm-extraction) reads only the page you give it (see [Agent vs AI Mode](/robot/agent-vs-ai-mode)).
 
 ```python
 robot = await maxun.extract(

@@ -1,96 +1,111 @@
 ---
 id: llm-extraction
 title: "AI Mode: Extract Web Data With Natural Language"
-description: "Describe the data you want in plain English and Maxun's AI Mode builds the extraction robot. Supports Anthropic, OpenAI and Ollama when self-hosting."
+description: "Describe the data you want in plain English and AI Mode builds an Extract robot for that page. Self-hosted Maxun, with Anthropic, OpenAI or Ollama."
 sidebar_label: "AI Mode"
 sidebar_position: 2
 ---
 
 # AI Mode
 
-AI Mode uses LLMs to automatically create Extract robots from natural language prompts. Simply describe what data you want, and Maxun builds the robot for you.
+AI Mode builds an Extract robot from a web page and a description of the data you want. You enter a URL and a prompt such as "Extract the five men's basketball shoes with their names, prices, ratings and product URLs". Maxun works out which data on that page answers the prompt, turns it into an ordinary robot, and runs it.
 
-## How It Works
+The robot it saves works like one you built in Recorder Mode: it reads the page with selectors on every run, so runs are fast and don't call an LLM. You can schedule it, monitor it and use it from the API, SDK and CLI.
 
-1. **Enter URL**: Provide the webpage URL you want to extract data from.
+AI Mode is part of the self-hosted open-source edition and uses the LLM you configure. On Maxun Cloud, robots built from a prompt are [Agents](/robot/agent). See [Agent vs AI Mode](/robot/agent-vs-ai-mode) for how they differ.
 
-2. **Write Prompt**: Describe what data you want to extract in natural language. Be specific about the fields and quantity.
-   - Example: "Extract first 20 product names and prices"
-   - Example: "Get company names, descriptions, and batch information"
-   - Example: "Extract article headlines, authors, and publication dates"
+## Create a robot with AI Mode
 
-3. **Select LLM Provider**: Choose your preferred AI provider based on your needs.
-> Note: Choosing a provider is available only in Maxun Community Edition. Maxun Cloud manages the provider, model and credentials for you and automatically selects the right LLM for the task.
-   - **Ollama**: Best for local/offline use, no costs, no API key needed
-   - **Anthropic Claude**: Best for accuracy and complex extractions (recommended)
-   - **OpenAI GPT**: Good balance of speed and accuracy
+1. Open **Robots → Create Robot → Extract** and switch to **AI Mode**.
+2. **Website URL** (required): the page that holds the data. AI Mode reads this page only.
+3. **Prompt**: describe the data, the fields you want and, if it matters, how many items. For example:
+   - "Extract the first 20 product names and prices"
+   - "Get company names, descriptions and batch"
+   - "Extract article headlines, authors and publication dates"
+4. **Model settings**: choose the LLM provider and model. See [LLM providers](#llm-providers).
+5. Click **Create and run**. Maxun builds the robot, runs it once and opens the results.
 
-> Note: The same applies to the SDKs and API. See <a href="/sdk/node-sdk/sdk-extract">Node SDK Extract</a> or <a href="/sdk/python-sdk/sdk-extract">Python SDK Extract</a>.
+## How it works
 
-4. **Create Robot**: Click "Create & Run Robot" and Maxun will automatically build and run the robot based on your prompt.
+1. **Open the page.** The URL you entered is loaded once. A redirect to the same site is followed; a redirect to another site is refused with an explanation.
+2. **Stay on the page.** From then on, any attempt to load a different page is blocked: link clicks, scripts that change the location, new tabs, client-side route changes. Changing only the `#fragment` is allowed.
+3. **Reveal the content.** Cookie banners and modals are closed, the page is scrolled so lazy-loaded items appear, and collapsed sections (accordions, `<details>`) are opened. These are fixed steps; the model never decides what to click.
+4. **Understand the request.** The prompt is turned into the fields to extract and, if you gave one, the number of items. This happens before the page structure is considered, so the robot extracts what you asked for, not just the biggest list on the page.
+5. **Extract and build.** The model points to where each value appears on the page. Values that aren't on the page are dropped. The examples become selectors, which are checked by running the same scraper robots use.
+6. **Save.** The robot loads only your URL.
 
-## LLM Providers
+### Pagination
 
-**Ollama (Local)**
-- Runs on your machine
-- No API key required
-- Model: `llama3.2-vision`
-- Optional: Specify custom Ollama base URL
-- Note: If running via Docker, set `OLLAMA_BASE_URL=http://host.docker.internal:11434` to access your host's Ollama instance.
+AI Mode reads the page you entered. It reads further only when you ask for a specific number of items that the first page doesn't hold, for example "Extract 15 products" on a page that shows 12:
 
-**Anthropic Claude**
-- Cloud-based (requires API key)
-- Model: `claude-3-5-sonnet-20241022`
-- Recommended for best results
-- Get your API key from: <a href="https://console.anthropic.com/">Anthropic Console</a>
+- If the page loads more items as you scroll, the robot scrolls.
+- Otherwise the robot clicks the page's own *Next* or *Load more* control and stops at the number you asked for.
 
-**OpenAI GPT**
-- Cloud-based (requires API key)
-- Model: `gpt-4-vision-preview`
-- Get your API key from: <a href="https://platform.openai.com/api-keys">OpenAI Platform</a>
+A *Next* link that leads to another site is never used. Without a number in the prompt, the robot reads the first page only.
 
-## Setting API Keys
-**For Self-Hosted**
-Set the API keys as environment variables before starting Maxun
-```bash
-ANTHROPIC_API_KEY=your-anthropic-key
-OPENAI_API_KEY=your-openai-key
+### When the data isn't on the page
+
+AI Mode never looks for the data elsewhere. If some requested fields aren't on the page, the robot is still created with the fields that are, and the missing fields are recorded with the robot. If none of the data is on the page, creation stops with an error such as:
+
+```text
+The requested data (Day, Hours) was not found on https://example.com/shoes.
+AI Extract only reads this page and does not visit other pages; check that the
+URL shows the data, or describe the data as it appears on the page.
 ```
 
-See <a href="/installation/environment_variables">Environment Variables</a> for more details.
+## LLM providers
 
-## When to Use AI Mode
+Choose a provider under **Model settings** when you create the robot, or pass it from the SDK, API or CLI.
 
-1. You want to quickly extract list data from a single page
-2. You want to avoid learning the Recorder interface
-3. You're extracting common patterns (products, articles, listings)
+| Provider | API key | Default model | Notes |
+| :-- | :-- | :-- | :-- |
+| **Anthropic** | Required: in Model settings or `ANTHROPIC_API_KEY` | `claude-sonnet-5` | Get a key from the <a href="https://console.anthropic.com/">Anthropic Console</a> |
+| **OpenAI / OpenAI-compatible** | Required: in Model settings or `OPENAI_API_KEY` | `gpt-5.6-terra` | Set a base URL to use any OpenAI-compatible server |
+| **Ollama** | Not needed locally. Ollama Cloud: `OLLAMA_API_KEY` | `llama3.2` | Pull the model first (`ollama pull llama3.2`), or set another one |
 
-## When Not to Use AI Mode
+Choosing a model in Model settings overrides the default. Any model that follows instructions and returns JSON reliably works; larger models give better results on complex pages.
 
-1. You need multi-step workflows (logins, navigation between pages)
-2. You need form submissions before extraction
-3. You need to extract from multiple different page types
-4. You need conditional logic or data transformations
+### Ollama
 
-For these use cases, use Recorder Mode to create Extract robots manually.
+- **Local**: Maxun connects to `http://localhost:11434`. If Maxun runs in Docker and Ollama runs on your machine, set `OLLAMA_BASE_URL=http://host.docker.internal:11434`.
+- **Ollama Cloud**: set the base URL, your API key, and a model that Ollama Cloud serves:
 
-## Using with SDK
+```bash
+OLLAMA_BASE_URL=https://ollama.com
+OLLAMA_API_KEY=your-ollama-api-key
+OLLAMA_MODEL=gpt-oss:20b
+```
 
-AI Mode is also available through the <a href="/category/sdk">Maxun SDK</a> for programmatic robot creation:
+If the model doesn't exist on the server, robot creation fails with Ollama's own message (for example `model 'llama3.2' not found`) and what to check.
+
+See <a href="/installation/environment_variables">Environment Variables</a> for all settings.
+
+## When to use AI Mode
+
+- You want data from a page without learning the Recorder.
+- The data is a list (products, jobs, articles, listings) or a few values on a page (a price, an address, a date).
+- You know the page that shows the data.
+
+## When to use Recorder Mode instead
+
+- You need to log in, fill in forms or click through several steps before the data appears.
+- The data is spread across several pages, or needs the site's search, filters or sorting applied first.
+- You need exact control over every step of the robot.
+
+## Using with the SDK
 
 ```javascript
 const robot = await maxun.extract('YC companies', 'https://www.ycombinator.com/companies', {
   prompt: 'Extract the first 20 company names and descriptions',
+  llmProvider: 'anthropic',
+  llmApiKey: 'your-llm-api-key',
 });
 const result = await robot.run();
 ```
 
-See [Node.js Extract](/sdk/node-sdk/sdk-extract) and [Python Extract](/sdk/python-sdk/sdk-extract).
+The URL is required. See [Node.js Extract](/sdk/node-sdk/sdk-extract) and [Python Extract](/sdk/python-sdk/sdk-extract).
 
-## Using with CLI
-
-AI Mode is available through the <a href="/category/cli">Maxun CLI</a> for quick data gathering from the terminal.
-
+## Using with the CLI
 
 ```bash
 maxun robots extract \
@@ -99,6 +114,8 @@ maxun robots extract \
   -n "Shop Extractor"
 ```
 
-## Writing Effective Prompts
+See [CLI robots](/cli/cli-robots).
 
-For guidance on writing effective LLM extraction prompts, see <a href="/llm-prompts">LLM Extraction Prompts</a>.
+## Writing effective prompts
+
+Name the fields you want and, if it matters, how many items. For more examples, see <a href="/llm-prompts">LLM Extraction Prompts</a>.
