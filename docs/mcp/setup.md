@@ -1,14 +1,22 @@
 ---
 id: setup
 title: "Set Up the Maxun MCP Server (Claude, Cursor)"
-description: "Connect Claude Desktop, Cursor, Windsurf or Cline to Maxun with the MCP server. Run extractions and manage robots through natural language."
+description: "Connect Claude Desktop, Cursor, Windsurf or Cline to Maxun with the MCP server. Scrape, crawl, search and extract web data, and manage robots, through natural language."
 sidebar_label: "Setup"
 sidebar_position: 1
 ---
 
 # MCP Server Setup
 
-Maxun MCP Server lets you connect any MCP-compatible AI client (Claude Desktop, Cursor, Windsurf, Cline, etc.) to your Maxun robots — so you can run extractions, check results, and manage robots through natural language.
+Maxun MCP Server lets you connect any MCP-compatible AI client (Claude Desktop, Cursor, Windsurf, Cline, Claude Code, etc.) to Maxun. Your AI client can then:
+
+- **Scrape** any page into clean markdown, HTML, text, links or screenshots, and answer questions about it
+- **Crawl** whole websites
+- **Search** the web and scrape the results
+- **Extract** structured data by describing it in plain language, with an AI agent
+- **Run and monitor** the robots you already have, including Recorder Mode robots
+
+See [MCP Tools](/mcp/tools) for every tool and its options.
 
 There are two variants depending on how you use Maxun:
 
@@ -93,6 +101,34 @@ After saving the config, restart the application. On success you will see the Ma
 
 ![MCP Server Initialized](mcp_init_success.png)
 
+### Use a team's robots
+
+By default the MCP server works with your personal robots. To work with a [team's](/teams-management) robots instead, add an `x-team-id` header with the team ID (shown on the **Teams** page of the dashboard). Your team role applies: viewers can list and read robots and runs, members can also create and run them.
+
+```json
+{
+  "mcpServers": {
+    "maxun": {
+      "url": "https://app.maxun.dev/api/mcp",
+      "headers": {
+        "x-api-key": "your_api_key_here",
+        "x-team-id": "your_team_id_here"
+      }
+    }
+  }
+}
+```
+
+With `mcp-remote`, add another `"--header", "x-team-id:your_team_id_here"` pair to `args`.
+
+### Claude Code
+
+Add the server from your terminal:
+
+```bash
+claude mcp add --transport http maxun https://app.maxun.dev/api/mcp --header "x-api-key: your_api_key_here"
+```
+
 ---
 
 ## Self-Hosted (OSS)
@@ -143,3 +179,31 @@ Add the following to your client's MCP server config. For example, in Claude Des
 Replace `/path/to/your/project` with the absolute path to your Maxun project directory, and `your_backend_url_here` with your backend URL (e.g. `http://localhost:8080`).
 
 After saving, restart your client. You'll see the Maxun tools available on successful configuration.
+
+### 4. (Optional) Configure an LLM
+
+Self-hosted Maxun uses your own LLM for AI features. To use `maxun_agent`, the `summary` output format or smart queries in `maxun_scrape`, add these to the `env` block above:
+
+| Variable | Description |
+|---|---|
+| `MAXUN_LLM_PROVIDER` | `anthropic`, `openai` or `ollama` |
+| `MAXUN_LLM_MODEL` | Model name, e.g. `claude-sonnet-4-5`, `gpt-4o` or `llama3.1` |
+| `MAXUN_LLM_API_KEY` | API key for Anthropic or OpenAI |
+| `MAXUN_LLM_BASE_URL` | Base URL for Ollama, e.g. `http://localhost:11434` |
+
+```json
+"env": {
+  "MCP_API_KEY": "your_api_key_here",
+  "BACKEND_URL": "http://localhost:8080",
+  "MCP_WORKER": "true",
+  "MAXUN_LLM_PROVIDER": "anthropic",
+  "MAXUN_LLM_MODEL": "claude-sonnet-4-5",
+  "MAXUN_LLM_API_KEY": "your_anthropic_key_here"
+}
+```
+
+The key is sent to your own Maxun backend only. Everything else, including scrape, crawl and search, works without an LLM.
+
+:::note Upgrading
+After updating your Maxun project, run `npm run mcp:build` again and restart your client to get the latest tools.
+:::
