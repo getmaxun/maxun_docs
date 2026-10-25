@@ -8,7 +8,7 @@ sidebar_position: 3
 
 # Agent vs AI Mode
 
-Maxun offers two ways to turn natural-language instructions into a reusable data extraction robot.
+Maxun offers two ways to use natural language to extract data from websites.
 
 - **[Agent](/robot/agent)** on Maxun Cloud: describe the data you want, optionally provide a URL, and let the agent discover where the data lives and how to extract it.
 - **[AI Mode](/robot/extract/llm-extraction)** in the self-hosted open-source edition: provide a URL and describe the data you want to extract from that specific page.
