@@ -153,10 +153,8 @@ const SidebarIconMap = {
   llm_extraction: "llm_extraction",
   "robot/extract/llm-extraction": "llm_extraction",
   // CRAWL
-  "crawl-introduction": "crawl_introduction",
-  "robot/crawl/crawl-introduction": "crawl_introduction",
   "crawl-configuration": "crawl_configuration",
-  "robot/crawl/crawl-configuration": "crawl_configuration",
+  "robot/crawl": "crawl_configuration",
   // DOCUMENT
   "document": "document",
   "robot/document": "document",
