@@ -47,6 +47,8 @@ import { TbGraph, TbFileSearch } from "react-icons/tb";
 import { RiRobot2Line } from "react-icons/ri";
 import { IoTriangleSharp } from "react-icons/io5";
 import { AiOutlineMonitor } from "react-icons/ai";
+import { FaRobot } from "react-icons/fa";
+
 
 const OpenClawIcon = ({ style }) => (
   <img src="/img/openclaw_icon.png" style={{ width: "1.2em", height: "1.2em", verticalAlign: "middle", objectFit: "contain", filter: "grayscale(1)", ...style }} />
@@ -120,6 +122,8 @@ const IconMap = {
   cli_runs: FiDatabase,
   cli_reference: MdOutlineViewList,
   monitoring: AiOutlineMonitor,
+  agent: FaRobot,
+  agent_vs_robot: FaRobot,
 };
 
 // manual icon mapping (use docId OR href)
@@ -152,11 +156,14 @@ const SidebarIconMap = {
   "robot/extract/robot-retrain": "robots_retrain",
   llm_extraction: "llm_extraction",
   "robot/extract/llm-extraction": "llm_extraction",
+  // AGENT
+  agent: "agent",
+  "robot/agent": "agent",
+  agent_vs_robot: "agent_vs_robot",
+  "robot/agent-vs-ai-mode": "agent_vs_robot",
   // CRAWL
-  "crawl-introduction": "crawl_introduction",
-  "robot/crawl/crawl-introduction": "crawl_introduction",
   "crawl-configuration": "crawl_configuration",
-  "robot/crawl/crawl-configuration": "crawl_configuration",
+  "robot/crawl": "crawl_configuration",
   // DOCUMENT
   "document": "document",
   "robot/document": "document",

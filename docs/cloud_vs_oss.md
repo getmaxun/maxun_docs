@@ -27,7 +27,7 @@ Self-hosting gives you complete control over the infrastructure and is ideal whe
 | Monitoring                                |      ✅      |                ✅               |
 | Document extraction                       |      ✅      |                ✅               |
 | Deep Extraction                           |      ✅      |                ❌               |
-| Advanced AI features                    |      ✅      |                 -                |
+| Robots from a prompt                      | ✅ [Agent](/robot/agent) (URL optional, finds the page, applies filters & sorting) | ✅ [AI Mode](/robot/extract/llm-extraction) (reads the page you enter) |
 | Extract behind login                      |      ✅ Managed Chrome Extension | ✅ Manual login via Recorder Mode |
 | Automatic adaptation to website changes   |      ✅      |                ❌               |
 | Managed stealth & anti-bot infrastructure |      ✅      |                ❌ Bring Your Own Proxy |
@@ -118,11 +118,12 @@ Self-hosted deployments do not include the Cloud Auto Robot library.
 
 ## AI-Powered Extraction
 
-Both editions support core AI capabilities, but Cloud provides additional advanced AI functionality and managed infrastructure.
+Both editions build Extract robots from a plain-English prompt, in different ways:
 
-With Cloud, you can use AI to handle more complex extraction workflows without having to configure and operate the underlying AI and browser infrastructure yourself.
+* **[Agents](/robot/agent)** on Cloud take a prompt and, optionally, a URL. An agent can find the right website itself, move to the page that holds the data, apply the site's own search, filters and sorting, answer a question about the data on every run, and check its result before it is saved. The model is managed for you.
+* **[AI Mode](/robot/extract/llm-extraction)** in the open-source edition takes a URL and a prompt and extracts from that page only. It never opens other pages, except the page's own *Next* control when you ask for more items than the first page shows. You bring your own LLM: Anthropic, OpenAI or an OpenAI-compatible server, or Ollama.
 
-Self-hosted deployments give you control over the AI setup and can be configured with your own LLM provider.
+[Agent vs AI Mode →](/robot/agent-vs-ai-mode)
 
 ## Monitoring
 

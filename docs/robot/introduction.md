@@ -26,7 +26,8 @@ There are four types of robots, each designed for a different job.
 ## 1. Extract
 Extract emulates real user behavior and captures structured data.
 - <a href="/robot/extract/robot-actions">Recorder Mode</a> - Record your actions as you browse; Maxun turns them into a reusable extraction robot.
-- <a href="/robot/extract/llm-extraction">AI Mode</a> - Describe what you want in natural language and let LLM-powered extraction do the rest.
+- <a href="/robot/extract/llm-extraction">AI Mode</a> - Describe what you want in natural language and let LLM-powered extraction build the robot for a page you choose (self-hosted).
+- <a href="/robot/agent">Agent</a> - On Maxun Cloud, describe the data and the agent finds the page, applies the site's filters and sorting, and builds the robot. See <a href="/robot/agent-vs-ai-mode">Agent vs AI Mode</a>.
 
 Learn more <a href="/category/extract">here</a>.
 

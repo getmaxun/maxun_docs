@@ -67,7 +67,7 @@ maxun robots extract -p <prompt> [options]
 | Option | Description |
 |--------|-------------|
 | `-p, --prompt <text>` | Natural language description of what to extract (required) |
-| `-u, --url <url>` | Target URL for the robot (optional) |
+| `-u, --url <url>` | Target URL for the robot. Optional on Maxun Cloud (the agent finds the site); required for self-hosted Maxun |
 | `-n, --name <name>` | Robot name |
 | `--provider <provider>` | LLM provider: `huggingface`, `openrouter` (default: `huggingface`) |
 | `--model <model>` | LLM model name |

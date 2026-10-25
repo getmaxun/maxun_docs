@@ -55,5 +55,8 @@ openssl rand -hex 32     # For ENCRYPTION_KEY
 | `BROWSER_HEALTH_PORT` | Yes       | Port for browser service health checks.                                                      | Default value: 3002 |
 | `BROWSER_WS_HOST`     | Yes       | Host address for the browser service. Set to `browser` for Docker, `localhost` for local.   | Browser service connections will fail. |
 | `MAXUN_TELEMETRY`     | No        | Enables anonymous usage telemetry. Keeping it enabled helps us understand how the product is used and assess the impact of any new changes. Please keep it enabled. | Telemetry data will not be collected. |
-| `ANTHROPIC_API_KEY`   | No        | API key for Anthropic Claude. Required to use AI Mode with Anthropic Claude as the LLM provider. | AI Mode with Anthropic Claude will not work. |
-| `OPENAI_API_KEY`      | No        | API key for OpenAI GPT. Required to use AI Mode with OpenAI GPT as the LLM provider. | AI Mode with OpenAI GPT will not work. |
+| `ANTHROPIC_API_KEY`   | No        | API key for Anthropic Claude. Used by AI Mode when Anthropic is the LLM provider and no key is entered in Model settings. | AI Mode with Anthropic Claude will not work without a key in Model settings. |
+| `OPENAI_API_KEY`      | No        | API key for OpenAI GPT. Used by AI Mode when OpenAI is the LLM provider and no key is entered in Model settings. | AI Mode with OpenAI GPT will not work without a key in Model settings. |
+| `OLLAMA_BASE_URL`     | No        | Ollama server for AI Mode. Use `http://host.docker.internal:11434` when Maxun runs in Docker and Ollama on the host, or `https://ollama.com` for Ollama Cloud. | Default value: `http://localhost:11434` |
+| `OLLAMA_API_KEY`      | No        | API key sent to the Ollama server. Required for Ollama Cloud; a local Ollama ignores it. | Ollama Cloud requests are rejected. |
+| `OLLAMA_MODEL`        | No        | Ollama model used by AI Mode when none is chosen in Model settings, e.g. `gpt-oss:20b` on Ollama Cloud. | Default value: `llama3.2` |
