@@ -8,42 +8,49 @@ sidebar_position: 2
 
 # Agent
 
-An agent builds an Extract robot from a description of the data you want. Write a prompt such as "the 5 cheapest men's tank tops, with name, price and product URL", optionally add a URL, and the agent works out where the data is, sets up the page and saves a robot that collects it.
+Agent turns a natural-language request into a reusable data extraction robot. Describe what you want, such as *“Find the 5 cheapest men's tank tops, with name, price, and product URL,”* and optionally provide a starting URL. The agent discovers where the data lives, navigates and configures the website, and builds a robot to collect the information you asked for.
 
-> **Note:** Agents are available on [Maxun Cloud](https://app.maxun.dev). The self-hosted open-source edition has [AI Mode](/robot/extract/llm-extraction), which extracts from one page you enter. See [Agent vs AI Mode](/robot/agent-vs-ai-mode) for how they differ.
+**Autonomous setup, reusable extraction**: The agent handles the discovery and configuration needed to create the robot. Once created, the robot can run repeatedly without requiring an LLM call on every run, making ongoing extraction fast, predictable, and cost-efficient.
 
-The robot an agent saves reads the data with selectors on every run, so runs are fast and predictable. Agents run, schedule and monitor like any other robot.
+> **Note:** Agents are available on [Maxun Cloud](https://app.maxun.dev). The self-hosted open-source edition offers [AI Mode](/robot/extract/llm-extraction), which extracts data from a single page you specify. See [Agent vs AI Mode](/robot/agent-vs-ai-mode) for a comparison.
 
 ## Create an agent
 
-1. Open **Robots → Create Robot → Extract** and switch to **AI Mode**.
-2. **Prompt**: describe the data, the fields you want, how many items, and any ranking or filter. For example:
-   - "The 10 newest remote backend jobs with title, company and salary"
-   - "Pricing plans with name, monthly price and included features"
-   - "The 5 best-selling wireless mice under $50 with name, price and rating"
-3. **Website URL** (optional): where to start. Leave it out and the agent finds the site.
-4. Click **Create and run**. The agent builds the robot, runs it once and opens the results.
+1. Open Robots → Create Robot → switch to **Agent** tab.
+2. Describe what you need: Specify the data, fields, item count, and any filters or ranking criteria. For example:
+   - “The 10 newest remote backend jobs with title, company, and salary”
+   - “Pricing plans with name, monthly price, and included features”
+   - “The 5 best-selling wireless mice under $50 with name, price, and rating”
+3. Add a website URL (optional): Provide a starting point, or let the agent discover the relevant website itself.
+4. Run the agent: The agent finds and configures the relevant pages, builds the robot, runs it, and displays the results.
 
-You can also create agents from the [Cloud API](/api/cloud-api#agents), the [SDK](/sdk/node-sdk/sdk-extract) and the [CLI](/cli/cli-robots).
+You can also create agents through the [Cloud API](/api/cloud-api#agents), [SDK](/sdk/node-sdk/sdk-extract), [MCP](/mcp/tools.md) and [CLI](/cli/cli-robots).
 
-## What an agent does
+## What the agent does
 
-1. **Finds the page.** With a URL, it starts there. Without one, it searches the web and picks the result that best matches the request; a prompt that needs several sites gets one robot that reads each of them. If the starting page doesn't hold the data, it follows the one link on the same site that most likely leads to it (e.g. *Pricing*, *All products*).
-2. **Understands the request.** The prompt becomes a specification: the fields, how many items, any ranking ("cheapest", "newest", "best-selling"), filters, and a question to answer.
-3. **Sets up the page.** It waits for the content to finish loading and closes cookie banners and pop-ups with the least-consenting choice. It then applies the site's own search, filters, view options and sort controls ("under $50", "size M", "yearly billing", "cheapest first"). Each setting is kept only if the page actually changed, and is replayed on every run.
-4. **Extracts and builds.** The model points to where each value appears on the page. Values that aren't on the page are dropped. The examples become selectors, which are checked by running the real scraper. When the page doesn't hold enough items, the robot follows the site's pagination.
-5. **Checks the result.** The robot's rows are checked against the request: item count, every field filled, no duplicates, real links, price range and sort order. The agent is marked *ok*, *partial* (usable, with the gaps listed) or *failed*.
+1. **Discovers the relevant data.** Starting from your URL or searching the web, the agent identifies the pages most likely to contain the information you need. It can follow relevant links, work across multiple sites, and use pagination when necessary.
+
+2. **Understands your intent.** It translates your request into specific fields, item counts, filters, ranking criteria, and questions to answer. For example, “the cheapest options under $50” defines both a price constraint and a ranking.
+
+3. **Prepares the website.** The agent handles loading states, dismisses cookie banners and pop-ups, and uses the site's search, filters, sorting, and view controls to narrow down the results. These steps are saved as part of the robot's workflow.
+
+4. **Builds a reusable robot.** Maxun identifies the requested information, creates the extraction workflow, and validates it against the actual page. If more items are needed, the robot can navigate the site's pagination to collect them.
+
+5. **Validates the results.** Maxun checks the extracted data against your request, including fields, item counts, duplicates, links, price constraints, and sorting where applicable. 
 
 ## Every run
 
-- The robot loads the page, repeats the setup steps and reads the data with selectors.
-- If the prompt asked a question ("which plans include SSO?"), the run's answer is built from that run's rows only. You get it with the run's results in the app, the API and MCP.
-- When a filter or sort couldn't be applied on the site, the answer applies it to the data instead. The data is never presented as filtered when it wasn't.
-- When the site's layout changes, Maxun Cloud adapts the robot automatically.
+Once the robot has been created, it can be run on demand, scheduled, or monitored like any other Maxun robot.
 
-## Detail pages
+- **Fast, cost-efficient extraction.** The robot reuses its saved workflow instead of asking an LLM to rediscover and rebuild the extraction process on every run.
+- **Answers grounded in extracted data.** If you ask a question, such as “Which plans include SSO?”, the answer is based on the data collected during that run and is available alongside the results through the app, API, and MCP.
+- **Transparent filtering.** If a website's filters or sorting controls cannot be applied, Maxun can apply the criteria to the extracted data instead, without misrepresenting how the results were obtained.
+- **Resilience to website changes.** Maxun Cloud can automatically adapt robots when a site's layout changes.
 
-Turn on [Deep Extraction](/deep-extraction) to have the agent follow each item in the list to its own page and extract details from there too.
+## Extract details from individual pages
+
+Enable [Deep Extraction](/deep-extraction) to let the agent follow individual items to their detail pages and extract additional information. This is useful when listing pages contain only basic information and the fields you need are available on each item's own page.
+
 
 ## What agents don't do
 
