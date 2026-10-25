@@ -8,45 +8,61 @@ sidebar_position: 3
 
 # Agent vs AI Mode
 
-Maxun can build an Extract robot from a description of the data you want, in two ways:
+Maxun offers two ways to turn natural-language instructions into a reusable data extraction robot.
 
-- **[Agent](/robot/agent)** on Maxun Cloud: give a prompt, and optionally a URL. The agent finds the page that holds the data, applies the site's search, filters and sorting, and checks its result.
-- **[AI Mode](/robot/extract/llm-extraction)** in the self-hosted open-source edition: give a URL and a prompt. AI Mode extracts from that page, and only that page, with the LLM you configure.
+- **[Agent](/robot/agent)** on Maxun Cloud: describe the data you want, optionally provide a URL, and let the agent discover where the data lives and how to extract it.
+- **[AI Mode](/robot/extract/llm-extraction)** in the self-hosted open-source edition: provide a URL and describe the data you want to extract from that specific page.
 
-Both save an ordinary robot that reads the data with selectors on every run, and both can be scheduled, monitored and used from the API, SDK and CLI.
+Both create reusable robots that can be run repeatedly without making LLM calls on every run. You can schedule, monitor, and use them through the API, SDK, MCP and CLI.
+
+## Two different approaches: autonomous discovery vs. page-specific extraction
+
+**Agent is designed for autonomous discovery.** You describe the outcome you want, not necessarily where to find it. The agent can search the web, identify relevant pages, follow links, apply a website's search, filters and sorting, and determine how to collect the requested data. It handles the discovery and setup, then saves a reusable robot for subsequent runs.
+
+**AI Mode is designed for focused extraction.** You provide the exact page containing your data and describe what you need in natural language. Maxun builds a robot to extract the requested information from that page. It doesn't independently search the web or navigate to other pages to find missing data.
+
+The distinction is simple: **Agent figures out where and how to get the data; AI Mode extracts the data from the page you specify.**
 
 ## At a glance
 
-| | Agent | AI Mode |
-| :-- | :-- | :-- |
+| Capability | Agent | AI Mode |
+|---|---|---|
 | **Available on** | Maxun Cloud | Self-hosted open source |
-| **Website URL** | Optional. Without one, the agent searches the web for the right site | Required. The URL you enter is the page that is read |
-| **Pages it reads** | The starting page, or one link on the same site that leads to the data (e.g. *Pricing*, *All products*) | Only the page you entered. It never opens other pages, links, sitemaps or canonical URLs |
-| **Several sites in one prompt** | Yes: one robot reads each site | No |
-| **Pagination** | Follows the site's pagination when the page doesn't hold enough items | Only when you ask for a specific number of items that the first page doesn't hold: scrolls, or clicks the page's own *Next* / *Load more* and stops at that number |
-| **Site search, filters and sorting** | Applied with the site's own controls and replayed on every run | Not applied. Point the URL at a page that already shows the view you want |
-| **Pop-ups and hidden content** | Waits for content to load; closes cookie banners and pop-ups with the least-consenting choice | Closes cookie banners and modals, scrolls the page and opens collapsed sections, all on the same page |
-| **Detail pages** | [Deep Extraction](/deep-extraction): follows each item to its own page | No |
-| **Questions in the prompt** | Answered from each run's data ("which plans include SSO?") | Not answered; AI Mode extracts data |
-| **Result checks** | Count, fields, duplicates, links, price range and order; marked *ok*, *partial* or *failed* | The robot must reproduce the extracted examples; requested fields the page doesn't have are recorded |
-| **When the data isn't there** | Looks on the same site, then reports what it couldn't find | Stops with an error naming what wasn't found on the page. It never looks elsewhere |
-| **Site layout changes** | Adapts automatically | [Retrain](/robot/extract/robot-retrain) the robot |
-| **Pages behind a login** | Share a session with the managed Chrome extension | Log in with [Recorder Mode](/robot/extract/robot-actions) |
-| **LLM** | Managed by Maxun; nothing to configure | Your own: Anthropic, OpenAI or an OpenAI-compatible server, or Ollama (local or Ollama Cloud) |
+| **Website URL** | Optional. Searches the web when no URL is provided | Required. You specify the page to extract from |
+| **Page discovery** | Discovers relevant pages and can follow links to locate the data | No autonomous discovery; reads only the specified page |
+| **Multiple websites** | Can collect data across multiple sites in one prompt | Limited to the specified page |
+| **Pagination** | Follows pagination to collect the requested items | Can scroll or use the page's own Next / Load more controls when you request more items than initially available |
+| **Site search, filters and sorting** | Can apply the website's own controls and replay them on subsequent runs | Not applied automatically. Provide a URL that already displays the view you need |
+| **Detail pages** | Supports [Deep Extraction](/deep-extraction) to follow individual items to their detail pages | Does not navigate to detail pages |
+| **Questions in the prompt** | Can answer questions using the data collected during the run, such as “Which plans include SSO?” | Extracts the requested data; doesn't answer additional questions about it |
+| **Result validation** | Checks results against the request, including fields, item counts, duplicates, links and applicable constraints | Checks the extraction against the specified page; unavailable fields are reported |
+| **When data is missing** | Can search for other relevant pages and reports anything it couldn't find | Reports missing data or stops with an error; doesn't look elsewhere |
+| **Website layout changes** | Maxun Cloud can automatically adapt the robot | Not supported automatically. Create a new AI Mode robot |
+| **LLM configuration** | Managed by Maxun | Configure your own supported provider, including Anthropic, OpenAI, OpenAI-compatible servers, or Ollama |
 
-## Which one to use
+## Which one should you use?
 
-**Use an agent** when you know what data you want but not exactly where it lives, or when the site's search, filters or sorting need to be applied first. For example: "the 5 cheapest 4K monitors on this store", or "pricing plans for Acme" without a URL.
+**Use Agent** when you know what data you want but don't know exactly where it lives, or when finding the right page and applying website controls are part of the task.
 
-**Use AI Mode** when you run Maxun yourself and know the page that shows the data. For example: a category page, a directory or a pricing page. AI Mode keeps the browser on that page, so it never wanders to other parts of the site.
+Examples:
+- “Find the 5 cheapest 4K monitors on this store.”
+- “Find Acme's pricing plans and identify which ones include SSO.”
+- “Collect the latest remote backend jobs from these websites.”
 
-**Use [Recorder Mode](/robot/extract/robot-actions)** in either edition when you need to log in, fill in forms or click through several steps before the data appears.
+**Use AI Mode** when you know the page containing the data and want to describe the extraction in natural language.
+
+Examples:
+- “Extract the product names, prices and ratings from this category page.”
+- “Extract the pricing tiers and included features from this pricing page.”
+- “Extract the names and contact details listed in this directory.”
+
+For workflows that require logging in, filling forms or clicking through multiple steps before the data appears, use [Recorder Mode](/robot/extract/robot-actions).
 
 ## Example
 
-Prompt: *"Extract 15 products with their name, price and id"*
+Prompt: *“Extract 15 products with their name, price and ID.”*
 
-- **Agent**, without a URL: searches for the store, opens its product listing, reads 15 products and follows the store's pagination if the first page shows fewer. The robot is checked for 15 distinct items with every field filled.
-- **AI Mode**, with `https://example.com/products`: reads that page. If it shows 12 products, the robot clicks the page's *Next* control and stops at 15. If the page has no products, creation stops with an error instead of looking elsewhere.
+- **Agent:** Without a URL, it searches for the relevant store, locates a product listing, and collects 15 products, following pagination when needed. It then checks the results against the request.
+- **AI Mode:** Given `https://example.com/products`, it extracts products from that page. If only 12 are initially visible, it can use the page's pagination or load-more controls to retrieve the remaining items. If the requested data isn't available, it reports the problem rather than searching elsewhere.
 
 See also: [Cloud vs Open Source](/cloud-vs-oss).
