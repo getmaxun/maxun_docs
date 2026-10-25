@@ -8,9 +8,9 @@ sidebar_position: 2
 
 # AI Mode
 
-AI Mode builds an Extract robot from a web page and a description of the data you want. You enter a URL and a prompt such as "Extract the five men's basketball shoes with their names, prices, ratings and product URLs". Maxun works out which data on that page answers the prompt, turns it into an ordinary robot, and runs it.
+AI Mode turns a web page and a simple description of the data you need into a reusable data extraction robot. Just enter a URL and a prompt, such as *“Extract the five men's basketball shoes with their names, prices, ratings, and product URLs.”* Maxun figures out how to extract the requested data and builds a robot that can run repeatedly.
 
-The robot it saves works like one you built in Recorder Mode: it reads the page with selectors on every run, so runs are fast and don't call an LLM. You can schedule it, monitor it and use it from the API, SDK and CLI.
+**LLM calls are only needed when creating the robot, not on every run.** Once created, the robot can extract data from the page efficiently without recurring AI costs. You can schedule runs, monitor changes, and use your robots through the API, SDK, and CLI.
 
 AI Mode is part of the self-hosted open-source edition and uses the LLM you configure. On Maxun Cloud, robots built from a prompt are [Agents](/robot/agent). See [Agent vs AI Mode](/robot/agent-vs-ai-mode) for how they differ.
 
@@ -27,31 +27,29 @@ AI Mode is part of the self-hosted open-source edition and uses the LLM you conf
 
 ## How it works
 
-1. **Open the page.** The URL you entered is loaded once. A redirect to the same site is followed; a redirect to another site is refused with an explanation.
-2. **Stay on the page.** From then on, any attempt to load a different page is blocked: link clicks, scripts that change the location, new tabs, client-side route changes. Changing only the `#fragment` is allowed.
-3. **Reveal the content.** Cookie banners and modals are closed, the page is scrolled so lazy-loaded items appear, and collapsed sections (accordions, `<details>`) are opened. These are fixed steps; the model never decides what to click.
-4. **Understand the request.** The prompt is turned into the fields to extract and, if you gave one, the number of items. This happens before the page structure is considered, so the robot extracts what you asked for, not just the biggest list on the page.
-5. **Extract and build.** The model points to where each value appears on the page. Values that aren't on the page are dropped. The examples become selectors, which are checked by running the same scraper robots use.
-6. **Save.** The robot loads only your URL.
+AI Mode turns a URL and a natural-language description of the data you need into a reusable data extraction robot.
 
-### Pagination
+1. **Specify the page and the data.** Enter the URL of the page containing your data and describe what you want to extract, including specific fields or a desired number of items.
 
-AI Mode reads the page you entered. It reads further only when you ask for a specific number of items that the first page doesn't hold, for example "Extract 15 products" on a page that shows 12:
+2. **Understand your request.** Maxun interprets your instructions to identify the information you need, rather than simply extracting the largest list or collection on the page.
 
-- If the page loads more items as you scroll, the robot scrolls.
-- Otherwise the robot clicks the page's own *Next* or *Load more* control and stops at the number you asked for.
+3. **Extract the data.** Maxun identifies the requested information on the specified page and builds a robot to extract it. It can reveal content hidden behind cookie banners, modals, accordions, or lazy loading. If you request more items than are initially visible, it can use the page's own pagination or load-more controls to retrieve them.
 
-A *Next* link that leads to another site is never used. Without a number in the prompt, the robot reads the first page only.
+4. **Validate and save the robot.** Maxun checks the extraction and saves a reusable robot that can run against your specified URL. If some requested fields aren't available, the robot records what's missing. If the requested data cannot be found, creation stops with an explanation.
 
-### When the data isn't on the page
+5. **Run it whenever you need.** Once created, the robot can be run repeatedly without making LLM calls on every run. Schedule it, monitor extraction results, or integrate it through the API, SDK, and CLI.
 
-AI Mode never looks for the data elsewhere. If some requested fields aren't on the page, the robot is still created with the fields that are, and the missing fields are recorded with the robot. If none of the data is on the page, creation stops with an error such as:
+### Designed for reliable extraction, not autonomous browsing
 
-```text
-The requested data (Day, Hours) was not found on https://example.com/shoes.
-AI Extract only reads this page and does not visit other pages; check that the
-URL shows the data, or describe the data as it appears on the page.
-```
+AI Mode is built to create focused data extraction robots, not autonomous agents that explore the web to complete open-ended tasks.
+
+- **Page-specific:** Extracts data from the URL you provide, rather than searching other websites for missing information.
+- **Predictable:** Stays within the specified page and its permitted interactions. It doesn't independently browse elsewhere or follow unrelated links.
+- **Intent-driven:** Extracts the fields and items you describe, rather than guessing what data might be useful.
+- **Reusable and cost-efficient:** AI helps build the robot; subsequent runs reuse it without recurring LLM calls for extraction.
+
+If the information isn't available on the specified page, Maxun tells you instead of silently searching elsewhere or inventing missing values.
+
 
 ## LLM providers
 
