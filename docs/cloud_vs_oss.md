@@ -33,7 +33,6 @@ Self-hosting gives you complete control over the infrastructure and is ideal whe
 | Managed stealth & anti-bot infrastructure |      ✅      |                ❌ Bring Your Own Proxy |
 | Automatic proxy rotation                  |      ✅      |                ❌               |
 | Captcha bypass                            |      ✅      |                ❌               |
-| Pre-trained Auto Robots                   |      ✅      |                ❌               |
 | Long-running extraction infrastructure    |      ✅      | Depends on your infrastructure |
 | Teams & collaboration                     |      ✅      |                ❌               |
 | Managed notifications                     |      ✅      |                ❌               |
@@ -108,13 +107,6 @@ With Self-Hosted Maxun, authenticated extraction uses the standard Recorder Mode
 
 Cloud is therefore better suited to recurring or production authenticated extraction where you want a managed login and session-sharing experience.
 
-## Pre-Built Robots
-
-Maxun Cloud includes pre-trained Auto Robots for common websites and data sources.
-
-Instead of creating an extraction workflow from scratch, you can use an existing robot and start collecting data immediately.
-
-Self-hosted deployments do not include the Cloud Auto Robot library.
 
 ## AI-Powered Extraction
 
