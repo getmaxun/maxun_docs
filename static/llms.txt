@@ -573,7 +573,6 @@ docker-compose pull backend frontend && docker-compose up -d
 | Auto-adapt to layout changes | ✅ | Retrain robots |
 | CAPTCHA bypass, proxy rotation, managed anti-bot | ✅ | Bring your own proxy |
 | 2FA/MFA login | Coming soon | ❌ |
-| 100+ auto robots, advanced AI features | ✅ | ❌ |
 | Email, Slack and custom notifications | ✅ | Via webhooks |
 | Monitoring email alerts, screenshot diff, crawl monitoring | ✅ | ❌ |
 | Teams, SAML SSO, priority support | ✅ | ❌ (community support) |
