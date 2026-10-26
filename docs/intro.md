@@ -91,7 +91,7 @@ Teams use Maxun for [e-commerce price and stock monitoring](/usecases/ecommerce_
   </tr>
   <tr>
     <td><a href="https://mangoproxy.com/?utm_source=github&utm_medium=partner&utm_campaign=getmaxun"><img src="https://github.com/user-attachments/assets/326b5b8f-6a2c-4aa2-94c8-6a29ae23f2ac" width="200" height="110" /></a></td>
-    <td><a href="https://go.nodemaven.com/maxunbyopsept"><img src="https://github.com/user-attachments/assets/7269ea9b-83fb-4b70-9a41-0eb2beaabf2a" width="200" height="80" /></a></td>
+    <td><a href="https://go.nodemaven.com/maxunbyopoct"><img src="https://github.com/user-attachments/assets/de295d94-61f4-4c97-88f8-cd45cbf3af84" width="200" height="80" /></a></td>
     <td><a href="https://www.testmuai.com/?utm_medium=sponsor&utm_source=maxun"><img src="https://github.com/user-attachments/assets/6c96005b-85df-43e0-9b63-96aaca676c11" width="200" height="110" /></a></td>
   </tr>
 </table>
