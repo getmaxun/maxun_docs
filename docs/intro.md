@@ -85,6 +85,7 @@ Teams use Maxun for [e-commerce price and stock monitoring](/usecases/ecommerce_
 <table>
   <tr>
     <td><a href="https://www.webshare.io/?referral_code=wwhk524ynls"><img src="https://github.com/user-attachments/assets/c3a60969-a8f8-4d2c-acef-22bee80c2484" width="200" height="110" /></a></td>
+    <td><a href="https://www.swiftproxy.net/?ref=maxun"><img src="https://github.com/user-attachments/assets/a1d2309b-d3bd-45e6-8760-ce1f8dcd18b9" width="200" height="110" /></a></td>
     <td><a href="https://proxy-seller.com/?partner=224ED2B5F5D24719"><img src="https://github.com/user-attachments/assets/ac862778-464d-49ae-af7e-69712d9b74a4" width="200" height="110" /></a></td>
     <td><a href="https://byteful.com/?utm_source=github&utm_medium=github-sponsor&utm_campaign=maxun_github_sponsorship"><img src="https://github.com/user-attachments/assets/f3f7ea4a-a965-4ff9-aab6-8d257da3b18c" width="200" height="110" /></a></td>
 
