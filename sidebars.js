@@ -64,7 +64,7 @@ const aiItems = [
   },
   {
     type: 'category',
-    label: 'AI Frameworks',
+    label: 'Integrations',
     collapsed: false,
     items: [
       'integrations/langchain',
