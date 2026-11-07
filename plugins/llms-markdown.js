@@ -29,6 +29,44 @@ function markdownPathFor(permalink) {
   return clean === '' ? 'index.md' : `${clean.replace(/^\//, '')}.md`;
 }
 
+/** @param {{file: string}} doc */
+function readMarkdown(doc) {
+  return `${toPlainMarkdown(fs.readFileSync(doc.file, 'utf8'))}\n`;
+}
+
+/**
+ * @param {Array<{title: string, permalink: string, file: string}>} docs
+ * @param {import('@docusaurus/types').DocusaurusConfig} siteConfig
+ */
+function renderLlmsFull(docs, siteConfig) {
+  const site = siteConfig.url.replace(/\/$/, '');
+  const header = [
+    `# ${siteConfig.title} Documentation (full text)`,
+    '',
+    `> ${siteConfig.tagline}`,
+    '',
+    `Every page of ${site} as Markdown, for LLMs and AI agents. For a shorter map of the docs, see ${site}/llms.txt. Any page is also available as Markdown by adding .md to its URL (for example ${site}/quickstart.md).`,
+  ].join('\n');
+  const sections = docs.map(
+    (doc) =>
+      `<page url="${site}${doc.permalink}" title="${doc.title.replace(/"/g, '&quot;')}">\n\n${readMarkdown(doc).trim()}\n\n</page>`,
+  );
+  return `${header}\n\n${sections.join('\n\n')}\n`;
+}
+
+/**
+ * Docusaurus adds this middleware in its own setupMiddlewares, which ours
+ * replaces, so add it back (it powers the dev error overlay's source view).
+ */
+function loadEvalSourceMapMiddleware() {
+  try {
+    const mod = require('@docusaurus/core/lib/commands/utils/legacy/evalSourceMapMiddleware');
+    return mod.default || mod;
+  } catch {
+    return null;
+  }
+}
+
 /** @type {import('@docusaurus/types').PluginModule} */
 module.exports = function llmsMarkdownPlugin(context) {
   /** @type {Array<{title: string, description?: string, permalink: string, file: string, rank: number}>} */
@@ -71,30 +109,46 @@ module.exports = function llmsMarkdownPlugin(context) {
         .sort((a, b) => a.rank - b.rank || a.file.localeCompare(b.file));
     },
 
-    async postBuild({outDir, siteConfig}) {
-      const site = siteConfig.url.replace(/\/$/, '');
-      const sections = [];
-
+    async postBuild({outDir}) {
       for (const doc of docs) {
-        const markdown = toPlainMarkdown(fs.readFileSync(doc.file, 'utf8'));
-        const url = `${site}${doc.permalink}`;
-
         const mdPath = path.join(outDir, markdownPathFor(doc.permalink));
         fs.mkdirSync(path.dirname(mdPath), {recursive: true});
-        fs.writeFileSync(mdPath, `${markdown}\n`);
-
-        sections.push(`<page url="${url}" title="${doc.title.replace(/"/g, '&quot;')}">\n\n${markdown}\n\n</page>`);
+        fs.writeFileSync(mdPath, readMarkdown(doc));
       }
+      fs.writeFileSync(path.join(outDir, 'llms-full.txt'), renderLlmsFull(docs, context.siteConfig));
+    },
 
-      const header = [
-        `# ${siteConfig.title} Documentation (full text)`,
-        '',
-        `> ${siteConfig.tagline}`,
-        '',
-        `Every page of ${site} as Markdown, for LLMs and AI agents. For a shorter map of the docs, see ${site}/llms.txt. Any page is also available as Markdown by adding .md to its URL (for example ${site}/quickstart.md).`,
-      ].join('\n');
-
-      fs.writeFileSync(path.join(outDir, 'llms-full.txt'), `${header}\n\n${sections.join('\n\n')}\n`);
+    // `npm start` only serves the React app, so serve the same files from
+    // the dev server too. Production builds use the files written above.
+    configureWebpack(config, isServer, utils) {
+      if (isServer || process.env.NODE_ENV === 'production') return {};
+      return {
+        devServer: {
+          setupMiddlewares(middlewares, devServer) {
+            const sourceMaps = loadEvalSourceMapMiddleware();
+            if (sourceMaps) middlewares.unshift(sourceMaps(devServer));
+            middlewares.unshift({
+              name: 'llms-markdown',
+              middleware(req, res, next) {
+                const url = decodeURIComponent((req.url || '').split('?')[0]);
+                if (url === '/llms-full.txt') {
+                  res.setHeader('Content-Type', 'text/plain; charset=utf-8');
+                  return res.end(renderLlmsFull(docs, context.siteConfig));
+                }
+                if (url.endsWith('.md')) {
+                  const doc = docs.find((d) => `/${markdownPathFor(d.permalink)}` === url);
+                  if (doc) {
+                    res.setHeader('Content-Type', 'text/markdown; charset=utf-8');
+                    return res.end(readMarkdown(doc));
+                  }
+                }
+                return next();
+              },
+            });
+            return middlewares;
+          },
+        },
+      };
     },
   };
 };

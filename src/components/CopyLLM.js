@@ -26,13 +26,17 @@ export default function CopyPageDropdown() {
   const wrapperRef = useRef(null);
   const toastTimer = useRef(null);
 
-  // ---------- CONFIG ----------
+  // Every page is served as Markdown at its URL + ".md" (see
+  // plugins/llms-markdown.js), e.g. /quickstart -> /quickstart.md.
+  const SITE_URL = "https://docs.maxun.dev";
+  const permalink = (metadata?.permalink || "/").replace(/\/+$/, "");
+  const mdPath = permalink === "" ? "/index.md" : `${permalink}.md`;
+  // Public URL, for AI chats that fetch the page themselves.
+  const publicMdUrl = `${SITE_URL}${mdPath}`;
+  // Fallback when the .md file isn't available (e.g. an old deploy).
   const RAW_BASE =
     "https://raw.githubusercontent.com/getmaxun/maxun_docs/master/";
-  // ----------------------------
-
-  const sourcePath = normalizeSourcePath(metadata?.source);
-  const rawUrl = `${RAW_BASE}${sourcePath}`;
+  const rawUrl = `${RAW_BASE}${normalizeSourcePath(metadata?.source)}`;
 
   // Cleanup toast timer
   useEffect(() => {
@@ -80,7 +84,10 @@ export default function CopyPageDropdown() {
 
   async function handleCopyMarkdown() {
     try {
-      const res = await fetch(rawUrl, { cache: "no-store" });
+      let res = await fetch(mdPath, { cache: "no-store" });
+      if (!res.ok || !(res.headers.get("content-type") || "").includes("markdown")) {
+        res = await fetch(rawUrl, { cache: "no-store" });
+      }
       if (!res.ok) throw new Error(`fetch ${res.status}`);
       const text = await res.text();
       await navigator.clipboard.writeText(text);
@@ -94,12 +101,12 @@ export default function CopyPageDropdown() {
   }
 
   function handleOpenMarkdown() {
-    window.open(rawUrl, "_blank", "noopener");
+    window.open(mdPath, "_blank", "noopener");
     setOpen(false);
   }
 
   function openInChatGPT() {
-    const prompt = `Please read and analyze this markdown:\n${rawUrl}`;
+    const prompt = `Read ${publicMdUrl} so I can ask questions about it.`;
     window.open(
       `https://chat.openai.com/?q=${encode(prompt)}`,
       "_blank",
@@ -109,7 +116,7 @@ export default function CopyPageDropdown() {
   }
 
   function openInClaude() {
-    const prompt = `Please read and analyze this markdown:\n${rawUrl}`;
+    const prompt = `Read ${publicMdUrl} so I can ask questions about it.`;
     window.open(
       `https://claude.ai/new?q=${encode(prompt)}`,
       "_blank",
