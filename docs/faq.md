@@ -21,7 +21,7 @@ Answers to common questions about Maxun: what it is, pricing and credits, robots
 ## General
 
 ### What is Maxun?
-Maxun is an open-source web data platform that turns any website into clean, structured data for your apps, workflows and AI agents. You can scrape, crawl, extract, search and monitor the web through the [REST API](/category/api-reference), [Node.js and Python SDKs](/category/sdk), [CLI](/category/cli) and [MCP server](/mcp/setup), or through a no-code dashboard where anyone can build robots by clicking on a page or describing what they need in plain English.
+Maxun is an open-source web data platform that turns any website into clean, structured data for your apps, workflows and AI agents. You can scrape, crawl, extract, search and monitor the web through the [REST API](/api/api), [Node.js and Python SDKs](/sdks), [CLI](/category/cli) and [MCP server](/mcp/setup), or through a no-code dashboard where anyone can build robots by clicking on a page or describing what they need in plain English.
 
 ### Who is Maxun for?
 Maxun is built for both developers and non-technical teams. Developers and AI engineers use the API, SDKs, CLI and MCP server to power products and agents. Growth, operations and research teams use the no-code dashboard to build and schedule robots without writing code. Both work on the same platform, so teams can hand work back and forth.
@@ -179,7 +179,7 @@ Yes. Alongside the API and SDKs, Maxun has a no-code dashboard. Build a robot in
 ## API, SDK & AI Agents
 
 ### What APIs and SDKs are available?
-Maxun provides a [REST API](/category/api-reference), official SDKs for [Node.js/TypeScript](/sdk/node-sdk/sdk-overview) and [Python](/sdk/python-sdk/sdk-overview), a [CLI](/cli/cli-overview) for terminal workflows, an [MCP server](/mcp/setup) for AI agents, and [webhooks](/api/webhooks) for real-time delivery.
+Maxun provides a [REST API](/api/api), official SDKs for [Node.js/TypeScript](/sdk/node-sdk/sdk-overview) and [Python](/sdk/python-sdk/sdk-overview), a [CLI](/cli/cli-overview) for terminal workflows, an [MCP server](/mcp/setup) for AI agents, and [webhooks](/api/webhooks) for real-time delivery.
 
 ### How do I authenticate API requests?
 Generate an API key in the Maxun dashboard and send it in the `x-api-key` header. On Maxun Cloud, the base URL is `https://app.maxun.dev/api/v1`, for example `GET /api/v1/robots`. See [API Key & Authentication](/api/api).

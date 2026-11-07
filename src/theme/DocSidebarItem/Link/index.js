@@ -48,6 +48,8 @@ import { RiRobot2Line } from "react-icons/ri";
 import { IoTriangleSharp } from "react-icons/io5";
 import { AiOutlineMonitor } from "react-icons/ai";
 import { FaRobot } from "react-icons/fa";
+import { LuBot, LuFileText } from "react-icons/lu";
+import { VscCode } from "react-icons/vsc";
 
 
 const OpenClawIcon = ({ style }) => (
@@ -124,10 +126,20 @@ const IconMap = {
   monitoring: AiOutlineMonitor,
   agent: FaRobot,
   agent_vs_robot: FaRobot,
+  build_with_ai: HiSparkles,
+  add_to_agent: LuBot,
+  llm_ready_docs: LuFileText,
+  sdks: VscCode,
 };
 
 // manual icon mapping (use docId OR href)
 const SidebarIconMap = {
+  // AI
+  "ai/build-with-ai": "build_with_ai",
+  "ai/add-to-agent": "add_to_agent",
+  "ai/llm-ready-docs": "llm_ready_docs",
+  // SDKS
+  sdks: "sdks",
   intro: "introBook",
   "/intro": "introBook",
   // INSTALLATION OSS
@@ -306,7 +318,6 @@ export default function DocSidebarItemLink({
 
   //  Pick icon based on docId or href
   const iconKey = SidebarIconMap[item.docId] ?? SidebarIconMap[href] ?? null;
-  console.log("item", item);
   const IconComponent = iconKey ? IconMap[iconKey] : null;
 
   return (

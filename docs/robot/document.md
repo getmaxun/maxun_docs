@@ -64,7 +64,7 @@ Upload a PDF, CSV, XLSX, JPG, PNG, or DOCX file and convert it into clean Markdo
 
 ## Using with SDK
 
-Document Robots are available through the <a href="/category/sdk">Maxun SDK</a> for programmatic usage and integration into your applications.
+Document Robots are available through the <a href="/sdks">Maxun SDK</a> for programmatic usage and integration into your applications.
 
 ```javascript
 // Extract specific fields

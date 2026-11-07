@@ -16,8 +16,8 @@ It supports extraction, crawling, scraping, monitoring and search - designed to 
 
 - **New to Maxun?** Follow the [Quickstart](/quickstart) to create your first robot in minutes.
 - **Not sure which robot to use?** See [Robots Overview](/robot/robots) to compare Extract, Scrape, Crawl, Search and Document robots.
-- **Building in code?** Install the [Node.js or Python SDK](/category/sdk), or use the [REST API](/category/api-reference).
-- **Using AI agents?** Connect Claude, Cursor and other MCP clients with the [MCP server](/mcp/setup).
+- **Building in code?** Install the [Node.js or Python SDK](/sdks), or use the [REST API](/api/api).
+- **Using AI agents?** See [Build with AI](/ai) to [add Maxun to Claude, Cursor, Codex and other agents](/ai/add-to-agent) with MCP or skills, or give them the docs as [llms.txt](https://docs.maxun.dev/llms.txt).
 - **Self-hosting?** Install the open-source edition with [Docker Compose](/installation/docker).
 
 ## What Maxun Enables
@@ -60,11 +60,11 @@ Maxun is no-code by default, with APIs, CLI, MCP, and SDKs for deeper integratio
   </tr>
   <tr>
     <td><strong>API</strong></td>
-    <td>Integrate Maxun's scraping and extraction capabilities into your applications. <a href="https://docs.maxun.dev/category/api-reference"> Learn More</a>.</td>
+    <td>Integrate Maxun's scraping and extraction capabilities into your applications. <a href="https://docs.maxun.dev/api/api"> Learn More</a>.</td>
   </tr>
   <tr>
     <td><strong>SDK</strong></td>
-    <td>Use Maxun programmatically for scraping, extraction, automation and more.<a href="https://docs.maxun.dev/category/sdk"> Learn more</a>.</td>
+    <td>Use Maxun programmatically for scraping, extraction, automation and more.<a href="https://docs.maxun.dev/sdks"> Learn more</a>.</td>
   </tr>
   <tr>
     <td><strong>CLI</strong></td>
