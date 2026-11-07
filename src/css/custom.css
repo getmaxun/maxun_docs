@@ -140,6 +140,8 @@ div[class*="announcementBarContent"] {
 .navbar {
   flex-direction: column;
   padding: 0;
+  /* The tab row draws its own bottom line. */
+  box-shadow: none;
 }
 
 .navbar__inner {

@@ -2,6 +2,8 @@
   height: var(--docs-tabs-height);
   flex: 0 0 var(--docs-tabs-height);
   padding: 0 var(--ifm-navbar-padding-horizontal);
+  /* Full-width line under the tabs; the active tab's underline sits on it. */
+  box-shadow: inset 0 -1px 0 var(--ifm-toc-border-color);
   overflow-x: auto;
   scrollbar-width: none;
 }
