@@ -1,5 +1,4 @@
 .card {
-  border: 1px solid var(--ifm-color-emphasis-300);
   border-radius: 12px;
   overflow: hidden;
   margin-bottom: var(--ifm-leading);
@@ -12,8 +11,7 @@
   gap: 8px;
   flex-wrap: wrap;
   padding: 8px 10px 8px 14px;
-  border-bottom: 1px solid var(--ifm-color-emphasis-300);
-  background: var(--ifm-color-emphasis-100);
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
 }
 
 .title {
