@@ -21,7 +21,7 @@ There are seven types of robots, each designed for a different job.
 | Get one page as Markdown/HTML | Scrape |
 | Get every page of a site | Crawl |
 | Find pages for a query | Search |
-| Track changes | Monitoring |
+| Track changes | Monitor |
 | Pull data from documents | Document |
 
 ## 1. Agent
