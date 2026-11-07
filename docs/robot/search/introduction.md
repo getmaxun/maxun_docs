@@ -65,7 +65,7 @@ For known URLs, use Crawl for multiple pages or Scrape for single pages.
 
 ## Using with SDK
 
-Search robots are available through the <a href="/category/sdk">Maxun SDK</a> for programmatic usage and integration into your applications.
+Search robots are available through the <a href="/sdks">Maxun SDK</a> for programmatic usage and integration into your applications.
 
 <Tabs>
   <TabItem value="node" label="Node.js">

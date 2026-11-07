@@ -1,0 +1,76 @@
+.card {
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: var(--ifm-leading);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 8px 10px 8px 14px;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.title {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.title svg {
+  color: var(--ifm-color-primary);
+}
+
+.actions {
+  display: flex;
+  gap: 6px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 7px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  background: var(--ifm-background-color);
+  color: var(--ifm-font-color-base);
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  line-height: 1.6;
+}
+
+.button:hover {
+  text-decoration: none;
+  color: var(--ifm-font-color-base);
+  border-color: var(--ifm-color-emphasis-500);
+}
+
+.primary,
+.primary:hover {
+  background: var(--ifm-color-primary);
+  border-color: var(--ifm-color-primary);
+  color: #fff;
+}
+
+.body {
+  margin: 0;
+  border-radius: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-size: 0.85rem;
+  max-height: 320px;
+  overflow: auto;
+}
+
+@media (max-width: 500px) {
+  .label {
+    display: none;
+  }
+}

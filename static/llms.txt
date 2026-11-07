@@ -4,9 +4,9 @@
 
 Maxun runs in two editions: **Maxun Cloud** (fully managed, at https://app.maxun.dev) and the **self-hosted open-source Community Edition** (AGPLv3, https://github.com/getmaxun/maxun). Most features work in both. Differences are marked **(Cloud only)** or **(Self-hosted only)** below.
 
-> **If you are an AI agent:** pick the robot type from the table in "Choosing a robot type", then use the SDK, CLI or MCP examples in the matching section. Authenticate with a Maxun API key from the dashboard (**Settings → API Key**). For self-hosted instances, set the base URL as described in "Endpoints and authentication".
+> **If you are an AI agent:** pick the robot type from the table in "Choosing a robot type", then use the SDK, CLI or MCP examples in the matching section. Authenticate with a Maxun API key from the dashboard (**Settings → API Key**). For self-hosted instances, set the base URL as described in "Endpoints and authentication". Every docs page is also available as Markdown by adding `.md` to its URL (for example https://docs.maxun.dev/quickstart.md), and https://docs.maxun.dev/llms-full.txt has every page in one file.
 
-[Docs home](https://docs.maxun.dev/) · [Quickstart](https://docs.maxun.dev/quickstart) · [Product overview](https://maxun.dev/llms.txt) · [Pricing](https://maxun.dev/pricing) · [GitHub](https://github.com/getmaxun/maxun) · [Cloud dashboard](https://app.maxun.dev/)
+[Docs home](https://docs.maxun.dev/) · [Quickstart](https://docs.maxun.dev/quickstart) · [Full docs (llms-full.txt)](https://docs.maxun.dev/llms-full.txt) · [Add Maxun to your agent](https://docs.maxun.dev/ai/add-to-agent) · [Product overview](https://maxun.dev/llms.txt) · [Pricing](https://maxun.dev/pricing) · [GitHub](https://github.com/getmaxun/maxun) · [Cloud dashboard](https://app.maxun.dev/)
 
 ## Core concepts
 
@@ -615,14 +615,16 @@ docker-compose pull backend frontend && docker-compose up -d
 
 **Running:** [Runs](https://docs.maxun.dev/runs) · [Schedule](https://docs.maxun.dev/robot-schedule) · [Monitoring](https://docs.maxun.dev/monitoring) · [Stealth](https://docs.maxun.dev/stealth) · [BYOP](https://docs.maxun.dev/byop) · [Teams](https://docs.maxun.dev/teams-management)
 
-**API:** [API reference](https://docs.maxun.dev/category/api-reference) · [API key](https://docs.maxun.dev/api/api) · [Robot API](https://docs.maxun.dev/api/robot-api) · [Run API](https://docs.maxun.dev/api/run-api) · [Webhooks](https://docs.maxun.dev/api/webhooks)
+**API:** [API key & authentication](https://docs.maxun.dev/api/api) · [Cloud API](https://docs.maxun.dev/api/cloud-api) · [Open-source API](https://docs.maxun.dev/api/open-source-api) · [Robot API](https://docs.maxun.dev/api/robot-api) · [Run API](https://docs.maxun.dev/api/run-api) · [Webhooks](https://docs.maxun.dev/api/webhooks)
 
 **SDK:**
-- [SDK](https://docs.maxun.dev/category/sdk)
+- [SDKs overview](https://docs.maxun.dev/sdks)
 - [Node SDK](https://docs.maxun.dev/category/node-sdk): [Overview](https://docs.maxun.dev/sdk/node-sdk/sdk-overview), [Scrape](https://docs.maxun.dev/sdk/node-sdk/sdk-scrape), [Crawl](https://docs.maxun.dev/sdk/node-sdk/sdk-crawl), [Search](https://docs.maxun.dev/sdk/node-sdk/sdk-search), [Extract](https://docs.maxun.dev/sdk/node-sdk/sdk-extract), [Document](https://docs.maxun.dev/sdk/node-sdk/sdk-document), [Robot](https://docs.maxun.dev/sdk/node-sdk/sdk-robot)
 - [Python SDK](https://docs.maxun.dev/category/python-sdk): [Overview](https://docs.maxun.dev/sdk/python-sdk/sdk-overview), [Scrape](https://docs.maxun.dev/sdk/python-sdk/sdk-scrape), [Crawl](https://docs.maxun.dev/sdk/python-sdk/sdk-crawl), [Search](https://docs.maxun.dev/sdk/python-sdk/sdk-search), [Extract](https://docs.maxun.dev/sdk/python-sdk/sdk-extract), [Document](https://docs.maxun.dev/sdk/python-sdk/sdk-document), [Robot](https://docs.maxun.dev/sdk/python-sdk/sdk-robot)
 
 **CLI:** [CLI](https://docs.maxun.dev/category/cli) · [Overview](https://docs.maxun.dev/cli/cli-overview) · [Robots](https://docs.maxun.dev/cli/cli-robots) · [Run](https://docs.maxun.dev/cli/cli-run) · [Runs](https://docs.maxun.dev/cli/cli-runs) · [Reference](https://docs.maxun.dev/cli/cli-reference)
+
+**AI:** [Build with AI](https://docs.maxun.dev/ai) · [Add Maxun to your agent](https://docs.maxun.dev/ai/add-to-agent) · [LLM-ready docs](https://docs.maxun.dev/ai/llm-ready-docs) · [Full docs as one file](https://docs.maxun.dev/llms-full.txt)
 
 **MCP:** [MCP](https://docs.maxun.dev/category/mcp) · [Setup](https://docs.maxun.dev/mcp/setup) · [Tools](https://docs.maxun.dev/mcp/tools)
 

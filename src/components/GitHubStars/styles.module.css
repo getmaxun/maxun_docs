@@ -1,0 +1,23 @@
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.logo {
+  font-size: 1.15em;
+}
+
+.stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 2px;
+  padding: 1px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  font-size: 0.8em;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--ifm-color-emphasis-800);
+}

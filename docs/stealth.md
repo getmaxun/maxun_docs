@@ -14,7 +14,7 @@ When enabled, Stealth applies additional techniques to make browser activity app
 
 ## Maxun Cloud
 
-- Stealth is enabled by default. No configuration is needed. Simply create your robot.
+- Stealth is enabled by default for paid plans. Free trial does not include stealth.
 
 ## Maxun OSS
 

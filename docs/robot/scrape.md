@@ -67,7 +67,7 @@ When a Smart Query is configured, the run result includes an additional `promptR
 
 ## Using with SDK
 
-Scrape is available through the <a href="/category/sdk">Maxun SDK</a> for programmatic usage and integration into your applications.
+Scrape is available through the <a href="/sdks">Maxun SDK</a> for programmatic usage and integration into your applications.
 
 <Tabs>
   <TabItem value="node" label="Node.js">

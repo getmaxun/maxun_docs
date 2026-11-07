@@ -44,6 +44,7 @@ const config = {
       ({
         docs: {
           routeBasePath: '/',
+          sidebarPath: './sidebars.js',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           // editUrl:
@@ -78,6 +79,7 @@ const config = {
   ],
 
   plugins: [
+    './plugins/llms-markdown.js',
     [
       '@docusaurus/plugin-client-redirects',
       {
@@ -87,8 +89,12 @@ const config = {
             from: '/robot/robot-options',   // The OLD broken link
           },
           {
-            to: '/category/api-reference',
-            from: '/category/api-docs',
+            to: '/api/api',
+            from: ['/category/api-docs', '/category/api-reference'],
+          },
+          {
+            to: '/sdks',
+            from: '/category/sdk',
           },
           {
             to: '/robot/robots',
@@ -138,7 +144,8 @@ const config = {
           //   label: 'Docs',
           // },
           {
-            to: 'https://github.com/getmaxun/maxun',
+            type: 'custom-githubStars',
+            repo: 'getmaxun/maxun',
             label: 'GitHub',
             position: 'right',
           },

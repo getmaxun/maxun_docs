@@ -1,0 +1,60 @@
+.bar {
+  height: var(--docs-tabs-height);
+  flex: 0 0 var(--docs-tabs-height);
+  padding: 0 var(--ifm-navbar-padding-horizontal);
+  /* Full-width line under the tabs; the active tab's underline sits on it. */
+  box-shadow: inset 0 -1px 0 var(--ifm-toc-border-color);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.bar::-webkit-scrollbar {
+  display: none;
+}
+
+.tabs {
+  display: flex;
+  height: 100%;
+  gap: 2rem;
+  padding-left: 0.75rem;
+}
+
+.tab {
+  position: relative;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--ifm-color-emphasis-700);
+  transition: color var(--ifm-transition-fast);
+}
+
+.tab:hover {
+  color: var(--ifm-color-emphasis-900);
+  text-decoration: none;
+}
+
+.active,
+.active:hover {
+  color: var(--ifm-font-color-base);
+  font-weight: 600;
+}
+
+.active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--ifm-font-color-base);
+}
+
+@media (max-width: 996px) {
+  .tabs {
+    gap: 1.5rem;
+    padding-left: 0;
+  }
+}

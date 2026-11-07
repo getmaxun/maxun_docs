@@ -57,7 +57,7 @@ Check out this video to understand how to create a robot with capture screenshot
 
 ## Using with SDK
 
-The same capture actions are available in code through the <a href="/category/sdk">Maxun SDK</a>, using CSS selectors:
+The same capture actions are available in code through the <a href="/sdks">Maxun SDK</a>, using CSS selectors:
 
 ```javascript
 const robot = await maxun.extract('Products', 'https://shop.example.com')

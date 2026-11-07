@@ -16,35 +16,38 @@ It supports extraction, crawling, scraping, monitoring and search - designed to 
 
 - **New to Maxun?** Follow the [Quickstart](/quickstart) to create your first robot in minutes.
 - **Not sure which robot to use?** See [Robots Overview](/robot/robots) to compare Extract, Scrape, Crawl, Search and Document robots.
-- **Building in code?** Install the [Node.js or Python SDK](/category/sdk), or use the [REST API](/category/api-reference).
-- **Using AI agents?** Connect Claude, Cursor and other MCP clients with the [MCP server](/mcp/setup).
+- **Building in code?** Install the [Node.js or Python SDK](/sdks), or use the [REST API](/api/api).
+- **Using AI agents?** See [Build with AI](/ai) to [add Maxun to Claude, Cursor, Codex and other agents](/ai/add-to-agent) with MCP or skills, or give them the docs as [llms.txt](https://docs.maxun.dev/llms.txt).
 - **Self-hosting?** Install the open-source edition with [Docker Compose](/installation/docker).
 
 ## What Maxun Enables
-
 <table>
   <tr>
-    <td width="180"><strong>Extraction</strong></td>
-    <td>Turn websites into structured datasets and APIs, even across dynamic pages and authenticated flows. <a href="/category/extract">Learn More</a>.</td>
+    <td><strong>Scrape</strong></td>
+    <td>Convert full webpages into clean Markdown, HTML and capture screenshots. <a href="/robot/scrape">Learn More</a>.</td>
   </tr>
   <tr>
-    <td><strong>Crawling</strong></td>
+    <td><strong>Crawl</strong></td>
     <td>Automatically discover and collect data across entire websites with intelligent link following and scoped control. <a href="/robot/crawl">Learn More</a>.</td>
   </tr>
   <tr>
-    <td><strong>Scraping</strong></td>
-    <td>Convert full webpages into clean Markdown, HTML and capture screenshots. <a href="/robot/scrape">Learn More</a>.</td>
+    <td><strong>Agent</strong></td>
+    <td>Extract data from websites with AI that autonomously discovers where the data lives. <a href="/robot/agent">Learn More</a>.</td>
+  </tr>
+  <tr>
+    <td width="180"><strong>Extract</strong></td>
+    <td>Extract structured data from websites by recording browser actions. <a href="/category/extract">Learn More</a>.</td>
   </tr>
   <tr>
     <td><strong>Search</strong></td>
     <td>Run programmatic web searches and extract results as metadata or full content, with time-based filtering. <a href="/robot/search/search-introduction">Learn More</a>.</td>
   </tr>
   <tr>
-    <td><strong>Monitoring</strong></td>
+    <td><strong>Monitor</strong></td>
     <td>Track websites over time, detect changes, and get notified when they occur. <a href="/monitoring">Learn More</a>.</td>
   </tr>
   <tr>
-    <td><strong>Document Extraction & Parsing</strong></td>
+    <td><strong>Document Extract &amp; Parse</strong></td>
     <td>Extract and parse structured data from documents (PDF, CSV, XLSX, DOCX, JPG and PNG). <a href="/robot/document">Learn More</a>.</td>
   </tr>
 </table>
@@ -60,11 +63,11 @@ Maxun is no-code by default, with APIs, CLI, MCP, and SDKs for deeper integratio
   </tr>
   <tr>
     <td><strong>API</strong></td>
-    <td>Integrate Maxun's scraping and extraction capabilities into your applications. <a href="https://docs.maxun.dev/category/api-reference"> Learn More</a>.</td>
+    <td>Integrate Maxun's scraping and extraction capabilities into your applications. <a href="https://docs.maxun.dev/api/api"> Learn More</a>.</td>
   </tr>
   <tr>
     <td><strong>SDK</strong></td>
-    <td>Use Maxun programmatically for scraping, extraction, automation and more.<a href="https://docs.maxun.dev/category/sdk"> Learn more</a>.</td>
+    <td>Use Maxun programmatically for scraping, extraction, automation and more.<a href="https://docs.maxun.dev/sdks"> Learn more</a>.</td>
   </tr>
   <tr>
     <td><strong>CLI</strong></td>

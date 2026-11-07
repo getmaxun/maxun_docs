@@ -29,6 +29,8 @@ import { LuFocus } from "react-icons/lu";
 import { BiCodeBlock } from "react-icons/bi";
 import { FiSearch } from "react-icons/fi";
 import { BsTerminal } from "react-icons/bs";
+import { HiSparkles } from "react-icons/hi2";
+import { LuWandSparkles, LuPuzzle } from "react-icons/lu";
 
 // Map keys are lowercase category labels (exact-match on label)
 // Add entries here for every category label you want icons for.
@@ -48,6 +50,14 @@ const IconMap = {
   search: FiSearch,
   llmintegrations: LuBrainCircuit,
   cli: BsTerminal,
+  apireference: TbApi,
+  nodesdk: BiCodeBlock,
+  pythonsdk: BiCodeBlock,
+  ai: HiSparkles,
+  sdks: BiCodeBlock,
+  mcpserver: LuBrainCircuit,
+  agentskills: LuWandSparkles,
+  aiframeworks: LuPuzzle,
 };
 
 // Helper: normalize label (lowercase, remove spaces)
