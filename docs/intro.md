@@ -24,16 +24,20 @@ It supports extraction, crawling, scraping, monitoring and search - designed to 
 
 <table>
   <tr>
-    <td width="180"><strong>Extraction</strong></td>
-    <td>Turn websites into structured datasets and APIs, even across dynamic pages and authenticated flows. <a href="/category/extract">Learn More</a>.</td>
+    <tr>
+    <td><strong>Scraping</strong></td>
+    <td>Convert full webpages into clean Markdown, HTML and capture screenshots. <a href="/robot/scrape">Learn More</a>.</td>
   </tr>
-  <tr>
     <td><strong>Crawling</strong></td>
     <td>Automatically discover and collect data across entire websites with intelligent link following and scoped control. <a href="/robot/crawl">Learn More</a>.</td>
   </tr>
-  <tr>
-    <td><strong>Scraping</strong></td>
-    <td>Convert full webpages into clean Markdown, HTML and capture screenshots. <a href="/robot/scrape">Learn More</a>.</td>
+     <tr>
+    <td><strong>Agent</strong></td>
+    <td>Extract data from websites with AI that autonomously discovers where the data lives. <a href="/robot/agent">Learn More</a>.</td>
+  </tr>
+    <tr>
+    <td width="180"><strong>Extraction</strong></td>
+    <td>Extract structured data from websites by recording browser actions. <a href="/category/extract">Learn More</a>.</td>
   </tr>
   <tr>
     <td><strong>Search</strong></td>
