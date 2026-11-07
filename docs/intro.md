@@ -21,22 +21,21 @@ It supports extraction, crawling, scraping, monitoring and search - designed to 
 - **Self-hosting?** Install the open-source edition with [Docker Compose](/installation/docker).
 
 ## What Maxun Enables
-
 <table>
   <tr>
-    <tr>
-    <td><strong>Scraping</strong></td>
+    <td><strong>Scrape</strong></td>
     <td>Convert full webpages into clean Markdown, HTML and capture screenshots. <a href="/robot/scrape">Learn More</a>.</td>
   </tr>
-    <td><strong>Crawling</strong></td>
+  <tr>
+    <td><strong>Crawl</strong></td>
     <td>Automatically discover and collect data across entire websites with intelligent link following and scoped control. <a href="/robot/crawl">Learn More</a>.</td>
   </tr>
-     <tr>
+  <tr>
     <td><strong>Agent</strong></td>
     <td>Extract data from websites with AI that autonomously discovers where the data lives. <a href="/robot/agent">Learn More</a>.</td>
   </tr>
-    <tr>
-    <td width="180"><strong>Extraction</strong></td>
+  <tr>
+    <td width="180"><strong>Extract</strong></td>
     <td>Extract structured data from websites by recording browser actions. <a href="/category/extract">Learn More</a>.</td>
   </tr>
   <tr>
@@ -44,11 +43,11 @@ It supports extraction, crawling, scraping, monitoring and search - designed to 
     <td>Run programmatic web searches and extract results as metadata or full content, with time-based filtering. <a href="/robot/search/search-introduction">Learn More</a>.</td>
   </tr>
   <tr>
-    <td><strong>Monitoring</strong></td>
+    <td><strong>Monitor</strong></td>
     <td>Track websites over time, detect changes, and get notified when they occur. <a href="/monitoring">Learn More</a>.</td>
   </tr>
   <tr>
-    <td><strong>Document Extraction & Parsing</strong></td>
+    <td><strong>Document Extract &amp; Parse</strong></td>
     <td>Extract and parse structured data from documents (PDF, CSV, XLSX, DOCX, JPG and PNG). <a href="/robot/document">Learn More</a>.</td>
   </tr>
 </table>
