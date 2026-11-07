@@ -12,7 +12,6 @@ import DocItemContent from '@theme/DocItem/Content';
 import DocBreadcrumbs from '@theme/DocBreadcrumbs';
 import ContentVisibility from '@theme/ContentVisibility';
 import CopyPageDropdown from '../../../components/CopyLLM';
-import SidebarTabs from '../../../components/SidebarTabs';
 import styles from './styles.module.css';
 
 function useDocTOC() {
@@ -43,7 +42,6 @@ export default function DocItemLayout({ children }) {
       <div className={clsx('col', !docTOC.hidden && styles.docItemCol)}>
         <ContentVisibility metadata={metadata} />
         <DocVersionBanner />
-        <SidebarTabs variant="horizontal" />
         <div
           style={{
             display: 'flex',

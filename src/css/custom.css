@@ -128,3 +128,22 @@ div[class*="announcementBarContent"] {
     font-size: 1.2rem;
   }
 }
+/* Navbar with the Documentation / AI / API Reference / SDKs tab row
+   (src/components/DocsTabs). --ifm-navbar-height includes the tab row so the
+   sticky sidebar, TOC and anchor offsets all account for it. */
+:root {
+  --docs-navbar-row-height: 3.75rem;
+  --docs-tabs-height: 3rem;
+  --ifm-navbar-height: calc(var(--docs-navbar-row-height) + var(--docs-tabs-height));
+}
+
+.navbar {
+  flex-direction: column;
+  padding: 0;
+}
+
+.navbar__inner {
+  flex: 0 0 var(--docs-navbar-row-height);
+  height: var(--docs-navbar-row-height);
+  padding: var(--ifm-navbar-padding-vertical) var(--ifm-navbar-padding-horizontal);
+}
