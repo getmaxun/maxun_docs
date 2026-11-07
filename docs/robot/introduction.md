@@ -27,8 +27,7 @@ There are seven types of robots, each designed for a different job.
 ## 1. Agent
 Describe the data you want in plain English, optionally with a starting URL. The agent finds where the data lives, applies the site's search, filters and sorting, and builds a reusable robot that runs without an LLM call on every run. Available on [Maxun Cloud](https://app.maxun.dev).
 
-Learn more <a href="/robot/agent">here</a>. See <a href="/robot/agent-vs-ai-mode">Agent vs AI Mode</a> to compare it with AI Mode.
-
+Learn more <a href="/robot/agent">here</a>. 
 ## 2. Extract
 Extract emulates real user behavior and captures structured data.
 - <a href="/robot/extract/robot-actions">Recorder Mode</a> - Record your actions as you browse; Maxun turns them into a reusable extraction robot.
