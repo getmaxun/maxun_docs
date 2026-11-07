@@ -9,7 +9,7 @@ import styles from './styles.module.css';
 // that are not docs (such as /category/... index pages).
 export const DOCS_TABS = [
   {sidebar: 'docsSidebar', label: 'Documentation', to: '/'},
-  {sidebar: 'aiSidebar', label: 'AI', to: '/ai', paths: ['/ai', '/category/mcp']},
+  {sidebar: 'aiSidebar', label: 'AI Reference', to: '/ai', paths: ['/ai', '/category/mcp']},
   {sidebar: 'apiSidebar', label: 'API Reference', to: '/api/api', paths: ['/api/']},
   {
     sidebar: 'sdkSidebar',
