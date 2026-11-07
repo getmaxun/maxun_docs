@@ -1,7 +1,6 @@
 .bar {
   height: var(--docs-tabs-height);
   flex: 0 0 var(--docs-tabs-height);
-  border-top: 1px solid var(--ifm-toc-border-color);
   padding: 0 var(--ifm-navbar-padding-horizontal);
   overflow-x: auto;
   scrollbar-width: none;
