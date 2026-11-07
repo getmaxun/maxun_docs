@@ -47,7 +47,7 @@ Run automated web searches to discover or scrape results, with support for time-
 
 Learn more <a href="/robot/search/search-introduction">here</a>.
 
-## 5. Monitoring
+## 5. Monitor
 Track websites over time and know when something changes. Your existing robots can become monitors.
 Learn more <a href="/monitoring">here</a>.
 
