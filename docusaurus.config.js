@@ -144,7 +144,8 @@ const config = {
           //   label: 'Docs',
           // },
           {
-            to: 'https://github.com/getmaxun/maxun',
+            type: 'custom-githubStars',
+            repo: 'getmaxun/maxun',
             label: 'GitHub',
             position: 'right',
           },
