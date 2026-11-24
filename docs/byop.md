@@ -45,7 +45,7 @@ Looking for a proxy provider? The following partners offer reliable proxies that
 <tr>
 <td width="20%" align="center" valign="middle">
 <a href="https://www.ippeak.com/?utm_t=1&utm_i=225">
-  <img src="https://github.com/user-attachments/assets/86174be3-99e5-4e0e-8b00-bb4f8da08a46" alt="IPPeak" width="260">
+  <img src="https://github.com/user-attachments/assets/86174be3-99e5-4e0e-8b00-bb4f8da08a46" alt="IPPeak" width="260" />
 </a>
 </td>
 <td width="80%" valign="middle">
