@@ -10,7 +10,11 @@ slug: /self-host
 
 This guide deploys Maxun on your own server with **Docker Compose**, behind an **NGINX reverse proxy** with **HTTPS**. Maxun is only exposed on `localhost`, and NGINX serves it securely on your own domain (for example `maxun.my.domain`).
 
-For a quick local install to try Maxun, see [Docker Compose](/installation/docker) instead. For a full list of settings, see [Environment Variables](/installation/environment_variables).
+For a quick local install to try Maxun, see [Docker Compose](/installation/docker) instead.
+
+:::note Already running Maxun before v0.1.1?
+v0.1.1 moves to PostgreSQL 18 (data folder `db18` instead of `db`) and replaces the MinIO image. Follow [Upgrading to v0.1.1](/installation/upgrade#upgrading-to-v011) to move your existing data.
+::: For a full list of settings, see [Environment Variables](/installation/environment_variables).
 
 ## Prerequisites
 
@@ -25,7 +29,7 @@ Create a folder for Maxun and the sub-folders used to persist data between conta
 
 ```bash
 cd /home/$USER/Docker/
-mkdir -p maxun/{db,minio,redis}
+mkdir -p maxun/{db18,minio,redis}
 cd maxun
 ```
 
@@ -45,6 +49,7 @@ openssl rand -base64 24   # DB_PASSWORD
 openssl rand -hex 32      # ENCRYPTION_KEY (must be 64 hex characters)
 openssl rand -base64 48   # SESSION_SECRET
 openssl rand -base64 24   # MINIO_SECRET_KEY
+openssl rand -hex 32      # BROWSER_SERVICE_TOKEN
 ```
 
 Then create `.env` and paste in the values:
@@ -74,6 +79,7 @@ PUBLIC_URL=https://maxun.my.domain
 VITE_BACKEND_URL=https://maxun.my.domain
 VITE_PUBLIC_URL=https://maxun.my.domain
 MAXUN_TELEMETRY=true
+BROWSER_SERVICE_TOKEN=<output of sixth command>
 ```
 
 > **Note:** Don't put a literal `$` in any value. Docker Compose reads it as a variable and silently drops it, leaving you with a shorter secret. Double it (`$$`) to escape it.
@@ -86,9 +92,9 @@ Use the production compose file from the [full self-hosting guide](https://githu
 
 | Service | Image | Purpose |
 |---|---|---|
-| `postgres` | `postgres:17` | Database for robots, runs and users |
+| `postgres` | `postgres:18` | Database for robots, runs and users. Data lives in `maxun/db18` |
 | `redis` | `redis:7` | In-memory data store used by the backend |
-| `minio` | `minio/minio` | Storage for screenshots and files |
+| `minio` | `pgsty/silo` | Storage for screenshots and files. [Silo](https://github.com/pgsty/silo) is a maintained MinIO fork; the `minio/minio` image was removed from Docker Hub |
 | `backend` | `getmaxun/maxun-backend:latest` | API, robots and browser automation, bound to `127.0.0.1:8080` |
 | `frontend` | `getmaxun/maxun-frontend:latest` | Web app, bound to `127.0.0.1:5173` |
 

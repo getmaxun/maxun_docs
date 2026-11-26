@@ -1,6 +1,6 @@
 ---
 title: "Run Maxun Locally (Node.js Development Setup)"
-description: "Run Maxun locally for development with Node.js 18+, PostgreSQL and MinIO. Clone the repo, install dependencies, start the browser service and the app."
+description: "Run Maxun locally for development with Node.js 22.18+, PostgreSQL and MinIO. Clone the repo, install dependencies, start the browser service and the app."
 sidebar_label: "Local Setup"
 sidebar_position: 2
 ---
@@ -13,7 +13,7 @@ This guide will help you install and run Maxun on your local system.
 
 | Software    | Download Link                                                                 |
 |-------------|-------------------------------------------------------------------------------|
-| Node.js (18 or above)     | [Download Node.js](https://nodejs.org/en/download/)                           |
+| Node.js (22.18 or above; 26 recommended) | [Download Node.js](https://nodejs.org/en/download/)                           |
 | PostgreSQL  | [Download PostgreSQL](https://www.postgresql.org/download/)                   |
 | MinIO       | [Download MinIO](https://min.io/download)                                     |
 

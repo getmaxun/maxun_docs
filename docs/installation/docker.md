@@ -17,6 +17,10 @@ This guide will help you install and run Maxun with Docker Compose. Docker Compo
 
 
 
+:::note Upgrading an existing install?
+Since v0.1.1, Maxun uses PostgreSQL 18 and a new MinIO image, and your database must be moved across. Follow [Upgrading to v0.1.1](/installation/upgrade#upgrading-to-v011) instead of these steps.
+:::
+
 ## Installation Steps
 1. Create a root folder for your project (e.g. 'maxun')
 
@@ -32,7 +36,7 @@ openssl rand -hex 32     # For ENCRYPTION_KEY
 
 4. Copy all content of <a href="https://github.com/getmaxun/maxun/blob/master/ENVEXAMPLE">example env file</a> to your `.env` file.
 
-5. Replace the placeholder values for `JWT_SECRET`, `SESSION_SECRET`, and `ENCRYPTION_KEY` with the secrets you generated in step 2.
+5. Replace the placeholder values for `JWT_SECRET`, `SESSION_SECRET`, and `ENCRYPTION_KEY` with the secrets you generated in step 2. We also recommend setting `BROWSER_SERVICE_TOKEN` (generate it with `openssl rand -hex 32`).
 
 6. Create a file named `docker-compose.yml` in the root folder of the project
 

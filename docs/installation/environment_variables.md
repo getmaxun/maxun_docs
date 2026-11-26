@@ -16,6 +16,7 @@ The following variables must be set to unique, randomly generated values for eac
 openssl rand -base64 48  # For JWT_SECRET
 openssl rand -base64 48  # For SESSION_SECRET
 openssl rand -hex 32     # For ENCRYPTION_KEY
+openssl rand -hex 32     # For BROWSER_SERVICE_TOKEN (recommended)
 ```
 
 ## Variable Reference
@@ -28,6 +29,7 @@ openssl rand -hex 32     # For ENCRYPTION_KEY
 | `VITE_BACKEND_URL`            | Yes       | URL used by frontend to connect to backend                                           | Default value: http://localhost:8080 |
 | `PUBLIC_URL`            | Yes       | URL to run frontend on.                                                                    | Default value: http://localhost:5173 |
 | `VITE_PUBLIC_URL`            | Yes       | URL used by backend to connect to frontend                                           | Default value: http://localhost:5173 |
+| `NODE_ENV`            | Yes       | Set to `production` for any real deployment, or `development` when working on Maxun itself. In `production`, session cookies are marked secure and the server exits on unhandled errors so Docker can restart it. In `development`, the database schema is altered automatically on startup. | Behaves as neither: cookies are not marked secure and the schema is not altered. |
 | `JWT_SECRET`          | Yes       | Secret key for signing JWTs. Generate with `openssl rand -base64 48`               | Server will refuse to start.                            |
 | `DB_NAME`             | Yes       | Name of the Postgres database to connect to.                                                 | Database connection will fail.                               |
 | `DB_USER`             | Yes       | Username for Postgres database authentication.                                               | Database connection will fail.                               |
@@ -54,7 +56,10 @@ openssl rand -hex 32     # For ENCRYPTION_KEY
 | `BROWSER_WS_PORT`     | Yes       | Port for WebSocket connections to the browser service (used for CDP connections).            | Default value: 3001 |
 | `BROWSER_HEALTH_PORT` | Yes       | Port for browser service health checks.                                                      | Default value: 3002 |
 | `BROWSER_WS_HOST`     | Yes       | Host address for the browser service. Set to `browser` for Docker, `localhost` for local.   | Browser service connections will fail. |
+| `BROWSER_SERVICE_TOKEN` | No (recommended) | Shared secret between the backend and the browser service. When set, the browser service only gives its control endpoint to callers presenting this token. Set the same value for both (the Docker Compose file passes it to both). Generate with `openssl rand -hex 32`. Added in v0.1.1. | Any caller that can reach the browser service's health port can control the browser. Keep the browser ports off untrusted networks. |
+| `BROWSER_LISTEN_HOST` | No        | Network interface the browser service's WebSocket server listens on. Only read by the browser service. Added in v0.1.1. | Default value: `0.0.0.0` (all interfaces), so the backend container can connect. |
 | `MAXUN_TELEMETRY`     | No        | Enables anonymous usage telemetry. Keeping it enabled helps us understand how the product is used and assess the impact of any new changes. Please keep it enabled. | Telemetry data will not be collected. |
+| `ALLOW_PRIVATE_NAVIGATION_URLS` | No | Set to `true` to let robots open loopback, private-network (RFC1918), link-local and cloud metadata addresses, including public hostnames that resolve to them. Only enable it if you scrape intranet or `localhost` sites and trust every user of the instance. Added in v0.1.1. | Default value: `false`. Robots cannot open internal addresses. |
 | `ANTHROPIC_API_KEY`   | No        | API key for Anthropic Claude. Used by AI Mode when Anthropic is the LLM provider and no key is entered in Model settings. | AI Mode with Anthropic Claude will not work without a key in Model settings. |
 | `OPENAI_API_KEY`      | No        | API key for OpenAI GPT. Used by AI Mode when OpenAI is the LLM provider and no key is entered in Model settings. | AI Mode with OpenAI GPT will not work without a key in Model settings. |
 | `OLLAMA_BASE_URL`     | No        | Ollama server for AI Mode. Use `http://host.docker.internal:11434` when Maxun runs in Docker and Ollama on the host, or `https://ollama.com` for Ollama Cloud. | Default value: `http://localhost:11434` |
