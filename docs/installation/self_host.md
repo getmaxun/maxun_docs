@@ -29,7 +29,7 @@ Create a folder for Maxun and the sub-folders used to persist data between conta
 
 ```bash
 cd /home/$USER/Docker/
-mkdir -p maxun/{db18,minio,redis}
+mkdir -p maxun/{db18,minio}
 cd maxun
 ```
 
@@ -85,17 +85,25 @@ Whichever option you use, check the file and set `BACKEND_URL`, `PUBLIC_URL`, `V
 
 ## 3. Create `docker-compose.yml`
 
-Use the production compose file from the [full self-hosting guide](https://github.com/getmaxun/maxun/blob/develop/docs/self-hosting-docker.md). It runs five services:
+Use the production compose file from the [full self-hosting guide](https://github.com/getmaxun/maxun/blob/develop/docs/self-hosting-docker.md). It runs four services:
 
 | Service | Image | Purpose |
 |---|---|---|
 | `postgres` | `postgres:18` | Database for robots, runs and users. Data lives in `maxun/db18` |
-| `redis` | `redis:7` | In-memory data store used by the backend |
 | `minio` | `pgsty/silo` | Storage for screenshots and files. [Silo](https://github.com/pgsty/silo) is a maintained MinIO fork; the `minio/minio` image was removed from Docker Hub |
 | `backend` | `getmaxun/maxun-backend:latest` | API, robots and browser automation, bound to `127.0.0.1:8080` |
 | `frontend` | `getmaxun/maxun-frontend:latest` | Web app, bound to `127.0.0.1:5173` |
 
 The backend and frontend only listen on `127.0.0.1`, so Maxun is not reachable from the internet until you configure the reverse proxy.
+
+### Add a browser service
+
+The backend image does not include a browser. Recording robots and running them needs a separate **browser service**, which the production compose file above does not include. Without one, robots fail with `Failed to connect to browser service`. Choose one of these:
+
+- **Run Maxun's browser service (recommended).** Copy the `browser` service from the repository's [docker-compose.yml](https://github.com/getmaxun/maxun/blob/develop/docker-compose.yml) into your compose file, and set `BROWSER_WS_HOST=browser` in `.env`. Keep its ports published on `127.0.0.1` only: anyone who can reach them can control the browser.
+- **Use a browser service you run elsewhere.** Point the backend at it with `BROWSER_WS_HOST`, `BROWSER_WS_PORT` and `BROWSER_HEALTH_PORT`, and set `BROWSER_SERVICE_TOKEN` if the service uses one. The backend first calls `http://BROWSER_WS_HOST:BROWSER_HEALTH_PORT/health` and connects to the `wsEndpoint` that it returns, so the service must provide the same `/health` endpoint as Maxun's [browser service](https://github.com/getmaxun/maxun/tree/develop/browser). A bare Playwright or CDP WebSocket URL is not enough.
+
+Either way, set the same `BROWSER_SERVICE_TOKEN` on the backend and the browser service. See [Environment Variables](/installation/environment_variables).
 
 ## 4. Start Maxun
 
