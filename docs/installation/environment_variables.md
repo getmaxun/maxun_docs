@@ -45,9 +45,6 @@ openssl rand -hex 32     # For BROWSER_SERVICE_TOKEN (recommended)
 | `MINIO_ACCESS_KEY`    | Yes       | Access key for authenticating with MinIO.                                                    | MinIO authentication will fail.                              |
 | `MINIO_SECRET_KEY`    | Yes       | Secret key for authenticating with MinIO. Generate with `openssl rand -base64 24`           | MinIO authentication will fail.                              |
 | `MINIO_PUBLIC_URL`    | No        | Public base URL browsers use to reach stored screenshots and files, e.g. `https://storage.example.com`. Set it when MinIO is behind a reverse proxy. | Files are served from the MinIO endpoint and port. |
-| `REDIS_HOST`          | Yes       | Host of the Redis server. Use `redis` (or your Redis container name) in Docker.               | Redis connection will fail.                                  |
-| `REDIS_PORT`          | Yes       | Port of the Redis server.                                                                    | Default value: 6379 |
-| `REDIS_PASSWORD`      | No        | Password for a password-protected Redis instance.                                            | Redis connects without authentication. |
 | `GOOGLE_CLIENT_ID`    | No       | Client ID for Google OAuth, used for Google Sheet integration authentication.                 | Google login will not work.                                  |
 | `GOOGLE_CLIENT_SECRET`| No       | Client Secret for Google OAuth.                                                              | Google login will not work.                                  |
 | `GOOGLE_REDIRECT_URI` | No       | Redirect URI for handling Google OAuth responses.                                            | Google login will not work.                                  |
